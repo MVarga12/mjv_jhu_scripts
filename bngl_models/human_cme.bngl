@@ -1,0 +1,437 @@
+begin model
+
+begin parameters
+	#Volumes
+	NA 6.022E23 #mol-1
+	sigma 0.002 #um
+	vol_cp 1.6E-14
+	pm_sa 7#68 #um
+	vol_pm = pm_sa*sigma*1E-15
+	
+	#binding - convert uM to M, divide by NA
+	khigh 				1000
+	koff 				1
+	kc				1000
+
+#	kon_cltc_cltc 			(1/(1*1E-6))/NA
+	kon_cltc_cltb			(1/(1*1E-10))/NA
+	kon_cltc_b2clat			(1/(22*1E-6))/NA   #placeholder for now. 
+	kon_cltc_epn1			(1/(22*1E-6))/NA
+	kon_coat			(1/(100*1E-6))/NA
+	kon_eps15_eps15 		(1/(0.127*1E-6))/NA         #homology to yeast
+	kon_eps15_a2plat1		(1/(0.021*1E-6))/NA			#15496985 strength of binding decreases with multiple DPF interactions
+	kon_eps15_a2plat2		(1/(16*1E-6))/NA			#^
+	kon_eps15_b2bs			(1/(18*1E-6))/NA
+	kon_eps15_epn1			(1/(42*1E-6))/NA
+	kon_epn1_b2cbc			(1/(35*1E-6))/NA
+	kon_epn1_a2plat1		(1/(1*1E-6))/NA
+	kon_epn1_a2plat2		(1/(40*1E-6))/NA
+	kon_hip1_cltb			(1/(1.02*1E-6))/NA
+	kon_hip1_a2plat			(1/(94*1E-6))/NA
+	kon_ap180_cltc			(1/(173*1E-6))/NA
+	kon_ap180_a2plat1		(1/(10*1E-6))/NA
+	kon_ap180_a2plat2		(1/(50*1E-6))/NA
+	kon_ap180_b2bs			(1/(50*1E-6))/NA			# THIS IS A PLACEHOLDER KD
+	kon_amph_cltc			(1/(5*1E-6))/NA
+	kon_amph_a2plat			(1/(2.5*1E-6))/NA
+	kon_amph_amph			(1/(6*1E-6))/NA
+	kon_itsn1_itsn1			(1/(0.127*1E-6))/NA
+	kon_itsn1_b2bs			(1/(5*1E-6))/NA
+	kon_itsn1_epn1			(1/(42*1E-6))/NA			# THIS IS A PLACEHOLDER KD
+	kon_fcho_fcho			(1/(2.5*1E-6))/NA
+	kon_fcho_eps15			(1/(2.7*1E-6))/NA
+	
+	kon_epn1_l			(1/(0.25*1E-6))/NA			# 0.5% PIP2
+	kon_ap180_l			(1/(3.4*1E-6))/NA			# 0.5% PIP2
+	kon_amph_l			(1/(105*1E-6))/NA
+	kon_fcho_l			(1/(0.7*1E-6))/NA
+	kon_a2can_l			(1/(7*1E-6))/NA
+	kon_m2muh_l			(1/(7*1E-6))/NA
+	
+	#cytoplasm rates
+#	kon_cltc_cltc_cp 		kon_cltc_cltc/vol_cp
+	kon_cltc_cltb_cp 		kon_cltc_cltb/vol_cp
+	kon_cltc_b2clat_cp		kon_cltc_b2clat/vol_cp
+	kon_cltc_epn1_cp		kon_cltc_epn1/vol_cp
+	kon_coat_cp			kon_coat/vol_cp
+	kon_eps15_eps15_cp		kon_eps15_eps15/vol_cp
+	kon_eps15_a2plat1_cp		kon_eps15_a2plat1/vol_cp
+	kon_eps15_a2plat2_cp		kon_eps15_a2plat2/vol_cp
+	kon_eps15_b2bs_cp		kon_eps15_b2bs/vol_cp
+	kon_eps15_epn1_cp		kon_eps15_epn1/vol_cp
+	kon_epn1_b2cbc_cp		kon_epn1_b2cbc/vol_cp
+	kon_epn1_a2plat1_cp		kon_epn1_a2plat1/vol_cp
+	kon_epn1_a2plat2_cp		kon_epn1_a2plat2/vol_cp
+	kon_hip1_cltb_cp		kon_hip1_cltb/vol_cp
+	kon_hip1_a2plat_cp		kon_hip1_a2plat/vol_cp
+	kon_ap180_cltc_cp		kon_ap180_cltc/vol_cp
+	kon_ap180_a2plat1_cp		kon_ap180_a2plat1/vol_cp
+	kon_ap180_a2plat2_cp		kon_ap180_a2plat2/vol_cp
+	kon_ap180_b2bs_cp		kon_ap180_b2bs/vol_cp
+	kon_amph_cltc_cp		kon_amph_cltc/vol_cp
+	kon_amph_a2plat_cp		kon_amph_a2plat/vol_cp
+	kon_amph_amph_cp		kon_amph_amph/vol_cp
+	kon_itsn1_itsn1_cp		kon_itsn1_itsn1/vol_cp
+	kon_itsn1_b2bs_cp		kon_itsn1_b2bs/vol_cp
+	kon_itsn1_epn1_cp		kon_itsn1_epn1/vol_cp
+	kon_fcho_fcho_cp		kon_fcho_fcho/vol_cp
+	kon_fcho_eps15_cp		kon_fcho_eps15/vol_cp
+	
+	kon_epn1_l_cp			kon_epn1_l/vol_cp
+	kon_ap180_l_cp			kon_ap180_l/vol_cp
+	kon_amph_l_cp			kon_amph_l/vol_cp
+	kon_fcho_l_cp			kon_fcho_l/vol_cp
+	kon_a2can_l_cp			kon_a2can_l/vol_cp
+	kon_m2muh_l_cp			kon_m2muh_l/vol_cp
+	
+	#plasma membrane rates
+#	kon_cltc_cltc_pm 		kon_cltc_cltc/vol_pm
+	kon_cltc_cltb_pm 		kon_cltc_cltb/vol_pm - kon_cltc_cltb_cp
+	kon_cltc_b2clat_pm		kon_cltc_b2clat/vol_pm -kon_cltc_b2clat_cp
+	kon_cltc_epn1_pm		kon_cltc_epn1/vol_pm - kon_cltc_epn1_cp
+	kon_coat_pm			kon_coat/vol_pm - kon_coat_cp
+	kon_eps15_eps15_pm		kon_eps15_eps15/vol_pm - kon_eps15_eps15_cp
+	kon_eps15_a2plat1_pm		kon_eps15_a2plat1/vol_pm - kon_eps15_a2plat1_cp
+	kon_eps15_a2plat2_pm		kon_eps15_a2plat2/vol_pm - kon_eps15_a2plat2_cp
+	kon_eps15_b2bs_pm		kon_eps15_b2bs/vol_pm - kon_eps15_b2bs_cp
+	kon_eps15_epn1_pm		kon_eps15_epn1/vol_pm - kon_eps15_epn1_cp
+	kon_epn1_b2cbc_pm		kon_epn1_b2cbc/vol_pm - kon_epn1_b2cbc_cp
+	kon_epn1_a2plat1_pm		kon_epn1_a2plat1/vol_pm - kon_epn1_a2plat1_cp
+	kon_epn1_a2plat2_pm		kon_epn1_a2plat2/vol_pm - kon_epn1_a2plat2_cp
+	kon_hip1_cltb_pm		kon_hip1_cltb/vol_pm - kon_hip1_cltb_cp
+	kon_hip1_a2plat_pm		kon_hip1_a2plat/vol_pm - kon_hip1_a2plat_cp
+	kon_ap180_cltc_pm		kon_ap180_cltc/vol_pm - kon_ap180_cltc_cp
+	kon_ap180_a2plat1_pm		kon_ap180_a2plat1/vol_pm - kon_ap180_a2plat1_cp
+	kon_ap180_a2plat2_pm		kon_ap180_a2plat2/vol_pm - kon_ap180_a2plat2_cp
+	kon_ap180_b2bs_pm		kon_ap180_b2bs/vol_pm - kon_ap180_b2bs_cp
+	kon_amph_cltc_pm		kon_amph_cltc/vol_pm - kon_amph_cltc_cp
+	kon_amph_a2plat_pm		kon_amph_a2plat/vol_pm - kon_amph_a2plat_cp
+	kon_amph_amph_pm		kon_amph_amph/vol_pm - kon_amph_amph_cp
+	kon_itsn1_itsn1_pm		kon_itsn1_itsn1/vol_pm - kon_itsn1_itsn1_cp
+	kon_itsn1_b2bs_pm		kon_itsn1_b2bs/vol_pm - kon_itsn1_b2bs_cp
+	kon_itsn1_epn1_pm		kon_itsn1_epn1/vol_pm - kon_itsn1_epn1_cp
+	kon_fcho_fcho_pm		kon_fcho_fcho/vol_pm - kon_fcho_fcho_cp
+	kon_fcho_eps15_pm		kon_fcho_eps15/vol_pm - kon_fcho_eps15_cp
+	
+	kon_epn1_l_pm			kon_epn1_l/vol_pm - kon_epn1_l_cp
+	kon_ap180_l_pm			kon_ap180_l/vol_pm - kon_ap180_l_cp
+	kon_amph_l_pm			kon_amph_l/vol_pm - kon_amph_l_cp
+	kon_fcho_l_pm			kon_fcho_l/vol_pm - kon_fcho_l_cp
+	kon_a2can_l_pm			kon_a2can_l/vol_pm - kon_a2can_l_cp
+	kon_m2muh_l_pm			kon_m2muh_l/vol_pm - kon_m2muh_l_cp
+	
+	#copy numbers
+#	CLTC_0 		1898133
+	CLTB_0 		22011#23
+	AP2_0 		437#74 #lowest copy number subunit
+	EPS15_0		913#54
+	EPN1_0		3#14
+	HIP1_0		148#24
+	AP180_0		100#00
+	AMPH_0		100#00
+	ITSN1_0		184#10
+	FCHO1_0		294#46 # same as FCHO2?
+	FCHO2_0		294#46
+	Tris_0		18981/3#33/3
+	L_0		100000#00
+#	AMPH_dim_0	0
+	Ve_0		0	 
+end parameters
+
+begin molecule types
+#	CLTC(prox,trim,trim,TD,AD,coat)
+	CLTB(reg,bind)
+	AP2(a2plat,a2bs,a2can,b2bs,b2clat,b2cbc,m2muh)
+	EPS15(eh,eh,eh,dpf,dpf,dpf,cc)
+	Tris(coat,coat,coat,bind,bind,bind,td,td,td,ad,ad,ad)
+	EPN1(enth,clat,dpw,dpw,npf,npf,npf)
+	HIP1(anth,fxdif,dll,tall)
+	AP180(anth,dpf,dpf,clat)
+	AMPH(bar,bar_l~O~C,dnf,clat)	#combined wbox and clat -> interactions with tris(td) #bar_l is for lipid interactions in the bar_l~O state
+	#AMPH_dim(bar,dnf,dnf,clat,clat) #dimerized amph
+	FCHO1(fbar,fbar_l~O~C,link,muh)
+	FCHO2(fbar,fbar_l~O~C,link,muh)
+	ITSN1(eh,eh,link,cc)
+	L(p)
+	Ve()
+end molecule types
+
+begin seed species
+#	CLTC(prox,trim,trim,TD,AD,coat) 			CLTC_0
+	CLTB(bind,reg) 						CLTB_0
+	AP2(a2plat,a2bs,a2can,b2bs,b2clat,b2cbc,m2muh)		AP2_0
+	EPS15(eh,eh,eh,dpf,dpf,dpf,cc)				EPS15_0
+	EPN1(enth,clat,dpw,dpw,npf,npf,npf)			EPN1_0
+	Tris(coat,coat,coat,bind,bind,bind,td,td,td,ad,ad,ad) 	Tris_0
+	HIP1(anth,fxdif,dll,tall)				HIP1_0
+	AP180(anth,dpf,dpf,clat)				AP180_0
+	AMPH(bar,bar_l~C,dnf,clat)				AMPH_0
+	ITSN1(eh,eh,link,cc)					ITSN1_0
+	FCHO1(fbar,fbar_l~C,link,muh)				FCHO1_0
+	FCHO2(fbar,fbar_l~C,link,muh)				FCHO2_0
+	L(p)							L_0
+	#AMPH_dim(bar,dnf,dnf,clat,clat) 			AMPH_dim_0
+	Ve()							Ve_0
+end seed species
+
+begin observables
+	#observables for functions
+	Molecules cltc_1 Tris()
+	Molecules cltb_1 CLTB()
+	Molecules eps15_1 EPS15()
+	Molecules epn1_1 EPN1()
+	Molecules ap2_1 AP2()
+	Molecules ap180_1 AP180()
+	Molecules amph_1 AMPH()
+	Molecules fcho1_1 FCHO1()
+	Molecules fcho2_1 FCHO2()
+	Molecules itsn1_1 ITSN1()
+	Molecules l_1 L()
+	Molecules hip1_1 HIP1()
+	Molecules eps15_ap2 EPS15(dpf!1).AP2(a2plat!1)		#make sure this is doing what you want it to do
+	Molecules epn1_ap2 EPN1(dpw!1).AP2(a2plat!1)
+	Molecules ap180_ap2 AP180(dpf!1).AP2(a2plat!1)
+	Molecules tris Tris(bind!1,bind!2,bind!3).CLTB(bind!1).CLTB(bind!2).CLTB(bind!3)
+	Molecules free_tris Tris(coat,coat,coat,bind!1,bind!2,bind!3,td,td,td,ad,ad,ad).CLTB(reg,bind!1).CLTB(reg,bind!2).CLTB(reg,bind!3)
+	
+	#data observables
+#	Molecules tris_a2 Tris().AP2(b2clat!+)
+#	Molecules tris_tris Tris().Tris()
+#	Molecules cltc_ap2 CLTC().AP2()
+#	Molecules tris_ap2 CLTC().CLTC().CLTC().CLTB().CLTB().CLTB().AP2()
+#	Molecules eps15_ap2a2 EPS15(dpf!1).AP2(a2plat!1)
+#	Molecules eps15_ap2b EPS15(DPF!1).AP2(B2BS!1)
+	Molecules Ves Ve()
+#	Molecules dim_eps15	EPS15().EPS15()
+#	Molecules epn1_clat EPN1().Tris()
+#	Molecules epn1_eps15 EPN1(npf!1).EPS15(eh!1)
+#	Molecules twoeps_2ap2 EPS15().EPS15().AP2().AP2()
+#	Molecules eps15_2ap2 EPS15().AP2().AP2()
+	
+	#tris
+#	Molecules tris2 Tris().Tris()
+#	Molecules tris3 Tris().Tris().Tris()
+#	Molecules tris4 Tris().Tris().Tris().Tris()
+#	Molecules tris5 Tris().Tris().Tris().Tris().Tris()
+#	Molecules tris6 Tris().Tris().Tris().Tris().Tris().Tris()
+#	Molecules tris7 Tris().Tris().Tris().Tris().Tris().Tris().Tris()
+#	Molecules tris8 Tris().Tris().Tris().Tris().Tris().Tris().Tris().Tris()
+	Molecules tris10 Tris().Tris().Tris().Tris().Tris().Tris().Tris().Tris().Tris().Tris()
+	
+	Molecules tris_l Tris().L()
+	# eps15 with multiple ap2's
+#	Molecules eps15_ap2a2 EPS15(dpf!1).AP2(a2plat!1)
+#	Molecules eps152_ap2a2 EPS15(dpf!1,dpf!2).AP2(a2plat!1).AP2(a2plat!2)
+#	Molecules eps153_ap2a2 EPS15(dpf!1,dpf!2,dpf!3).AP2(a2plat!1).AP2(a2plat!2).AP2(a2plat!3)
+end observables
+
+begin functions
+#	trimer(x) = if( clatpart(x)<3,1,0 )
+	#functions for multiple dpf/w interactions with AP2A2
+	mult_eps(x) = if ( eps15_ap2(x)>=2, kon_eps15_a2plat2_cp, kon_eps15_a2plat1_cp) 
+	mult_eps_l(x) = if ( eps15_ap2(x)>=2, kon_eps15_a2plat2_pm, kon_eps15_a2plat1_pm) 
+	mult_epn(x) = if ( epn1_ap2(x)>=2, kon_epn1_a2plat2_cp, kon_epn1_a2plat1_cp)
+	mult_epn_l(x) = if ( epn1_ap2(x)>=2, kon_epn1_a2plat2_pm, kon_epn1_a2plat1_pm)
+	mult_ap180(x) = if (ap180_ap2(x)>=2, kon_ap180_a2plat2_cp, kon_ap180_a2plat1_cp)
+	mult_ap180_l(x) = if (ap180_ap2(x)>=2, kon_ap180_a2plat2_pm, kon_ap180_a2plat1_pm)
+	
+	vesicle(x) = if ( tris(x) >= 100,khigh,0 )
+	
+	# Replenish the system with molecules
+	CreateL() = if (l_1 < L_0, kc, 0)
+	CreateEPN1() = if (epn1_1 < EPN1_0, kc, 0)
+	CreateEPS15() = if (eps15_1 < EPS15_0, kc, 0)
+	CreateCLTB() = if (cltb_1 < CLTB_0, kc/2, 0)
+	CreateHIP1() = if (hip1_1 < HIP1_0, kc, 0)
+	CreateAMPH() = if (amph_1 < AMPH_0, kc, 0)
+	CreateAP2() = if (ap2_1 < AP2_0, kc, 0)
+	CreateAP180() = if (ap180_1 < AP180_0, kc, 0)
+	CreateFCHO1() = if (fcho1_1 < FCHO1_0, kc, 0)
+	CreateFCHO2() = if (fcho2_1 < FCHO2_0, kc, 0)
+	CreateITSN1() = if (itsn1_1 < ITSN1_0, kc, 0)
+	CreateTris() = if (cltc_1 < Tris_0, kc/2, 0) 
+end functions
+
+begin reaction rules
+	#triskelia formation
+#	CLTC(trim,trim) + CLTC(trim,trim) <-> CLTC(trim!1,trim).CLTC(trim!1,trim) kon_cltc_cltc_cp, koff
+#	CLTC(trim,trim) + CLTC(trim,trim) <-> CLTC(trim,trim!1).CLTC(trim,trim!1) kon_cltc_cltc_cp, koff
+#	CLTC(trim,trim) + CLTC(trim,trim) <-> CLTC(trim!1,trim).CLTC(trim,trim!1) kon_cltc_cltc_cp, koff
+#	CLTC(trim!1,trim).CLTC(trim!1,trim) + CLTC(trim,trim) <-> CLTC(trim!3,trim!1).CLTC(trim!1,trim!2).CLTC(trim!2,trim!3) kon_cltc_cltc_cp, koff
+#	CLTC(trim,trim!1).CLTC(trim,trim!1) + CLTC(trim,trim) <-> CLTC(trim!3,trim!1).CLTC(trim!1,trim!2).CLTC(trim!2,trim!3) kon_cltc_cltc_cp, koff
+#	CLTC(trim!1,trim).CLTC(trim,trim!1) + CLTC(trim,trim) <-> CLTC(trim!3,trim!1).CLTC(trim!1,trim!2).CLTC(trim!2,trim!3) kon_cltc_cltc_cp, koff
+
+	#clathrin cage assembly
+#	CLTC(prox!4,trim!3,trim!1,coat).CLTC(prox!5,trim!1,trim!2,coat).CLTC(prox!6,trim!2,trim!3,coat).CLTB(bind!4,reg).CLTB(bind!5,reg).CLTB(bind!6,reg) -> Tris(coat1,coat2,coat3,reg1,reg2,reg4,td1,td2,td3,ad1,ad2,ad3) khigh
+	Tris(bind) + CLTB(bind) <-> Tris(bind!1).CLTB(bind!1) kon_cltc_cltb_cp, koff	
+	Tris(coat) + Tris(coat) <-> Tris(coat!1).Tris(coat!1) kon_coat_cp, koff
+	#
+	Tris(bind).L() + CLTB(bind).L() <-> Tris(bind!1).L().CLTB(bind!1).L() kon_cltc_cltb_pm, koff	
+	Tris(coat).L() + Tris(coat).L() <-> Tris(coat!1).L().Tris(coat!1).L() kon_coat_pm, koff
+	%x:L() -> %x:Ve() vesicle(x)
+	
+	#HIP1 - CLTB
+	HIP1(dll) + CLTB(reg) <-> HIP1(dll!1).CLTB(reg!1) kon_hip1_cltb_cp, koff
+	#
+	HIP1(dll).L() + CLTB(reg).L() <-> HIP1(dll!1).L().CLTB(reg!1).L() kon_hip1_cltb_pm, koff
+	
+	#HIP1 - AP2A2
+	HIP1(fxdif) + AP2(a2plat) <-> HIP1(fxdif!1).AP2(a2plat!1) kon_hip1_a2plat_cp, koff
+	#
+	HIP1(fxdif).L() + AP2(a2plat).L() <-> HIP1(fxdif!1).L().AP2(a2plat!1).L() kon_hip1_a2plat_pm, koff
+	
+	#AP2-CLTC
+	Tris(td) + AP2(b2clat) <-> Tris(td!1).AP2(b2clat!1) kon_cltc_b2clat_cp, koff # make sure to change this so that only open state can bind to clathrin
+	# 
+	Tris(td).L() + AP2(b2clat).L() <-> Tris(td!1).L().AP2(b2clat!1).L() kon_cltc_b2clat_pm, koff # make sure to change this so that only open state can bind to clathrin
+	
+	# EPN1-CLTC
+	Tris(td) + EPN1(clat) <-> Tris(td!1).EPN1(clat!1) kon_cltc_epn1_cp, koff
+	#
+	Tris(td).L() + EPN1(clat).L() <-> Tris(td!1).L().EPN1(clat!1).L() kon_cltc_epn1_pm, koff
+	
+	#AP2A2 - EPS15
+	AP2(a2plat) + EPS15(dpf)%x <-> AP2(a2plat!1).EPS15(dpf!1)%x mult_eps(x), koff
+	#
+	AP2(a2plat).L() + EPS15(dpf)%x.L() <-> AP2(a2plat!1).L().EPS15(dpf!1)%x.L() mult_eps_l(x), koff
+	
+	#AP2A2 - EPN1
+	AP2(a2plat) + EPN1(dpw)%x <-> AP2(a2plat!1).EPN1(dpw!1)%x mult_epn(x), koff
+	#
+	AP2(a2plat).L() + EPN1(dpw)%x.L() <-> AP2(a2plat!1).L().EPN1(dpw!1)%x.L() mult_epn_l(x), koff
+	
+	#AP2B2 - EPS15
+	AP2(b2bs) + EPS15(dpf) <-> AP2(b2bs!1).EPS15(dpf!1) kon_eps15_b2bs_cp, koff #stoich limited to 2
+	#
+	AP2(b2bs).L() + EPS15(dpf).L() <-> AP2(b2bs!1).L().EPS15(dpf!1).L() kon_eps15_b2bs_pm, koff #stoich limited to 2
+	
+	#AP2B2 - EPN1
+	AP2(b2cbc) + EPN1(dpw) <-> AP2(b2cbc!1).EPN1(dpw!1) kon_epn1_b2cbc_cp, koff
+	#
+	AP2(b2cbc).L() + EPN1(dpw).L() <-> AP2(b2cbc!1).L().EPN1(dpw!1).L() kon_epn1_b2cbc_pm, koff
+	
+	#EPS15 - EPN1
+	EPS15(eh) + EPN1(npf) <-> EPS15(eh!1).EPN1(npf!1) kon_eps15_epn1_cp, koff
+	#
+	EPS15(eh).L() + EPN1(npf).L() <-> EPS15(eh!1).L().EPN1(npf!1).L() kon_eps15_epn1_pm, koff
+	
+	#EPS15 - EPS15
+	EPS15(cc) + EPS15(cc) <-> EPS15(cc!1).EPS15(cc!1) kon_eps15_eps15_cp, koff
+	#
+	EPS15(cc).L() + EPS15(cc).L() <-> EPS15(cc!1).L().EPS15(cc!1).L() kon_eps15_eps15_pm, koff
+	
+	#AP180 - CLTC
+	AP180(clat) + Tris(td) <-> AP180(clat!1).Tris(td!1) kon_ap180_cltc_cp, koff 
+	#
+	AP180(clat).L() + Tris(td).L() <-> AP180(clat!1).L().Tris(td!1).L() kon_ap180_cltc_pm, koff 
+	
+	#AP180 - AP2A2
+	AP180(dpf)%x + AP2(a2plat) <-> AP180(dpf!1)%x.AP2(a2plat!1) mult_ap180(x), koff
+	#
+	AP180(dpf)%x.L() + AP2(a2plat).L() <-> AP180(dpf!1)%x.L().AP2(a2plat!1).L() mult_ap180_l(x), koff
+	
+	#AP180 - AP2B2
+	AP180(dpf) + AP2(b2bs) <-> AP180(dpf!1).AP2(b2bs!1) kon_ap180_b2bs_cp, koff
+	#
+	AP180(dpf).L() + AP2(b2bs).L() <-> AP180(dpf!1).L().AP2(b2bs!1).L() kon_ap180_b2bs_pm, koff
+	
+	#AMPH - CLTC
+	AMPH(clat) + Tris(td) <-> AMPH(clat!1).Tris(td!1) kon_amph_cltc_cp, koff
+	#
+	AMPH(clat).L() + Tris(td).L() <-> AMPH(clat!1).L().Tris(td!1).L() kon_amph_cltc_pm, koff
+#	AMPH_dim(clat) + Tris(td) <-> AMPH_dim(clat!1).Tris(td!1) kon_amph_cltc_cp, koff
+	
+	#AMPH - AP2A2
+	AMPH(dnf) + AP2(a2plat) <-> AMPH(dnf!1).AP2(a2plat!1) kon_amph_a2plat_cp, koff
+	#
+	AMPH(dnf).L() + AP2(a2plat).L() <-> AMPH(dnf!1).L().AP2(a2plat!1).L() kon_amph_a2plat_pm, koff
+#	AMPH_dim(dnf) + AP2(a2plat) <-> AMPH_dim(dnf!1).AP2(a2plat!1) kon_amph_a2plat_cp, koff
+	
+	#AMPH - AMPH dimerization
+	AMPH(bar,bar_l~C) + AMPH(bar,bar_l~C) <-> AMPH(bar!1,bar_l~O).AMPH(bar!1,bar_l~O) kon_amph_amph_cp, koff
+	#
+	AMPH(bar,bar_l~C).L() + AMPH(bar,bar_l~C).L() <-> AMPH(bar!1,bar_l~O).L().AMPH(bar!1,bar_l~O).L() kon_amph_amph_pm, koff
+	
+	#ITSN1 - ITSN1 dimerization
+	ITSN1(cc) + ITSN1(cc) <-> ITSN1(cc!1).ITSN1(cc!1) kon_itsn1_itsn1_cp, koff
+	#
+	ITSN1(cc).L() + ITSN1(cc).L() <-> ITSN1(cc!1).L().ITSN1(cc!1).L() kon_itsn1_itsn1_pm, koff
+	
+	#ITSN1 - AP2B2
+	ITSN1(link) + AP2(b2bs) <-> ITSN1(link!1).AP2(b2bs!1) kon_itsn1_b2bs_cp, koff
+	#
+	ITSN1(link).L() + AP2(b2bs).L() <-> ITSN1(link!1).L().AP2(b2bs!1).L() kon_itsn1_b2bs_pm, koff
+	
+	#ITSN1 - EPN1
+	ITSN1(eh) + EPN1(npf) <-> ITSN1(eh!1).EPN1(npf!1) kon_itsn1_epn1_cp, koff
+	#
+	ITSN1(eh).L() + EPN1(npf).L() <-> ITSN1(eh!1).L().EPN1(npf!1).L() kon_itsn1_epn1_pm, koff
+	
+	#FCHO1/2 dimerization
+	FCHO1(fbar,fbar_l~C) + FCHO1(fbar,fbar_l~C) <-> FCHO1(fbar!1,fbar_l~O).FCHO1(fbar!1,fbar_l~O) kon_fcho_fcho_cp, koff
+	FCHO1(fbar,fbar_l~C) + FCHO2(fbar,fbar_l~C) <-> FCHO1(fbar!1,fbar_l~O).FCHO2(fbar!1,fbar_l~O) kon_fcho_fcho_cp, koff
+	FCHO2(fbar,fbar_l~C) + FCHO2(fbar,fbar_l~C) <-> FCHO2(fbar!1,fbar_l~O).FCHO2(fbar!1,fbar_l~O) kon_fcho_fcho_cp, koff
+	#
+	FCHO1(fbar,fbar_l~C).L() + FCHO1(fbar,fbar_l~C).L() <-> FCHO1(fbar!1,fbar_l~O).L().FCHO1(fbar!1,fbar_l~O).L() kon_fcho_fcho_pm, koff
+	FCHO1(fbar,fbar_l~C).L() + FCHO2(fbar,fbar_l~C).L() <-> FCHO1(fbar!1,fbar_l~O).L().FCHO2(fbar!1,fbar_l~O).L() kon_fcho_fcho_pm, koff
+	FCHO2(fbar,fbar_l~C).L() + FCHO2(fbar,fbar_l~C).L() <-> FCHO2(fbar!1,fbar_l~O).L().FCHO2(fbar!1,fbar_l~O).L() kon_fcho_fcho_pm, koff
+	
+	#FCHO1/2 - EPS15
+	FCHO1(muh) + EPS15(dpf) <-> FCHO1(muh!1).EPS15(dpf!1) kon_fcho_eps15_cp, koff
+	FCHO2(muh) + EPS15(dpf) <-> FCHO2(muh!1).EPS15(dpf!1) kon_fcho_eps15_cp, koff
+	#
+	FCHO1(muh).L() + EPS15(dpf).L() <-> FCHO1(muh!1).L().EPS15(dpf!1).L() kon_fcho_eps15_pm, koff
+	FCHO2(muh).L() + EPS15(dpf).L() <-> FCHO2(muh!1).L().EPS15(dpf!1).L() kon_fcho_eps15_pm, koff
+	
+	#FCHO1 - AP2A2
+	#FCHO1(link) + AP2(?) <-> FCHO1(link!1).AP2(?!1) kon_fcho1_ap2_cp, koff
+	
+	#PIP2 interactions
+	EPN1(enth) + L(p) <-> EPN1(enth!1).L(p!1) kon_epn1_l_cp, koff
+	AP180(anth) + L(p) <-> AP180(anth!1).L(p!1) kon_ap180_l_cp, koff
+	FCHO1(fbar_l~O) + L(p) <-> FCHO1(fbar_l~O!1).L(p!1) kon_fcho_l_cp, koff
+	FCHO2(fbar_l~O) + L(p) <-> FCHO2(fbar_l~O!1).L(p!1) kon_fcho_l_cp, koff
+	#FCHO2(fbar_l~O).FCHO2(fbar_l~O!1).L(p!1) + L(p) <-> FCHO2(fbar_l~O!2).L(p!2).FCHO2(fbar_l~O!1).L(p!1) khigh, koff # if one -mer is already bound, the other has a high likelihood of binding
+	FCHO1(fbar_l~O) + L(p) <-> FCHO1(fbar_l~O!1).L(p!1) kon_fcho_l_cp, koff
+	#FCHO1(fbar_l~O).FCHO1(fbar_l~O!1).L(p!1) + L(p) <-> FCHO1(fbar_l~O!2).L(p!2).FCHO1(fbar_l~O!1).L(p!1) khigh, koff # if one -mer is already bound, the other has a high likelihood of binding
+	#FCHO1(fbar_l~O).FCHO2(fbar_l~O!1).L(p!1) + L(p) <-> FCHO1(fbar_l~O!2).L(p!2).FCHO2(fbar_l~O!1).L(p!1) khigh, koff
+	#FCHO2(fbar_l~O).FCHO1(fbar_l~O!1).L(p!1) + L(p) <-> FCHO2(fbar_l~O!2).L(p!2).FCHO1(fbar_l~O!1).L(p!1) khigh, koff
+	AMPH(bar_l~O) + L(p) <-> AMPH(bar_l~O!1).L(p!1) kon_amph_l_cp, koff
+	#AMPH(bar_l~O).AMPH(bar_l~O!1).L(p!1) + L(p) <-> AMPH(bar_l~O!2).L(p!2).AMPH(bar_l~O!1).L(p!1) khigh, koff
+	AP2(a2can) + L(p) <-> AP2(a2can!1).L(p!1) kon_a2can_l_cp, koff
+	AP2(m2muh) + L(p) <-> AP2(m2muh!1).L(p!1) kon_m2muh_l_cp, koff
+	#AP2(a2can,m2muh!1).L(p!1) + L(p) <-> AP2(a2can!2,m2muh!1).L(p!1).L(p!2) khigh, koff # if one is bound, other is likely bound
+	#AP2(a2can!1,m2muh).L(p!1) + L(p) <-> AP2(a2can!1,m2muh!2).L(p!1).L(p!2) khigh, koff # if one is bound, other is likely bound
+	
+	EPN1(enth).L() + L(p) <-> EPN1(enth!1).L(p!1).L() kon_epn1_l_pm, koff
+	AP180(anth).L() + L(p) <-> AP180(anth!1).L(p!1).L() kon_ap180_l_pm, koff
+	FCHO1(fbar_l~O).L() + L(p) <-> FCHO1(fbar_l~O!1).L(p!1).L() kon_fcho_l_pm, koff
+	FCHO2(fbar_l~O).L() + L(p) <-> FCHO2(fbar_l~O!1).L(p!1).L() kon_fcho_l_pm, koff
+	FCHO1(fbar_l~O).L() + L(p) <-> FCHO1(fbar_l~O!1).L(p!1).L() kon_fcho_l_pm, koff
+	AMPH(bar_l~O).L() + L(p) <-> AMPH(bar_l~O!1).L(p!1).L() kon_amph_l_pm, koff
+	AP2(a2can).L() + L(p) <-> AP2(a2can!1).L(p!1).L() kon_a2can_l_pm, koff
+	AP2(m2muh).L() + L(p) <-> AP2(m2muh!1).L(p!1).L() kon_m2muh_l_pm, koff
+	FCHO2(fbar_l~O).L() + L(p) <-> FCHO2(fbar_l~O!1).L(p!1).L() kon_fcho_l_pm, koff	
+	FCHO1(fbar_l~O).L() + L(p) <-> FCHO1(fbar_l~O!1).L(p!1).L() kon_fcho_l_pm, koff	
+	AMPH(bar_l~O).L() + L(p) <-> AMPH(bar_l~O!1).L().L(p!1) kon_amph_l_pm, koff
+	
+	# Replenish if molecules are deleted in vesicle formation
+	0 -> Tris(coat,coat,coat,bind,bind,bind,td,td,td,ad,ad,ad) CreateTris()
+	0 -> CLTB(reg,bind) CreateCLTB()
+	0 -> AP2(a2plat,a2bs,a2can,b2bs,b2clat,b2cbc,m2muh) CreateAP2()
+	0 -> EPS15(eh,eh,eh,dpf,dpf,dpf,cc) CreateEPS15()
+	0 -> EPN1(enth,clat,dpw,dpw,npf,npf,npf) CreateEPN1()
+	0 -> HIP1(anth,fxdif,dll,tall) CreateHIP1()
+	0 -> AP180(anth,dpf,dpf,clat) CreateAP180()
+	0 -> AMPH(bar,bar_l~C,dnf,clat)	CreateAMPH()
+	0 -> FCHO1(fbar,fbar_l~C,link,muh) CreateFCHO1()
+	0 -> FCHO2(fbar,fbar_l~C,link,muh) CreateFCHO2()
+	0 -> ITSN1(eh,eh,link,cc) CreateITSN1()
+	0 -> L(p) CreateL()
+end reaction rules
+
+end model
+
+#generate_network({overwrite=>1});
+simulate_nf({suffix=>"nf",get_final_state=>1,complex=>1,t_end=>5,n_steps=>1250,param=>"-gml 1000000 -v"});
+#simulate_ode({suffix=>"ode",t_end=>10,n_steps=>30});
