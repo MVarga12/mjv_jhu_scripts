@@ -13,7 +13,7 @@ struct Date {
     Date() {};
 };
 
-string zeller(Date d) { // this formula doesn't work for some reason
+string zeller(Date d) {
     int h;
     auto j{d.year/100};
     auto k{d.year % 100};
