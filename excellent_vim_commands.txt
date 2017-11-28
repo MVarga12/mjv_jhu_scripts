@@ -1,0 +1,16 @@
+## Whitespace and Indenting ##
+dw - delete all whitespace online until a letter is reached
+dfx - replace x with any symbol to delete until that symbol is found
+:%s/^\s\+//e - deletes all leading whitespace in file
+=i{ - indents based on curly brackets
+
+## Folding ##
+:set foldmethod=indent - folds based on indenting
+zc - closes fold cursor is in
+zo - opens fold cursor is in
+zM - closes all folds
+zR - opens all folds
+
+## Sessions ##
+:mks - make a session
+:mks! - overwrite a session
