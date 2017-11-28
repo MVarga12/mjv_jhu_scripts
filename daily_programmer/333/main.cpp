@@ -9,12 +9,11 @@ struct Packet {
     int ord; // order of packet in overall block message
     int num; // number of packets in message
     string text; // packet text
-    
     friend ostream& operator<<(ostream& os, Packet& in);
 };
 
 ostream& operator<<(ostream& os, Packet& in) {
-    return os << in.id << ' ' << in.ord << ' ' << in.num << ' ' << in.text << endl;        
+    return os << in.id << ' ' << in.ord << ' ' << in.num << ' ' << in.text << endl;
 }
 
 bool pack_sort(const Packet& in1, const Packet& in2) {
@@ -43,7 +42,6 @@ int main() {
     }
 
     sort(message_in.begin(), message_in.end(), pack_sort);
-    
     for (int i = 0; i<message_in.size(); i++) {
         cout << message_in[i];
     }
