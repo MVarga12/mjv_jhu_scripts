@@ -2,10 +2,15 @@
     " spaces around single operator, e.g. 1=1 -> 1 = 1
     "                   put cursor here -> ^
     let @d = 'i la ' 
+
     " spaces around double operator, e.g. 1==1 -> 1 == 1
     "                   put cursor here -> ^
     let @f = 'i lla '
-  
+
+    " cpp comment line, also works on multiple lines in visual mode
+	map <C-C> I//<CR>
+	map <C-T> ^xx<CR>
+
 " vim plugin handling with pathogen
 " git clone url ~/.vim/bundle/PATH
     execute pathogen#infect()
@@ -35,6 +40,7 @@
 " YCM
     let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
     set completeopt-=preview
+"    let g:ycm_show_diagnostics_ui = 0
 
 " show leader in the bottom right hand corner
     set showcmd
