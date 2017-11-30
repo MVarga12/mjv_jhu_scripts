@@ -8,8 +8,8 @@
     let @f = 'i lla '
 
     " cpp comment line, also works on multiple lines in visual mode
-	map <C-C> I//<CR>
-	map <C-T> ^xx<CR>
+	map <C-C> I//<ESC>
+	map <C-T> ^xx
 
 " vim plugin handling with pathogen
 " git clone url ~/.vim/bundle/PATH
