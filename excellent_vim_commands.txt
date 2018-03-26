@@ -14,3 +14,7 @@ zR - opens all folds
 ## Sessions ##
 :mks - make a session
 :mks! - overwrite a session
+
+## Various Macros ##
+:wa - saves all tabs
+:wqa - saves all tabs and quits
