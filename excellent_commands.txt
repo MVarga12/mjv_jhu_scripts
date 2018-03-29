@@ -37,6 +37,12 @@ df<x> - replace x with any symbol to delete until that symbol is found
 ### vim-multiple-cursors ###
 <CTRL> V <CTRL> N... - select 
 
+### surround.vim ###
+punctuation = '', "", (), [], {}, <>, HTML and XML tags
+ds<x> - deletes pair of punctuation around the current word, where <x> is the punctuation mark
+cs<x><x'> - changes pair of punctuation around the current word, where <x> is the current punctuation and <x'> is the desired punctuation
+<visual selection> S<x> - adds punctuation around current visual selection, where <x> is the desired punctuation
+
 # Shell Commands #
 ## fish commands ##
 ### vim-key-bindings ###
