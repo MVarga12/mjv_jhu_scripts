@@ -11,11 +11,40 @@
 	map <C-C> I//<ESC>
 	map <C-T> ^xx
 
+" Abbreviations (Text expansion)
+    iab ilist <TAB>\begin{itemize} <CR>\end{itemize}
+    iab ieq <TAB>\begin{equation*} <CR>\end{equation*}
+    iab iaq <TAB>\begin{align*} <CR>\end{align*}
+    iab idq <TAB>\begin{displayquote} <CR>\end{displayquote}
+    iab vv std::array<double, 3><SPACE>
+
 " vim plugin handling with pathogen
 " git clone url ~/.vim/bundle/PATH
     execute pathogen#infect()
     syntax on
     filetype plugin indent on
+
+" lightline
+    " relative path
+    
+    let g:lightline = {
+        \ 'component_function': {
+        \   'filename': 'LightLineFilename'
+        \ }
+        \ }
+    function! LightLineFilename()
+        return expand('%')
+    endfunction
+" vimtex
+    " make it so quickfix window does not open if only warnings, no errors
+    let g:vimtex_quickfix_open_on_warning = 0
+    let g:vimtex_quickfix_latexlog = {
+        \ 'overfull' : 0,
+        \ 'underful' : 0,
+        \ 'packages' : {
+        \ 'default' : 0,
+        \},
+        \}
 
 " Syntastic
     set statusline+=%#warningmsg#
@@ -31,6 +60,10 @@
     let g:syntastic_cpp_compiler = 'clang++'
     let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
     "let g:syntastic_cpp_include_dirs=['include','../include']
+
+"CPP Enhanced Highlighting
+    "let g:cpp_member_variable_highlight = 1
+    let g:cpp_class_scope_highlight = 1
 
 " NERDTree
     nnoremap <leader>f :NERDTreeToggle<Enter>
@@ -53,10 +86,13 @@
 
 " easier window navigation in split gvim/vim
     nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
+    nnoremap <c-K> <C-W><C-K>
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
 
+" always open with folds by indent
+    set foldmethod=indent
+    
 " map % to v% so when you press % it jumps to the closing bracket and selects
 " all text between the two
 "noremap % v%
@@ -66,12 +102,19 @@
     set gfn=Source\ Code\ Pro\ Light:h13
 
 " set colour scheme
+    "set t_Co=256
+    "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "set termguicolors "nvim
+    "colorscheme badwolf
+    "colorscheme 256_noir
     "colorscheme desert
+    "colorscheme apprentice
+    colorscheme dracula
+    "colorscheme gruvbox
+    "set background=dark
     " Solarized
-        "syntax enable "vim
-        set termguicolors "nvim
-        set background=dark
-        colorscheme Neosolarized
+    "    set background=dark
+    "    colorscheme Neosolarized
 
 "This unsets the "last search pattern" register by hitting return
     nnoremap <CR> :noh<CR><CR>

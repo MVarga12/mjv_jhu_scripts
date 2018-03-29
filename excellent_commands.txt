@@ -1,0 +1,48 @@
+# Vim commands #
+## Whitespace and Indenting ##
+dw - delete all whitespace online until a letter is reached
+:%s/^\s\+//e - deletes all leading whitespace in file
+=i{ - indents based on curly brackets
+
+## Folding ##
+:set foldmethod=indent - folds based on indenting (I have this in my .vimrc)
+zc - closes fold cursor is in
+zo - opens fold cursor is in
+zM - closes all folds
+zR - opens all folds
+
+## Sessions ##
+:mks - make a session
+:mks! - overwrite a session
+
+## Various Macros ##
+### Saving and Quitting ###
+:wa - saves all tabs
+:wqa - saves all tabs and quits
+
+### Normal Mode ###
+^ - go to beginning of line
+$ - go to end of line
+% - when cursor is on opening bracket, goes to corresponding closing bracket
+dfx - replace x with any symbol to delete until that symbol is found
+<SHIFT> d - deletes to the end of the line (same as d$)
+<SHIFT> i - enter insert mode at beginning of current line, disregarding leading whitespace
+<SHIFT> a - enter insert mode at the end of current line
+
+## Package specific commands ##
+### EasyMotion ###
+\\w - shows hot keys for moving to each word
+\\s <character> - shows hot keys for moving to every copy of a chosen character
+
+### vim-multiple-cursors ###
+<CTRL> V <CTRL> N... - select 
+
+# Shell Commands #
+## fish commands ##
+brace expansion
+    - csv in curly braces will be expanded so each element becomes a new parameter
+    - examples:
+        a) echo input.{c,h,txt} 
+        # outputs 'input.c input.h input.txt'
+        b) mv *.{dat,txt} dir
+        # moves all files with .dat and .txt file types to directory
