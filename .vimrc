@@ -24,56 +24,61 @@
     syntax on
     filetype plugin indent on
 
-" lightline
-    " relative path
+" Plugin options
+    " lightline
+        " relative path
+        
+        let g:lightline = {
+            \ 'component_function': {
+            \   'filename': 'LightLineFilename'
+            \ }
+            \ }
+        function! LightLineFilename()
+            return expand('%')
+        endfunction
+
+    " vimtex
+        " make it so quickfix window does not open if only warnings, no errors
+        let g:vimtex_quickfix_open_on_warning = 0
+        let g:vimtex_quickfix_latexlog = {
+            \ 'overfull' : 0,
+            \ 'underful' : 0,
+            \ 'packages' : {
+            \ 'default' : 0,
+            \},
+            \}
     
-    let g:lightline = {
-        \ 'component_function': {
-        \   'filename': 'LightLineFilename'
-        \ }
-        \ }
-    function! LightLineFilename()
-        return expand('%')
-    endfunction
-" vimtex
-    " make it so quickfix window does not open if only warnings, no errors
-    let g:vimtex_quickfix_open_on_warning = 0
-    let g:vimtex_quickfix_latexlog = {
-        \ 'overfull' : 0,
-        \ 'underful' : 0,
-        \ 'packages' : {
-        \ 'default' : 0,
-        \},
-        \}
-
-" Syntastic
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+    " Syntastic
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+        
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_check_on_wq = 0
+        
+        " Syntastic C++11 support
+        let g:syntastic_cpp_compiler = 'clang++'
+        let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+        "let g:syntastic_cpp_include_dirs=['include','../include']
     
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
+    "CPP Enhanced Highlighting
+        "let g:cpp_member_variable_highlight = 1
+        let g:cpp_class_scope_highlight = 1
     
-    " Syntastic C++11 support
-    let g:syntastic_cpp_compiler = 'clang++'
-    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-    "let g:syntastic_cpp_include_dirs=['include','../include']
+    " NERDTree
+        nnoremap <leader>f :NERDTreeToggle<Enter>
+        nnoremap <silent> <leader>v :NERTreeFind<Cr>
+        let NERDTreeQuitOnOpen = 1
+    
+    " YCM
+        let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+        set completeopt-=preview
+    "    let g:ycm_show_diagnostics_ui = 0
 
-"CPP Enhanced Highlighting
-    "let g:cpp_member_variable_highlight = 1
-    let g:cpp_class_scope_highlight = 1
-
-" NERDTree
-    nnoremap <leader>f :NERDTreeToggle<Enter>
-    nnoremap <silent> <leader>v :NERTreeFind<Cr>
-    let NERDTreeQuitOnOpen = 1
-
-" YCM
-    let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-    set completeopt-=preview
-"    let g:ycm_show_diagnostics_ui = 0
+    " ctrlp
+    let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
 
 " show leader in the bottom right hand corner
     set showcmd
