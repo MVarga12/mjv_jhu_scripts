@@ -15,6 +15,11 @@ zR - opens all folds
 :mks - make a session
 :mks! - overwrite a session
 
+## Tabs ##
+<C-w> T - make focused split into a new tab
+{i}gt - move to the ith tab
+tabm {+/-}{i} - move current tab {+/i} {i} tab spaces
+
 ## Various Macros ##
 ### Saving and Quitting ###
 :wa - saves all tabs
@@ -24,10 +29,10 @@ zR - opens all folds
 ^ - go to beginning of line
 $ - go to end of line
 % - when cursor is on opening bracket, goes to corresponding closing bracket
-df<x> - replace x with any symbol to delete until that symbol is found
-<SHIFT> d - deletes to the end of the line (same as d$)
-<SHIFT> i - enter insert mode at beginning of current line, disregarding leading whitespace
-<SHIFT> a - enter insert mode at the end of current line
+df{i} - replace x with any symbol to delete until that symbol is found
+D - deletes to the end of the line (same as d$)
+I - enter insert mode at beginning of current line, disregarding leading whitespace
+A - enter insert mode at the end of current line
 
 ## Package specific commands ##
 ### EasyMotion ###
@@ -35,13 +40,23 @@ df<x> - replace x with any symbol to delete until that symbol is found
 \\s <character> - shows hot keys for moving to every copy of a chosen character
 
 ### vim-multiple-cursors ###
-<CTRL> V <CTRL> N... - select 
+<C-V> <C-n>... - select pattern and press <c-n> to select each subsequent match
+use regular normal mode commands to alter at the cursor
+<C-p> - previous pattern match
+<C-x> - skip (do not put a cursor) at the current pattern match
 
 ### surround.vim ###
 punctuation = '', "", (), [], {}, <>, HTML and XML tags
-ds<x> - deletes pair of punctuation around the current word, where <x> is the punctuation mark
-cs<x><x'> - changes pair of punctuation around the current word, where <x> is the current punctuation and <x'> is the desired punctuation
-<visual selection> S<x> - adds punctuation around current visual selection, where <x> is the desired punctuation
+ds{x} - deletes pair of punctuation around the current word, where {x} is the punctuation mark
+cs{x}{x'} - changes pair of punctuation around the current word, where {x} is the current punctuation and {x'} is the desired punctuation
+<visual selection> S{x} - adds punctuation around current visual selection, where {x} is the desired punctuation
+
+### ctrlp ###
+<C-p> - opens search (remember, this is fuzzy search)
+<C-j> or <C-k> - move the selection up or down
+<C-t>, <C-v>, or <C-x> - open selection in new tab, vertical split, or horizontal split
+<C-z> - mark multiple files to open them with <C-o>
+<C-y> - open in new tab while creating the file and all parent directories
 
 # Shell Commands #
 ## fish commands ##
