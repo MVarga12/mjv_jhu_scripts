@@ -107,6 +107,7 @@
         :joinp -s {i}.{j} -t {x}.{y} - join the {jth} pane of window {i} with the {yth} pane of window {x}. Must always have a pane number, even if the window only has one pane (i.e. joinp -s 1.1 -t 2.1)
         <leader> ↑ or ↓ or ← or → - resize window up, down, left, or right, respectively. can hold down <Ctrl> to iteratively resize
         <leader> x - close current pane
+        <leader> C-x - toggle send command to all panes in window (this is set in my .tmux.conf file, bind C-x setw synchronize-panes)
     }
 
     # Buffer # {

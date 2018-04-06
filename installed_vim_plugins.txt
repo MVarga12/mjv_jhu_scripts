@@ -1,5 +1,4 @@
 badwolf/
-ctrlp/
 dracula_vim/
 gruvbox/
 lightline.vim/
@@ -9,8 +8,11 @@ terminus/
 vim-256noir/
 vim-colors-solarized/
 vim-cpp-enhanced-highlight/
+vim-diminactive/
 vim-easymotion/
 vim-multiple-cursors/
+vim-obsession/
+vim-prosession.git/
 vim-sensible/
 vim-surround/
 vim-windowswap/

@@ -25,6 +25,50 @@
     filetype plugin indent on
 
 " Plugin options
+    " clang-format
+        "map <C-I> :python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
+        "imap <C-I> <c-o>:python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
+        
+        let g:clang_format#code_style = 'Webkit'
+        let g:clang_format#style_options = {
+                    \   "Cpp" : {
+                    \       "Standard" : "C++11",
+                    \       "BreakBeforeBraces" : "Custom",
+                    \       "BraceWrapping" : {
+                    \           "AfterClass" : "true",
+                    \           "BeforeCatch" : "true",
+                    \           "BeforeElse" : "true"
+                    \           },
+                    \       "Language" : "Cpp",
+                    \       "AlwaysBreakTemplateDeclarations" : "true",
+                    \       "AlignOperands" : "true",
+                    \       "AlignTrailingComments" : "true",
+                    \       "AllowShortBlocksOnASingleLine" : "false",
+                    \       "AllowShortFunctionsOnASingleLine" : "false",
+                    \       "IncludeBlocks" : "Regroup",
+                    \       "SpaceBeforeAssignmentOperators" : "true",
+                    \       "SpaceBeforeParens" : "ControlStatements",
+                    \       "Cpp11BracedListStyle" : "true",
+                    \       "SpacesInParentheses" : "false",
+                    \       "SpacesInSquareBrackets" : "false"
+                    \   }
+                    \}
+
+        let g:clang_format#command = "clang-format"
+
+    " FZF
+        set rtp+=/usr/local/opt/fzf
+        
+        " use CtrlP keybindings
+        map <C-p> :FZF 
+        let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit'
+            \ }
+
+        let g:fzf_layout = { 'down':'~40%'}
+
     " lightline
         " relative path
         
@@ -73,8 +117,10 @@
         let NERDTreeQuitOnOpen = 1
     
     " YCM
-        let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-        set completeopt-=preview
+         let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+         let g:ycm_max_num_candidates = 20
+         let g:ycm_warning_symbol = '>'
+         set completeopt-=preview
     "    let g:ycm_show_diagnostics_ui = 0
 
     " ctrlp
@@ -103,23 +149,29 @@
 "noremap % v%
 
 " ----------- GUI SHIT -----------
+" list tabs and stuff
 " set font to Adobe Source Code Pro
-    set gfn=Source\ Code\ Pro\ Light:h13
+    set gfn=Source\ Code\ Pro\:h13
 
 " set colour scheme
-    "set t_Co=256
+    "set t_Co=
     "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    "set termguicolors "nvim
+    set termguicolors "nvim
     "colorscheme badwolf
+    colorscheme challenger_deep
     "colorscheme 256_noir
     "colorscheme desert
     "colorscheme apprentice
-    colorscheme dracula
+    "colorscheme dracula
     "colorscheme gruvbox
     "set background=dark
     " Solarized
     "    set background=dark
     "    colorscheme Neosolarized
+
+" use italics for comments
+    "syntax enable
+    set list lcs=tab:>-,trail:␠,nbsp:⎵
 
 "This unsets the "last search pattern" register by hitting return
     nnoremap <CR> :noh<CR><CR>

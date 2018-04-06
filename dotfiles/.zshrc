@@ -111,3 +111,5 @@ alias pathogen_dir="cd ~/.vim/bundle"
 alias gdat_plot="~/Google\ Drive/github_repos/jhu_scripts/nfsim_analysis_scripts/gdat_plot.py" #gdat_plot filename target
 alias emacs="/usr/local/Cellar/emacs/25.3/Emacs.app/Contents/MacOS/Emacs"
 alias emacsnw="/usr/local/Cellar/emacs/25.3/Emacs.app/Contents/MacOS/Emacs -nw"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            form {
+                /* center box, and width */
+                margin: 0 auto;
+                width: 600px;
+                /* border around box */
+                padding: 1em;
+                border: 1px solid #CCC;
+                border-radius: 1em;
+            }
+            form div + div {
+                /* separation between input boxes */
+                margin-top: 1em;
+            }
+            input, textarea {
+                font: 1em sans-serif;
+            }
+            input:focus, textarea:focus {
+                border-color: #000;
+            }
+        </style>
+        <form action="action.php" method="post">
+            <div>
+                <font size="5"> Request a new document <br> </font>
+            </div>
+            <div>
+                <b> Requester information: </b> <br>
+                <label for="user"> Name: </label>
+                <input type="text" id="user" name="user_name">
+                <label for="em"> Email: </label>
+                <input type="text" id="em" name="email">
+            </div>
+            <div>
+                <input type="radio" name="Type" value="jour"> Journal
+                <input type="radio" name="Type" value="text"> Textbook
+            </div>
+            <div>
+                <b>First Author:</b><br>
+                <label for="first"> First Name:</label> 
+                <input type="text" id="first" name="FirstName" />
+                <label for="last"> Last Name: </label>
+                <input type="text" id="last" name="LastName" />
+            </div>
+            <div>
+                <label for="title"> <b> Title: </b> </label><br>
+                <input size="40" type="text" id="title" name="Title" />
+            </div>
+            <div>
+                <label for="journal"> <b> Journal: </b> </label> <br>
+                <input size="40" type="text" id="journal" name="Journal" />
+            </div>
+            <div class="button">
+                <button type="submit"> Submit </button>
+                <button type="reset"> Reset </button>
+            </div>
+        </form>
+    </head>
+    <body>
+    </body>
+</html>

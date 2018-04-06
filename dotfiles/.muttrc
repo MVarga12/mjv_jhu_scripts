@@ -1,0 +1,50 @@
+#Me
+set from = "matthewjvarga@gmail.com"
+set realname = "Matt Varga"
+
+#Creds
+set smtp_url = "smtp://matthewjvarga@gmail.com@smtp.gmail.com:587/"
+set imap_user = "matthewjvarga@gmail.com"
+set smtp_authenticators = "gssapi:login"
+
+#mailboxes
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file="~/.mutt/certificates"
+
+# etc
+set mail_check = 30
+set move = no
+set imap_keepalive = 900
+set sort = threads
+set editor = "nvim"
+set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' -message '%n new messages, %u unread.' -activate 'com.apple.Terminal'"
+set sidebar_visible
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set sleep_time = 0 # be faster
+set beep = no # no beep sound
+auto_view text/html
+set sort=reverse-date
+set index_format="%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
+mailboxes =INBOX =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
+
+bind index G imap-fetch-mail
+# vim key bindings
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+#bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+bind index,pager \CP sidebar-prev                 # Ctrl-n to select next folder
+bind index,pager \CN sidebar-next                 # Ctrl-p to select previous folder
+bind index,pager \CI sidebar-open                 # Ctrl-o to open selected folder
+bind index,pager \CB sidebar-toggle-visible # Ctrl-b to toggle visibility of the sidebar
+
+# gpg
+source "gpg -d ~/.mutt/passwords.gpg |"

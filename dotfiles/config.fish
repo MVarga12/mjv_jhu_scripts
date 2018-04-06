@@ -1,4 +1,6 @@
 set PATH $HOME/.jenv/bin $PATH
+set -g fish_key_bindings fish_vi_key_bindings
+set -gx term $TERM screen-256color
 
 if not set -q abbrs_initialized
     set -U abbrs_initialized
@@ -23,9 +25,6 @@ if not set -q abbrs_initialized
     abbr back "cd -"
     abbr run_bng "/Applications/RuleBender-2.2.1-osx64/BioNetGen-2.3/BNG2.pl"
     abbr pathogen_dir "cd ~/.vim/bundle"
-    abbr gdat_plot "~/Google\ Drive/github_repos/jhu_scripts/nfsim_analysis_scripts/gdat_plot.py" #gdat_plot filename target
-    abbr emacs "/usr/local/Cellar/emacs/25.3/Emacs.app/Contents/MacOS/Emacs"
-    abbr emacsnw "/usr/local/Cellar/emacs/25.3/Emacs.app/Contents/MacOS/Emacs -nw"
     
     echo 'Done'
 end
@@ -35,3 +34,5 @@ function fish_greeting
 end
 
 funcsave fish_greeting
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
