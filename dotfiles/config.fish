@@ -1,4 +1,5 @@
 set PATH $HOME/.jenv/bin $PATH
+function fish_mode_prompt; end # turns off the vi indicator
 set -g fish_key_bindings fish_vi_key_bindings
 set -gx term $TERM screen-256color
 

@@ -17,6 +17,7 @@ set certificate_file="~/.mutt/certificates"
 
 # etc
 set mail_check = 30
+set timeout = 30
 set move = no
 set imap_keepalive = 900
 set sort = threads
