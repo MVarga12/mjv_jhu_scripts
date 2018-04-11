@@ -149,6 +149,11 @@
         endif
 
 " Plugin options
+    " vim-fish
+        autocmd Filetype fish compiler fish
+        autocmd Filetype fish setlocal textwidth=79
+        autocmd Filetype fish setlocal foldmethod=expr
+
     " clang-format
         "map <C-I> :python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
         "imap <C-I> <c-o>:python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
@@ -186,7 +191,7 @@
         autocmd Filetype c,cpp ClangFormatAutoEnable
 
     " Airline
-    let g:airline#extensions#tagbar#enabled = 1
+        let g:airline#extensions#tagbar#enabled = 1
 
     " FZF
         set rtp+=/usr/local/opt/fzf
@@ -254,19 +259,19 @@
         \}
     
     " Syntastic
-    "    set statusline+=%#warningmsg#
-    "    set statusline+=%{SyntasticStatuslineFlag()}
-    "    set statusline+=%*
-    "    
-    "    let g:syntastic_always_populate_loc_list = 1
-    "    let g:syntastic_auto_loc_list = 1
-    "    let g:syntastic_check_on_open = 1
-    "    let g:syntastic_check_on_wq = 0
-    "    
-    "    " Syntastic C++11 support
-    "    let g:syntastic_cpp_compiler = 'clang++'
-    "    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-    "    "let g:syntastic_cpp_include_dirs=['include','../include']
+        "set statusline+=%#warningmsg#
+        "set statusline+=%{SyntasticStatuslineFlag()}
+        "set statusline+=%*
+        "
+        "let g:syntastic_always_populate_loc_list = 1
+        "let g:syntastic_auto_loc_list = 1
+        "let g:syntastic_check_on_open = 1
+        "let g:syntastic_check_on_wq = 0
+        "
+        "" Syntastic C++11 support
+        "let g:syntastic_cpp_compiler = 'clang++'
+        "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+        ""let g:syntastic_cpp_include_dirs=['include','../include']
     
     " CPP Enhanced Highlighting
         let g:class_decl_highlight = 1
@@ -290,13 +295,18 @@
         autocmd! User GoyoLeave Limelight!
         nmap <F6> :Goyo<CR>
 
+    " Gutentags
+        let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']
+
     " Tagbar
+        autocmd VimEnter * nested :call tagbar#autoopen(1)
         nmap <F8> :TagbarToggle<CR>
         "let g:tagbar_autoclose = 1
-        let g:tagbar_autofocus = 1
-        let g:tagbar_compact = 1
+        "let g:tagbar_autofocus = 1
+        "let g:tagbar_compact = 1
+        "let g:tagbar_previewwin_pos = "aboveleft"
+        let g:tagbar_width = 50
 
     " vim-bookmarks
-    let g:bookmark_highlight_lines = 1
-    let g:bookmark_auto_close = 1
-    let g:bookmark_annotation_sign = '♪'
+        let g:bookmark_auto_close = 1
+        let g:bookmark_annotation_sign = '♪'

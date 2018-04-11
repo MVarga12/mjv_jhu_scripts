@@ -44,7 +44,8 @@
     
     # Package specific commands # {
         # EasyMotion # {
-            \\w - shows hot keys for moving to each word
+            \\w - shows hot keys for moving to each word (forwards)
+            \\b - shows hot keys for moving to each word (backwards)
             \\s <character> - shows hot keys for moving to every copy of a chosen character
         }
         
