@@ -33,10 +33,10 @@
         iab vv std::array<double, 3><SPACE>
 
 " vim plugin handling with pathogen
-    execute pathogen#infect()
-    syntax on
-    filetype plugin indent on
-    call pathogen#helptags()
+    "execute pathogen#infect()
+    "syntax on
+    "filetype plugin indent on
+    "call pathogen#helptags()
     "call pathogen#infect("after")
  
 " Random other settings
@@ -54,6 +54,10 @@
     set autoread
     set lazyredraw
     set ttyfast
+
+    "split-term
+        set nosplitright
+        set splitbelow
     
 " GUI Specific Settings
     " set font to Adobe Source Code Pro
@@ -102,56 +106,93 @@
         let t_ZR="\e[23m"
         highlight Comment gui=italic cterm=italic term=italic
 
-    "" show tab numbers in tabline
-    "" Rename tabs to show tab number.
-    "" (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
-        if exists("+showtabline")
-            function! MyTabLine()
-                let s = ''
-                let wn = ''
-                let t = tabpagenr()
-                let i = 1
-                while i <= tabpagenr('$')
-                    let buflist = tabpagebuflist(i)
-                    let winnr = tabpagewinnr(i)
-                    let s .= '%' . i . 'T'
-                    let s .= (i == t ? '%1*' : '%2*')
-                    let s .= ' '
-                    let wn = tabpagewinnr(i,'$')
-                    let s .= '%#TabNum#'
-                    let s .= i
-                    " let s .= '%*'
-                    let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-                    let bufnr = buflist[winnr - 1]
-                    let file = bufname(bufnr)
-                    let buftype = getbufvar(bufnr, 'buftype')
-                    if buftype == 'nofile'
-                        if file =~ '\/.'
-                            let file = substitute(file, '.*\/\ze.', '', '')
-                        endif
-                    else
-                        let file = fnamemodify(file, ':p:t')
+    " show tab numbers, buffer edited status, splits, and Obsession status in tabline
+    " [Number][+ if edited and unsaved][file name for all splits, ',' delimited][Obsession Status ([$] for tracked, [S] for paused)]
+    " off right now, trying to use buffers only
+        "set showtabline=2
+        "set tabline=%!MyTabLine()  " custom tab pages line
+        function! MyTabLine()
+            let s = ''
+            " loop through each tab page
+            for i in range(tabpagenr('$'))
+                if i + 1 == tabpagenr()
+                    let s .= '%#TabLineSel#'
+                else
+                    let s .= '%#TabLine#'
+                endif
+
+                if i + 1 == tabpagenr()
+                    let s .= '%#TabLineSel#' " WildMenu
+                else
+                    let s .= '%#Title#'
+                endif
+
+                " set the tab page number (for mouse clicks)
+                let s .= '%' . (i + 1) . 'T '
+                " set page number string
+                let s .= i + 1 . ''
+                " get buffer names and statuses
+                let n = ''  " temp str for buf names
+                let m = 0   " &modified counter
+                let buflist = tabpagebuflist(i + 1)
+
+                " loop through each buffer in a tab
+                for b in buflist
+                    if getbufvar(b, "&buftype") == 'help'
+                        " let n .= '[H]' . fnamemodify(bufname(b), ':t:s/.txt$//')
+                    elseif getbufvar(b, "&buftype") == 'quickfix'
+                        " let n .= '[Q]'
+                    elseif getbufvar(b, "&modifiable")
+                        let n .= fnamemodify(bufname(b), ':t') . ', ' " pathshorten(bufname(b))
                     endif
-                    if file == ''
-                        let file = '[No Name]'
+
+                    if getbufvar(b, "&modified")
+                        let m += 1
                     endif
-                    let s .= ' ' . file . ' '
-                    let i = i + 1
-                endwhile
-                let s .= '%T%#TabLineFill#%='
-                let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-                return s
-            endfunction
-            set stal=2
-            set tabline=%!MyTabLine()
-            set showtabline=1
-            highlight link TabNum Special
-        endif
+                endfor
+
+                " let n .= fnamemodify(bufname(buflist[tabpagewinnr(i + 1) - 1]), ':t')
+                let n = substitute(n, ', $', '', '')
+
+                " add modified label
+                if m > 0
+                    let s .= '+'
+                    " let s .= '[' . m . '+]'
+                endif
+
+                if i + 1 == tabpagenr()
+                    let s .= ' %#TabLineSel#'
+                else
+                    let s .= ' %#TabLine#'
+                endif
+
+                " add buffer names
+                if n == ''
+                    let s.= '[New]'
+                else
+                    let s .= n
+                endif
+
+                let s .= '%{ObsessionStatus()}'
+
+                " switch to no underlining and add final space
+                let s .= ' '
+            endfor
+
+            let s .= '%#TabLineFill#%T'
+                " right-aligned close button
+                " if tabpagenr('$') > 1
+                "   let s .= '%=%#TabLineFill#%999Xclose'
+                " endif
+            return s
+        endfunction
 
 " Plugin options
+    " vim-procession
+        let g:procession_tmux_title = 1
+
     " vim-fish
         autocmd Filetype fish compiler fish
-        autocmd Filetype fish setlocal textwidth=79
         autocmd Filetype fish setlocal foldmethod=expr
 
     " clang-format
@@ -191,12 +232,18 @@
         autocmd Filetype c,cpp ClangFormatAutoEnable
 
     " Airline
+        " show buffers in the tabline
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#tabline#fnamemod = 1
         let g:airline#extensions#tagbar#enabled = 1
 
     " FZF
+        " this is where fzf lives
         set rtp+=/usr/local/opt/fzf
+
+        " ignore these when searching
         
-        " use CtrlP keybindings
+        " use CtrlP keybindings for fzf
         map <C-p> :FZF 
         let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
@@ -204,6 +251,7 @@
             \ 'ctrl-v': 'vsplit'
         \ }
 
+        " match fzf preview window colors to that of the vim colorscheme
         let g:fzf_colors = {
             \'fg':       ['fg', 'Normal'],
             \ 'bg':      ['bg', 'Normal'],
@@ -220,7 +268,10 @@
             \ 'header':  ['fg', 'Comment']
         \}
 
+        " let fzf remember things
         let g:fzf_history_dir = '~/.local/share/fzf_history'
+
+        " opens in fullscreen with a preview window of where the string is in the file
         command! -bang -nargs=* Ag
             \ call fzf#vim#ag(<q-args>,
             \                 <bang>0 ? fzf#vim#with_preview('up:60%')
@@ -285,10 +336,13 @@
             set undodir=~/.undodir/
             set undofile
         endif
+
+        let g:undotree_WindowLayout = 2
+
         " using relative positioning instead
-        let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
-        let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
-        let g:undotree_SetFocusWhenToggle = 1
+        "let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
+        "let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
+        "let g:undotree_SetFocusWhenToggle = 1
 
     " Goyo
         autocmd! User GoyoEnter Limelight
@@ -300,6 +354,8 @@
 
     " Tagbar
         autocmd VimEnter * nested :call tagbar#autoopen(1)
+        autocmd FileType * nested :call tagbar#autoopen(0)
+        autocmd BufEnter * nested :call tagbar#autoopen(0)
         nmap <F8> :TagbarToggle<CR>
         "let g:tagbar_autoclose = 1
         "let g:tagbar_autofocus = 1
@@ -310,3 +366,62 @@
     " vim-bookmarks
         let g:bookmark_auto_close = 1
         let g:bookmark_annotation_sign = '♪'
+
+    " incsearch
+        map / <Plug>(incsearch-forward)
+        map ? <Plug>(incsearch-backward)
+        map g/ <Plug>(incsearch-stay)
+    
+    " deoplete
+        let g:deoplete#sources#clang#libclang_path='/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
+        let g:deoplete#sources#clang#clang_header='/usr/local/Cellar/llvm/5.0.0/include/c++'
+        let g:deoplete#enable_at_startup=1
+        "let g:deoplete#complete_method = 'completefunc'
+        let g:deoplete#max_list = 20
+        let g:deoplete#enable_smart_case = 1
+        "autoclose scratch
+        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+        "Tab Complete
+        inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    
+    "neomake
+        "" normal mode (after 1s; no delay when writing).
+        "call neomake#configure#automake('rnw',5000)
+        "let neomake_verbose = 1
+        ""let g:neomake_cpp_enabled_makers = ['clang']
+        ""let g:neomake_cpp_clang_args = ['-std=c++11','-Wall', '-Iinclude', '-Wextra', '-Wno-sign-conversion']
+        "let g:neomake_cpp_clang_maker = {
+        "    \ 'exe': 'clang',
+        "    \ 'args': ['-std=c++11','-Wall', '-Iinclude', '-I../include', '-Wextra']
+        "\ }
+        "let g:neomake_open_list = 0
+        "let g:neomake_warning_sign = {
+        "    \ 'text': 'W',
+        "    \ 'texthl': 'WarningMsg',
+        "\ }
+        "let g:neomake_error_sign = {
+        "    \ 'text': 'E',
+        "    \ 'texthl': 'ErrorMsg',
+        "\ }
+        "let g:neomake_info_sign = {
+        "    \ 'text': 'i',
+        "    \ 'texthl': 'NeomakeInfoSign',
+        "\}
+
+    " neoinclude
+    "    let g:neoinclude#max_processes = 10 " max number of include files processed
+    "    let g:neoinclude#ctags_commands = '/usr/local/bin/ctags'
+    
+    " ale
+    "    let g:ale_cpp_clang_options = '-std=c++11 -I include -Wall'
+    "    let g:ale_cpp_gcc_options = '-std=c++11 -I include -Wall'
+    "    let g:ale_lint_on_text_changed = 0
+    "    let g:ale_lint_on_enter = 1
+    "    let g:ale_sign_error = 'E'
+    "    let g:ale_sign_warning = 'W'
+    "    let g:ale_set_highlighs = 0
+    
+    "goyo
+        " changing from the default 80 to accomodate for UndoTree panel
+        let g:goyo_width = 120
+

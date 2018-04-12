@@ -121,6 +121,14 @@
 }
 
 # Shell Commands # {
+    # Generic {
+        # FZF # {
+            fzf | pbcopy - fuzzy search with fzf, and chosen path is copied with <ENTER>
+            find (path) | fzf - fuzzy search with fzf in a (path) directory you're not currently in 
+            fd . (path) | fzf - same as above, but with fd instead of find
+        }
+    }
+
     # fish commands # {
         # vim-key-bindings # {
             # vim commands which do NOT work # {
