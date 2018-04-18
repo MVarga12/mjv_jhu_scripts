@@ -7,9 +7,11 @@ public:
     int x;
 
     virtual void display() = 0;
-    Base() {}
+    Base() {
+    }
     Base(int x1)
-        : x(x1) {}
+        : x(x1) {
+    }
 };
 
 class Derived_a : public Base {
@@ -18,7 +20,8 @@ public:
 
     void display();
     Derived_a(int a1)
-        : a(a1) {}
+        : a(a1) {
+    }
 };
 
 void Derived_a::display() {
@@ -31,7 +34,8 @@ public:
 
     void display();
     Derived_b(int b1)
-        : b(b1) {}
+        : b(b1) {
+    }
 };
 
 void Derived_b::display() {

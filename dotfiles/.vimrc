@@ -9,13 +9,23 @@
     "                   put cursor here -> ^
     let @f = 'i lla '
 
+    function! RenameFile()
+        let old_name = expand('%')
+        let new_name = input('New file name: ', expand('%'), 'file')
+        if new_name != '' && new_name != old_name
+            exec ':saveas ' . new_name
+            exec ':silent !rm ' . old_name
+            redraw!
+        endif
+    endfunction
+    map <leader>n :call RenameFile()<cr>
+
 " Key bindings (vim generic, not package specific)
     "This unsets the "last search pattern" register by hitting return
         nnoremap <CR> :noh<CR><CR>
 
     " cpp comment line, also works on multiple lines in visual mode
-    	map <C-C> I//<ESC>
-    	map <C-T> ^xx
+    	map <C-C> :TComment<CR>
     
      nnoremap <space> za 
 
@@ -42,7 +52,7 @@
 " Random other settings
     " open with folds
         set foldmethod=indent
-        set foldlevelstart=10 " start with most folds open
+        set foldlevelstart=1 " start with most folds open
         set foldnestmax=10 " limit nested folds
         "space toggles folds
     
@@ -60,32 +70,40 @@
         set splitbelow
     
 " GUI Specific Settings
+    set conceallevel=2
+    set concealcursor=nvc
+    let g:tex_conceal="adgms"
+
     " set font to Adobe Source Code Pro
         set gfn=Hasklig\ Medium\:h13
     
     " set colour scheme
         "set t_Co=256
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-        let base16colorspace=256
-        set background=dark
-        set termguicolors "nvim
+        if has('nvim')
+            let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+            let base16colorspace=256
+            set background=dark
+            set termguicolors "nvim
     
-        " Pencil
-        "    colorscheme pencil
-        "    let g:pencil_terminal_italics = 1
-        "    set background=dark
-        
-        "colorscheme deus
-        colorscheme Tomorrow-Night-Eighties 
-        "colorscheme badwolf
-        "colorscheme hybrid
-        " Solarized
-        "    set background=dark
-        "    colorscheme Neosolarized
+            " Pencil
+            "    colorscheme pencil
+            "    let g:pencil_terminal_italics = 1
+            "    set background=dark
+            
+            "colorscheme deus
+            colorscheme Tomorrow-Night-Eighties 
+            "colorscheme badwolf
+            "colorscheme hybrid
+            " Solarized
+            "    set background=dark
+            "    colorscheme Neosolarized
+        else
+            colorscheme desert
+        endif
     
     " show line numbers
         set nu
-        set noshowmode
+        set showmode
         "set cursorline
     
     " dummy sign to key sign column permanently open
@@ -105,6 +123,32 @@
         let t_ZH="\e[3m"
         let t_ZR="\e[23m"
         highlight Comment gui=italic cterm=italic term=italic
+
+    " Some custom syntax highlighting
+        hi TodoPriorityHigh cterm=italic ctermfg=52 gui=italic guifg=#DB0700
+        hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
+        hi TodoPriorityMed cterm=italic ctermfg=52 gui=italic guifg=#DB8700
+        hi TodoDone cterm=italic ctermfg=52 gui=italic guifg=#00ACDB
+        call matchadd('TodoPriorityHigh', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[hH][iI][gG][hH]')
+        call matchadd('TodoPriorityLow', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[lL][oO][wW]')
+        call matchadd('TodoPriorityMed', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[mM][eE][dD][iI]\=[uU]\=[mM]\=')
+        call matchadd('TodoDone', '\s\=D[oO][nN][eE]')
+
+    " Status Line
+        " modified from http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+            set statusline=
+            "set statusline+=%(%#ShortFilePath#%f%0*%) " filename
+            set statusline+=%f
+            set statusline+=%m
+            set statusline+=%R%=
+            set statusline+=%< " folding left
+            set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " highlight type on word
+            set statusline+=%{gutentags#statusline('[',']')}\ 
+            set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
+            "set statusline+=\b\:%-04O\ " cursor hex offset from start of file
+            "set statusline+=\c\:%03b\ " char byte code under cursor
+            set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
+            set statusline+=[%p%%] " percentage of the file
 
     " show tab numbers, buffer edited status, splits, and Obsession status in tabline
     " [Number][+ if edited and unsaved][file name for all splits, ',' delimited][Obsession Status ([$] for tracked, [S] for paused)]
@@ -186,242 +230,3 @@
                 " endif
             return s
         endfunction
-
-" Plugin options
-    " vim-procession
-        let g:procession_tmux_title = 1
-
-    " vim-fish
-        autocmd Filetype fish compiler fish
-        autocmd Filetype fish setlocal foldmethod=expr
-
-    " clang-format
-        "map <C-I> :python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
-        "imap <C-I> <c-o>:python /Users/mvarga/.vim/bundle/vim-clang-format/clang-format.py<cr>
-        
-        let g:clang_format#code_style = 'Webkit'
-        let g:clang_format#style_options = {
-                    \"Standard" : "C++11",
-                    \"BreakBeforeBraces" : "Custom",
-                    \"BraceWrapping" : {
-                    \    "BeforeCatch" : "true",
-                    \    "AfterStruct" : "false",
-                    \    "AfterClass" : "false",
-                    \    "BeforeElse" : "true",
-                    \    "SplitEmptyRecord" : "false",
-                    \    "SplitEmptyFunction" : "false"
-                    \    },
-                    \"Language" : "Cpp",
-                    \"AlwaysBreakTemplateDeclarations" : "true",
-                    \"AlignOperands" : "true",
-                    \"AlignTrailingComments" : "true",
-                    \"AllowShortBlocksOnASingleLine" : "false",
-                    \"AllowShortFunctionsOnASingleLine" : "false",
-                    \"IncludeBlocks" : "Regroup",
-                    \"PointerAlignment" : "Right",
-                    \"ReflowComments" : "true",
-                    \"ColumnLimit" : "200",
-                    \"SpaceBeforeAssignmentOperators" : "true",
-                    \"SpaceBeforeParens" : "ControlStatements",
-                    \"Cpp11BracedListStyle" : "true",
-                    \"SpacesInParentheses" : "false",
-                    \"SpacesInSquareBrackets" : "false"
-                    \}
-
-        let g:clang_format#command = "clang-format"
-        autocmd Filetype c,cpp ClangFormatAutoEnable
-
-    " Airline
-        " show buffers in the tabline
-        let g:airline#extensions#tabline#enabled = 1
-        let g:airline#extensions#tabline#fnamemod = 1
-        let g:airline#extensions#tagbar#enabled = 1
-
-    " FZF
-        " this is where fzf lives
-        set rtp+=/usr/local/opt/fzf
-
-        " ignore these when searching
-        
-        " use CtrlP keybindings for fzf
-        map <C-p> :FZF 
-        let g:fzf_action = {
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit'
-        \ }
-
-        " match fzf preview window colors to that of the vim colorscheme
-        let g:fzf_colors = {
-            \'fg':       ['fg', 'Normal'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'Comment'],
-            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+':     ['fg', 'Statement'],
-            \ 'info':    ['fg', 'PreProc'],
-            \ 'border':  ['fg', 'Ignore'],
-            \ 'prompt':  ['fg', 'Conditional'],
-            \ 'pointer': ['fg', 'Exception'],
-            \ 'marker':  ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header':  ['fg', 'Comment']
-        \}
-
-        " let fzf remember things
-        let g:fzf_history_dir = '~/.local/share/fzf_history'
-
-        " opens in fullscreen with a preview window of where the string is in the file
-        command! -bang -nargs=* Ag
-            \ call fzf#vim#ag(<q-args>,
-            \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-            \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-            \                 <bang>0)
-
-        " Some key mappings
-            noremap <Leader>b :Buffers<CR>
-            noremap <Leader>h :History<CR>
-            noremap <Leader>f :Ag<CR>
-
-    " lightline
-        "let g:lightline = {
-        "    \ 'colorscheme': 'jellybeans',
-        " \ }
-
-        "" relative path
-        "let g:lightline = {
-        "    \ 'component_function': {
-        "    \   'filename': 'LightLineFilename'
-        "    \ }
-        "    \ }
-        "function! LightLineFilename()
-        "    return expand('%')
-        "endfunction
-
-    " vimtex
-        " make it so quickfix window does not open if only warnings, no errors
-        let g:vimtex_quickfix_open_on_warning = 0
-        let g:vimtex_quickfix_latexlog = {
-            \ 'overfull' : 0,
-            \ 'underful' : 0,
-            \ 'packages' : {
-                \ 'default' : 0,
-            \},
-        \}
-    
-    " Syntastic
-        "set statusline+=%#warningmsg#
-        "set statusline+=%{SyntasticStatuslineFlag()}
-        "set statusline+=%*
-        "
-        "let g:syntastic_always_populate_loc_list = 1
-        "let g:syntastic_auto_loc_list = 1
-        "let g:syntastic_check_on_open = 1
-        "let g:syntastic_check_on_wq = 0
-        "
-        "" Syntastic C++11 support
-        "let g:syntastic_cpp_compiler = 'clang++'
-        "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-        ""let g:syntastic_cpp_include_dirs=['include','../include']
-    
-    " CPP Enhanced Highlighting
-        let g:class_decl_highlight = 1
-        let g:cpp_member_variable_highlight = 1
-        let g:cpp_experimental_template_highlight = 1
-        let g:cpp_class_scope_highlight = 1
-
-    " UndoTree
-        nmap <F5> :UndotreeToggle<CR>
-        if has("persistent_undo")
-            set undodir=~/.undodir/
-            set undofile
-        endif
-
-        let g:undotree_WindowLayout = 2
-
-        " using relative positioning instead
-        "let g:undotree_CustomUndotreeCmd = 'vertical 32 new'
-        "let g:undotree_CustomDiffpanelCmd= 'belowright 12 new'
-        "let g:undotree_SetFocusWhenToggle = 1
-
-    " Goyo
-        autocmd! User GoyoEnter Limelight
-        autocmd! User GoyoLeave Limelight!
-        nmap <F6> :Goyo<CR>
-
-    " Gutentags
-        let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']
-
-    " Tagbar
-        autocmd VimEnter * nested :call tagbar#autoopen(1)
-        autocmd FileType * nested :call tagbar#autoopen(0)
-        autocmd BufEnter * nested :call tagbar#autoopen(0)
-        nmap <F8> :TagbarToggle<CR>
-        "let g:tagbar_autoclose = 1
-        "let g:tagbar_autofocus = 1
-        "let g:tagbar_compact = 1
-        "let g:tagbar_previewwin_pos = "aboveleft"
-        let g:tagbar_width = 50
-
-    " vim-bookmarks
-        let g:bookmark_auto_close = 1
-        let g:bookmark_annotation_sign = '♪'
-
-    " incsearch
-        map / <Plug>(incsearch-forward)
-        map ? <Plug>(incsearch-backward)
-        map g/ <Plug>(incsearch-stay)
-    
-    " deoplete
-        let g:deoplete#sources#clang#libclang_path='/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
-        let g:deoplete#sources#clang#clang_header='/usr/local/Cellar/llvm/5.0.0/include/c++'
-        let g:deoplete#enable_at_startup=1
-        "let g:deoplete#complete_method = 'completefunc'
-        let g:deoplete#max_list = 20
-        let g:deoplete#enable_smart_case = 1
-        "autoclose scratch
-        autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-        "Tab Complete
-        inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    
-    "neomake
-        "" normal mode (after 1s; no delay when writing).
-        "call neomake#configure#automake('rnw',5000)
-        "let neomake_verbose = 1
-        ""let g:neomake_cpp_enabled_makers = ['clang']
-        ""let g:neomake_cpp_clang_args = ['-std=c++11','-Wall', '-Iinclude', '-Wextra', '-Wno-sign-conversion']
-        "let g:neomake_cpp_clang_maker = {
-        "    \ 'exe': 'clang',
-        "    \ 'args': ['-std=c++11','-Wall', '-Iinclude', '-I../include', '-Wextra']
-        "\ }
-        "let g:neomake_open_list = 0
-        "let g:neomake_warning_sign = {
-        "    \ 'text': 'W',
-        "    \ 'texthl': 'WarningMsg',
-        "\ }
-        "let g:neomake_error_sign = {
-        "    \ 'text': 'E',
-        "    \ 'texthl': 'ErrorMsg',
-        "\ }
-        "let g:neomake_info_sign = {
-        "    \ 'text': 'i',
-        "    \ 'texthl': 'NeomakeInfoSign',
-        "\}
-
-    " neoinclude
-    "    let g:neoinclude#max_processes = 10 " max number of include files processed
-    "    let g:neoinclude#ctags_commands = '/usr/local/bin/ctags'
-    
-    " ale
-    "    let g:ale_cpp_clang_options = '-std=c++11 -I include -Wall'
-    "    let g:ale_cpp_gcc_options = '-std=c++11 -I include -Wall'
-    "    let g:ale_lint_on_text_changed = 0
-    "    let g:ale_lint_on_enter = 1
-    "    let g:ale_sign_error = 'E'
-    "    let g:ale_sign_warning = 'W'
-    "    let g:ale_set_highlighs = 0
-    
-    "goyo
-        " changing from the default 80 to accomodate for UndoTree panel
-        let g:goyo_width = 120
-
