@@ -1,14 +1,6 @@
 " vim dotfile of Matt Varga
 
-" Macros
-    " spaces around single operator, e.g. 1=1 -> 1 = 1
-    "                   put cursor here -> ^
-    let @d = 'i la ' 
-
-    " spaces around double operator, e.g. 1==1 -> 1 == 1
-    "                   put cursor here -> ^
-    let @f = 'i lla '
-
+" Macros and functions
     function! RenameFile()
         let old_name = expand('%')
         let new_name = input('New file name: ', expand('%'), 'file')
@@ -20,14 +12,29 @@
     endfunction
     map <leader>n :call RenameFile()<cr>
 
+    " automatically reload vimrc upon buffer write
+    if has ('autocmd') " Remain compatible with earlier versions
+        augroup vimrc     " Source vim configuration upon save
+            autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+            autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+        augroup END
+    endif " has autocmd
+
 " Key bindings (vim generic, not package specific)
     "This unsets the "last search pattern" register by hitting return
         nnoremap <CR> :noh<CR><CR>
 
     " cpp comment line, also works on multiple lines in visual mode
-    	map <C-C> :TComment<CR>
+        map <C-C> :TComment<CR>
     
-     nnoremap <space> za 
+    " toggle folds with space
+        nnoremap <space> za 
+
+    " jump to end of line and add a semi-colon in insert mode
+        inoremap <Leader>; <C-o>A;
+    
+    " quicksave with ,s
+        nnoremap <Leader>s :w<CR>
 
     " easier switching from any split (specifically term split)
         nnoremap <C-h> <C-w>h
@@ -41,13 +48,6 @@
         iab iaq <TAB>\begin{align*} <CR>\end{align*}
         iab idq <TAB>\begin{displayquote} <CR>\end{displayquote}
         iab vv std::array<double, 3><SPACE>
-
-" vim plugin handling with pathogen
-    "execute pathogen#infect()
-    "syntax on
-    "filetype plugin indent on
-    "call pathogen#helptags()
-    "call pathogen#infect("after")
  
 " Random other settings
     " open with folds
@@ -62,7 +62,7 @@
 
     set updatetime=100
     set autoread
-    set lazyredraw
+    "set lazyredraw
     set ttyfast
 
     "split-term
@@ -84,19 +84,7 @@
             let base16colorspace=256
             set background=dark
             set termguicolors "nvim
-    
-            " Pencil
-            "    colorscheme pencil
-            "    let g:pencil_terminal_italics = 1
-            "    set background=dark
-            
-            "colorscheme deus
             colorscheme Tomorrow-Night-Eighties 
-            "colorscheme badwolf
-            "colorscheme hybrid
-            " Solarized
-            "    set background=dark
-            "    colorscheme Neosolarized
         else
             colorscheme desert
         endif
@@ -104,7 +92,6 @@
     " show line numbers
         set nu
         set showmode
-        "set cursorline
     
     " dummy sign to key sign column permanently open
         autocmd BufEnter * sign define dummy
@@ -129,104 +116,26 @@
         hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
         hi TodoPriorityMed cterm=italic ctermfg=52 gui=italic guifg=#DB8700
         hi TodoDone cterm=italic ctermfg=52 gui=italic guifg=#00ACDB
+        hi TodoInProgress cterm=italic ctermfg=52 gui=italic guifg=#9D00D8
+        hi CodeNote cterm=italic ctermfg=52 gui=italic guifg=#00D692
         call matchadd('TodoPriorityHigh', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[hH][iI][gG][hH]')
         call matchadd('TodoPriorityLow', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[lL][oO][wW]')
         call matchadd('TodoPriorityMed', '\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[mM][eE][dD][iI]\=[uU]\=[mM]\=')
+        call matchadd('TodoInProgress', '\s\=[iI][nN]\s[pP][rR][oO][gR][rR][eE][sS][sS]')
         call matchadd('TodoDone', '\s\=D[oO][nN][eE]')
+        call matchadd('CodeNote', '\s\=N[oO][tT][eE]')
 
     " Status Line
-        " modified from http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
-            set statusline=
-            "set statusline+=%(%#ShortFilePath#%f%0*%) " filename
-            set statusline+=%f
-            set statusline+=%m
-            set statusline+=%R%=
-            set statusline+=%< " folding left
-            set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " highlight type on word
-            set statusline+=%{gutentags#statusline('[',']')}\ 
-            set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
-            "set statusline+=\b\:%-04O\ " cursor hex offset from start of file
-            "set statusline+=\c\:%03b\ " char byte code under cursor
-            set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
-            set statusline+=[%p%%] " percentage of the file
-
-    " show tab numbers, buffer edited status, splits, and Obsession status in tabline
-    " [Number][+ if edited and unsaved][file name for all splits, ',' delimited][Obsession Status ([$] for tracked, [S] for paused)]
-    " off right now, trying to use buffers only
-        "set showtabline=2
-        "set tabline=%!MyTabLine()  " custom tab pages line
-        function! MyTabLine()
-            let s = ''
-            " loop through each tab page
-            for i in range(tabpagenr('$'))
-                if i + 1 == tabpagenr()
-                    let s .= '%#TabLineSel#'
-                else
-                    let s .= '%#TabLine#'
-                endif
-
-                if i + 1 == tabpagenr()
-                    let s .= '%#TabLineSel#' " WildMenu
-                else
-                    let s .= '%#Title#'
-                endif
-
-                " set the tab page number (for mouse clicks)
-                let s .= '%' . (i + 1) . 'T '
-                " set page number string
-                let s .= i + 1 . ''
-                " get buffer names and statuses
-                let n = ''  " temp str for buf names
-                let m = 0   " &modified counter
-                let buflist = tabpagebuflist(i + 1)
-
-                " loop through each buffer in a tab
-                for b in buflist
-                    if getbufvar(b, "&buftype") == 'help'
-                        " let n .= '[H]' . fnamemodify(bufname(b), ':t:s/.txt$//')
-                    elseif getbufvar(b, "&buftype") == 'quickfix'
-                        " let n .= '[Q]'
-                    elseif getbufvar(b, "&modifiable")
-                        let n .= fnamemodify(bufname(b), ':t') . ', ' " pathshorten(bufname(b))
-                    endif
-
-                    if getbufvar(b, "&modified")
-                        let m += 1
-                    endif
-                endfor
-
-                " let n .= fnamemodify(bufname(buflist[tabpagewinnr(i + 1) - 1]), ':t')
-                let n = substitute(n, ', $', '', '')
-
-                " add modified label
-                if m > 0
-                    let s .= '+'
-                    " let s .= '[' . m . '+]'
-                endif
-
-                if i + 1 == tabpagenr()
-                    let s .= ' %#TabLineSel#'
-                else
-                    let s .= ' %#TabLine#'
-                endif
-
-                " add buffer names
-                if n == ''
-                    let s.= '[New]'
-                else
-                    let s .= n
-                endif
-
-                let s .= '%{ObsessionStatus()}'
-
-                " switch to no underlining and add final space
-                let s .= ' '
-            endfor
-
-            let s .= '%#TabLineFill#%T'
-                " right-aligned close button
-                " if tabpagenr('$') > 1
-                "   let s .= '%=%#TabLineFill#%999Xclose'
-                " endif
-            return s
-        endfunction
+    " modified from http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+        set statusline=
+        set statusline+=%f
+        set statusline+=%m
+        set statusline+=%R%=
+        set statusline+=%< " folding left
+        set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " highlight type on word
+        set statusline+=%{gutentags#statusline('[',']')}\ 
+        set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
+        "set statusline+=\b\:%-04O\ " cursor hex offset from start of file
+        "set statusline+=\c\:%03b\ " char byte code under cursor
+        set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
+        set statusline+=[%p%%] " percentage of the file

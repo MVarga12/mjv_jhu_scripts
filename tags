@@ -6,7 +6,6 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/4fe1a60/
 $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;"	v
-/	dotfiles/init.vim	/^        map \/ <Plug>(incsearch-forward)$/;"	m
 1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
 1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
 1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
@@ -545,8 +544,8 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 <C-p>	dotfiles/init.vim	/^        map <C-p> :FZF $/;"	m
 <CR>	dotfiles/.vimrc	/^        nnoremap <CR> :noh<CR><CR>$/;"	m
 <F5>	dotfiles/init.vim	/^        nmap <F5> :UndotreeToggle<CR>$/;"	m
-<F6>	dotfiles/init.vim	/^        nmap <F6> :Goyo<CR>$/;"	m
 <F8>	dotfiles/init.vim	/^        nmap <F8> :TagbarToggle<CR>$/;"	m
+<Leader>;	dotfiles/.vimrc	/^     inoremap <Leader>; A;$/;"	m
 <Leader><Leader>m	dotfiles/init.vim	/^        nmap <Leader><Leader>m :Neomake<CR>$/;"	m
 <Leader>F	dotfiles/init.vim	/^            noremap <Leader>F :Ag<CR>$/;"	m
 <Leader>b	dotfiles/init.vim	/^            noremap <Leader>b :Buffers<CR>$/;"	m
@@ -555,7 +554,6 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 <leader>n	dotfiles/.vimrc	/^    map <leader>n :call RenameFile()<cr>$/;"	m
 <space>	dotfiles/.vimrc	/^     nnoremap <space> za $/;"	m
 <tab>	dotfiles/init.vim	/^        inoremap <expr><tab> pumvisible() ? "\\<c-n>" : "\\<tab>"$/;"	m
-?	dotfiles/init.vim	/^        map ? <Plug>(incsearch-backward)$/;"	m
 Ag	dotfiles/init.vim	/^        command! -bang -nargs=* Ag$/;"	c
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base() {$/;"	f	class:Base	file:	access:public	signature:()
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
@@ -865,7 +863,6 @@ find_min	daily_programmer/330/main.cpp	/^Point Bound::find_min(Bound& b) {$/;"	f
 finfile	jctc_2016_code/hist_int.py	/^finfile = open('productregion.dat','w')$/;"	v	access:public
 first	html_tests/action.php	/^    $error_message = $first = $last = $tit = $journal = "";$/;"	v
 first	html_tests/action.php	/^    $first = htmlspecialchars($_POST['FirstName']);$/;"	v
-g/	dotfiles/init.vim	/^        map g\/ <Plug>(incsearch-stay)$/;"	m
 g:UltiSnipsExpandTrigger	dotfiles/init.vim	/^        let g:UltiSnipsExpandTrigger="<C-j>"$/;"	v
 g:UltiSnipsJumpBackwardTrigger	dotfiles/init.vim	/^        let g:UltiSnipsJumpBackwardTrigger="<C-z>"$/;"	v
 g:UltiSnipsJumpForwardTrigger	dotfiles/init.vim	/^        let g:UltiSnipsJumpForwardTrigger="<C-b>"$/;"	v
@@ -888,7 +885,6 @@ g:deoplete#sources#clang#libclang_path	dotfiles/init.vim	/^        let g:deoplet
 g:fzf_action	dotfiles/init.vim	/^        let g:fzf_action = {$/;"	v
 g:fzf_colors	dotfiles/init.vim	/^        let g:fzf_colors = {$/;"	v
 g:fzf_history_dir	dotfiles/init.vim	/^        let g:fzf_history_dir = '~\/.local\/share\/fzf_history'$/;"	v
-g:goyo_width	dotfiles/init.vim	/^        let g:goyo_width = 120$/;"	v
 g:gutentags_ctags_extra_args	dotfiles/init.vim	/^        let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']$/;"	v
 g:neoinclude#max_processes	dotfiles/init.vim	/^        let g:neoinclude#max_processes = 10 " max number of include files processed$/;"	v
 g:neomake_cpp_clang_maker	dotfiles/init.vim	/^        let g:neomake_cpp_clang_maker = {$/;"	v
@@ -953,6 +949,7 @@ main	daily_programmer/330/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	ty
 main	daily_programmer/333/main.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 main	daily_programmer/338/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 main	read_inputs.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+mapLeader	dotfiles/init.vim	/^let mapLeader = ","$/;"	v
 matchval	jctc_2016_code/hist_out_newbin.py	/^      matchval = slope*old + intercept $/;"	v	access:public
 month	daily_programmer/338/main.cpp	/^    int month;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
 name	read_inputs.cpp	/^        std::string name;$/;"	m	class:Molecule	typeref:typename:std::string	file:	access:public

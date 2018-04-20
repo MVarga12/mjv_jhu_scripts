@@ -1,5 +1,62 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
+" set runtine path
+    set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    let &packpath = &runtimepath
+
+    " filetype stuff
+        filetype on
+        filetype plugin on
+        filetype plugin indent on
+
+" map leader to comma
+    let mapleader = ","
+
+" read skeleton files for code headers
+    if (&readonly == "off")
+        let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e")
+        autocmd BufNewFile * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call ReadHeader("hfile")
+        autocmd BufRead * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call AlterHeader("hfile")
+
+        fun! ReadHeader(name)
+            if filereadable(b:{a:name})
+                augroup templates
+                    au!
+                    autocmd Filetype * silent! execute "0r $HOME/.vim/headers/header.".expand("%:e")
+                    autocmd Filetype * %substitute#\[:VIM_EVAL_NEW:\]\(.\{-\}\)\[:END_EVAL_NEW:\]#\=eval(submatch(1))#ge
+                    autocmd Filetype * %substitute#\[:VIM_EVAL_POST:\]\(.\{-\}\)\[:END_EVAL_POST:\]#\=eval(submatch(1))#ge
+                    autocmd BufWritePre * ks|call Modified()|'s
+                augroup make_exe
+                    autocmd BufWritePre *.py,*.sh if !filereadable(expand('%')) | let b:is_new = 1 | endif
+                    autocmd BufWritePost *.py,*.sh if get(b:, 'is_new', 0) | silent execute '!chmod +x %' | endif
+                augroup END
+            else 
+                augroup templates
+                    au!
+                augroup END
+            endif
+        endfun!
+
+        fun! AlterHeader(name)
+            if filereadable(b:{a:name})
+                augroup templates
+                    au!
+                    autocmd BufWritePre * ks | call Modified() | 's
+                augroup END
+            else
+                augroup templates
+                    au!
+                augroup END
+            endif
+        endfun!
+        
+        fun! Modified()
+            if line("$") > 20
+                let l = 20
+            else
+                let l = line("$")
+            endif
+            exe "1," . l . "g/Modified: /s/Modified: .*/Modified: " . strftime('%a %e %b %Y %X %Z')
+        endfun!
+    endif
 
 "vim-plug
 call plug#begin('~/.vim/plugged')
@@ -27,31 +84,27 @@ call plug#begin('~/.vim/plugged')
         " Linters
             Plug 'Shougo/neoinclude.vim'
             Plug 'neomake/neomake'
-            "Plug 'w0rp/ale'
             Plug 'lervag/vimtex'
 
         " Formatting
             Plug 'tomtom/tcomment_vim' " universal commenter for embedded filetypes
             Plug 'rhysd/vim-clang-format' " plugin for clang-format
             Plug 'Yggdroot/indentLine' " shows indent level
+            Plug 'Raimondi/delimitMate' " autoclosing of delimiters
     
         " Debugging
             Plug 'sakhnik/nvim-gdb' " integration of gdb within vim
             Plug 'rizzatti/dash.vim'
 
     " Distraction free writing
-        Plug 'junegunn/goyo.vim'
-        Plug 'junegunn/limelight.vim'
+        "Plug 'junegunn/goyo.vim'
+        "Plug 'junegunn/limelight.vim'
 
     " Better search tools
-        "Plug 'usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
-        Plug 'haya14busa/incsearch.vim'
+        "Plug 'haya14busa/incsearch.vim'
 
     " Gui plugins
-        "Plug 'vim-airline/vim-airline'
-        "Plug 'vim-airline/vim-airline-themes'
-        "Plug 'itchyny/lightline.vim'
         Plug 'ap/vim-buftabline'
 
     " Bookmarks and Tags
@@ -71,13 +124,13 @@ call plug#begin('~/.vim/plugged')
         Plug 'christoomey/vim-tmux-navigator'
 
     " Git Integration (off right now, using grv)
-        "Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-fugitive'
         "Plug 'tpope/vim-rhubarb'
 
     " Other
-        Plug 'vim-scripts/timestamp.vim'
+        "Plug 'vim-scripts/timestamp.vim'
         Plug 'mbbill/undotree' " graphical visualization of the vim undotree
-        Plug 'tpope/vim-eunuch' " adds unix-like read/write/edit commands 
+
 call plug#end()
 
 " Plugin options
@@ -99,33 +152,37 @@ call plug#end()
         
         let g:clang_format#code_style = 'Webkit'
         let g:clang_format#style_options = {
-                    \"Standard" : "C++11",
-                    \"BreakBeforeBraces" : "Custom",
-                    \"BraceWrapping" : {
-                    \    "BeforeCatch" : "true",
-                    \    "AfterStruct" : "false",
-                    \    "AfterClass" : "false",
-                    \    "BeforeElse" : "true",
-                    \    "SplitEmptyRecord" : "false",
-                    \    "SplitEmptyFunction" : "false"
-                    \    },
-                    \"Language" : "Cpp",
-                    \"AlwaysBreakTemplateDeclarations" : "true",
+                    \"AlignAfterOpenBracket" : "Align",
                     \"AlignOperands" : "true",
                     \"AlignTrailingComments" : "true",
+                    \"AllowAllParametersOfDeclarationOnNextLine" : "true",
                     \"AllowShortBlocksOnASingleLine" : "false",
-                    \"AllowShortFunctionsOnASingleLine" : "false",
+                    \"AllowShortIfStatementsOnASingleLine" : "false",
+                    \"AllowShortLoopsOnASingleLine" : "false",
+                    \"AlwaysBreakTemplateDeclarations" : "true",
+                    \"BraceWrapping" : {
+                    \    "AfterClass" : "false",
+                    \    "AfterStruct" : "false",
+                    \    "BeforeCatch" : "true",
+                    \    "BeforeElse" : "true",
+                    \    "SplitEmptyFunction" : "false",
+                    \    "SplitEmptyRecord" : "false"
+                    \    },
+                    \"BreakBeforeBraces" : "Custom",
+                    \"BreakConstructorInitializers" : "BeforeComma",
+                    \"BreakStringLiterals" : "false",
+                    \"ColumnLimit" : "200",
+                    \"Cpp11BracedListStyle" : "true",
                     \"IncludeBlocks" : "Regroup",
+                    \"Language" : "Cpp",
+                    \"PenaltyBreakFirstLessLess" : "1000",
                     \"PointerAlignment" : "Right",
                     \"ReflowComments" : "true",
-                    \"ColumnLimit" : "200",
                     \"SpaceBeforeAssignmentOperators" : "true",
                     \"SpaceBeforeParens" : "ControlStatements",
-                    \"Cpp11BracedListStyle" : "true",
                     \"SpacesInParentheses" : "false",
                     \"SpacesInSquareBrackets" : "false",
-                    \"PenaltyBreakFirstLessLess" : "1000",
-                    \"BreakStringLiterals" : "false"
+                    \"Standard" : "C++11"
                     \}
 
         let g:clang_format#command = "clang-format"
@@ -246,9 +303,12 @@ call plug#end()
         "let g:undotree_SetFocusWhenToggle = 1
 
     " Goyo
-        autocmd! User GoyoEnter Limelight
-        autocmd! User GoyoLeave Limelight!
-        nmap <F6> :Goyo<CR>
+        "autocmd! User GoyoEnter Limelight
+        "autocmd! User GoyoLeave Limelight!
+        "nmap <F6> :Goyo<CR>
+
+        " changing from the default 80 to accomodate for UndoTree panel
+            "let g:goyo_width = 120
 
     " Gutentags
         let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']
@@ -272,9 +332,9 @@ call plug#end()
         let g:bookmark_manage_per_buffer = 1
 
     " incsearch
-        map / <Plug>(incsearch-forward)
-        map ? <Plug>(incsearch-backward)
-        map g/ <Plug>(incsearch-stay)
+        "map / <Plug>(incsearch-forward)
+        "map ? <Plug>(incsearch-backward)
+        "map g/ <Plug>(incsearch-stay)
     
     " deoplete
         let g:deoplete#sources#clang#libclang_path='/usr/local/Cellar/llvm/5.0.0/lib/libclang.dylib'
@@ -321,16 +381,12 @@ call plug#end()
         "let g:neoinclude#ctags_commands = '/usr/local/bin/ctags'
     
     " ale
-    "    let g:ale_cpp_clang_options = '-std=c++11 -I include -Wall'
-    "    let g:ale_cpp_gcc_options = '-std=c++11 -I include -Wall'
-    "    let g:ale_lint_on_text_changed = 0
-    "    let g:ale_lint_on_enter = 1
-    "    let g:ale_sign_error = 'E'
-    "    let g:ale_sign_warning = 'W'
-    "    let g:ale_set_highlighs = 0
+        "let g:ale_cpp_clang_options = '-std=c++11 -I include -Wall'
+        "let g:ale_cpp_gcc_options = '-std=c++11 -I include -Wall'
+        "let g:ale_lint_on_text_changed = 0
+        "let g:ale_lint_on_enter = 1
+        "let g:ale_sign_error = 'E'
+        "let g:ale_sign_warning = 'W'
+        "let g:ale_set_highlighs = 0
     
-    "goyo
-        " changing from the default 80 to accomodate for UndoTree panel
-        let g:goyo_width = 120
-
 source ~/.vimrc
