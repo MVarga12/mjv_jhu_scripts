@@ -1,4 +1,6 @@
 set PATH $HOME/.jenv/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
+set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/X11/lib/pkgconfig/ /opt/X11/lib/pkgconfig/
 function fish_mode_prompt; end # turns off the vi indicator
 set -g fish_key_bindings fish_vi_key_bindings
 #set -gx term $TERM screen-256color
@@ -21,3 +23,4 @@ funcsave fish_greeting
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_usr_paths
+set -g fish_user_paths "/usr/local/opt/qt@5.5/bin" $fish_user_paths

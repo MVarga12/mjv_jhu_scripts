@@ -23,6 +23,7 @@
         <C-w> T - make focused split into a new tab
         {i}gt - move to the ith tab
         tabm {+/-}{i} - move current tab {+/i} {i} tab spaces
+        gg=G - indents an entire file based on your vimrc tab commands
     }
     
     # Various Macros # {

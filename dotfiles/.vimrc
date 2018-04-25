@@ -11,74 +11,84 @@
         endif
     endfunction
     map <leader>n :call RenameFile()<cr>
-
+    
     " automatically reload vimrc upon buffer write
-    if has ('autocmd') " Remain compatible with earlier versions
-        augroup vimrc     " Source vim configuration upon save
-            autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-            autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-        augroup END
-    endif " has autocmd
+        if has ('autocmd') " Remain compatible with earlier versions
+            augroup vimrc     " Source vim configuration upon save
+                autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+                autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+            augroup END
+        endif " has autocmd
 
 " Key bindings (vim generic, not package specific)
     "This unsets the "last search pattern" register by hitting return
         nnoremap <CR> :noh<CR><CR>
-
+    
     " cpp comment line, also works on multiple lines in visual mode
         map <C-C> :TComment<CR>
     
-    " toggle folds with space
-        nnoremap <space> za 
-
     " jump to end of line and add a semi-colon in insert mode
         inoremap <Leader>; <C-o>A;
     
     " quicksave with ,s
         nnoremap <Leader>s :w<CR>
-
+    
+    " save with sudo when opened without it
+        cnoremap w!! w !sudo tee % > /dev/null
+    
+    " Easier resizing of panes
+        nnoremap <Right> :vertical resize +2<CR>
+        nnoremap <Left> :vertical resize -2<CR>
+        nnoremap <Down> :resize +2<CR>
+        nnoremap <Up> :resize -2<CR>
+    
     " easier switching from any split (specifically term split)
         nnoremap <C-h> <C-w>h
         nnoremap <C-j> <C-w>j
         nnoremap <C-k> <C-w>k
         nnoremap <C-l> <C-w>l
-
+    
     " Abbreviations (Text expansion)
         iab ilist <TAB>\begin{itemize} <CR>\end{itemize}
         iab ieq <TAB>\begin{equation*} <CR>\end{equation*}
         iab iaq <TAB>\begin{align*} <CR>\end{align*}
         iab idq <TAB>\begin{displayquote} <CR>\end{displayquote}
         iab vv std::array<double, 3><SPACE>
- 
+
 " Random other settings
     " open with folds
         set foldmethod=indent
         set foldlevelstart=1 " start with most folds open
         set foldnestmax=10 " limit nested folds
-        "space toggles folds
     
     " Make folder for swap files
         set swapfile
         set dir=~/tmp
-
-    set updatetime=100
-    set autoread
-    "set lazyredraw
-    set ttyfast
-
+        
+        set updatetime=100
+        set autoread
+        set lazyredraw
+        
     "split-term
-        set nosplitright
-        set splitbelow
-    
-" GUI Specific Settings
-    set conceallevel=2
-    set concealcursor=nvc
-    let g:tex_conceal="adgms"
+    set nosplitright
+    set splitbelow
 
-    " set font to Adobe Source Code Pro
-        set gfn=Hasklig\ Medium\:h13
+" GUI Specific Settings
+    " press <Leader>z to zoom in on vim pane
+        if exists('$TMUX')
+            nnoremap <silent> <Leader>z :call system("tmux resize-pane -Z")<CR>
+            autocmd FocusGained * call system("tmux resize-pane -Z") " TODO: make it so that this doesn't fire if switching desktops
+        endif
+    
+    " Focused pane numbering options 
+        augroup active_relative_number
+            autocmd!
+            autocmd BufEnter,FocusGained,InsertLeave * :setlocal number relativenumber
+            autocmd BufLeave,FocusLost,InsertEnter * :setlocal number norelativenumber
+        augroup END
     
     " set colour scheme
-        "set t_Co=256
+    "set t_Co=256
         if has('nvim')
             let $NVIM_TUI_ENABLE_TRUE_COLOR=1
             let base16colorspace=256
@@ -96,21 +106,25 @@
     " dummy sign to key sign column permanently open
         autocmd BufEnter * sign define dummy
         autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
-        
+    
     " show leader in the bottom right hand corner
         set showcmd
     
-    " set tab to four spaces
-        set tabstop=4
-        set shiftwidth=4
-        set softtabstop=4
-        set expandtab
+    " set tab to two spaces for C++
+        setlocal tabstop=4
+        setlocal shiftwidth=4
+        setlocal softtabstop=4
+        setlocal expandtab
     
     " Comments as italics (make sure terminfo has sitm="\E[3m" and ritm="\E[23m"
         let t_ZH="\e[3m"
         let t_ZR="\e[23m"
-        highlight Comment gui=italic cterm=italic term=italic
-
+        if (&bg == "dark")
+            highlight Comment gui=italic cterm=italic term=italic guifg=#696969
+        else 
+            highlight Comment gui=italic cterm=italic term=italic guifg=#2F4F4F
+        endif
+    
     " Some custom syntax highlighting
         hi TodoPriorityHigh cterm=italic ctermfg=52 gui=italic guifg=#DB0700
         hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
@@ -124,18 +138,18 @@
         call matchadd('TodoInProgress', '\s\=[iI][nN]\s[pP][rR][oO][gR][rR][eE][sS][sS]')
         call matchadd('TodoDone', '\s\=D[oO][nN][eE]')
         call matchadd('CodeNote', '\s\=N[oO][tT][eE]')
-
+    
     " Status Line
     " modified from http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
-        set statusline=
-        set statusline+=%f
-        set statusline+=%m
-        set statusline+=%R%=
-        set statusline+=%< " folding left
-        set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " highlight type on word
-        set statusline+=%{gutentags#statusline('[',']')}\ 
-        set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
-        "set statusline+=\b\:%-04O\ " cursor hex offset from start of file
-        "set statusline+=\c\:%03b\ " char byte code under cursor
-        set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
-        set statusline+=[%p%%] " percentage of the file
+    set statusline=
+    set statusline+=%f
+    set statusline+=%m
+    set statusline+=%R%=
+    set statusline+=%< " folding left
+    set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " highlight type on word
+    set statusline+=%{gutentags#statusline('[',']')}\ 
+    set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
+    "set statusline+=\b\:%-04O\ " cursor hex offset from start of file
+    "set statusline+=\c\:%03b\ " char byte code under cursor
+    set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
+    set statusline+=[%p%%] " percentage of the file

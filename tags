@@ -536,28 +536,37 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 90	jctc_2016_code/smoothing.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
 90	jctc_2016_code/smoothing2.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
 90	jctc_2016_code/smoothing2_prod.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
-<C-C>	dotfiles/.vimrc	/^    	map <C-C> :TComment<CR>$/;"	m
+<C-C>	dotfiles/.vimrc	/^        map <C-C> :TComment<CR>$/;"	m
 <C-h>	dotfiles/.vimrc	/^        nnoremap <C-h> <C-w>h$/;"	m
 <C-j>	dotfiles/.vimrc	/^        nnoremap <C-j> <C-w>j$/;"	m
 <C-k>	dotfiles/.vimrc	/^        nnoremap <C-k> <C-w>k$/;"	m
 <C-l>	dotfiles/.vimrc	/^        nnoremap <C-l> <C-w>l$/;"	m
 <C-p>	dotfiles/init.vim	/^        map <C-p> :FZF $/;"	m
 <CR>	dotfiles/.vimrc	/^        nnoremap <CR> :noh<CR><CR>$/;"	m
-<F5>	dotfiles/init.vim	/^        nmap <F5> :UndotreeToggle<CR>$/;"	m
-<F8>	dotfiles/init.vim	/^        nmap <F8> :TagbarToggle<CR>$/;"	m
-<Leader>;	dotfiles/.vimrc	/^     inoremap <Leader>; A;$/;"	m
+<Down>	dotfiles/.vimrc	/^        nnoremap <Down> :resize +2<CR>$/;"	m
+<F5>	dotfiles/init.vim	/^            nmap <silent> <F5> :UndotreeToggle<CR>$/;"	m
+<F6>	dotfiles/init.vim	/^        nmap <F6> :Goyo<CR>$/;"	m
+<F7>	dotfiles/init.vim	/^        nnoremap <silent> <F7> :NERDTreeToggle <Enter> :wincmd p <CR>$/;"	m
+<F8>	dotfiles/init.vim	/^        nmap <silent> <F8> :TagbarToggle<CR>$/;"	m
+<Leader>;	dotfiles/.vimrc	/^        inoremap <Leader>; <C-o>A;$/;"	m
 <Leader><Leader>m	dotfiles/init.vim	/^        nmap <Leader><Leader>m :Neomake<CR>$/;"	m
 <Leader>F	dotfiles/init.vim	/^            noremap <Leader>F :Ag<CR>$/;"	m
 <Leader>b	dotfiles/init.vim	/^            noremap <Leader>b :Buffers<CR>$/;"	m
 <Leader>f	dotfiles/init.vim	/^            noremap <Leader>f :FZF<CR>$/;"	m
 <Leader>h	dotfiles/init.vim	/^            noremap <Leader>h :History<CR>$/;"	m
+<Leader>s	dotfiles/.vimrc	/^        nnoremap <Leader>s :w<CR>$/;"	m
+<Leader>z	dotfiles/.vimrc	/^            nnoremap <silent> <Leader>z :call system("tmux resize-pane -Z")<CR>$/;"	m
+<Left>	dotfiles/.vimrc	/^        nnoremap <Left> :vertical resize -2<CR>$/;"	m
+<Right>	dotfiles/.vimrc	/^        nnoremap <Right> :vertical resize +2<CR>$/;"	m
+<Up>	dotfiles/.vimrc	/^        nnoremap <Up> :resize -2<CR>$/;"	m
 <leader>n	dotfiles/.vimrc	/^    map <leader>n :call RenameFile()<cr>$/;"	m
-<space>	dotfiles/.vimrc	/^     nnoremap <space> za $/;"	m
 <tab>	dotfiles/init.vim	/^        inoremap <expr><tab> pumvisible() ? "\\<c-n>" : "\\<tab>"$/;"	m
 Ag	dotfiles/init.vim	/^        command! -bang -nargs=* Ag$/;"	c
+AlterHeader	dotfiles/init.vim	/^        fun! AlterHeader(name)$/;"	f
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base() {$/;"	f	class:Base	file:	access:public	signature:()
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
 Base	cpp_tests/poly_vctr_test.cpp	/^class Base {$/;"	c	file:
+Batt	dotfiles/.tmux.conf	/^set -g status-right '#{prefix_highlight} #[fg=colour233,bg=colour241,bold] %v #[fg=colour233,bg=/;"	k
 Bound	daily_programmer/330/main.cpp	/^    Bound() {};$/;"	f	struct:Bound	file:	access:public	signature:()
 Bound	daily_programmer/330/main.cpp	/^struct Bound {$/;"	s	file:
 CHFDV	jctc_2016_code/hermite.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
@@ -619,13 +628,17 @@ J4SAVE	jctc_2016_code/hermite_prod.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing2.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing2_prod.f	/^      FUNCTION J4SAVE(/;"	f
+Modified	dotfiles/init.vim	/^        fun! Modified()$/;"	f
 Molecule	read_inputs.cpp	/^        Molecule() {}$/;"	f	class:Molecule	file:	access:public	signature:()
 Molecule	read_inputs.cpp	/^        Molecule(int protype1, std::string name1, std::vector<Interface> Int1)$/;"	f	class:Molecule	file:	access:public	signature:(int protype1,std::string name1,std::vector<Interface> Int1)
 Molecule	read_inputs.cpp	/^class Molecule {$/;"	c	file:
-MyTabLine	dotfiles/.vimrc	/^        function! MyTabLine()$/;"	f
 N	jctc_2016_code/integ.f90	/^integer :: N$/;"	v
 N	jctc_2016_code/integ2.f90	/^integer :: N$/;"	v
 N	jctc_2016_code/integ_real.f90	/^  integer :: N$/;"	v
+NERDTreeDirArrows	dotfiles/init.vim	/^        let NERDTreeDirArrows = 1$/;"	v
+NERDTreeMinimalUI	dotfiles/init.vim	/^        let NERDTreeMinimalUI = 1$/;"	v
+NERDTreeQuitOnOpen	dotfiles/init.vim	/^        let NERDTreeQuitOnOpen = 1$/;"	v
+NERDTreeShowLineNumbers	dotfiles/init.vim	/^        let NERDTreeShowLineNumbers = 0$/;"	v
 PCHDF	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHDF(/;"	f
 PCHDF	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHDF(/;"	f
 PCHDF	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHDF(/;"	f
@@ -678,6 +691,7 @@ Products	read_inputs.cpp	/^        std::vector<int> Products;$/;"	m	class:Reacti
 Reactants	read_inputs.cpp	/^        std::vector<int> Reactants;$/;"	m	class:Reaction	typeref:typename:std::vector<int>	file:	access:public
 Reaction	read_inputs.cpp	/^        Reaction() {}$/;"	f	class:Reaction	file:	access:public	signature:()
 Reaction	read_inputs.cpp	/^class Reaction {$/;"	c	file:
+ReadHeader	dotfiles/init.vim	/^        fun! ReadHeader(name)$/;"	f
 RenameFile	dotfiles/.vimrc	/^    function! RenameFile()$/;"	f
 W	jctc_2016_code/integ.f90	/^  real, dimension(-3:3) :: W /;"	v
 W	jctc_2016_code/integ2.f90	/^  real, dimension(-3:3) :: W /;"	v
@@ -752,6 +766,7 @@ Yfit	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(:), Yfit(/
 Yfit	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 Yfit	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 a	cpp_tests/poly_vctr_test.cpp	/^    int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
+active_relative_number	dotfiles/.vimrc	/^        augroup active_relative_number$/;"	a
 aint	jctc_2016_code/hist_out.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out2.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_copy.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
@@ -762,6 +777,7 @@ angles	read_inputs.cpp	/^        std::array<double, 3> angles;$/;"	m	class:React
 ans	nfsim_analysis_scripts/gdat_plot.py	/^ans = raw_input("Alter column (y\/n)?")$/;"	v	access:public
 args	plot.py	/^args = parser.parse_args()$/;"	v	access:public
 b	cpp_tests/poly_vctr_test.cpp	/^    int b;$/;"	m	class:Derived_b	typeref:typename:int	file:	access:public
+b:hfile	dotfiles/init.vim	/^        let b:hfile="\/Users\/mvarga\/.vim\/headers\/header.".expand("%:e")$/;"	v
 base16colorspace	dotfiles/.vimrc	/^            let base16colorspace=256$/;"	v
 bonds	read_inputs.cpp	/^        std::vector<int> bonds;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<int>	file:	access:public
 box	daily_programmer/330/main.cpp	/^    Bound box;$/;"	m	struct:Circle	typeref:typename:Bound	file:	access:public
@@ -863,15 +879,7 @@ find_min	daily_programmer/330/main.cpp	/^Point Bound::find_min(Bound& b) {$/;"	f
 finfile	jctc_2016_code/hist_int.py	/^finfile = open('productregion.dat','w')$/;"	v	access:public
 first	html_tests/action.php	/^    $error_message = $first = $last = $tit = $journal = "";$/;"	v
 first	html_tests/action.php	/^    $first = htmlspecialchars($_POST['FirstName']);$/;"	v
-g:UltiSnipsExpandTrigger	dotfiles/init.vim	/^        let g:UltiSnipsExpandTrigger="<C-j>"$/;"	v
-g:UltiSnipsJumpBackwardTrigger	dotfiles/init.vim	/^        let g:UltiSnipsJumpBackwardTrigger="<C-z>"$/;"	v
-g:UltiSnipsJumpForwardTrigger	dotfiles/init.vim	/^        let g:UltiSnipsJumpForwardTrigger="<C-b>"$/;"	v
-g:bookmark_annotation_sign	dotfiles/init.vim	/^        let g:bookmark_annotation_sign = '♪'$/;"	v
-g:bookmark_auto_close	dotfiles/init.vim	/^        let g:bookmark_auto_close = 1$/;"	v
-g:bookmark_auto_save	dotfiles/init.vim	/^        let g:bookmark_auto_save = 1$/;"	v
-g:bookmark_manage_per_buffer	dotfiles/init.vim	/^        let g:bookmark_manage_per_buffer = 1$/;"	v
-g:bookmark_save_per_working_dir	dotfiles/init.vim	/^        let g:bookmark_save_per_working_dir = 1$/;"	v
-g:clang_format#code_style	dotfiles/init.vim	/^        let g:clang_format#code_style = 'Webkit'$/;"	v
+g:clang_format#code_style	dotfiles/init.vim	/^        let g:clang_format#code_style = 'Google'$/;"	v
 g:clang_format#command	dotfiles/init.vim	/^        let g:clang_format#command = "clang-format"$/;"	v
 g:clang_format#style_options	dotfiles/init.vim	/^        let g:clang_format#style_options = {$/;"	v
 g:class_decl_highlight	dotfiles/init.vim	/^        let g:class_decl_highlight = 1$/;"	v
@@ -879,24 +887,26 @@ g:cpp_class_scope_highlight	dotfiles/init.vim	/^        let g:cpp_class_scope_hi
 g:cpp_experimental_template_highlight	dotfiles/init.vim	/^        let g:cpp_experimental_template_highlight = 1$/;"	v
 g:cpp_member_variable_highlight	dotfiles/init.vim	/^        let g:cpp_member_variable_highlight = 1$/;"	v
 g:deoplete#enable_at_startup	dotfiles/init.vim	/^        let g:deoplete#enable_at_startup=1$/;"	v
-g:deoplete#max_list	dotfiles/init.vim	/^        let g:deoplete#max_list = 20$/;"	v
+g:deoplete#max_list	dotfiles/init.vim	/^        let g:deoplete#max_list = 30$/;"	v
 g:deoplete#sources#clang#clang_header	dotfiles/init.vim	/^        let g:deoplete#sources#clang#clang_header='\/usr\/local\/Cellar\/llvm\/5.0.0\/include\/c/;"	v
 g:deoplete#sources#clang#libclang_path	dotfiles/init.vim	/^        let g:deoplete#sources#clang#libclang_path='\/usr\/local\/Cellar\/llvm\/5.0.0\/lib\/libc/;"	v
 g:fzf_action	dotfiles/init.vim	/^        let g:fzf_action = {$/;"	v
 g:fzf_colors	dotfiles/init.vim	/^        let g:fzf_colors = {$/;"	v
 g:fzf_history_dir	dotfiles/init.vim	/^        let g:fzf_history_dir = '~\/.local\/share\/fzf_history'$/;"	v
 g:gutentags_ctags_extra_args	dotfiles/init.vim	/^        let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']$/;"	v
-g:neoinclude#max_processes	dotfiles/init.vim	/^        let g:neoinclude#max_processes = 10 " max number of include files processed$/;"	v
-g:neomake_cpp_clang_maker	dotfiles/init.vim	/^        let g:neomake_cpp_clang_maker = {$/;"	v
+g:nemomake_cpp_clangtidy_maker	dotfiles/init.vim	/^            let g:nemomake_cpp_clangtidy_maker = {$/;"	v
+g:neoinclude#max_processes	dotfiles/init.vim	/^        let g:neoinclude#max_processes = 20 " max number of include files processed$/;"	v
+g:neomake_cpp_clang_maker	dotfiles/init.vim	/^            let g:neomake_cpp_clang_maker = {$/;"	v
+g:neomake_cpp_enabled_makers	dotfiles/init.vim	/^            let g:neomake_cpp_enabled_makers = ['clang', 'clangtidy']$/;"	v
 g:neomake_error_sign	dotfiles/init.vim	/^        let g:neomake_error_sign = {$/;"	v
 g:neomake_info_sign	dotfiles/init.vim	/^        let g:neomake_info_sign = {$/;"	v
 g:neomake_latex_lacheck_maker	dotfiles/init.vim	/^        let g:neomake_latex_lacheck_maker = {$/;"	v
 g:neomake_open_list	dotfiles/init.vim	/^        let g:neomake_open_list = 0$/;"	v
 g:neomake_warning_sign	dotfiles/init.vim	/^        let g:neomake_warning_sign = {$/;"	v
 g:procession_tmux_title	dotfiles/init.vim	/^        let g:procession_tmux_title = 1$/;"	v
+g:tagbar_autoshowtag	dotfiles/init.vim	/^        let g:tagbar_autoshowtag = 1 " automatically open folds to show tag$/;"	v
 g:tagbar_width	dotfiles/init.vim	/^        let g:tagbar_width = 50$/;"	v
-g:tex_conceal	dotfiles/.vimrc	/^    let g:tex_conceal="adgms"$/;"	v
-g:undotree_WindowLayout	dotfiles/init.vim	/^        let g:undotree_WindowLayout = 2$/;"	v
+g:undotree_SetFocusWhenToggle	dotfiles/init.vim	/^            let g:undotree_SetFocusWhenToggle = 1$/;"	v
 gaussian	jctc_2016_code/smoothing.f	/^      function gaussian /;"	f
 gaussian	jctc_2016_code/smoothing2.f	/^      function gaussian /;"	f
 gaussian	jctc_2016_code/smoothing2_prod.f	/^      function gaussian /;"	f
@@ -949,7 +959,8 @@ main	daily_programmer/330/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	ty
 main	daily_programmer/333/main.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 main	daily_programmer/338/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 main	read_inputs.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
-mapLeader	dotfiles/init.vim	/^let mapLeader = ","$/;"	v
+make_exe	dotfiles/init.vim	/^                augroup make_exe$/;"	a
+mapleader	dotfiles/init.vim	/^    let mapleader = "\\<SPACE>"$/;"	v
 matchval	jctc_2016_code/hist_out_newbin.py	/^      matchval = slope*old + intercept $/;"	v	access:public
 month	daily_programmer/338/main.cpp	/^    int month;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
 name	read_inputs.cpp	/^        std::string name;$/;"	m	class:Molecule	typeref:typename:std::string	file:	access:public
@@ -1009,6 +1020,7 @@ r_value	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_v
 rad	daily_programmer/330/main.cpp	/^    float rad;$/;"	m	struct:Circle	typeref:typename:float	file:	access:public
 reactants	read_inputs.cpp	/^        std::vector<std::string> reactants;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<std::string>	file:	access:public
 run	nfsim_analysis_scripts/species.py	/^run = [line.split() for line in open(filename, "r")]$/;"	v	access:public
+settabs	dotfiles/.vimrc	/^    augroup settabs$/;"	a
 sigma	read_inputs.cpp	/^        std::array<double, 3> sigma; \/\/ TODO: this should be a Coord class to make it easier?$/;"	m	class:Reaction	typeref:typename:std::array<double,3>	file:	access:public
 simpson	jctc_2016_code/smoothing.f	/^      function simpson(/;"	f
 simpson	jctc_2016_code/smoothing2.f	/^      function simpson(/;"	f
@@ -1033,6 +1045,7 @@ t_ZH	dotfiles/.vimrc	/^        let t_ZH="\\e[3m"$/;"	v
 t_ZR	dotfiles/.vimrc	/^        let t_ZR="\\e[23m"$/;"	v
 target	nfsim_analysis_scripts/gdat_plot.py	/^target = sys.argv[2]    # target specie$/;"	v	access:public
 targlist	nfsim_analysis_scripts/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
+templates	dotfiles/init.vim	/^                augroup templates$/;"	a
 text	daily_programmer/333/main.cpp	/^    string text; \/\/ packet text$/;"	m	struct:Packet	typeref:typename:string	file:	access:public
 time	nfsim_analysis_scripts/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
 tit	html_tests/action.php	/^    $error_message = $first = $last = $tit = $journal = "";$/;"	v
@@ -1048,6 +1061,8 @@ val	nfsim_analysis_scripts/gdat_plot.py	/^        val =i$/;"	v	access:public
 val	nfsim_analysis_scripts/gdat_plot.py	/^val = 0$/;"	v	access:public
 vals	nfsim_analysis_scripts/species.py	/^vals = []$/;"	v	access:public
 vals	nfsim_analysis_scripts/species.py	/^vals = [elem for elem in vals if elem != []]$/;"	v	access:public
+vimrc	dotfiles/.vimrc	/^        augroup vimrc     " Source vim configuration upon save$/;"	a
+w!!	dotfiles/.vimrc	/^        cnoremap w!! w !sudo tee % > \/dev\/null$/;"	m
 win_num	jctc_2016_code/hist_out.py	/^win_num = 8$/;"	v	access:public
 win_num	jctc_2016_code/hist_out2.py	/^win_num = 8$/;"	v	access:public
 win_num	jctc_2016_code/hist_out_copy.py	/^win_num = 9$/;"	v	access:public
