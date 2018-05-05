@@ -1,6 +1,7 @@
 set PATH $HOME/.jenv/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/X11/lib/pkgconfig/ /opt/X11/lib/pkgconfig/
+set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
 function fish_mode_prompt; end # turns off the vi indicator
 set -g fish_key_bindings fish_vi_key_bindings
 #set -gx term $TERM screen-256color
