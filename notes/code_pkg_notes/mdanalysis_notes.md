@@ -35,7 +35,7 @@
     ```
   - ResidueGroup:
     ``` python
-    > list(u.atoms[100:130].residues
+    > list(u.atoms[100:130].residues)
         # output
         [<Residue LEU, 6>, <Residue GLY, 7>, <Residue ALA, 8>]
     ```

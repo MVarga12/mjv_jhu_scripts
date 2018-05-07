@@ -1,0 +1,1134 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/4fe1a60/
+$NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;"	v
+1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
+1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
+1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
+1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	subroutine:PCHIM	file:
+1	jctc_2016_code/hermite.f	/^    1 CONTINUE$/;"	l	subroutine:PCHSP	file:
+1	jctc_2016_code/hermite_prod.f	/^     1         I2,'.',I2,')')$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1      ('RECOVERABLE ERROR IN...',23)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1      51H MESSAGE START             NERR     LEVEL     COUNT)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1     KOUNT(6),KOUNT(7),KOUNT(8),KOUNT(9),KOUNT(10)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1    (LEVEL.GE.(-1)).AND.(LEVEL.LE.2)) GO TO 10$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1   ('JOB ABORT DUE TO FATAL ERROR.',29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1   ('JOB ABORT DUE TO UNRECOVERED ERROR.',35)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1   CALL XERROR ( 'I1MACH -- I OUT OF BOUNDS',25,1,2)$/;"	l	function:I1MACH	file:
+1	jctc_2016_code/hermite_prod.f	/^     1  29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1('WARNING MESSAGE...THIS MESSAGE WILL ONLY BE PRINTED ONCE.',57)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1.OR.((LLEVEL.EQ.0)   .AND.(KOUNT.GT.MAXMES))$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^     1IFATAL = 1$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/hermite_prod.f	/^    1 CONTINUE$/;"	l	file:
+1	jctc_2016_code/hermite_prod.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
+1	jctc_2016_code/hermite_prod.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
+1	jctc_2016_code/hermite_prod.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
+1	jctc_2016_code/hermite_prod.f	/^    1 CONTINUE$/;"	l	subroutine:PCHSP	file:
+1	jctc_2016_code/smoothing.f	/^     1         I2,'.',I2,')')$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1      ('RECOVERABLE ERROR IN...',23)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1      51H MESSAGE START             NERR     LEVEL     COUNT)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/smoothing.f	/^     1     KOUNT(6),KOUNT(7),KOUNT(8),KOUNT(9),KOUNT(10)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/smoothing.f	/^     1    (LEVEL.GE.(-1)).AND.(LEVEL.LE.2)) GO TO 10$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1   ('JOB ABORT DUE TO FATAL ERROR.',29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1   ('JOB ABORT DUE TO UNRECOVERED ERROR.',35)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1   CALL XERROR ( 'I1MACH -- I OUT OF BOUNDS',25,1,2)$/;"	l	function:I1MACH	file:
+1	jctc_2016_code/smoothing.f	/^     1  29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1('WARNING MESSAGE...THIS MESSAGE WILL ONLY BE PRINTED ONCE.',57)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1.OR.((LLEVEL.EQ.0)   .AND.(KOUNT.GT.MAXMES))$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^     1IFATAL = 1$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing.f	/^    1 CONTINUE$/;"	l	file:
+1	jctc_2016_code/smoothing.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
+1	jctc_2016_code/smoothing.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
+1	jctc_2016_code/smoothing.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
+1	jctc_2016_code/smoothing.f	/^    1 CONTINUE$/;"	l	subroutine:PCHSP	file:
+1	jctc_2016_code/smoothing2.f	/^     1         I2,'.',I2,')')$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1      ('RECOVERABLE ERROR IN...',23)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1      51H MESSAGE START             NERR     LEVEL     COUNT)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/smoothing2.f	/^     1     KOUNT(6),KOUNT(7),KOUNT(8),KOUNT(9),KOUNT(10)$/;"	l	subroutine:XERSAV	file:
+1	jctc_2016_code/smoothing2.f	/^     1    (LEVEL.GE.(-1)).AND.(LEVEL.LE.2)) GO TO 10$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1   ('JOB ABORT DUE TO FATAL ERROR.',29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1   ('JOB ABORT DUE TO UNRECOVERED ERROR.',35)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1   CALL XERROR ( 'I1MACH -- I OUT OF BOUNDS',25,1,2)$/;"	l	function:I1MACH	file:
+1	jctc_2016_code/smoothing2.f	/^     1  29)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1('WARNING MESSAGE...THIS MESSAGE WILL ONLY BE PRINTED ONCE.',57)$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1.OR.((LLEVEL.EQ.0)   .AND.(KOUNT.GT.MAXMES))$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^     1IFATAL = 1$/;"	l	subroutine:XERRWV	file:
+1	jctc_2016_code/smoothing2.f	/^    1 CONTINUE$/;"	l	file:
+1	jctc_2016_code/smoothing2.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
+1	jctc_2016_code/smoothing2.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
+1	jctc_2016_code/smoothing2.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
+1	jctc_2016_code/smoothing2.f	/^    1 CONTINUE$/;"	l	subroutine:PCHSP	file:
+1	jctc_2016_code/smoothing2_prod.f	/^    1 CONTINUE$/;"	l	function:PCHIA	file:
+1	jctc_2016_code/smoothing2_prod.f	/^    1 CONTINUE$/;"	l	function:PCHID	file:
+1	jctc_2016_code/smoothing2_prod.f	/^    1 CONTINUE$/;"	l	subroutine:PCHFD	file:
+1	jctc_2016_code/smoothing2_prod.f	/^    1 CONTINUE$/;"	l	subroutine:PCHIM	file:
+1	jctc_2016_code/smoothing2_prod.f	/^    1 CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/hermite.f	/^   10       CONTINUE$/;"	l	function:PCHIA	file:
+10	jctc_2016_code/hermite.f	/^   10       FORMAT (32H0          ERROR MESSAGE SUMMARY\/$/;"	l	subroutine:XERSAV	file:
+10	jctc_2016_code/hermite.f	/^   10    CONTINUE$/;"	l	function:PCHID	file:
+10	jctc_2016_code/hermite.f	/^   10    CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/hermite.f	/^   10    CONTINUE$/;"	l	subroutine:XERPRT	file:
+10	jctc_2016_code/hermite.f	/^   10 CONTINUE$/;"	l	function:PCHDF	file:
+10	jctc_2016_code/hermite.f	/^   10 CONTINUE$/;"	l	subroutine:PCHFD	file:
+10	jctc_2016_code/hermite.f	/^   10 CONTINUE$/;"	l	subroutine:PCHIM	file:
+10	jctc_2016_code/hermite.f	/^   10 CONTINUE$/;"	l	subroutine:XERRWV	file:
+10	jctc_2016_code/hermite_prod.f	/^   10       CONTINUE$/;"	l	function:PCHIA	file:
+10	jctc_2016_code/hermite_prod.f	/^   10       FORMAT (32H0          ERROR MESSAGE SUMMARY\/$/;"	l	subroutine:XERSAV	file:
+10	jctc_2016_code/hermite_prod.f	/^   10    CONTINUE$/;"	l	function:PCHID	file:
+10	jctc_2016_code/hermite_prod.f	/^   10    CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/hermite_prod.f	/^   10    CONTINUE$/;"	l	subroutine:XERPRT	file:
+10	jctc_2016_code/hermite_prod.f	/^   10 CONTINUE$/;"	l	file:
+10	jctc_2016_code/hermite_prod.f	/^   10 CONTINUE$/;"	l	function:PCHDF	file:
+10	jctc_2016_code/hermite_prod.f	/^   10 CONTINUE$/;"	l	subroutine:PCHFD	file:
+10	jctc_2016_code/hermite_prod.f	/^   10 CONTINUE$/;"	l	subroutine:XERRWV	file:
+10	jctc_2016_code/smoothing.f	/^   10       CONTINUE$/;"	l	function:PCHIA	file:
+10	jctc_2016_code/smoothing.f	/^   10       FORMAT (32H0          ERROR MESSAGE SUMMARY\/$/;"	l	subroutine:XERSAV	file:
+10	jctc_2016_code/smoothing.f	/^   10    CONTINUE$/;"	l	function:PCHID	file:
+10	jctc_2016_code/smoothing.f	/^   10    CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/smoothing.f	/^   10    CONTINUE$/;"	l	subroutine:XERPRT	file:
+10	jctc_2016_code/smoothing.f	/^   10 CONTINUE$/;"	l	file:
+10	jctc_2016_code/smoothing.f	/^   10 CONTINUE$/;"	l	function:PCHDF	file:
+10	jctc_2016_code/smoothing.f	/^   10 CONTINUE$/;"	l	subroutine:PCHFD	file:
+10	jctc_2016_code/smoothing.f	/^   10 CONTINUE$/;"	l	subroutine:XERRWV	file:
+10	jctc_2016_code/smoothing2.f	/^   10       CONTINUE$/;"	l	function:PCHIA	file:
+10	jctc_2016_code/smoothing2.f	/^   10       FORMAT (32H0          ERROR MESSAGE SUMMARY\/$/;"	l	subroutine:XERSAV	file:
+10	jctc_2016_code/smoothing2.f	/^   10    CONTINUE$/;"	l	function:PCHID	file:
+10	jctc_2016_code/smoothing2.f	/^   10    CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/smoothing2.f	/^   10    CONTINUE$/;"	l	subroutine:XERPRT	file:
+10	jctc_2016_code/smoothing2.f	/^   10 CONTINUE$/;"	l	file:
+10	jctc_2016_code/smoothing2.f	/^   10 CONTINUE$/;"	l	function:PCHDF	file:
+10	jctc_2016_code/smoothing2.f	/^   10 CONTINUE$/;"	l	subroutine:PCHFD	file:
+10	jctc_2016_code/smoothing2.f	/^   10 CONTINUE$/;"	l	subroutine:XERRWV	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10       CONTINUE$/;"	l	function:PCHIA	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10       FORMAT (32H0          ERROR MESSAGE SUMMARY\/$/;"	l	subroutine:XERSAV	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10    CONTINUE$/;"	l	function:PCHID	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10    CONTINUE$/;"	l	subroutine:PCHSP	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10    CONTINUE$/;"	l	subroutine:XERPRT	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10 CONTINUE$/;"	l	function:PCHDF	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10 CONTINUE$/;"	l	subroutine:PCHFD	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10 CONTINUE$/;"	l	subroutine:PCHIM	file:
+10	jctc_2016_code/smoothing2_prod.f	/^   10 CONTINUE$/;"	l	subroutine:XERRWV	file:
+100	jctc_2016_code/hermite.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
+100	jctc_2016_code/hermite.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+100	jctc_2016_code/hermite_prod.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
+100	jctc_2016_code/hermite_prod.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+100	jctc_2016_code/smoothing.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
+100	jctc_2016_code/smoothing.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+100	jctc_2016_code/smoothing2.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
+100	jctc_2016_code/smoothing2.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+100	jctc_2016_code/smoothing2_prod.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
+100	jctc_2016_code/smoothing2_prod.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+110	jctc_2016_code/hermite.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+110	jctc_2016_code/hermite_prod.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+110	jctc_2016_code/smoothing.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+110	jctc_2016_code/smoothing2.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+110	jctc_2016_code/smoothing2_prod.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+120	jctc_2016_code/hermite.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
+120	jctc_2016_code/hermite_prod.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
+120	jctc_2016_code/smoothing.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
+120	jctc_2016_code/smoothing2.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
+120	jctc_2016_code/smoothing2_prod.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
+15	jctc_2016_code/hermite.f	/^   15          FORMAT (1X,A20,3I10)$/;"	l	subroutine:XERSAV	file:
+15	jctc_2016_code/hermite.f	/^   15    CONTINUE$/;"	l	subroutine:PCHSP	file:
+15	jctc_2016_code/hermite_prod.f	/^   15          FORMAT (1X,A20,3I10)$/;"	l	subroutine:XERSAV	file:
+15	jctc_2016_code/hermite_prod.f	/^   15    CONTINUE$/;"	l	subroutine:PCHSP	file:
+15	jctc_2016_code/smoothing.f	/^   15          FORMAT (1X,A20,3I10)$/;"	l	subroutine:XERSAV	file:
+15	jctc_2016_code/smoothing.f	/^   15    CONTINUE$/;"	l	subroutine:PCHSP	file:
+15	jctc_2016_code/smoothing2.f	/^   15          FORMAT (1X,A20,3I10)$/;"	l	subroutine:XERSAV	file:
+15	jctc_2016_code/smoothing2.f	/^   15    CONTINUE$/;"	l	subroutine:PCHSP	file:
+15	jctc_2016_code/smoothing2_prod.f	/^   15          FORMAT (1X,A20,3I10)$/;"	l	subroutine:XERSAV	file:
+15	jctc_2016_code/smoothing2_prod.f	/^   15    CONTINUE$/;"	l	subroutine:PCHSP	file:
+2	jctc_2016_code/hermite_prod.f	/^     2     \/0,0,0,0,0,0,0,0,0,0\/$/;"	l	subroutine:XERSAV	file:
+2	jctc_2016_code/hermite_prod.f	/^     2.OR.((LLEVEL.EQ.1)   .AND.(KOUNT.GT.MAXMES).AND.(MKNTRL.EQ.1))$/;"	l	subroutine:XERRWV	file:
+2	jctc_2016_code/smoothing.f	/^     2     \/0,0,0,0,0,0,0,0,0,0\/$/;"	l	subroutine:XERSAV	file:
+2	jctc_2016_code/smoothing.f	/^     2.OR.((LLEVEL.EQ.1)   .AND.(KOUNT.GT.MAXMES).AND.(MKNTRL.EQ.1))$/;"	l	subroutine:XERRWV	file:
+2	jctc_2016_code/smoothing2.f	/^     2     \/0,0,0,0,0,0,0,0,0,0\/$/;"	l	subroutine:XERSAV	file:
+2	jctc_2016_code/smoothing2.f	/^     2.OR.((LLEVEL.EQ.1)   .AND.(KOUNT.GT.MAXMES).AND.(MKNTRL.EQ.1))$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/hermite.f	/^   20       CONTINUE$/;"	l	function:PCHIA	file:
+20	jctc_2016_code/hermite.f	/^   20       CONTINUE$/;"	l	subroutine:XERSAV	file:
+20	jctc_2016_code/hermite.f	/^   20    CONTINUE$/;"	l	subroutine:PCHFD	file:
+20	jctc_2016_code/hermite.f	/^   20    CONTINUE$/;"	l	subroutine:PCHSP	file:
+20	jctc_2016_code/hermite.f	/^   20    CONTINUE$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/hermite.f	/^   20 CONTINUE$/;"	l	function:PCHDF	file:
+20	jctc_2016_code/hermite.f	/^   20 CONTINUE$/;"	l	subroutine:XERPRT	file:
+20	jctc_2016_code/hermite_prod.f	/^   20       CONTINUE$/;"	l	function:PCHIA	file:
+20	jctc_2016_code/hermite_prod.f	/^   20       CONTINUE$/;"	l	subroutine:XERSAV	file:
+20	jctc_2016_code/hermite_prod.f	/^   20    CONTINUE$/;"	l	subroutine:PCHFD	file:
+20	jctc_2016_code/hermite_prod.f	/^   20    CONTINUE$/;"	l	subroutine:PCHSP	file:
+20	jctc_2016_code/hermite_prod.f	/^   20    CONTINUE$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/hermite_prod.f	/^   20 CONTINUE$/;"	l	function:PCHDF	file:
+20	jctc_2016_code/hermite_prod.f	/^   20 CONTINUE$/;"	l	subroutine:XERPRT	file:
+20	jctc_2016_code/smoothing.f	/^   20       CONTINUE$/;"	l	function:PCHIA	file:
+20	jctc_2016_code/smoothing.f	/^   20       CONTINUE$/;"	l	subroutine:XERSAV	file:
+20	jctc_2016_code/smoothing.f	/^   20    CONTINUE$/;"	l	subroutine:PCHFD	file:
+20	jctc_2016_code/smoothing.f	/^   20    CONTINUE$/;"	l	subroutine:PCHSP	file:
+20	jctc_2016_code/smoothing.f	/^   20    CONTINUE$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/smoothing.f	/^   20 CONTINUE$/;"	l	function:PCHDF	file:
+20	jctc_2016_code/smoothing.f	/^   20 CONTINUE$/;"	l	subroutine:XERPRT	file:
+20	jctc_2016_code/smoothing2.f	/^   20       CONTINUE$/;"	l	function:PCHIA	file:
+20	jctc_2016_code/smoothing2.f	/^   20       CONTINUE$/;"	l	subroutine:XERSAV	file:
+20	jctc_2016_code/smoothing2.f	/^   20    CONTINUE$/;"	l	subroutine:PCHFD	file:
+20	jctc_2016_code/smoothing2.f	/^   20    CONTINUE$/;"	l	subroutine:PCHSP	file:
+20	jctc_2016_code/smoothing2.f	/^   20    CONTINUE$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/smoothing2.f	/^   20 CONTINUE$/;"	l	function:PCHDF	file:
+20	jctc_2016_code/smoothing2.f	/^   20 CONTINUE$/;"	l	subroutine:XERPRT	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20       CONTINUE$/;"	l	function:PCHIA	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20       CONTINUE$/;"	l	subroutine:XERSAV	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20    CONTINUE$/;"	l	subroutine:PCHFD	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20    CONTINUE$/;"	l	subroutine:PCHSP	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20    CONTINUE$/;"	l	subroutine:XERRWV	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20 CONTINUE$/;"	l	function:PCHDF	file:
+20	jctc_2016_code/smoothing2_prod.f	/^   20 CONTINUE$/;"	l	subroutine:XERPRT	file:
+21	jctc_2016_code/hermite.f	/^   21          FORMAT ('(11X,21HIN ABOVE MESSAGE, I',I1,'=,I',I2,')   ')$/;"	l	subroutine:XERRWV	file:
+21	jctc_2016_code/hermite_prod.f	/^   21          FORMAT ('(11X,21HIN ABOVE MESSAGE, I',I1,'=,I',I2,')   ')$/;"	l	subroutine:XERRWV	file:
+21	jctc_2016_code/smoothing.f	/^   21          FORMAT ('(11X,21HIN ABOVE MESSAGE, I',I1,'=,I',I2,')   ')$/;"	l	subroutine:XERRWV	file:
+21	jctc_2016_code/smoothing2.f	/^   21          FORMAT ('(11X,21HIN ABOVE MESSAGE, I',I1,'=,I',I2,')   ')$/;"	l	subroutine:XERRWV	file:
+21	jctc_2016_code/smoothing2_prod.f	/^   21          FORMAT ('(11X,21HIN ABOVE MESSAGE, I',I1,'=,I',I2,')   ')$/;"	l	subroutine:XERRWV	file:
+22	jctc_2016_code/hermite.f	/^   22       CONTINUE$/;"	l	subroutine:XERRWV	file:
+22	jctc_2016_code/hermite_prod.f	/^   22       CONTINUE$/;"	l	subroutine:XERRWV	file:
+22	jctc_2016_code/smoothing.f	/^   22       CONTINUE$/;"	l	subroutine:XERRWV	file:
+22	jctc_2016_code/smoothing2.f	/^   22       CONTINUE$/;"	l	subroutine:XERRWV	file:
+22	jctc_2016_code/smoothing2_prod.f	/^   22       CONTINUE$/;"	l	subroutine:XERRWV	file:
+23	jctc_2016_code/hermite.f	/^   23          FORMAT ('(11X,21HIN ABOVE MESSAGE, R',I1,'=,E',$/;"	l	subroutine:XERRWV	file:
+23	jctc_2016_code/hermite_prod.f	/^   23          FORMAT ('(11X,21HIN ABOVE MESSAGE, R',I1,'=,E',$/;"	l	subroutine:XERRWV	file:
+23	jctc_2016_code/smoothing.f	/^   23          FORMAT ('(11X,21HIN ABOVE MESSAGE, R',I1,'=,E',$/;"	l	subroutine:XERRWV	file:
+23	jctc_2016_code/smoothing2.f	/^   23          FORMAT ('(11X,21HIN ABOVE MESSAGE, R',I1,'=,E',$/;"	l	subroutine:XERRWV	file:
+23	jctc_2016_code/smoothing2_prod.f	/^   23          FORMAT ('(11X,21HIN ABOVE MESSAGE, R',I1,'=,E',$/;"	l	subroutine:XERRWV	file:
+24	jctc_2016_code/hermite.f	/^   24       CONTINUE$/;"	l	subroutine:XERRWV	file:
+24	jctc_2016_code/hermite_prod.f	/^   24       CONTINUE$/;"	l	subroutine:XERRWV	file:
+24	jctc_2016_code/smoothing.f	/^   24       CONTINUE$/;"	l	subroutine:XERRWV	file:
+24	jctc_2016_code/smoothing2.f	/^   24       CONTINUE$/;"	l	subroutine:XERRWV	file:
+24	jctc_2016_code/smoothing2_prod.f	/^   24       CONTINUE$/;"	l	subroutine:XERRWV	file:
+3	jctc_2016_code/hermite_prod.f	/^     3.OR.((LLEVEL.EQ.2)   .AND.(KOUNT.GT.MAX0(1,MAXMES)))) GO TO 100$/;"	l	subroutine:XERRWV	file:
+3	jctc_2016_code/smoothing.f	/^     3.OR.((LLEVEL.EQ.2)   .AND.(KOUNT.GT.MAX0(1,MAXMES)))) GO TO 100$/;"	l	subroutine:XERRWV	file:
+3	jctc_2016_code/smoothing2.f	/^     3.OR.((LLEVEL.EQ.2)   .AND.(KOUNT.GT.MAX0(1,MAXMES)))) GO TO 100$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/hermite.f	/^   30          FORMAT (15H ERROR NUMBER =,I10)$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/hermite.f	/^   30       CONTINUE$/;"	l	subroutine:XERSAV	file:
+30	jctc_2016_code/hermite.f	/^   30    CONTINUE$/;"	l	subroutine:PCHFD	file:
+30	jctc_2016_code/hermite.f	/^   30 CONTINUE$/;"	l	subroutine:PCHSP	file:
+30	jctc_2016_code/hermite.f	/^   30 CONTINUE$/;"	l	subroutine:XGETUA	file:
+30	jctc_2016_code/hermite_prod.f	/^   30          FORMAT (15H ERROR NUMBER =,I10)$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/hermite_prod.f	/^   30       CONTINUE$/;"	l	subroutine:XERSAV	file:
+30	jctc_2016_code/hermite_prod.f	/^   30    CONTINUE$/;"	l	subroutine:PCHFD	file:
+30	jctc_2016_code/hermite_prod.f	/^   30 CONTINUE$/;"	l	subroutine:PCHSP	file:
+30	jctc_2016_code/hermite_prod.f	/^   30 CONTINUE$/;"	l	subroutine:XGETUA	file:
+30	jctc_2016_code/smoothing.f	/^   30          FORMAT (15H ERROR NUMBER =,I10)$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/smoothing.f	/^   30       CONTINUE$/;"	l	subroutine:XERSAV	file:
+30	jctc_2016_code/smoothing.f	/^   30    CONTINUE$/;"	l	subroutine:PCHFD	file:
+30	jctc_2016_code/smoothing.f	/^   30 CONTINUE$/;"	l	subroutine:PCHSP	file:
+30	jctc_2016_code/smoothing.f	/^   30 CONTINUE$/;"	l	subroutine:XGETUA	file:
+30	jctc_2016_code/smoothing2.f	/^   30          FORMAT (15H ERROR NUMBER =,I10)$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/smoothing2.f	/^   30       CONTINUE$/;"	l	subroutine:XERSAV	file:
+30	jctc_2016_code/smoothing2.f	/^   30    CONTINUE$/;"	l	subroutine:PCHFD	file:
+30	jctc_2016_code/smoothing2.f	/^   30 CONTINUE$/;"	l	subroutine:PCHSP	file:
+30	jctc_2016_code/smoothing2.f	/^   30 CONTINUE$/;"	l	subroutine:XGETUA	file:
+30	jctc_2016_code/smoothing2_prod.f	/^   30          FORMAT (15H ERROR NUMBER =,I10)$/;"	l	subroutine:XERRWV	file:
+30	jctc_2016_code/smoothing2_prod.f	/^   30       CONTINUE$/;"	l	subroutine:XERSAV	file:
+30	jctc_2016_code/smoothing2_prod.f	/^   30    CONTINUE$/;"	l	subroutine:PCHFD	file:
+30	jctc_2016_code/smoothing2_prod.f	/^   30 CONTINUE$/;"	l	subroutine:PCHSP	file:
+30	jctc_2016_code/smoothing2_prod.f	/^   30 CONTINUE$/;"	l	subroutine:XGETUA	file:
+40	jctc_2016_code/hermite.f	/^   40       CONTINUE$/;"	l	subroutine:XERRWV	file:
+40	jctc_2016_code/hermite.f	/^   40       FORMAT (41H0OTHER ERRORS NOT INDIVIDUALLY TABULATED=,I10)$/;"	l	subroutine:XERSAV	file:
+40	jctc_2016_code/hermite.f	/^   40    CONTINUE$/;"	l	subroutine:PCHFD	file:
+40	jctc_2016_code/hermite.f	/^   40    CONTINUE$/;"	l	subroutine:PCHIM	file:
+40	jctc_2016_code/hermite.f	/^   40 CONTINUE$/;"	l	subroutine:PCHSP	file:
+40	jctc_2016_code/hermite_prod.f	/^   40       CONTINUE$/;"	l	subroutine:XERRWV	file:
+40	jctc_2016_code/hermite_prod.f	/^   40       FORMAT (41H0OTHER ERRORS NOT INDIVIDUALLY TABULATED=,I10)$/;"	l	subroutine:XERSAV	file:
+40	jctc_2016_code/hermite_prod.f	/^   40    CONTINUE$/;"	l	file:
+40	jctc_2016_code/hermite_prod.f	/^   40    CONTINUE$/;"	l	subroutine:PCHFD	file:
+40	jctc_2016_code/hermite_prod.f	/^   40 CONTINUE$/;"	l	subroutine:PCHSP	file:
+40	jctc_2016_code/smoothing.f	/^   40       CONTINUE$/;"	l	subroutine:XERRWV	file:
+40	jctc_2016_code/smoothing.f	/^   40       FORMAT (41H0OTHER ERRORS NOT INDIVIDUALLY TABULATED=,I10)$/;"	l	subroutine:XERSAV	file:
+40	jctc_2016_code/smoothing.f	/^   40    CONTINUE$/;"	l	file:
+40	jctc_2016_code/smoothing.f	/^   40    CONTINUE$/;"	l	subroutine:PCHFD	file:
+40	jctc_2016_code/smoothing.f	/^   40 CONTINUE$/;"	l	subroutine:PCHSP	file:
+40	jctc_2016_code/smoothing2.f	/^   40       CONTINUE$/;"	l	subroutine:XERRWV	file:
+40	jctc_2016_code/smoothing2.f	/^   40       FORMAT (41H0OTHER ERRORS NOT INDIVIDUALLY TABULATED=,I10)$/;"	l	subroutine:XERSAV	file:
+40	jctc_2016_code/smoothing2.f	/^   40    CONTINUE$/;"	l	file:
+40	jctc_2016_code/smoothing2.f	/^   40    CONTINUE$/;"	l	subroutine:PCHFD	file:
+40	jctc_2016_code/smoothing2.f	/^   40 CONTINUE$/;"	l	subroutine:PCHSP	file:
+40	jctc_2016_code/smoothing2_prod.f	/^   40       CONTINUE$/;"	l	subroutine:XERRWV	file:
+40	jctc_2016_code/smoothing2_prod.f	/^   40       FORMAT (41H0OTHER ERRORS NOT INDIVIDUALLY TABULATED=,I10)$/;"	l	subroutine:XERSAV	file:
+40	jctc_2016_code/smoothing2_prod.f	/^   40    CONTINUE$/;"	l	subroutine:PCHFD	file:
+40	jctc_2016_code/smoothing2_prod.f	/^   40    CONTINUE$/;"	l	subroutine:PCHIM	file:
+40	jctc_2016_code/smoothing2_prod.f	/^   40 CONTINUE$/;"	l	subroutine:PCHSP	file:
+41	jctc_2016_code/hermite.f	/^   41       CONTINUE$/;"	l	subroutine:PCHFD	file:
+41	jctc_2016_code/hermite.f	/^   41    CONTINUE$/;"	l	subroutine:PCHIM	file:
+41	jctc_2016_code/hermite_prod.f	/^   41       CONTINUE$/;"	l	subroutine:PCHFD	file:
+41	jctc_2016_code/hermite_prod.f	/^   41    CONTINUE$/;"	l	file:
+41	jctc_2016_code/smoothing.f	/^   41       CONTINUE$/;"	l	subroutine:PCHFD	file:
+41	jctc_2016_code/smoothing.f	/^   41    CONTINUE$/;"	l	file:
+41	jctc_2016_code/smoothing2.f	/^   41       CONTINUE$/;"	l	subroutine:PCHFD	file:
+41	jctc_2016_code/smoothing2.f	/^   41    CONTINUE$/;"	l	file:
+41	jctc_2016_code/smoothing2_prod.f	/^   41       CONTINUE$/;"	l	subroutine:PCHFD	file:
+41	jctc_2016_code/smoothing2_prod.f	/^   41    CONTINUE$/;"	l	subroutine:PCHIM	file:
+42	jctc_2016_code/hermite.f	/^   42    CONTINUE$/;"	l	subroutine:PCHFD	file:
+42	jctc_2016_code/hermite.f	/^   42    CONTINUE$/;"	l	subroutine:PCHIM	file:
+42	jctc_2016_code/hermite_prod.f	/^   42    CONTINUE$/;"	l	file:
+42	jctc_2016_code/hermite_prod.f	/^   42    CONTINUE$/;"	l	subroutine:PCHFD	file:
+42	jctc_2016_code/smoothing.f	/^   42    CONTINUE$/;"	l	file:
+42	jctc_2016_code/smoothing.f	/^   42    CONTINUE$/;"	l	subroutine:PCHFD	file:
+42	jctc_2016_code/smoothing2.f	/^   42    CONTINUE$/;"	l	file:
+42	jctc_2016_code/smoothing2.f	/^   42    CONTINUE$/;"	l	subroutine:PCHFD	file:
+42	jctc_2016_code/smoothing2_prod.f	/^   42    CONTINUE$/;"	l	subroutine:PCHFD	file:
+42	jctc_2016_code/smoothing2_prod.f	/^   42    CONTINUE$/;"	l	subroutine:PCHIM	file:
+43	jctc_2016_code/hermite.f	/^   43       CONTINUE$/;"	l	subroutine:PCHFD	file:
+43	jctc_2016_code/hermite_prod.f	/^   43       CONTINUE$/;"	l	subroutine:PCHFD	file:
+43	jctc_2016_code/smoothing.f	/^   43       CONTINUE$/;"	l	subroutine:PCHFD	file:
+43	jctc_2016_code/smoothing2.f	/^   43       CONTINUE$/;"	l	subroutine:PCHFD	file:
+43	jctc_2016_code/smoothing2_prod.f	/^   43       CONTINUE$/;"	l	subroutine:PCHFD	file:
+44	jctc_2016_code/hermite.f	/^   44          CONTINUE$/;"	l	subroutine:PCHFD	file:
+44	jctc_2016_code/hermite_prod.f	/^   44          CONTINUE$/;"	l	subroutine:PCHFD	file:
+44	jctc_2016_code/smoothing.f	/^   44          CONTINUE$/;"	l	subroutine:PCHFD	file:
+44	jctc_2016_code/smoothing2.f	/^   44          CONTINUE$/;"	l	subroutine:PCHFD	file:
+44	jctc_2016_code/smoothing2_prod.f	/^   44          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/hermite.f	/^   45          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/hermite.f	/^   45    CONTINUE$/;"	l	subroutine:PCHIM	file:
+45	jctc_2016_code/hermite_prod.f	/^   45          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/hermite_prod.f	/^   45    CONTINUE$/;"	l	file:
+45	jctc_2016_code/smoothing.f	/^   45          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/smoothing.f	/^   45    CONTINUE$/;"	l	file:
+45	jctc_2016_code/smoothing2.f	/^   45          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/smoothing2.f	/^   45    CONTINUE$/;"	l	file:
+45	jctc_2016_code/smoothing2_prod.f	/^   45          CONTINUE$/;"	l	subroutine:PCHFD	file:
+45	jctc_2016_code/smoothing2_prod.f	/^   45    CONTINUE$/;"	l	subroutine:PCHIM	file:
+46	jctc_2016_code/hermite.f	/^   46          CONTINUE$/;"	l	subroutine:PCHFD	file:
+46	jctc_2016_code/hermite_prod.f	/^   46          CONTINUE$/;"	l	subroutine:PCHFD	file:
+46	jctc_2016_code/smoothing.f	/^   46          CONTINUE$/;"	l	subroutine:PCHFD	file:
+46	jctc_2016_code/smoothing2.f	/^   46          CONTINUE$/;"	l	subroutine:PCHFD	file:
+46	jctc_2016_code/smoothing2_prod.f	/^   46          CONTINUE$/;"	l	subroutine:PCHFD	file:
+47	jctc_2016_code/hermite.f	/^   47          CONTINUE$/;"	l	subroutine:PCHFD	file:
+47	jctc_2016_code/hermite_prod.f	/^   47          CONTINUE$/;"	l	subroutine:PCHFD	file:
+47	jctc_2016_code/smoothing.f	/^   47          CONTINUE$/;"	l	subroutine:PCHFD	file:
+47	jctc_2016_code/smoothing2.f	/^   47          CONTINUE$/;"	l	subroutine:PCHFD	file:
+47	jctc_2016_code/smoothing2_prod.f	/^   47          CONTINUE$/;"	l	subroutine:PCHFD	file:
+49	jctc_2016_code/hermite.f	/^   49    CONTINUE$/;"	l	subroutine:PCHFD	file:
+49	jctc_2016_code/hermite_prod.f	/^   49    CONTINUE$/;"	l	subroutine:PCHFD	file:
+49	jctc_2016_code/smoothing.f	/^   49    CONTINUE$/;"	l	subroutine:PCHFD	file:
+49	jctc_2016_code/smoothing2.f	/^   49    CONTINUE$/;"	l	subroutine:PCHFD	file:
+49	jctc_2016_code/smoothing2_prod.f	/^   49    CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/hermite.f	/^    5 CONTINUE$/;"	l	function:PCHIA	file:
+5	jctc_2016_code/hermite.f	/^    5 CONTINUE$/;"	l	function:PCHID	file:
+5	jctc_2016_code/hermite.f	/^    5 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/hermite.f	/^    5 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5	jctc_2016_code/hermite_prod.f	/^    5 CONTINUE$/;"	l	function:PCHIA	file:
+5	jctc_2016_code/hermite_prod.f	/^    5 CONTINUE$/;"	l	function:PCHID	file:
+5	jctc_2016_code/hermite_prod.f	/^    5 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/hermite_prod.f	/^    5 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5	jctc_2016_code/smoothing.f	/^    5 CONTINUE$/;"	l	function:PCHIA	file:
+5	jctc_2016_code/smoothing.f	/^    5 CONTINUE$/;"	l	function:PCHID	file:
+5	jctc_2016_code/smoothing.f	/^    5 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/smoothing.f	/^    5 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5	jctc_2016_code/smoothing2.f	/^    5 CONTINUE$/;"	l	function:PCHIA	file:
+5	jctc_2016_code/smoothing2.f	/^    5 CONTINUE$/;"	l	function:PCHID	file:
+5	jctc_2016_code/smoothing2.f	/^    5 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/smoothing2.f	/^    5 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5	jctc_2016_code/smoothing2_prod.f	/^    5 CONTINUE$/;"	l	function:PCHIA	file:
+5	jctc_2016_code/smoothing2_prod.f	/^    5 CONTINUE$/;"	l	function:PCHID	file:
+5	jctc_2016_code/smoothing2_prod.f	/^    5 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5	jctc_2016_code/smoothing2_prod.f	/^    5 CONTINUE$/;"	l	subroutine:PCHSP	file:
+50	jctc_2016_code/hermite.f	/^   50       FORMAT (1X)$/;"	l	subroutine:XERSAV	file:
+50	jctc_2016_code/hermite.f	/^   50    CONTINUE$/;"	l	subroutine:XERRWV	file:
+50	jctc_2016_code/hermite.f	/^   50 CONTINUE$/;"	l	subroutine:PCHFD	file:
+50	jctc_2016_code/hermite.f	/^   50 CONTINUE$/;"	l	subroutine:PCHIM	file:
+50	jctc_2016_code/hermite_prod.f	/^   50       FORMAT (1X)$/;"	l	subroutine:XERSAV	file:
+50	jctc_2016_code/hermite_prod.f	/^   50    CONTINUE$/;"	l	subroutine:XERRWV	file:
+50	jctc_2016_code/hermite_prod.f	/^   50 CONTINUE$/;"	l	file:
+50	jctc_2016_code/hermite_prod.f	/^   50 CONTINUE$/;"	l	subroutine:PCHFD	file:
+50	jctc_2016_code/smoothing.f	/^   50       FORMAT (1X)$/;"	l	subroutine:XERSAV	file:
+50	jctc_2016_code/smoothing.f	/^   50    CONTINUE$/;"	l	subroutine:XERRWV	file:
+50	jctc_2016_code/smoothing.f	/^   50 CONTINUE$/;"	l	file:
+50	jctc_2016_code/smoothing.f	/^   50 CONTINUE$/;"	l	subroutine:PCHFD	file:
+50	jctc_2016_code/smoothing2.f	/^   50       FORMAT (1X)$/;"	l	subroutine:XERSAV	file:
+50	jctc_2016_code/smoothing2.f	/^   50    CONTINUE$/;"	l	subroutine:XERRWV	file:
+50	jctc_2016_code/smoothing2.f	/^   50 CONTINUE$/;"	l	file:
+50	jctc_2016_code/smoothing2.f	/^   50 CONTINUE$/;"	l	subroutine:PCHFD	file:
+50	jctc_2016_code/smoothing2_prod.f	/^   50       FORMAT (1X)$/;"	l	subroutine:XERSAV	file:
+50	jctc_2016_code/smoothing2_prod.f	/^   50    CONTINUE$/;"	l	subroutine:XERRWV	file:
+50	jctc_2016_code/smoothing2_prod.f	/^   50 CONTINUE$/;"	l	subroutine:PCHFD	file:
+50	jctc_2016_code/smoothing2_prod.f	/^   50 CONTINUE$/;"	l	subroutine:PCHIM	file:
+500	jctc_2016_code/hermite.f	/^  500 CONTINUE$/;"	l	subroutine:CHFDV	file:
+500	jctc_2016_code/hermite_prod.f	/^  500 CONTINUE$/;"	l	subroutine:CHFDV	file:
+500	jctc_2016_code/smoothing.f	/^  500 CONTINUE$/;"	l	subroutine:CHFDV	file:
+500	jctc_2016_code/smoothing2.f	/^  500 CONTINUE$/;"	l	subroutine:CHFDV	file:
+500	jctc_2016_code/smoothing2_prod.f	/^  500 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5000	jctc_2016_code/hermite.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHEV	file:
+5000	jctc_2016_code/hermite.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5000	jctc_2016_code/hermite.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5000	jctc_2016_code/hermite_prod.f	/^ 5000 CONTINUE$/;"	l	file:
+5000	jctc_2016_code/hermite_prod.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHEV	file:
+5000	jctc_2016_code/hermite_prod.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5000	jctc_2016_code/smoothing.f	/^ 5000 CONTINUE$/;"	l	file:
+5000	jctc_2016_code/smoothing.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHEV	file:
+5000	jctc_2016_code/smoothing.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5000	jctc_2016_code/smoothing2.f	/^ 5000 CONTINUE$/;"	l	file:
+5000	jctc_2016_code/smoothing2.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHEV	file:
+5000	jctc_2016_code/smoothing2.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5000	jctc_2016_code/smoothing2_prod.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHEV	file:
+5000	jctc_2016_code/smoothing2_prod.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5000	jctc_2016_code/smoothing2_prod.f	/^ 5000 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	function:CHFIV	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	function:PCHDF	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	function:PCHIA	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	function:PCHID	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5001	jctc_2016_code/hermite.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	function:CHFIV	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHDF	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHIA	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHID	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5001	jctc_2016_code/hermite_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	function:CHFIV	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	function:PCHDF	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	function:PCHIA	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	function:PCHID	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5001	jctc_2016_code/smoothing.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	function:CHFIV	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	function:PCHDF	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	function:PCHIA	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	function:PCHID	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5001	jctc_2016_code/smoothing2.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	function:CHFIV	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHDF	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHIA	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	function:PCHID	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5001	jctc_2016_code/smoothing2_prod.f	/^ 5001 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	function:PCHIA	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	function:PCHID	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5002	jctc_2016_code/hermite.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	function:PCHIA	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	function:PCHID	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5002	jctc_2016_code/hermite_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	function:PCHIA	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	function:PCHID	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5002	jctc_2016_code/smoothing.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	function:PCHIA	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	function:PCHID	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5002	jctc_2016_code/smoothing2.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	function:PCHIA	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	function:PCHID	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:CHFDV	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5002	jctc_2016_code/smoothing2_prod.f	/^ 5002 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5003	jctc_2016_code/hermite.f	/^ 5003 CONTINUE$/;"	l	function:PCHIA	file:
+5003	jctc_2016_code/hermite.f	/^ 5003 CONTINUE$/;"	l	function:PCHID	file:
+5003	jctc_2016_code/hermite.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5003	jctc_2016_code/hermite.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5003	jctc_2016_code/hermite.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5003	jctc_2016_code/hermite_prod.f	/^ 5003 CONTINUE$/;"	l	file:
+5003	jctc_2016_code/hermite_prod.f	/^ 5003 CONTINUE$/;"	l	function:PCHIA	file:
+5003	jctc_2016_code/hermite_prod.f	/^ 5003 CONTINUE$/;"	l	function:PCHID	file:
+5003	jctc_2016_code/hermite_prod.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5003	jctc_2016_code/hermite_prod.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5003	jctc_2016_code/smoothing.f	/^ 5003 CONTINUE$/;"	l	file:
+5003	jctc_2016_code/smoothing.f	/^ 5003 CONTINUE$/;"	l	function:PCHIA	file:
+5003	jctc_2016_code/smoothing.f	/^ 5003 CONTINUE$/;"	l	function:PCHID	file:
+5003	jctc_2016_code/smoothing.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5003	jctc_2016_code/smoothing.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5003	jctc_2016_code/smoothing2.f	/^ 5003 CONTINUE$/;"	l	file:
+5003	jctc_2016_code/smoothing2.f	/^ 5003 CONTINUE$/;"	l	function:PCHIA	file:
+5003	jctc_2016_code/smoothing2.f	/^ 5003 CONTINUE$/;"	l	function:PCHID	file:
+5003	jctc_2016_code/smoothing2.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5003	jctc_2016_code/smoothing2.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5003	jctc_2016_code/smoothing2_prod.f	/^ 5003 CONTINUE$/;"	l	function:PCHIA	file:
+5003	jctc_2016_code/smoothing2_prod.f	/^ 5003 CONTINUE$/;"	l	function:PCHID	file:
+5003	jctc_2016_code/smoothing2_prod.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5003	jctc_2016_code/smoothing2_prod.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHIM	file:
+5003	jctc_2016_code/smoothing2_prod.f	/^ 5003 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5004	jctc_2016_code/hermite.f	/^ 5004 CONTINUE$/;"	l	function:PCHIA	file:
+5004	jctc_2016_code/hermite.f	/^ 5004 CONTINUE$/;"	l	function:PCHID	file:
+5004	jctc_2016_code/hermite.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5004	jctc_2016_code/hermite.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5004	jctc_2016_code/hermite_prod.f	/^ 5004 CONTINUE$/;"	l	function:PCHIA	file:
+5004	jctc_2016_code/hermite_prod.f	/^ 5004 CONTINUE$/;"	l	function:PCHID	file:
+5004	jctc_2016_code/hermite_prod.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5004	jctc_2016_code/hermite_prod.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5004	jctc_2016_code/smoothing.f	/^ 5004 CONTINUE$/;"	l	function:PCHIA	file:
+5004	jctc_2016_code/smoothing.f	/^ 5004 CONTINUE$/;"	l	function:PCHID	file:
+5004	jctc_2016_code/smoothing.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5004	jctc_2016_code/smoothing.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5004	jctc_2016_code/smoothing2.f	/^ 5004 CONTINUE$/;"	l	function:PCHIA	file:
+5004	jctc_2016_code/smoothing2.f	/^ 5004 CONTINUE$/;"	l	function:PCHID	file:
+5004	jctc_2016_code/smoothing2.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5004	jctc_2016_code/smoothing2.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5004	jctc_2016_code/smoothing2_prod.f	/^ 5004 CONTINUE$/;"	l	function:PCHIA	file:
+5004	jctc_2016_code/smoothing2_prod.f	/^ 5004 CONTINUE$/;"	l	function:PCHID	file:
+5004	jctc_2016_code/smoothing2_prod.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5004	jctc_2016_code/smoothing2_prod.f	/^ 5004 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5005	jctc_2016_code/hermite.f	/^ 5005 CONTINUE$/;"	l	function:PCHIA	file:
+5005	jctc_2016_code/hermite.f	/^ 5005 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5005	jctc_2016_code/hermite_prod.f	/^ 5005 CONTINUE$/;"	l	function:PCHIA	file:
+5005	jctc_2016_code/hermite_prod.f	/^ 5005 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5005	jctc_2016_code/smoothing.f	/^ 5005 CONTINUE$/;"	l	function:PCHIA	file:
+5005	jctc_2016_code/smoothing.f	/^ 5005 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5005	jctc_2016_code/smoothing2.f	/^ 5005 CONTINUE$/;"	l	function:PCHIA	file:
+5005	jctc_2016_code/smoothing2.f	/^ 5005 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5005	jctc_2016_code/smoothing2_prod.f	/^ 5005 CONTINUE$/;"	l	function:PCHIA	file:
+5005	jctc_2016_code/smoothing2_prod.f	/^ 5005 CONTINUE$/;"	l	subroutine:PCHFD	file:
+5007	jctc_2016_code/hermite.f	/^ 5007 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5007	jctc_2016_code/hermite_prod.f	/^ 5007 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5007	jctc_2016_code/smoothing.f	/^ 5007 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5007	jctc_2016_code/smoothing2.f	/^ 5007 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5007	jctc_2016_code/smoothing2_prod.f	/^ 5007 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5008	jctc_2016_code/hermite.f	/^ 5008 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5008	jctc_2016_code/hermite_prod.f	/^ 5008 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5008	jctc_2016_code/smoothing.f	/^ 5008 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5008	jctc_2016_code/smoothing2.f	/^ 5008 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5008	jctc_2016_code/smoothing2_prod.f	/^ 5008 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5009	jctc_2016_code/hermite.f	/^ 5009 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5009	jctc_2016_code/hermite_prod.f	/^ 5009 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5009	jctc_2016_code/smoothing.f	/^ 5009 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5009	jctc_2016_code/smoothing2.f	/^ 5009 CONTINUE$/;"	l	subroutine:PCHSP	file:
+5009	jctc_2016_code/smoothing2_prod.f	/^ 5009 CONTINUE$/;"	l	subroutine:PCHSP	file:
+60	jctc_2016_code/hermite.f	/^   60    CONTINUE$/;"	l	subroutine:XERSAV	file:
+60	jctc_2016_code/hermite_prod.f	/^   60    CONTINUE$/;"	l	subroutine:XERSAV	file:
+60	jctc_2016_code/smoothing.f	/^   60    CONTINUE$/;"	l	subroutine:XERSAV	file:
+60	jctc_2016_code/smoothing2.f	/^   60    CONTINUE$/;"	l	subroutine:XERSAV	file:
+60	jctc_2016_code/smoothing2_prod.f	/^   60    CONTINUE$/;"	l	subroutine:XERSAV	file:
+70	jctc_2016_code/hermite.f	/^   70       KOUNT(I) = 0$/;"	l	subroutine:XERSAV	file:
+70	jctc_2016_code/hermite_prod.f	/^   70       KOUNT(I) = 0$/;"	l	subroutine:XERSAV	file:
+70	jctc_2016_code/smoothing.f	/^   70       KOUNT(I) = 0$/;"	l	subroutine:XERSAV	file:
+70	jctc_2016_code/smoothing2.f	/^   70       KOUNT(I) = 0$/;"	l	subroutine:XERSAV	file:
+70	jctc_2016_code/smoothing2_prod.f	/^   70       KOUNT(I) = 0$/;"	l	subroutine:XERSAV	file:
+80	jctc_2016_code/hermite.f	/^   80 CONTINUE$/;"	l	subroutine:XERSAV	file:
+80	jctc_2016_code/hermite_prod.f	/^   80 CONTINUE$/;"	l	subroutine:XERSAV	file:
+80	jctc_2016_code/smoothing.f	/^   80 CONTINUE$/;"	l	subroutine:XERSAV	file:
+80	jctc_2016_code/smoothing2.f	/^   80 CONTINUE$/;"	l	subroutine:XERSAV	file:
+80	jctc_2016_code/smoothing2_prod.f	/^   80 CONTINUE$/;"	l	subroutine:XERSAV	file:
+9	jctc_2016_code/hermite.f	/^    9    CONTINUE$/;"	l	function:PCHDF	file:
+9	jctc_2016_code/hermite_prod.f	/^    9    CONTINUE$/;"	l	function:PCHDF	file:
+9	jctc_2016_code/smoothing.f	/^    9    CONTINUE$/;"	l	function:PCHDF	file:
+9	jctc_2016_code/smoothing2.f	/^    9    CONTINUE$/;"	l	function:PCHDF	file:
+9	jctc_2016_code/smoothing2_prod.f	/^    9    CONTINUE$/;"	l	function:PCHDF	file:
+90	jctc_2016_code/hermite.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
+90	jctc_2016_code/hermite_prod.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
+90	jctc_2016_code/smoothing.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
+90	jctc_2016_code/smoothing2.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
+90	jctc_2016_code/smoothing2_prod.f	/^   90 CONTINUE$/;"	l	subroutine:XERSAV	file:
+<C-C>	dotfiles/.vimrc	/^        map <C-C> :TComment<CR>$/;"	m
+<C-h>	dotfiles/.vimrc	/^        nnoremap <C-h> <C-w>h$/;"	m
+<C-j>	dotfiles/.vimrc	/^        nnoremap <C-j> <C-w>j$/;"	m
+<C-k>	dotfiles/.vimrc	/^        nnoremap <C-k> <C-w>k$/;"	m
+<C-l>	dotfiles/.vimrc	/^        nnoremap <C-l> <C-w>l$/;"	m
+<C-p>	dotfiles/init.vim	/^        map <C-p> :FZF $/;"	m
+<CR>	dotfiles/.vimrc	/^        nnoremap <CR> :noh<CR><CR>$/;"	m
+<Down>	dotfiles/.vimrc	/^        nnoremap <Down> :resize +2<CR>$/;"	m
+<F5>	dotfiles/init.vim	/^        nmap <silent> <F5> :UndotreeToggle<CR>$/;"	m
+<F6>	dotfiles/init.vim	/^        nmap <F6> :Goyo<CR>$/;"	m
+<F8>	dotfiles/init.vim	/^    nmap <silent> <F8> :TagbarToggle<CR>$/;"	m
+<Leader>;	dotfiles/.vimrc	/^        inoremap <Leader>; <C-o>A;$/;"	m
+<Leader><Leader>s	dotfiles/.vimrc	/^        nnoremap <Leader><Leader>s :source ~\/.vimrc<CR>$/;"	m
+<Leader>F	dotfiles/init.vim	/^        noremap <Leader>F :Ag<CR>$/;"	m
+<Leader>b	dotfiles/init.vim	/^        noremap <Leader>b :Buffers<CR>$/;"	m
+<Leader>f	dotfiles/init.vim	/^        noremap <Leader>f :FZF<CR>$/;"	m
+<Leader>h	dotfiles/init.vim	/^        noremap <Leader>h :History<CR>$/;"	m
+<Leader>s	dotfiles/.vimrc	/^        nnoremap <Leader>s :w<CR>$/;"	m
+<Leader>ss	dotfiles/.vimrc	/^    nnoremap <Leader>ss :Ssplit<CR>$/;"	m
+<Leader>sv	dotfiles/.vimrc	/^    nnoremap <Leader>sv :Svsplit<CR>$/;"	m
+<Leader>z	dotfiles/.vimrc	/^            nnoremap <silent> <Leader>z :call system("tmux resize-pane -Z")<CR>$/;"	m
+<Left>	dotfiles/.vimrc	/^        nnoremap <Left> :vertical resize -2<CR>$/;"	m
+<Right>	dotfiles/.vimrc	/^        nnoremap <Right> :vertical resize +2<CR>$/;"	m
+<S-Tab>	dotfiles/init.vim	/^    inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<Tab>	dotfiles/init.vim	/^    inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
+<Up>	dotfiles/.vimrc	/^        nnoremap <Up> :resize -2<CR>$/;"	m
+<leader>n	dotfiles/.vimrc	/^    map <leader>n :call RenameFile()<cr>$/;"	m
+Ag	dotfiles/init.vim	/^        command! -bang -nargs=* Ag$/;"	c
+AlterHeader	dotfiles/init.vim	/^        fun! AlterHeader(name)$/;"	f
+Base	cpp_tests/poly_vctr_test.cpp	/^    Base() {$/;"	f	class:Base	file:	access:public	signature:()
+Base	cpp_tests/poly_vctr_test.cpp	/^    Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
+Base	cpp_tests/poly_vctr_test.cpp	/^class Base {$/;"	c	file:
+Batt	dotfiles/.tmux.conf	/^set -g status-right '#{prefix_highlight} #[fg=colour233,bg=colour241,bold] %v #[fg=colour233,bg=/;"	k
+Bound	daily_programmer/330/main.cpp	/^    Bound() {};$/;"	f	struct:Bound	file:	access:public	signature:()
+Bound	daily_programmer/330/main.cpp	/^struct Bound {$/;"	s	file:
+CHFDV	jctc_2016_code/hermite.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
+CHFDV	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
+CHFDV	jctc_2016_code/smoothing.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
+CHFDV	jctc_2016_code/smoothing2.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
+CHFDV	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
+CHFIV	jctc_2016_code/hermite.f	/^      REAL FUNCTION CHFIV(/;"	f
+CHFIV	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION CHFIV(/;"	f
+CHFIV	jctc_2016_code/smoothing.f	/^      REAL FUNCTION CHFIV(/;"	f
+CHFIV	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION CHFIV(/;"	f
+CHFIV	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION CHFIV(/;"	f
+Circle	daily_programmer/330/main.cpp	/^    Circle() {};$/;"	f	struct:Circle	file:	access:public	signature:()
+Circle	daily_programmer/330/main.cpp	/^struct Circle {$/;"	s	file:
+D	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
+D	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
+D	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
+D	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
+D	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
+Date	daily_programmer/338/main.cpp	/^    Date() {};$/;"	f	struct:Date	file:	access:public	signature:()
+Date	daily_programmer/338/main.cpp	/^struct Date {$/;"	s	file:
+Derived_a	cpp_tests/poly_vctr_test.cpp	/^    Derived_a(int a1)$/;"	f	class:Derived_a	file:	access:public	signature:(int a1)
+Derived_a	cpp_tests/poly_vctr_test.cpp	/^class Derived_a : public Base {$/;"	c	file:	inherits:Base
+Derived_b	cpp_tests/poly_vctr_test.cpp	/^    Derived_b(int b1)$/;"	f	class:Derived_b	file:	access:public	signature:(int b1)
+Derived_b	cpp_tests/poly_vctr_test.cpp	/^class Derived_b : public Base {$/;"	c	file:	inherits:Base
+F	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(/;"	v
+F	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(/;"	v
+F	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(/;"	v
+F	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(/;"	v
+F	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(/;"	v
+FDUMP	jctc_2016_code/hermite.f	/^      SUBROUTINE FDUMP$/;"	s
+FDUMP	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE FDUMP$/;"	s
+FDUMP	jctc_2016_code/smoothing.f	/^      SUBROUTINE FDUMP$/;"	s
+FDUMP	jctc_2016_code/smoothing2.f	/^      SUBROUTINE FDUMP$/;"	s
+FDUMP	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE FDUMP$/;"	s
+Fd	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
+Fd	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
+Fd	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
+Fd	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
+Fd	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
+Fe	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+Fe	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+Fe	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+Fe	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+Fe	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+I	dotfiles/.tmux.conf	/^setw -g window-status-current-format " #F#I:#W#F "$/;"	k
+I	dotfiles/.tmux.conf	/^setw -g window-status-format " #F#I:#W#F "$/;"	k
+I1MACH	jctc_2016_code/hermite.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+I1MACH	jctc_2016_code/hermite_prod.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+I1MACH	jctc_2016_code/smoothing.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+I1MACH	jctc_2016_code/smoothing2.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+I1MACH	jctc_2016_code/smoothing2_prod.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+Interface	cpp_tests/read_inputs.cpp	/^    Interface() {}$/;"	f	class:Interface	file:	access:public	signature:()
+Interface	cpp_tests/read_inputs.cpp	/^    Interface(std::string name1, int index1)$/;"	f	class:Interface	file:	access:public	signature:(std::string name1,int index1)
+Interface	cpp_tests/read_inputs.cpp	/^class Interface {$/;"	c	file:
+Interfaces	cpp_tests/read_inputs.cpp	/^        std::vector<Interface> Interfaces;$/;"	m	class:Molecule	typeref:typename:std::vector<Interface>	file:	access:public
+J4SAVE	jctc_2016_code/hermite.f	/^      FUNCTION J4SAVE(/;"	f
+J4SAVE	jctc_2016_code/hermite_prod.f	/^      FUNCTION J4SAVE(/;"	f
+J4SAVE	jctc_2016_code/smoothing.f	/^      FUNCTION J4SAVE(/;"	f
+J4SAVE	jctc_2016_code/smoothing2.f	/^      FUNCTION J4SAVE(/;"	f
+J4SAVE	jctc_2016_code/smoothing2_prod.f	/^      FUNCTION J4SAVE(/;"	f
+LinterStatus	dotfiles/.vimrc	/^    function! LinterStatus() abort$/;"	f
+MarkdownSyntaxIgnore	dotfiles/.vimrc	/^        function! MarkdownSyntaxIgnore()$/;"	f
+Modified	dotfiles/init.vim	/^        fun! Modified()$/;"	f
+Molecule	cpp_tests/read_inputs.cpp	/^        Molecule() {}$/;"	f	class:Molecule	file:	access:public	signature:()
+Molecule	cpp_tests/read_inputs.cpp	/^        Molecule(int protype1, std::string name1, std::vector<Interface> Int1)$/;"	f	class:Molecule	file:	access:public	signature:(int protype1,std::string name1,std::vector<Interface> Int1)
+Molecule	cpp_tests/read_inputs.cpp	/^class Molecule {$/;"	c	file:
+N	jctc_2016_code/integ.f90	/^integer :: N$/;"	v
+N	jctc_2016_code/integ2.f90	/^integer :: N$/;"	v
+N	jctc_2016_code/integ_real.f90	/^  integer :: N$/;"	v
+PCHDF	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHDF(/;"	f
+PCHDF	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHDF(/;"	f
+PCHDF	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHDF(/;"	f
+PCHDF	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHDF(/;"	f
+PCHDF	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHDF(/;"	f
+PCHEV	jctc_2016_code/hermite.f	/^      SUBROUTINE PCHEV(/;"	s	signature:(N, X, F, D, NVAL, XVAL, FVAL, DVAL, IERR)
+PCHEV	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE PCHEV(/;"	s	signature:(N, X, F, D, NVAL, XVAL, FVAL, DVAL, IERR)
+PCHEV	jctc_2016_code/smoothing.f	/^      SUBROUTINE PCHEV(/;"	s	signature:(N, X, F, D, NVAL, XVAL, FVAL, DVAL, IERR)
+PCHEV	jctc_2016_code/smoothing2.f	/^      SUBROUTINE PCHEV(/;"	s	signature:(N, X, F, D, NVAL, XVAL, FVAL, DVAL, IERR)
+PCHEV	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE PCHEV(/;"	s	signature:(N, X, F, D, NVAL, XVAL, FVAL, DVAL, IERR)
+PCHEZ	jctc_2016_code/hermite.f	/^      SUBROUTINE PCHEZ(/;"	s	signature:(N, X, F, D, SPLINE, WK, LWK, IERR)
+PCHEZ	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE PCHEZ(/;"	s	signature:(N, X, F, D, SPLINE, WK, LWK, IERR)
+PCHFD	jctc_2016_code/hermite.f	/^      SUBROUTINE PCHFD(/;"	s	signature:(N, X, F, D, INCFD, SKIP, NE, XE, FE, DE, IERR)
+PCHFD	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE PCHFD(/;"	s	signature:(N, X, F, D, INCFD, SKIP, NE, XE, FE, DE, IERR)
+PCHFD	jctc_2016_code/smoothing.f	/^      SUBROUTINE PCHFD(/;"	s	signature:(N, X, F, D, INCFD, SKIP, NE, XE, FE, DE, IERR)
+PCHFD	jctc_2016_code/smoothing2.f	/^      SUBROUTINE PCHFD(/;"	s	signature:(N, X, F, D, INCFD, SKIP, NE, XE, FE, DE, IERR)
+PCHFD	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE PCHFD(/;"	s	signature:(N, X, F, D, INCFD, SKIP, NE, XE, FE, DE, IERR)
+PCHIA	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHIA(/;"	f
+PCHIA	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHIA(/;"	f
+PCHIA	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHIA(/;"	f
+PCHIA	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHIA(/;"	f
+PCHIA	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHIA(/;"	f
+PCHID	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHID(/;"	f
+PCHID	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHID(/;"	f
+PCHID	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHID(/;"	f
+PCHID	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHID(/;"	f
+PCHID	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHID(/;"	f
+PCHIM	jctc_2016_code/hermite.f	/^      SUBROUTINE PCHIM(/;"	s	signature:(N, X, F, D, INCFD, IERR)
+PCHIM	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE PCHIM(/;"	s	signature:(N, X, F, D, INCFD, IERR)
+PCHQA	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHQA(/;"	f
+PCHQA	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHQA(/;"	f
+PCHQA	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHQA(/;"	f
+PCHQA	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHQA(/;"	f
+PCHQA	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHQA(/;"	f
+PCHSP	jctc_2016_code/hermite.f	/^      SUBROUTINE PCHSP(/;"	s	signature:(IC, VC, N, X, F, D, INCFD, WK, NWK, IERR)
+PCHSP	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE PCHSP(/;"	s	signature:(IC, VC, N, X, F, D, INCFD, WK, NWK, IERR)
+PCHSP	jctc_2016_code/smoothing.f	/^      SUBROUTINE PCHSP(/;"	s	signature:(IC, VC, N, X, F, D, INCFD, WK, NWK, IERR)
+PCHSP	jctc_2016_code/smoothing2.f	/^      SUBROUTINE PCHSP(/;"	s	signature:(IC, VC, N, X, F, D, INCFD, WK, NWK, IERR)
+PCHSP	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE PCHSP(/;"	s	signature:(IC, VC, N, X, F, D, INCFD, WK, NWK, IERR)
+PCHST	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHST(/;"	f
+PCHST	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHST(/;"	f
+PCHST	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHST(/;"	f
+PCHST	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHST(/;"	f
+PCHST	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHST(/;"	f
+Packet	daily_programmer/333/main.cpp	/^struct Packet {$/;"	s	file:
+Point	daily_programmer/330/main.cpp	/^    Point() {};$/;"	f	struct:Point	file:	access:public	signature:()
+Point	daily_programmer/330/main.cpp	/^    Point(float x1,float y1)$/;"	f	struct:Point	file:	access:public	signature:(float x1,float y1)
+Point	daily_programmer/330/main.cpp	/^struct Point {$/;"	s	file:
+PriorityHighlighting	dotfiles/.vimrc	/^        function! PriorityHighlighting()$/;"	f
+Products	cpp_tests/read_inputs.cpp	/^        std::vector<int> Products;$/;"	m	class:Reaction	typeref:typename:std::vector<int>	file:	access:public
+Reactants	cpp_tests/read_inputs.cpp	/^        std::vector<int> Reactants;$/;"	m	class:Reaction	typeref:typename:std::vector<int>	file:	access:public
+Reaction	cpp_tests/read_inputs.cpp	/^        Reaction() {}$/;"	f	class:Reaction	file:	access:public	signature:()
+Reaction	cpp_tests/read_inputs.cpp	/^class Reaction {$/;"	c	file:
+ReadHeader	dotfiles/init.vim	/^    fun! ReadHeader(name)$/;"	f
+RenameFile	dotfiles/.vimrc	/^    function! RenameFile()$/;"	f
+ScratchEdit	dotfiles/.vimrc	/^    function! ScratchEdit(cmd,options)$/;"	f
+Sedit	dotfiles/.vimrc	/^    command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)$/;"	c
+Ssplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Ssplit call ScratchEdit('aboveleft 10split', <q-args>)$/;"	c
+Svsplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Svsplit call ScratchEdit('10vsplit', <q-args>)$/;"	c
+W	jctc_2016_code/integ.f90	/^  real, dimension(-3:3) :: W /;"	v
+W	jctc_2016_code/integ2.f90	/^  real, dimension(-3:3) :: W /;"	v
+W	jctc_2016_code/integ_real.f90	/^  real, dimension(-3:3) :: W /;"	v
+W	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(/;"	v
+W	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(/;"	v
+W	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(/;"	v
+WW	jctc_2016_code/integ_real.f90	/^  real, dimension(-3:3) :: W = (\/ 1,3,6,7,6,3,1 \/), WW$/;"	v
+WW	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(/;"	v
+WW	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(/;"	v
+WW	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(/;"	v
+Wk	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
+Wk	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
+Wk	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
+Wk	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
+Wk	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
+X	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>X(group, fg, bg, attr)$/;"	f
+X	jctc_2016_code/hermite.f	/^      real, allocatable :: X(/;"	v
+X	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(/;"	v
+X	jctc_2016_code/integ.f90	/^  real, allocatable :: X(/;"	v
+X	jctc_2016_code/integ2.f90	/^  real, allocatable :: X(/;"	v
+X	jctc_2016_code/integ_real.f90	/^  real, allocatable :: X(/;"	v
+X	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(/;"	v
+X	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(/;"	v
+X	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(/;"	v
+XERABT	jctc_2016_code/hermite.f	/^      SUBROUTINE XERABT(/;"	s	signature:(MESSG, NMESSG)
+XERABT	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERABT(/;"	s	signature:(MESSG, NMESSG)
+XERABT	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERABT(/;"	s	signature:(MESSG, NMESSG)
+XERABT	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERABT(/;"	s	signature:(MESSG, NMESSG)
+XERABT	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERABT(/;"	s	signature:(MESSG, NMESSG)
+XERCTL	jctc_2016_code/hermite.f	/^      SUBROUTINE XERCTL(/;"	s	signature:(MESSG1, NMESSG, NERR, LEVEL, KONTRL)
+XERCTL	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERCTL(/;"	s	signature:(MESSG1, NMESSG, NERR, LEVEL, KONTRL)
+XERCTL	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERCTL(/;"	s	signature:(MESSG1, NMESSG, NERR, LEVEL, KONTRL)
+XERCTL	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERCTL(/;"	s	signature:(MESSG1, NMESSG, NERR, LEVEL, KONTRL)
+XERCTL	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERCTL(/;"	s	signature:(MESSG1, NMESSG, NERR, LEVEL, KONTRL)
+XERPRT	jctc_2016_code/hermite.f	/^      SUBROUTINE XERPRT(/;"	s	signature:(MESSG, NMESSG)
+XERPRT	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERPRT(/;"	s	signature:(MESSG, NMESSG)
+XERPRT	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERPRT(/;"	s	signature:(MESSG, NMESSG)
+XERPRT	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERPRT(/;"	s	signature:(MESSG, NMESSG)
+XERPRT	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERPRT(/;"	s	signature:(MESSG, NMESSG)
+XERROR	jctc_2016_code/hermite.f	/^      SUBROUTINE XERROR(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL)
+XERROR	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERROR(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL)
+XERROR	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERROR(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL)
+XERROR	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERROR(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL)
+XERROR	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERROR(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL)
+XERRWV	jctc_2016_code/hermite.f	/^      SUBROUTINE XERRWV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, NI, I1, I2, NR, R1, R2)
+XERRWV	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERRWV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, NI, I1, I2, NR, R1, R2)
+XERRWV	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERRWV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, NI, I1, I2, NR, R1, R2)
+XERRWV	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERRWV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, NI, I1, I2, NR, R1, R2)
+XERRWV	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERRWV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, NI, I1, I2, NR, R1, R2)
+XERSAV	jctc_2016_code/hermite.f	/^      SUBROUTINE XERSAV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, ICOUNT)
+XERSAV	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XERSAV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, ICOUNT)
+XERSAV	jctc_2016_code/smoothing.f	/^      SUBROUTINE XERSAV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, ICOUNT)
+XERSAV	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XERSAV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, ICOUNT)
+XERSAV	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XERSAV(/;"	s	signature:(MESSG, NMESSG, NERR, LEVEL, ICOUNT)
+XGETUA	jctc_2016_code/hermite.f	/^      SUBROUTINE XGETUA(/;"	s	signature:(IUNITA, N)
+XGETUA	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE XGETUA(/;"	s	signature:(IUNITA, N)
+XGETUA	jctc_2016_code/smoothing.f	/^      SUBROUTINE XGETUA(/;"	s	signature:(IUNITA, N)
+XGETUA	jctc_2016_code/smoothing2.f	/^      SUBROUTINE XGETUA(/;"	s	signature:(IUNITA, N)
+XGETUA	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE XGETUA(/;"	s	signature:(IUNITA, N)
+Xe	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(/;"	v
+Xe	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(/;"	v
+Xe	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(/;"	v
+Xe	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(/;"	v
+Xe	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(/;"	v
+Y	jctc_2016_code/integ.f90	/^  real, allocatable :: X(:), Y(/;"	v
+Y	jctc_2016_code/integ2.f90	/^  real, allocatable :: X(:), Y(/;"	v
+Y	jctc_2016_code/integ_real.f90	/^  real, allocatable :: X(:), Y(/;"	v
+Yfit	jctc_2016_code/integ.f90	/^  real, allocatable :: X(:), Y(:), Yfit(/;"	v
+Yfit	jctc_2016_code/integ2.f90	/^  real, allocatable :: X(:), Y(:), Yfit(/;"	v
+Yfit	jctc_2016_code/integ_real.f90	/^  real, allocatable :: X(:), Y(:), Yfit(/;"	v
+Yfit	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
+Yfit	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
+Yfit	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
+a	cpp_tests/poly_vctr_test.cpp	/^    int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
+active_relative_number	dotfiles/.vimrc	/^        augroup active_relative_number$/;"	a
+aint	jctc_2016_code/hist_out.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+aint	jctc_2016_code/hist_out2.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+aint	jctc_2016_code/hist_out_copy.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+aint	jctc_2016_code/hist_out_newbin.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+aint	jctc_2016_code/hist_out_newbin10.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+aint	jctc_2016_code/hist_out_newbin10_err.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+angles	cpp_tests/read_inputs.cpp	/^        std::array<double, 3> angles;$/;"	m	class:Reaction	typeref:typename:std::array<double,3>	file:	access:public
+ans	analysis_scripts/nfsim/gdat_plot.py	/^ans = raw_input("Alter column (y\/n)?")$/;"	v	access:public
+args	plot.py	/^args = parser.parse_args()$/;"	v	access:public
+b	cpp_tests/poly_vctr_test.cpp	/^    int b;$/;"	m	class:Derived_b	typeref:typename:int	file:	access:public
+b:hfile	dotfiles/init.vim	/^    let b:hfile="\/Users\/mvarga\/.vim\/headers\/header.".expand("%:e")$/;"	v
+base16colorspace	dotfiles/.vimrc	/^            let base16colorspace=256$/;"	v
+bonds	cpp_tests/read_inputs.cpp	/^        std::vector<int> bonds;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<int>	file:	access:public
+box	daily_programmer/330/main.cpp	/^    Bound box;$/;"	m	struct:Circle	typeref:typename:Bound	file:	access:public
+calc_box	daily_programmer/330/main.cpp	/^void Circle::calc_box(Circle& c) {$/;"	f	class:Circle	typeref:typename:void	signature:(Circle & c)
+cent	daily_programmer/330/main.cpp	/^    Point cent;$/;"	m	struct:Circle	typeref:typename:Point	file:	access:public
+cfig	plot.py	/^cfig = plt.figure()$/;"	v	access:public
+clat	plot.py	/^clat = cfig.add_subplot(111, projection='3d')$/;"	v	access:public
+cltc	analysis_scripts/nfsim/avg_bound.py	/^	cltc = d[i][3]\/d[i][1]$/;"	v	access:public
+cltc	analysis_scripts/nfsim/species.py	/^cltc = "CLTC"$/;"	v	access:public
+cltc_hist	analysis_scripts/nfsim/species.py	/^cltc_hist = []$/;"	v	access:public
+cltc_num	analysis_scripts/nfsim/species.py	/^    cltc_num = 0$/;"	v	access:public
+col_width	dotfiles/init.vim	/^    let col_width = 120 " column width for ClangFormat$/;"	v
+color	plot.py	/^color=iter(plt.cm.rainbow(np.linspace(0,1,len(filenames))))$/;"	v	access:public
+colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>colour(r, g, b)$/;"	f
+cons	analysis_scripts/nfsim/gdat_plot.py	/^    cons = int(cons)$/;"	v	access:public
+cons	analysis_scripts/nfsim/gdat_plot.py	/^    cons = raw_input("Divide column by what symmetry? (integer) ")$/;"	v	access:public
+corr	jctc_2016_code/hist_out.py	/^                  corr = 0.5 $/;"	v	access:public
+corr	jctc_2016_code/hist_out.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out2.py	/^                  corr = 0.5 $/;"	v	access:public
+corr	jctc_2016_code/hist_out2.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_copy.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_copy.py	/^            corr = new[len(new)-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_newbin.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_newbin.py	/^            corr = new[len(new)-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_newbin10.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corr	jctc_2016_code/hist_out_newbin10_err.py	/^            corr = dict2[i][len(dict2[i])-1] \/ dict2[i+1][0]$/;"	v	access:public
+corrtot	jctc_2016_code/final_integ.py	/^corrtot = [float(line[1]) for line in lines]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out.py	/^corrtot = dict2[1]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out2.py	/^corrtot = dict2[1]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out_copy.py	/^corrtot = dict2[1]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out_newbin.py	/^corrtot = dict2[1]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out_newbin10.py	/^corrtot = dict2[1]$/;"	v	access:public
+corrtot	jctc_2016_code/hist_out_newbin10_err.py	/^corrtot = dict2[1]$/;"	v	access:public
+d	analysis_scripts/nfsim/ana.py	/^d = [line.split() for line in open("things_bound.dat","r")]$/;"	v	access:public
+d	analysis_scripts/nfsim/avg_bound.py	/^d = [line.split() for line in open(filename,"r")]$/;"	v	access:public
+d	analysis_scripts/nfsim/gdat_plot.py	/^d = [line.split() for line in open(filename, "r")]$/;"	v	access:public
+day	daily_programmer/338/main.cpp	/^    int day;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
+denom	analysis_scripts/nfsim/species.py	/^denom = 0$/;"	v	access:public
+dict	jctc_2016_code/hist_out.py	/^dict = {}$/;"	v	access:public
+dict	jctc_2016_code/hist_out2.py	/^dict = {}$/;"	v	access:public
+dict	jctc_2016_code/hist_out_copy.py	/^dict = {}$/;"	v	access:public
+dict	jctc_2016_code/hist_out_newbin.py	/^dict = {}$/;"	v	access:public
+dict	jctc_2016_code/hist_out_newbin10.py	/^dict = {}$/;"	v	access:public
+dict	jctc_2016_code/hist_out_newbin10_err.py	/^dict = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out.py	/^dict2 = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out2.py	/^dict2 = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out_copy.py	/^dict2 = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out_newbin.py	/^dict2 = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out_newbin10.py	/^dict2 = {}$/;"	v	access:public
+dict2	jctc_2016_code/hist_out_newbin10_err.py	/^dict2 = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out.py	/^dictfin = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out2.py	/^dictfin = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out_copy.py	/^dictfin = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out_newbin.py	/^dictfin = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out_newbin10.py	/^dictfin = {}$/;"	v	access:public
+dictfin	jctc_2016_code/hist_out_newbin10_err.py	/^dictfin = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out.py	/^dictop = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out2.py	/^dictop = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out_copy.py	/^dictop = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out_newbin.py	/^dictop = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out_newbin10.py	/^dictop = {}$/;"	v	access:public
+dictop	jctc_2016_code/hist_out_newbin10_err.py	/^dictop = {}$/;"	v	access:public
+display	cpp_tests/poly_vctr_test.cpp	/^void Derived_a::display() {$/;"	f	class:Derived_a	typeref:typename:void	signature:()
+display	cpp_tests/poly_vctr_test.cpp	/^void Derived_b::display() {$/;"	f	class:Derived_b	typeref:typename:void	signature:()
+display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	class:Reaction	typeref:typename:void	file:	access:public	signature:()
+display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	struct:parse_reaction::parsedMol	typeref:typename:void	file:	access:public	signature:()
+display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	struct:parse_reaction::parsedRxn	typeref:typename:void	file:	access:public	signature:()
+endwin	jctc_2016_code/hist_out.py	/^endwin = []$/;"	v	access:public
+endwin	jctc_2016_code/hist_out2.py	/^endwin = []$/;"	v	access:public
+endwin	jctc_2016_code/hist_out_copy.py	/^endwin = []$/;"	v	access:public
+endwin	jctc_2016_code/hist_out_newbin.py	/^endwin = []$/;"	v	access:public
+endwin	jctc_2016_code/hist_out_newbin10.py	/^endwin = []$/;"	v	access:public
+endwin	jctc_2016_code/hist_out_newbin10_err.py	/^endwin = []$/;"	v	access:public
+epn1	analysis_scripts/nfsim/avg_bound.py	/^	epn1 = d[i][4]\/d[i][2]$/;"	v	access:public
+f	analysis_scripts/nfsim/gdat_plot.py	/^f = open('tmp', 'w')$/;"	v	access:public
+filein	plot.py	/^    filein = [line.split() for line in open(filenames[i], 'r')]$/;"	v	access:public
+filename	analysis_scripts/nfsim/avg_bound.py	/^filename = str(sys.argv[1])$/;"	v	access:public
+filename	analysis_scripts/nfsim/gdat_plot.py	/^filename = sys.argv[1]  # gdat file to be analyzed$/;"	v	access:public
+filename	analysis_scripts/nfsim/species.py	/^filename = str(sys.argv[1])$/;"	v	access:public
+filenames	plot.py	/^filenames = []$/;"	v	access:public
+fin	analysis_scripts/nfsim/species.py	/^fin = [(key, len(list(group))) for key, group in groupby(cltc_hist)]$/;"	v	access:public
+fin	jctc_2016_code/hist_int.py	/^fin = hin[-60:]$/;"	v	access:public
+fin2	analysis_scripts/nfsim/species.py	/^fin2 = []$/;"	v	access:public
+final	jctc_2016_code/hist_out.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+final	jctc_2016_code/hist_out2.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+final	jctc_2016_code/hist_out_copy.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+final	jctc_2016_code/hist_out_newbin.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+final	jctc_2016_code/hist_out_newbin10.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+final	jctc_2016_code/hist_out_newbin10_err.py	/^final = open('histogramcorr.dat','w')$/;"	v	access:public
+find_max	daily_programmer/330/main.cpp	/^Point Bound::find_max(Bound& b) {$/;"	f	class:Bound	typeref:typename:Point	signature:(Bound & b)
+find_min	daily_programmer/330/main.cpp	/^Point Bound::find_min(Bound& b) {$/;"	f	class:Bound	typeref:typename:Point	signature:(Bound & b)
+finfile	jctc_2016_code/hist_int.py	/^finfile = open('productregion.dat','w')$/;"	v	access:public
+frame	analysis_scripts/md/extract_xtc_frame.py	/^frame = int(sys.argv[3])$/;"	v	access:public
+g:UltiSnipsExpandTrigger	dotfiles/init.vim	/^    let g:UltiSnipsExpandTrigger="<Tab>"$/;"	v
+g:UltiSnipsJumpBackwardTrigger	dotfiles/init.vim	/^    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"$/;"	v
+g:UltiSnipsJumpForwardTrigger	dotfiles/init.vim	/^    let g:UltiSnipsJumpForwardTrigger="<Tab"$/;"	v
+g:ale_c_build_dir	dotfiles/init.vim	/^            let g:ale_c_build_dir = '.'$/;"	v
+g:ale_cpp_clang_options	dotfiles/init.vim	/^            let g:ale_cpp_clang_options = '-std=c++11 -Iinclude -Wall'$/;"	v
+g:ale_cpp_clangtidy_options	dotfiles/init.vim	/^            let g:ale_cpp_clangtidy_options = '-Wall -std=c++11 -x c++'$/;"	v
+g:ale_lint_on_enter	dotfiles/init.vim	/^            let g:ale_lint_on_enter = 1$/;"	v
+g:ale_lint_on_text_changed	dotfiles/init.vim	/^            let g:ale_lint_on_text_changed = 1$/;"	v
+g:ale_linters	dotfiles/init.vim	/^            let g:ale_linters = {'cpp': ['clang','clangtidy'], 'python': ['flake8']}$/;"	v
+g:ale_set_highlighs	dotfiles/init.vim	/^            let g:ale_set_highlighs = 0$/;"	v
+g:ale_sign_error	dotfiles/init.vim	/^            let g:ale_sign_error = 'E'$/;"	v
+g:ale_sign_warning	dotfiles/init.vim	/^            let g:ale_sign_warning = 'W'$/;"	v
+g:clang_format#code_style	dotfiles/init.vim	/^    let g:clang_format#code_style = 'Webkit'$/;"	v
+g:clang_format#command	dotfiles/init.vim	/^    let g:clang_format#command = "clang-format"$/;"	v
+g:clang_format#style_options	dotfiles/init.vim	/^    let g:clang_format#style_options = {$/;"	v
+g:class_decl_highlight	dotfiles/init.vim	/^    let g:class_decl_highlight = 1$/;"	v
+g:colors_name	Tomorrow-Night-Eighties-edited.vim	/^let g:colors_name = "Tomorrow-Night-Eighties"$/;"	v
+g:cpp_class_scope_highlight	dotfiles/init.vim	/^    let g:cpp_class_scope_highlight = 1$/;"	v
+g:cpp_member_variable_highlight	dotfiles/init.vim	/^    let g:cpp_member_variable_highlight = 1$/;"	v
+g:fzf_action	dotfiles/init.vim	/^        let g:fzf_action = {$/;"	v
+g:fzf_colors	dotfiles/init.vim	/^        let g:fzf_colors = {$/;"	v
+g:fzf_history_dir	dotfiles/init.vim	/^        let g:fzf_history_dir = '~\/.local\/share\/fzf_history'$/;"	v
+g:goyo_width	dotfiles/init.vim	/^        let g:goyo_width = 120$/;"	v
+g:gutentags_ctags_extra_args	dotfiles/init.vim	/^    let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']$/;"	v
+g:procession_tmux_title	dotfiles/init.vim	/^    let g:procession_tmux_title = 1$/;"	v
+g:tagbar_autoshowtag	dotfiles/init.vim	/^    let g:tagbar_autoshowtag = 1 " automatically open folds to show tag$/;"	v
+g:tagbar_width	dotfiles/init.vim	/^    let g:tagbar_width = 30$/;"	v
+g:undotree_SetFocusWhenToggle	dotfiles/init.vim	/^        let g:undotree_SetFocusWhenToggle = 1$/;"	v
+gaussian	jctc_2016_code/smoothing.f	/^      function gaussian /;"	f
+gaussian	jctc_2016_code/smoothing2.f	/^      function gaussian /;"	f
+gaussian	jctc_2016_code/smoothing2_prod.f	/^      function gaussian /;"	f
+gc	dotfiles/.vimrc	/^            vmap gc gu~h$/;"	m
+gc	dotfiles/.vimrc	/^            vmap gc gu~l$/;"	m
+gc$	dotfiles/.vimrc	/^            nmap gc$ gu$~h$/;"	m
+gc$	dotfiles/.vimrc	/^            nmap gc$ gu$~l$/;"	m
+gcW	dotfiles/.vimrc	/^            nmap gcW guW~h$/;"	m
+gcW	dotfiles/.vimrc	/^            nmap gcW guW~l$/;"	m
+gcc	dotfiles/.vimrc	/^            nmap gcc guu~h$/;"	m
+gcc	dotfiles/.vimrc	/^            nmap gcc guu~l$/;"	m
+gcgc	dotfiles/.vimrc	/^            nmap gcgc guu~h$/;"	m
+gcgc	dotfiles/.vimrc	/^            nmap gcgc guu~l$/;"	m
+gciW	dotfiles/.vimrc	/^            nmap gciW guiW~h$/;"	m
+gciW	dotfiles/.vimrc	/^            nmap gciW guiW~l$/;"	m
+gcis	dotfiles/.vimrc	/^            nmap gcis guis~h$/;"	m
+gcis	dotfiles/.vimrc	/^            nmap gcis guis~l$/;"	m
+gciw	dotfiles/.vimrc	/^            nmap gciw guiw~h$/;"	m
+gciw	dotfiles/.vimrc	/^            nmap gciw guiw~l$/;"	m
+gcw	dotfiles/.vimrc	/^            nmap gcw guw~h$/;"	m
+gcw	dotfiles/.vimrc	/^            nmap gcw guw~l$/;"	m
+grey_colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_colour(n)$/;"	f
+grey_level	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_level(n)$/;"	f
+grey_number	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_number(x)$/;"	f
+hcorr	jctc_2016_code/final_integ.py	/^hcorr = [s\/intin for s in corrtot]$/;"	v	access:public
+highlight	dotfiles/.vimrc	/^        augroup highlight$/;"	a
+hin	jctc_2016_code/hist_int.py	/^hin = [float(hin) for hin in hin]$/;"	v	access:public
+hin	jctc_2016_code/hist_int.py	/^hin = [line.strip() for line in open('histogramcorr.dat','r')]$/;"	v	access:public
+hinint	jctc_2016_code/hist_int.py	/^hinint = [x\/i for x in hin]$/;"	v	access:public
+hist	jctc_2016_code/hist_out.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist	jctc_2016_code/hist_out2.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist	jctc_2016_code/hist_out_copy.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist	jctc_2016_code/hist_out_newbin.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist	jctc_2016_code/hist_out_newbin10.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist	jctc_2016_code/hist_out_newbin10_err.py	/^      hist = open('histogram_'+str(i)+'.dat','w')$/;"	v	access:public
+hist22	jctc_2016_code/hist_out_newbin10.py	/^      hist22 = open('histogram_'+str(i+1)+'_corr.dat','w')$/;"	v	access:public
+hist22	jctc_2016_code/hist_out_newbin10_err.py	/^      hist22 = open('histogram_'+str(i+1)+'_corr.dat','w')$/;"	v	access:public
+histcorr	jctc_2016_code/final_integ.py	/^histcorr = open('histogramcorr_int.dat','w')$/;"	v	access:public
+histintfile	jctc_2016_code/hist_int.py	/^histintfile = open('histogramcorrint.dat','w')$/;"	v	access:public
+histogram	jctc_2016_code/hist_out.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram	jctc_2016_code/hist_out2.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram	jctc_2016_code/hist_out_copy.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram	jctc_2016_code/hist_out_newbin.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram	jctc_2016_code/hist_out_newbin10.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram	jctc_2016_code/hist_out_newbin10_err.py	/^def histogram(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram2	jctc_2016_code/hist_out_newbin.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram2	jctc_2016_code/hist_out_newbin10.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+histogram2	jctc_2016_code/hist_out_newbin10_err.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+i	jctc_2016_code/hist_int.py	/^i = input('Integration value: ')$/;"	v	access:public
+id	daily_programmer/333/main.cpp	/^    int id; \/\/ packet id$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
+ifaces	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> ifaces;$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:std::vector<std::string>	file:	access:public
+ifaces	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> ifaces;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<std::string>	file:	access:public
+inFile	analysis_scripts/md/extract_xtc_frame.py	/^inFile = sys.argv[2]$/;"	v	access:public
+inTop	analysis_scripts/md/extract_xtc_frame.py	/^inTop = sys.argv[1]$/;"	v	access:public
+index	cpp_tests/read_inputs.cpp	/^    int index;$/;"	m	class:Interface	typeref:typename:int	file:	access:public
+intercept	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+intin	jctc_2016_code/final_integ.py	/^intin = float(intin)$/;"	v	access:public
+intin	jctc_2016_code/final_integ.py	/^intin = raw_input('Enter full histogram integral:' )$/;"	v	access:public
+is_fzf	dotfiles/.tmux.conf	/^is_fzf="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
+is_vim	dotfiles/.tmux.conf	/^is_vim="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
+it	dotfiles/.tmux.conf	/^set -ga terminal-overrides "screen-256color-it:Tc"$/;"	k
+l	analysis_scripts/nfsim/avg_bound.py	/^        l = 1-(d[i][5]\/1000)$/;"	v	access:public
+lines	jctc_2016_code/final_integ.py	/^lines = [line.split() for line in open('histogramcorr.dat','r')]$/;"	v	access:public
+lip	analysis_scripts/nfsim/species.py	/^lip = "L"$/;"	v	access:public
+lip_num	analysis_scripts/nfsim/species.py	/^        lip_num = 1$/;"	v	access:public
+lip_num	analysis_scripts/nfsim/species.py	/^    lip_num = 0$/;"	v	access:public
+main	cpp_tests/poly_vctr_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/read_inputs.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	daily_programmer/330/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
+main	daily_programmer/333/main.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	daily_programmer/338/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
+make_exe	dotfiles/init.vim	/^                augroup make_exe$/;"	a
+mapleader	dotfiles/init.vim	/^let mapleader = "\\<SPACE>"$/;"	v
+matchval	jctc_2016_code/hist_out_newbin.py	/^      matchval = slope*old + intercept $/;"	v	access:public
+month	daily_programmer/338/main.cpp	/^    int month;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
+name	cpp_tests/read_inputs.cpp	/^        std::string name;$/;"	m	class:Molecule	typeref:typename:std::string	file:	access:public
+name	cpp_tests/read_inputs.cpp	/^        std::string name;$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:std::string	file:	access:public
+name	cpp_tests/read_inputs.cpp	/^    std::string name;$/;"	m	class:Interface	typeref:typename:std::string	file:	access:public
+new	jctc_2016_code/hist_out.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new	jctc_2016_code/hist_out2.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new	jctc_2016_code/hist_out_copy.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new	jctc_2016_code/hist_out_newbin.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new	jctc_2016_code/hist_out_newbin10.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new	jctc_2016_code/hist_out_newbin10_err.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+np	plot.py	/^import numpy as np$/;"	I	access:public
+num	daily_programmer/333/main.cpp	/^    int num; \/\/ number of packets in message$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
+offrate	cpp_tests/read_inputs.cpp	/^        double offrate;$/;"	m	class:Reaction	typeref:typename:double	file:	access:public
+old	jctc_2016_code/hist_out_newbin.py	/^            old = ((dictop[i][int(len(dictop[i])-1)] + 5)\/1000)$/;"	v	access:public
+onmem	cpp_tests/read_inputs.cpp	/^        bool onmem;$/;"	m	class:Reaction	typeref:typename:bool	file:	access:public
+onrate	cpp_tests/read_inputs.cpp	/^        double onrate;$/;"	m	class:Reaction	typeref:typename:double	file:	access:public
+op	jctc_2016_code/final_integ.py	/^op = [float(line[0]) for line in lines]$/;"	v	access:public
+op	jctc_2016_code/hist_out.py	/^                        op = [y\/(x+y) for x,y in zip(xfloat,yfloat)]$/;"	v	access:public
+op	jctc_2016_code/hist_out2.py	/^                        op = [y\/(x+y) for x,y in zip(xfloat,yfloat)]$/;"	v	access:public
+op	jctc_2016_code/hist_out_copy.py	/^                        op = [y\/(x+y) for x,y in zip(xfloat,yfloat)]$/;"	v	access:public
+op	jctc_2016_code/hist_out_newbin.py	/^                        op = [y\/(x+y) for x,y in zip(xfloat,yfloat)]$/;"	v	access:public
+op3	jctc_2016_code/hist_out_newbin10.py	/^op3 = [x\/1000 for x in op3]$/;"	v	access:public
+op3	jctc_2016_code/hist_out_newbin10.py	/^op3 = dictop[1]$/;"	v	access:public
+op3	jctc_2016_code/hist_out_newbin10_err.py	/^op3 = [x\/1000 for x in op3]$/;"	v	access:public
+op3	jctc_2016_code/hist_out_newbin10_err.py	/^op3 = dictop[1]$/;"	v	access:public
+operator <	daily_programmer/330/main.cpp	/^bool operator<(Point& p1, Point& p2) {$/;"	f	typeref:typename:bool	signature:(Point & p1,Point & p2)
+operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Bound& b) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Bound & b)
+operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Circle& c) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Circle & c)
+operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Point& p) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Point & p)
+operator <<	daily_programmer/333/main.cpp	/^ostream& operator<<(ostream& os, Packet& in) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Packet & in)
+opx	jctc_2016_code/final_integ.py	/^opx = op[37:]$/;"	v	access:public
+ord	daily_programmer/333/main.cpp	/^    int ord; \/\/ order of packet in overall block message$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
+out	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
+out	analysis_scripts/nfsim/species.py	/^out = str(sys.argv[2])$/;"	v	access:public
+outfile	jctc_2016_code/hist_out.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
+outfile	jctc_2016_code/hist_out2.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
+outfile	jctc_2016_code/hist_out_copy.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
+outfile	jctc_2016_code/hist_out_newbin.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
+p1	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
+p2	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
+p3	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
+p4	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
+p_value	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+pack_sort	daily_programmer/333/main.cpp	/^bool pack_sort(const Packet& in1, const Packet& in2) {$/;"	f	typeref:typename:bool	signature:(const Packet & in1,const Packet & in2)
+parse_reaction	cpp_tests/read_inputs.cpp	/^bool parse_reaction(int &totspecies, std::string reaction, std::vector<Molecule> &wholep, std::v/;"	f	typeref:typename:bool	signature:(int & totspecies,std::string reaction,std::vector<Molecule> & wholep,std::vector<Reaction> & forRxns)
+parsedMol	cpp_tests/read_inputs.cpp	/^    struct parsedMol {$/;"	s	function:parse_reaction	file:
+parsedRxn	cpp_tests/read_inputs.cpp	/^    struct parsedRxn {$/;"	s	function:parse_reaction	file:
+parser	plot.py	/^parser = argparse.ArgumentParser(description='plot protein crds from dat files')$/;"	v	access:public
+part	analysis_scripts/md/extract_xtc_frame.py	/^part = int(raw_input("Get all atoms [1] or specific segments [2]: "))$/;"	v	access:public
+plt	plot.py	/^import matplotlib.pyplot as plt$/;"	I	access:public
+print_frame	analysis_scripts/md/extract_xtc_frame.py	/^def print_frame(system, inFile, frame, segmentChoice):$/;"	f	access:public	signature:(system, inFile, frame, segmentChoice)
+prod	jctc_2016_code/final_integ.py	/^prod = hcorr[37:]$/;"	v	access:public
+prodhist	jctc_2016_code/final_integ.py	/^prodhist = open('productregion.dat','w')$/;"	v	access:public
+prodspecies	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> prodspecies; \/\/ strings showing the BNGL products, for compar/;"	m	class:Reaction	typeref:typename:std::vector<std::string>	file:	access:public
+protype	cpp_tests/read_inputs.cpp	/^        int protype;$/;"	m	class:Molecule	typeref:typename:int	file:	access:public
+r_value	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+rad	daily_programmer/330/main.cpp	/^    float rad;$/;"	m	struct:Circle	typeref:typename:float	file:	access:public
+reactants	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> reactants;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<std::string>	file:	access:public
+rgb	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb(rgb)$/;"	f
+rgb_colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_colour(x, y, z)$/;"	f
+rgb_level	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_level(n)$/;"	f
+rgb_number	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_number(x)$/;"	f
+run	analysis_scripts/nfsim/species.py	/^run = [line.split() for line in open(filename, "r")]$/;"	v	access:public
+s:aqua	Tomorrow-Night-Eighties-edited.vim	/^let s:aqua = "66cccc"$/;"	v
+s:background	Tomorrow-Night-Eighties-edited.vim	/^let s:background = "2d2d2d"$/;"	v
+s:blue	Tomorrow-Night-Eighties-edited.vim	/^let s:blue = "6699cc"$/;"	v
+s:comment	Tomorrow-Night-Eighties-edited.vim	/^let s:comment = "999999"$/;"	v
+s:foreground	Tomorrow-Night-Eighties-edited.vim	/^let s:foreground = "cccccc"$/;"	v
+s:green	Tomorrow-Night-Eighties-edited.vim	/^let s:green = "99cc99"$/;"	v
+s:line	Tomorrow-Night-Eighties-edited.vim	/^let s:line = "393939"$/;"	v
+s:orange	Tomorrow-Night-Eighties-edited.vim	/^let s:orange = "f99157"$/;"	v
+s:purple	Tomorrow-Night-Eighties-edited.vim	/^let s:purple = "cc99cc"$/;"	v
+s:red	Tomorrow-Night-Eighties-edited.vim	/^let s:red = "f2777a"$/;"	v
+s:selection	Tomorrow-Night-Eighties-edited.vim	/^let s:selection = "515151"$/;"	v
+s:window	Tomorrow-Night-Eighties-edited.vim	/^let s:window = "4d5057"$/;"	v
+s:yellow	Tomorrow-Night-Eighties-edited.vim	/^let s:yellow = "ffcc66"$/;"	v
+sigma	cpp_tests/read_inputs.cpp	/^        std::array<double, 3> sigma; \/\/ TODO: this should be a Coord class to make it easier?$/;"	m	class:Reaction	typeref:typename:std::array<double,3>	file:	access:public
+simpson	jctc_2016_code/smoothing.f	/^      function simpson(/;"	f
+simpson	jctc_2016_code/smoothing2.f	/^      function simpson(/;"	f
+simpson	jctc_2016_code/smoothing2_prod.f	/^      function simpson(/;"	f
+slope	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+spe_num	analysis_scripts/nfsim/species.py	/^    spe_num = 0$/;"	v	access:public
+spe_num	analysis_scripts/nfsim/species.py	/^    spe_num = species[i][len(species[i])-1]$/;"	v	access:public
+species	analysis_scripts/nfsim/species.py	/^species = []$/;"	v	access:public
+spline	jctc_2016_code/hermite.f	/^      logical spline$/;"	v
+spline	jctc_2016_code/hermite_prod.f	/^      logical spline$/;"	v
+spline	jctc_2016_code/smoothing.f	/^      logical spline$/;"	v
+spline	jctc_2016_code/smoothing2.f	/^      logical spline$/;"	v
+spline	jctc_2016_code/smoothing2_prod.f	/^      logical spline$/;"	v
+std_err	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+sum1	analysis_scripts/nfsim/ana.py	/^sum1 = sum1\/3$/;"	v	access:public
+sum1	analysis_scripts/nfsim/ana.py	/^sum1=0$/;"	v	access:public
+sum2	analysis_scripts/nfsim/ana.py	/^sum2 = sum2\/3$/;"	v	access:public
+sum2	analysis_scripts/nfsim/ana.py	/^sum2=0$/;"	v	access:public
+sum3	analysis_scripts/nfsim/ana.py	/^sum3 = sum3\/3$/;"	v	access:public
+sum3	analysis_scripts/nfsim/ana.py	/^sum3=0$/;"	v	access:public
+system	analysis_scripts/md/extract_xtc_frame.py	/^system = MDAnalysis.Universe(inTop, inFile)$/;"	v	access:public
+t_ZH	dotfiles/.vimrc	/^        let t_ZH="\\e[3m"$/;"	v
+t_ZR	dotfiles/.vimrc	/^        let t_ZR="\\e[23m"$/;"	v
+target	analysis_scripts/nfsim/gdat_plot.py	/^target = sys.argv[2]    # target specie$/;"	v	access:public
+targlist	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
+templates	dotfiles/init.vim	/^                augroup templates$/;"	a
+templates	dotfiles/init.vim	/^            augroup templates$/;"	a
+text	daily_programmer/333/main.cpp	/^    string text; \/\/ packet text$/;"	m	struct:Packet	typeref:typename:string	file:	access:public
+time	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
+tmp	analysis_scripts/nfsim/species.py	/^    tmp = []$/;"	v	access:public
+tmp	analysis_scripts/nfsim/species.py	/^    tmp = [x,y]$/;"	v	access:public
+tmp	analysis_scripts/nfsim/species.py	/^    tmp = fin2[i][0] * fin2[i][1]       #total clat in agg size$/;"	v	access:public
+tmp	analysis_scripts/nfsim/species.py	/^    tmp = float(fin2[i][1])\/float(denom) #normalize$/;"	v	access:public
+trapezoid	jctc_2016_code/final_integ.py	/^def trapezoid(f,a,b,n):$/;"	f	access:public	signature:(f,a,b,n)
+used	cpp_tests/read_inputs.cpp	/^        int *used; \/\/ this is the interface used to react$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:int *	file:	access:public
+val	analysis_scripts/nfsim/gdat_plot.py	/^        val = i$/;"	v	access:public
+val	analysis_scripts/nfsim/gdat_plot.py	/^val = 0$/;"	v	access:public
+vals	analysis_scripts/nfsim/species.py	/^vals = []$/;"	v	access:public
+vals	analysis_scripts/nfsim/species.py	/^vals = [elem for elem in vals if elem != []]$/;"	v	access:public
+vimrc	dotfiles/.vimrc	/^            augroup vimrc  " Source vim configuration upon save$/;"	a
+w!!	dotfiles/.vimrc	/^        cnoremap w!! w !sudo tee % > \/dev\/null$/;"	m
+win_num	jctc_2016_code/hist_out.py	/^win_num = 8$/;"	v	access:public
+win_num	jctc_2016_code/hist_out2.py	/^win_num = 8$/;"	v	access:public
+win_num	jctc_2016_code/hist_out_copy.py	/^win_num = 9$/;"	v	access:public
+win_num	jctc_2016_code/hist_out_newbin.py	/^win_num = 8$/;"	v	access:public
+win_num	jctc_2016_code/hist_out_newbin10.py	/^win_num = 8$/;"	v	access:public
+win_num	jctc_2016_code/hist_out_newbin10_err.py	/^win_num = 8$/;"	v	access:public
+x	analysis_scripts/nfsim/species.py	/^    x = [spe_num,cltc_num,lip_num]$/;"	v	access:public
+x	analysis_scripts/nfsim/species.py	/^    x = int(fin[i][0])$/;"	v	access:public
+x	analysis_scripts/nfsim/species.py	/^    x = run[i][0].split(".")$/;"	v	access:public
+x	cpp_tests/poly_vctr_test.cpp	/^    int x;$/;"	m	class:Base	typeref:typename:int	file:	access:public
+x	daily_programmer/330/main.cpp	/^    float x, y;$/;"	m	struct:Point	typeref:typename:float	file:	access:public
+x	jctc_2016_code/hist_out.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+x	jctc_2016_code/hist_out2.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'_tot\/disha_'+s/;"	v	access:public
+x	jctc_2016_code/hist_out_copy.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+x	jctc_2016_code/hist_out_newbin.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+x	jctc_2016_code/hist_out_newbin.py	/^      x = [x\/1000 for x in dictop[i]]$/;"	v	access:public
+x	plot.py	/^    x, y, z = [], [], []$/;"	v	access:public
+xfloat	jctc_2016_code/hist_out.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
+xfloat	jctc_2016_code/hist_out2.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
+xfloat	jctc_2016_code/hist_out_copy.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
+xfloat	jctc_2016_code/hist_out_newbin.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
+y	analysis_scripts/nfsim/species.py	/^    y = int(fin[i][1])$/;"	v	access:public
+y	daily_programmer/330/main.cpp	/^    float x, y;$/;"	m	struct:Point	typeref:typename:float	file:	access:public
+y	jctc_2016_code/hist_out.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+y	jctc_2016_code/hist_out2.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'_tot\/dishd_'+s/;"	v	access:public
+y	jctc_2016_code/hist_out_copy.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+y	jctc_2016_code/hist_out_newbin.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
+y	jctc_2016_code/hist_out_newbin.py	/^      y = dict2[i]$/;"	v	access:public
+y	plot.py	/^    x, y, z = [], [], []$/;"	v	access:public
+year	daily_programmer/338/main.cpp	/^    int year;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
+yfloat	jctc_2016_code/hist_out.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
+yfloat	jctc_2016_code/hist_out2.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
+yfloat	jctc_2016_code/hist_out_copy.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
+yfloat	jctc_2016_code/hist_out_newbin.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
+z	plot.py	/^    x, y, z = [], [], []$/;"	v	access:public
+zeller	daily_programmer/338/main.cpp	/^string zeller(Date d) {$/;"	f	typeref:typename:string	signature:(Date d)

@@ -75,8 +75,6 @@ endif
     Plug 'w0rp/ale'
     Plug 'roxma/nvim-completion-manager'
     Plug 'roxma/ncm-clang'
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     Plug 'autozimu/LanguageClient-neovim', {
                 \ 'branch' : 'next',
                 \ 'do' : 'bash install.sh'
@@ -129,6 +127,10 @@ endif
 call plug#end()
 
 " Plugin options
+    " NCM
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
     " vim-procession
     let g:procession_tmux_title = 1
 
