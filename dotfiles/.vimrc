@@ -175,12 +175,16 @@
 
     " set tab to spaces
         set tabstop=8
-        set shiftwidth=4
         set softtabstop=0
+        setl shiftwidth=4
         set expandtab
-	set smarttab
+        set smarttab
+
+        " set tab to two spaces for markdown
+        autocmd BufRead,BufEnter,BufNew *.md,*.mkd,*.markdown :setl shiftwidth=2
 
     " Comments as italics (make sure terminfo has sitm="\E[3m" and ritm="\E[23m"
+    " this is specifically for TMUX, but I don't want to wrap it in an if statement
         let t_ZH="\e[3m"
         let t_ZR="\e[23m"
         if (&bg == "dark")
@@ -192,31 +196,39 @@
     " Some custom syntax highlighting
         set list
         set listchars:trail:+
+        " todos, their priorities, and notes syntax highlighting 
         function! PriorityHighlighting()
-            if (&bg == "dark")
-                hi TodoPriorityHigh cterm=italic ctermfg=52 gui=italic guifg=#DB0700
-                hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
-                hi TodoPriorityMed cterm=italic ctermfg=52 gui=italic guifg=#DB8700
-                hi TodoDone cterm=italic ctermfg=52 gui=italic guifg=#00ACDB
-                hi TodoInProgress cterm=italic ctermfg=52 gui=italic guifg=#9D00D8
-                hi CodeNote cterm=italic ctermfg=52 gui=italic guifg=#00D692
-                hi CodeIdea cterm=italic ctermfg=52 gui=italic guifg=#AF85FF
-                hi LoneDash cterm=italic ctermfg=52 gui=italic guifg=#C3B3FF
-                call matchadd('TodoPriorityHigh', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[hH][iI][gG][hH]:\=')
-                call matchadd('TodoPriorityLow', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[lL][oO][wW]:\=')
-                call matchadd('TodoPriorityMed', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[mM][eE][dD][iI]\=[uU]\=[mM]\=:\=')
-                call matchadd('TodoInProgress', '\s\=[iI][nN]\s[pP][rR][oO][gR][rR][eE][sS][sS]:\=')
-                call matchadd('TodoDone', '\s\=D[oO][nN][eE]:\=')
-                call matchadd('CodeNote', '-*\s\=N[oO][tT][eE]:\=')
-                call matchadd('CodeIdea', '-*\s\=I[dD][eE][aA]:\=')
-                call matchadd('LoneDash', '\s-\s\=')
-            endif
+            hi TodoPriorityHigh cterm=italic ctermfg=52 gui=italic guifg=#DB0700
+            hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
+            hi TodoPriorityMed cterm=italic ctermfg=52 gui=italic guifg=#DB8700
+            hi TodoDone cterm=italic ctermfg=52 gui=italic guifg=#00ACDB
+            hi TodoInProgress cterm=italic ctermfg=52 gui=italic guifg=#9D00D8
+            hi CodeNote cterm=italic ctermfg=52 gui=italic guifg=#00D692
+            hi CodeIdea cterm=italic ctermfg=52 gui=italic guifg=#AF85FF
+            hi LoneDash cterm=italic ctermfg=52 gui=italic guifg=#C3B3FF
+            call matchadd('TodoPriorityHigh', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[hH][iI][gG][hH]:\=')
+            call matchadd('TodoPriorityLow', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[lL][oO][wW]:\=')
+            call matchadd('TodoPriorityMed', '-\=\s\=[pP][rR][iI][oO][rR][iI][tT][yY]\s[mM][eE][dD][iI]\=[uU]\=[mM]\=:\=')
+            call matchadd('TodoInProgress', '\s\=[iI][nN]\s[pP][rR][oO][gR][rR][eE][sS][sS]:\=')
+            call matchadd('TodoDone', '\s\=D[oO][nN][eE]:\=')
+            call matchadd('CodeNote', '-*\s\=N[oO][tT][eE]:\=')
+            call matchadd('CodeIdea', '-*\s\=I[dD][eE][aA]:\=')
+            call matchadd('LoneDash', '\s-\s\=')
         endfunction!
 
-        augroup priority_highlight
+        " ignore latex math in markdown
+        function! MarkdownSyntaxIgnore()
+            syntax region math start=/\$\$/ end=/\$\$/
+            syntax match math '\$[^$].\{-}\$' 
+            highlight link math Statement
+        endfunction!
+
+        augroup highlight
             au!
-            autocmd BufEnter * call PriorityHighlighting()
+            autocmd BufEnter,BufRead,BufNew * call PriorityHighlighting()
+            autocmd BufEnter,BufRead,BufNew * call MarkdownSyntaxIgnore()
         augroup END
+
 
         highlight ColorColumn guibg = magenta 
         call matchadd('ColorColumn', '\%120v\S', 100)
@@ -237,7 +249,7 @@
     " Status Line
     " modified from http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
     set statusline=
-    set statusline+=%f
+    set statusline+=%t
     set statusline+=%m
     set statusline+=%R%=
     set statusline+=%< " folding left

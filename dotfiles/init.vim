@@ -7,6 +7,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 autocmd BufNewFile,BufReadPost *.md set ft=markdown
+autocmd BufNewFile,BufReadPost *.mdp set ft=dosini " this is solely for commenting with t-comment
 
 " map leader to comma
 let mapleader = "\<SPACE>"
@@ -72,6 +73,14 @@ endif
     " Plug 'neomake/neomake'
     " Plug 'lervag/vimtex'
     Plug 'w0rp/ale'
+    Plug 'roxma/nvim-completion-manager'
+    Plug 'roxma/ncm-clang'
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    Plug 'autozimu/LanguageClient-neovim', {
+                \ 'branch' : 'next',
+                \ 'do' : 'bash install.sh'
+                \ }
 
     " Formatting
     Plug 'tomtom/tcomment_vim' " universal commenter for embedded filetypes
@@ -85,6 +94,7 @@ endif
     Plug 'reedes/vim-litecorrect'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
+    Plug 'chrisbra/unicode.vim'
 
     " Snippets
     Plug 'SirVer/ultisnips'
@@ -235,8 +245,9 @@ call plug#end()
         " Python
 
     "some writing stuff
-    autocmd Filetype tex,latex,text,td,md,markdown,mkd
-                \ call pencil#init({'wrap':'soft','textwidth':120, 'conceallevel':3})
+    " autocmd Filetype tex,latex,text,td,md,markdown,mkd
+    autocmd BufAdd,BufReadPre *.tex,*.latex,*.tex,*.text,*.txt,*.md,*.markdown,*.mkd
+                \ call pencil#init({'wrap':'soft','textwidth':120, 'conceallevel':2, 'autoformat':1})
                 \ | call litecorrect#init()
                 \ | setlocal spell spelllang=en_us noruler nonumber norelativenumber
                 \ | setlocal foldopen+=search

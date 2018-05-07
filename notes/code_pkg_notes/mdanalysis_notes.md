@@ -49,11 +49,11 @@
     where we select all C_alpha in the protein
 - range atom selections by index, using `first-last` or `first:last` are inclusive:
     ```python
-    u.select_atoms("resid 5-100")
+    > u.select_atoms("resid 5-100")
     ```
 - residue names (resnames) can include wildcards
     ```python
-    u.select_atoms("resname ASP HS*")  # selects HSE, HSP, and HSD (protonation states of HIS)
+    > u.select_atoms("resname ASP HS*")  # selects HSE, HSP, and HSD (protonation states of HIS)
     ```
 - geometric selection is possible with `around <distance> <selection`:
     ```python
@@ -131,7 +131,7 @@
     > Time = []  # make an empty list
     > protein = u.select_atoms("protein")  # select all the atoms of the protein
     > for ts in u.trajectory:
-          Rgyr.append((u.trajectory.time, protein.radius_of_gyration())) 
+    >     Rgyr.append((u.trajectory.time, protein.radius_of_gyration())) 
         # appends a tuple (time, rgyr) to the list
     > Rgyr = numpy.array(Rgyr)  # create a numpy array from the list
     ```
@@ -165,11 +165,17 @@
     ```
   - Typical way to write trajectories:
     1. get a trajectory writer with `MDAnalysis.Writer()`, specifying the atoms the frame(s) will contain
+      ```python
+      > protein = u.select_atoms("protein")  # note that this doesn't need to be defined in the loop, it auto-updates
+      > MDAnalysis.Writer("protein.xtc", protein.n_atoms) as W:
+      >     for ts in u.trajectory:
+      >         W.write(protein)
+      ```
     2. use `write()` to write a new timestep to the trajectory
     3. close with `close()`. the tutorial suggests instead using python's `with` statement to allow the trajectory to be closed automatically,
 
         ```python
-        with open("<traj file>") as outfile:
+        > with open("<traj file>") as outfile:
             ...
         ```
   - many more examples are shown [here](https://www.mdanalysis.org/MDAnalysisTutorial/writing.html)
@@ -202,9 +208,9 @@
   ```
   - to get all the values, do it in a loop
   ```python
+  > lipids = u.select_atoms("resname <lipid_resname> and around 3.6 protein")  # select the above discussed atoms
   > with open("output.dat", "w") as file:  # open the output file
   >     for ts in u.trajectory:  # loop over the trajectory
-  >         lipids = u.select_atoms("resname <lipid_resname> and around 3.6 protein")  # select the above discussed atoms
   >         file.write(lipids.numberOfAtoms)  # write the number of atoms of each trajectory
   ```
   - since we now have a integer corresponding to the number of lipid atoms within 3.6 Å of the protein, we can calculate the number of of lipid residues that corresponds to, as we know the number of atoms in the lipid
@@ -222,10 +228,10 @@
     ```
     - can again do this as a loop over the trajectory
       ```python
+      > protein = u.select_atoms("protein")
+      > lipid = u.select_atoms("<lipid resname>")
       > with open("output.dat", "w") as file:  # open output file
       >     for ts in u.trajectory:
-      >         protein = u.select_atoms("protein")
-      >         lipid = u.select_atoms("<lipid resname>")
       >         file.write(str(protein.center_of_mass()[2] - lipid.center_of_mass()[2]) + "\n") 
       ```
       - for some reason, write needs a string
