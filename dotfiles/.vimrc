@@ -138,11 +138,12 @@
         endif
     
     " Focused pane numbering options 
-        augroup active_relative_number
-            autocmd!
-            autocmd BufEnter,FocusGained,InsertLeave * :setlocal number relativenumber
-            autocmd BufLeave,FocusLost,InsertEnter * :setlocal number norelativenumber
-        augroup END
+        set number norelativenumber
+        " augroup active_relative_number
+        "     autocmd!
+        "     autocmd BufEnter,FocusGained,InsertLeave * :setlocal number relativenumber
+        "     autocmd BufLeave,FocusLost,InsertEnter * :setlocal number norelativenumber
+        " augroup END
     
     " set colour scheme
     "set t_Co=256
@@ -172,16 +173,6 @@
 
     " show leader in the bottom right hand corner
         set showcmd
-
-    " set tab to spaces
-        set tabstop=8
-        set softtabstop=0
-        setl shiftwidth=4
-        set expandtab
-        set smarttab
-
-        " set tab to two spaces for markdown
-        autocmd BufRead,BufEnter,BufNew *.md,*.mkd,*.markdown :setl shiftwidth=2
 
     " Comments as italics (make sure terminfo has sitm="\E[3m" and ritm="\E[23m"
     " this is specifically for TMUX, but I don't want to wrap it in an if statement
@@ -226,7 +217,7 @@
         augroup highlight
             au!
             autocmd BufEnter,BufRead,BufNew * call PriorityHighlighting()
-            autocmd BufEnter,BufRead,BufNew * call MarkdownSyntaxIgnore()
+            autocmd BufEnter,BufRead,BufNew *.md,*.mkd,*.markdown call MarkdownSyntaxIgnore()
         augroup END
 
 
@@ -261,3 +252,14 @@
     set statusline+=[\ALE:\ %{LinterStatus()}]\ 
     set statusline+=[%n%W\,%{strlen(&ft)?&ft:'none'}]\ " flags and filetype
     set statusline+=[%p%%] " percentage of the file
+
+    " set tab to spaces
+        set tabstop=8
+        set softtabstop=0
+        set shiftwidth=4
+        set expandtab
+        set smarttab
+
+        " set tab to two spaces for markdown
+        autocmd BufRead,BufEnter,BufNew *.md,*.mkd,*.markdown :setl shiftwidth=2
+

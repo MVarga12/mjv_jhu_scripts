@@ -75,6 +75,7 @@ endif
     Plug 'w0rp/ale'
     Plug 'roxma/nvim-completion-manager'
     Plug 'roxma/ncm-clang'
+    Plug 'ervandew/supertab'
     Plug 'autozimu/LanguageClient-neovim', {
                 \ 'branch' : 'next',
                 \ 'do' : 'bash install.sh'
@@ -113,7 +114,7 @@ endif
     Plug 'dhruvasagar/vim-prosession'
 
     " Easier movement
-    Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement
+    " Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement
     Plug 'wesQ3/vim-windowswap' " swap splits while retaining layout
 
     " Tmux stuff
@@ -128,8 +129,11 @@ call plug#end()
 
 " Plugin options
     " NCM
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    
+    "SuperTab
+    let g:SuperTabLongestHighlight = 1
 
     " vim-procession
     let g:procession_tmux_title = 1
@@ -227,9 +231,9 @@ call plug#end()
     let g:tagbar_autoshowtag = 1 " automatically open folds to show tag
 
     " Snippets
-    let g:UltiSnipsExpandTrigger="<Tab>"
-    let g:UltiSnipsJumpForwardTrigger="<Tab"
-    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+    " let g:UltiSnipsExpandTrigger="<Tab>"
+    " let g:UltiSnipsJumpForwardTrigger="<Tab"
+    " let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
     " ALE
         " Generic Options
