@@ -57,7 +57,7 @@ system = MDAnalysis.Universe(inTop, inFile)
 if part == 1:
     print_frame(system, inFile, frame, "all")
 elif part == 2:
-    print_frame(system, inFile, frame, raw_input("Segment to select: "))
+    print_frame(system, inFile, frame, raw_input("Portion to select (VMD syntax): "))
 else:
     print "Error, not a correct segment choice."
     exit()
