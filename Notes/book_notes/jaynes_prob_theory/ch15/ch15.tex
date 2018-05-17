@@ -1,0 +1,157 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+    \section{Principles and pathology of orthodox statistics}
+        \begin{itemize} 
+            \item analyze the consequences of failure to use Bayesian methods in simple models
+            \item orthodox objections to Bayesian statistics are usually ideological in nature
+            \item want to answer the questions:\ ``In what circumstances, and in what ways, do the orthodox results differ from the Bayesian results?\ What are the pragmatic consequences of this in real applications?''
+            \item this chapter reallllyyy starts to lose me early on
+            \item talks a lot about how orthodoxy puts a lot of emphasis on using `unbiased' estimators, but that biased estimators are sometimes better in arriving at the correct value with faster convergence 
+                \begin{itemize} 
+                    \item the \textit{bias} of an estimator is the difference between the estimator's expectation value and the true value of the parameter being estimated
+                    \item \textit{unbiased estimator}:\ an estimator with no bias, i.e.\ its expectation value is the true value
+                    \item he (and Fisher) argue that bias is not meaningful, as it is not invariant under change of parameters, e.g.\ the square of an unbiased estimate of a parameter \(\alpha\) is not the same as an unbiased estimate of \(\alpha^2\)
+                \end{itemize}
+        \end{itemize}
+
+        \subsection{Information loss}
+            \begin{itemize} 
+                \item orthodox methods must waste some of the information contained in the data
+                \item consider estimation of a parameter \(\theta\) from some data set \(D \equiv \{x_1, \ldots, x_n\}\), represented by a point \(R^n\)
+                    \begin{itemize} 
+                        \item orthodoxy requires us to define some estimator \(b(x) \equiv b(x_1, \ldots, x_n)\), before seeing any data, and then use this estimator, and this estimator only, for estimation of \(\theta\)
+                        \item specifying a numerical value of \(b(x)\) locates the sample on a subspace of \(R^n\) of dimension \((n-1)\)
+                        \item specifying the data \(D\) tells us both that and where on the subspace we are 
+                        \item if position on the subspace is independent of \(\theta\), then \(b(x)\) is a sufficient statistic, and orthodox and Bayesian methods will give similar results
+                        \item if position is relevant, then the data contains information that orthodox methods do not take into account
+                        \item put differently, given the actual data set, all estimators that might be chosen, \(\{b_1, b_2, \ldots\}\), are known.\ Therefore, Bayes' theorem contains all the information contained in the class of all estimators
+                    \end{itemize}
+                \item so, Bayesian methods can continue if a single estimator is not a sufficient statistic, but orthodox methods must continue to create estimators until a sufficient statistic is found, or else it will produce inaccurate results
+                \item shows that the notion of sufficiency can be definable in terms of Shannon's information measure of entropy, in addition to in the terms of information solely
+                \item the condition for a sufficient statistic to exist is that the sampling distribution be of the functional form
+                    \begin{equation*} 
+                        \log p(x|a) = - l(\alpha) \beta (x) + \int \text{d}l~\langle \beta \rangle + \text{const.}
+                    \end{equation*}
+                    where \(\alpha\) and \(\beta\) are vectors of any dimensionality and \(l\) is the sampling expectation value of some observable \(x\)
+                \item ``\ldots if we think of a maximum entropy distribution as a sampling distribution paramterized by the Lagrange multipliers \(l_j\), we find that the sufficient statistics are precisely the data images of the constraints that were used in defining that distribution.'' (pg. 520)
+                    \begin{itemize} 
+                        \item so, if we have a maximum entropy distribution generated from a set of constraints \(\{\langle \beta_1 (x) \rangle, \langle \beta_2 (x) \rangle, \ldots, \langle \beta_k (x) \}\) as expectations over that probability distribution, it has \(k\) sufficient statistics which are just \(\{\beta_1 (x), \ldots, \beta_k (x)\}\), where \(x\) is the data set observed
+                        \item Note:\ I presume this means that \(\beta = 1/kT\) is a sufficient statistic for the Maxwell--Boltzmann distribution?
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{Bayesian spectrum analysis}
+            \begin{itemize} 
+                \item compares the orthodox and Bayesian methods for determining periodicity in data.
+                \item says that the orthodox method throws away information relevant to periodicity, as well as further pointing out the folly of comparing solely against a ``null hypothesis'' (see section 5 of this document for more)
+                \item will only replicate his discussion on the Bayesian method, examining the periodicity of temperature in New York City
+                \item first, we consider it possible that temperature data has some periodic element due to a systematic, physical influence, \(A \cos \omega t + B \sin \omega t\), where \(|\omega| \leq \pi\)
+                \item additionally, presume that the data are contaminated with variables \(e_t\), which we cannot control or predict
+                    \begin{itemize} 
+                        \item almost always a good idea to set a Gaussian prior, in this case with parameters \((\mu, \sigma)\) to the \(e_t\) variables
+                        \item \(\mu\) is the `nominal true mean temperature' not known in advance, \(\sigma\) is a nuisance parameter to be integrated out (how did he determine this?)
+                    \end{itemize} 
+                \item model equation for the data is then 
+                    \begin{equation*} 
+                        y_t = \mu + A \cos \omega t + B \sin \omega t + e_i \hspace{1cm} 1 \leq t \leq n
+                    \end{equation*}
+                    with sampling distribution for \(e_t\),
+                    \begin{equation*} 
+                        p(e_i \cdots e_n | \mu \sigma I) = {\left( \frac{1}{2\pi\sigma^2} \right)}^{n/2} \exp \left \{ -\frac{1}{2\sigma^2} \sum\limits_t e^2_t \right \}
+                    \end{equation*}
+                    and sampling distribution for the data,
+                    \begin{equation*} 
+                        p(y_1 \cdots y_n | \mu \sigma I) = {\left( \frac{1}{2\pi\sigma^2} \right)}^{n/2} \exp \left \{ - \frac{Q}{2\sigma^2} \right \}
+                    \end{equation*}
+                    where 
+                    \begin{equation*} 
+                    \begin{split}
+                        Q(A,B,\omega) &= \sum {(y_t - \mu - A\cos \omega t - B \sin \omega t)}^2 \\
+                                      &\Rightarrow n \left[ \overline{y^2} - 2 \overline{y} \mu + \mu^2 - 2A\overline{y_t \cos \omega t} - 2B\overline{y_t \sin \omega t} + 2\mu A \overline{\cos \omega t} \right.\\
+                                      &\left. +~2\mu B \overline{\sin \omega t} + 2AB\overline{\cos \omega t \sin \omega t} + A^2\overline{\cos^2\omega t} + B^2\overline{\sin^2 \omega t} \right]
+                    \end{split}
+                    \end{equation*}
+                \item in this problem, \(A\), \(B\), and \(\omega\) are the parameters of interest, with \(\mu\) and \(\sigma\) being nuisance parameters
+                \item so in the definition of \(Q\), the four sums involving \(y_t\) are the sufficient statistics for all five parameters, with the others being evaluated analytically before incorporating the data
+                \item what about the priors?
+                    \begin{itemize} 
+                        \item the sheer fact that New York exists is relevant, as we know then that \(A\) and \(B\) must be less than 200\(^{\circ}\) F
+                        \item have no information about the periodicity phase, \(\theta = \tan^{-1} (B/A)\), so we assign a uniform prior to \(\theta\)
+                        \item assign a joint prior to \((A,B)\),
+                            \begin{equation*} 
+                                p(AB|I) = \frac{1}{2\pi{\delta}^2} \exp \left \{ -\frac{A^2 + B^2}{2\delta^2} \right \}
+                            \end{equation*}
+                            where \(\delta\) is on the order of magnitude of \(100^{\circ}\)F
+                    \end{itemize}
+                \item applying Bayes' theorem and integrating out the nuisance parameters gives us
+                    \begin{equation*} 
+                        p(AB\omega|DI) = Cp(AB\omega|I)L^*(A, B, \omega)
+                    \end{equation*}
+                    where \(C\) is a normalization constant and \(L^*\) is the quasi--likelihood,
+                    \begin{equation*} 
+                        L^* (A,B,\omega) = \int \text{d}\mu~\int \text{d}\sigma~p(\mu\sigma|AB\omega I)p(D|AB\omega\mu\sigma I)
+                    \end{equation*}
+                    and, to be on the safe side,
+                    \begin{equation*} 
+                        p(\mu\sigma|I) \propto \frac{1}{\sigma \sqrt{2 \pi \alpha^2}} \exp \left \{ -\frac{\mu^2}{2 \alpha^2} \right \} \hspace{1cm} a \leq \sigma \leq b
+                    \end{equation*}
+                    in which \(\alpha\) and \(b\) (where the fuck is this \(b\)?) are of the order of \(100^{\circ}\)F, and \(a \backsimeq 10^{-6}\), making \(L^*\) then
+                    \begin{align*} 
+                        L^*(A,B,\omega) &= \int^{\infty}_{-\infty} \text{d}\mu~\exp \left \{ -\frac{\mu^2}{2\alpha^2} \right \} \int^{a}_{b} \frac{\text{d}\sigma}{\sigma^{n+1}} \exp \left\{ -\frac{Q}{2\sigma^2} \right\} \\
+                                        &\Rightarrow \frac{1}{2}\frac{(n/2 - 1)!}{{(Q/2)}^{n/2}}
+                    \end{align*}
+                    if \(n>0\)
+            \end{itemize}
+
+            \subsubsection{The folly of randomization}
+                \begin{itemize} 
+                    \item ``randomization'' is often introduced by way of Monte Carlo integration
+                    \item let a function \( y = f(x) \) exist in a unit square \(0 \leq x, y \leq 1\), and we wish to compute its integral
+                        \begin{equation*} 
+                            \theta = \int^{1}_{0} \text{d}x~f(x)
+                        \end{equation*}
+                    \item let's assume that we cannot solve this analytically.\ we can just choose \(n\) points at random \((x,y)\) within the unit square and determine whether or not \(y \leq f(x)\)
+                    \item for \(r\) points, we estimate the integral as \({(\theta)}_{\text{est.}} = r/n \), and, as \(n \rightarrow \infty\), this estimate might approach the Riemannian integral
+                    \item how accurate is the estimate?
+                        \begin{itemize} 
+                            \item suppose we have an intependent binomial sampling distribution on r
+                                \begin{equation*} 
+                                    p(r|n\theta) = \binom{n}{r} \theta^r {(1-\theta)}^{n-r}
+                                \end{equation*}
+                                with (mean) \(\pm\) (standard deviation) of
+                                \begin{equation*} 
+                                    \theta \pm \sqrt{\frac{\theta (1-\theta)}{n}}
+                                \end{equation*}
+                            \item the width of the sampling distribution would indicate the accuracy of the estimate, so we could determine the probable error of \({(\theta)}_{\text{est.}}\) as 
+                                \begin{equation*} 
+                                    {(\theta)}_{\text{est.}} = \frac{r}{n} \pm \sqrt{\frac{r(n-r)}{n^3}}
+                                \end{equation*}
+                            \item you will notice that the accuracy only improves as \(1/\sqrt{n}\)
+                            \item this leads to him showing that the maximum possible error per step is
+                                \begin{equation*} 
+                                    [\text{error in determining }f(x)] \times [\text{width of step}] = \frac{1}{2\sqrt{n}} \times \frac{1}{\sqrt{n}} = \frac{1}{2n}
+                                \end{equation*}
+                        \end{itemize}
+                    \item he goes on to show that the error in choosing nonrandom points is significantly lower than choosing random points
+                \end{itemize}
+
+        \subsection{Continuing on}
+            \begin{itemize} 
+                \item proposes a general principle:\ ``\textit{Whenever there is a randomized way of doing something, there is a nonrandomized way that yields better results from the same data, but requires more thinking.}'' (pg. 532)
+                \item Bayesian methods have built in safety devices
+                    \begin{itemize} 
+                        \item in parameter estimation, the log--likelihood function is
+                            \begin{equation*} 
+                                \log L(\alpha) = \sum\limits^{n}_{i=1} \log p(x_i|\alpha) = n \overline{\log p(x_i|\alpha)}
+                            \end{equation*}
+                        \item this is spread out over the full range of variability of all data, so if we get bad data, no good estimate is possible and Bayes' theorem returns to us a wide posterior distribution
+                        \item however, orthodox methods claim accuracy which is essentially the width of the sampling distribution for whatever estimator you choose, ignoring the range of data while taking into account all data sets which might have been obtained but were not
+                    \end{itemize}
+                \item fundamental differences in analyzing trends in data
+                    \begin{itemize} 
+                        \item Orthodox methods attempt to `detrend' data before analysis, usually irreversibly removing data which may or may not be relevant
+                        \item Bayesian methods remove the contamination in \textit{final conclusion}, taking into account \textit{all relevant information}
+                    \end{itemize}
+            \end{itemize}
+\end{document}

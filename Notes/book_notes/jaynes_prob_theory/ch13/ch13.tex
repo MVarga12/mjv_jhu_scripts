@@ -1,0 +1,100 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Paradoxes of probability theory}
+        \begin{itemize} 
+            \item Defines a paradox ``something which is absurd or logically contradictory, but which appears at first glance to be the result of sound reasoning.'' (pg. 451)
+            \item says they often arise from misuse of infinite sets and infinite/infinitesimal quantities
+            \item if bad reasoning always lead to ridiculous conclusions, it would be easy to identify;\ but once that reasoning has led to a few correct conclusions, it is hard to safeguard against it
+            \item removing a paradox from probability theory will require
+                \begin{enumerate}
+                    \item the result is indeed absurd
+                    \item the reasoning leading to it violates the rules of inference developed earlier
+                    \item when one obeys those rules, the paradox disappears and we have a reasonable result
+                \end{enumerate}
+        \end{itemize}
+
+        \subsection{Summing a series the easy way}
+            \begin{itemize} 
+                \item Paradox:\ can prove that any infinite series \(S = \sum_{i} a_i\) converges to any number \(x\) you choose
+                \item the sum of the first \(n\) terms is \(s_n = a_1 + a_2 + \cdots + a_n\)
+                \item defining \(s_0 \equiv 0\), we have \(a_n = (s_n - x) - (s_{n-1} - x)\), where \(1 \leq n < \infty\)
+                \item the series then becomes
+                    \begin{align*} 
+                        S &= (s_1 - x) + (s_2 - x) + (s_3 - x) + \cdots \\
+                          &- (s_0 - x) - (s_1 - x) - (s_2 - x) - \cdots
+                    \end{align*}
+                    so all terms \( (s_n - x) \) cancel out, leading to \(S = (s_0 - x) = x\)
+                \item we can avoid such fallacious arguments by following the advice, ``passage to a limit should always be the last operation, not the first.'' (pg. 452)
+                \item the correct line of reasoning leads to cancelling all the \(x\) terms, leading to the final \(s\) value, which is the correct summation
+            \end{itemize}
+
+        \subsection{Nonconglomerability}
+            \begin{itemize} 
+                \item another example of misusing infinite sets
+                \item if \((C_1, \ldots, C_n)\) denote a finite set of mutually exclusive, exhaustive propositions with prior information \(I\), the probability for a proposition \(A\) is
+                    \begin{equation*} 
+                        P(A|I) = \sum\limits^{n}_{i=1} P(AC_i | I) = \sum\limits^{n}_{i=1} P(A|C_i I)P(C_i | I)
+                    \end{equation*}
+                    which shows that the prior probability \(P(A|I)\) is a weighted average of conditional probabilities \(P(A|C_i I)\)
+                \item a weighted average of a set of real numbers cannot lie outside the range spanned by those numbers; i.e.\ if \(L \leq P(A| C_i I) \leq U\), thence \(L \leq P(A|I) \leq U\), a property which is called \textit{conglomerability}, or, more precisely, conglomerability in the partition \(\{C_i\}\)
+                \item he says that obviously nonconglomerability cannot arise from a correct application of the rules of probability theory, and goes on to analyze some examples where nonconglomerability has been claimed, which I'm not going to replicate (pp. 452--464)
+                \item why does nonconglomerability matter?
+                    \begin{itemize} 
+                        \item in and of itself, it does not, but it is a symptom of a larger issue
+                        \item recall that if \(A \equiv A_1 + A_2 + \cdots + A_n\) is a disjunction of a finite number of mutually exclusive propositions, then
+                            \begin{equation*} 
+                                p(A|C) = \sum^{n}_{i=1} p(A_i | C)
+                            \end{equation*}
+                        \item Definition---\textit{disjunction}:\ Given two propositions, \(A\) and \(B\), \(A\) \textbf{or} \(B\) is true if \(A\) is true, if \(B\) is true, and if \(A\) and \(B\) are true.\ Denoted by \(\vee\) or \(+\), as in \(A \vee B\) or \(A + B\)
+                        \item these probabilities have `finite additivity'.\ as \(n \rightarrow \infty\) we would suppose that the sum goes in the limit into a sum over a countable number of terms, thusly converging.\ if the sum does not converge, we would refuse to pass to the limit at all
+                        \item however, suppose we pass to the infinite limit before considering additivity (as shown to be the cause of the nonconglomerability paradox described in the examples).\ we are then concerned with additivity over propositions about intervals on infinite sets
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{The Borel--Kolmogorov paradox}
+            \begin{itemize} 
+                \item the transition from discrete to continuous probabilities is typically uneventful, but one tricky point can lead to erroneous results
+                \item suppose that \(I\) is prior information according to which \((x,y)\) are assigned a bivariate normal PDF with variance unity and correlation coefficient \(\rho\),
+                    \begin{equation*} 
+                        p(\text{d}x\text{d}y|I) = \frac{\sqrt{1 - {\rho}^2}}{2\pi} \exp \left \{ \frac{1}{2} (x^2 + y^2 - 2\rho x y) \right \} \text{d}x\text{d}y
+                    \end{equation*}
+                \item integrate out either \(x\) or \(y\) to get marginal PDFs,
+                    \begin{align*}
+                        p(\text{d}x|I) &= \sqrt{\left( \frac{1-{\rho}^2}{2\pi} \right)} \exp \left \{ -\frac{1}{2}(1-{\rho}^2)x^2 \right \} \text{d}x \\
+                        p(\text{d}y|I) &= \sqrt{\left( \frac{1-{\rho}^2}{2\pi} \right)} \exp \left \{ -\frac{1}{2}(1-{\rho}^2)y^2 \right \} \text{d}y 
+                    \end{align*}
+                \item this is all rote so far.\ but what if we wanted the conditional PDF for \(x\), given \(y = y_0\)?\ we might assume that we need to just set \(y = y_0\) and renormalize with \(A\),
+                    \begin{equation*} 
+                        p(\text{d}x|y=y_0 I) = A \exp \left \{ -\frac{1}{2} (x^2 + {y_0}^2 - 2\rho x y_0) \right \} \text{d}x
+                    \end{equation*}
+                \item this is, however, an \textit{ad hoc} device and not derived from the prior PDF
+                \item working through the proper derivation (described in previous chapters) we get
+                    \begin{equation*} 
+                        p(A|BI) = p(\text{d}|x\text{d}y I) = \frac{p(\text{d}x\text{d}y|I)}{p(\text{d}y|I)} = \frac{1}{\sqrt{2\pi}} \exp \left \{ -\frac{1}{2} {(x-\rho y_0)}^2 \right \} \text{d}x
+                    \end{equation*}
+                    where \(A \equiv x~\text{in d}x\) and \(B \equiv y~\text{in}~(y_0 < y < y_0 + \text{d}y)\).
+                \item we can see that the d\(y\) term cancels out, so d\(y \rightarrow 0\) does nothing.\ so this gives the same result as our intuitive \textit{ad hoc} result, after working out the normalization constant.\ so why not just always make these intuitive leaps?
+                \item we can see that it all depends on how we choose to write the \textit{ad hoc} equation.\ suppose we instead used variables \((x,u)\), where \(u \equiv y/f(x)\)
+                    \begin{itemize} 
+                        \item the Jacobian is then
+                            \begin{equation*} 
+                                \frac{\partial (x,u)}{\partial (x,y)} = {\left( \frac{\partial u}{\partial y} \right)}_x = \frac{1}{f(x)}
+                            \end{equation*}
+                        \item which leads to the conditional PDF, expressed in the new variables and after integrating out \(u\) or \(x\) (same procedure as above),
+                            \begin{equation*} 
+                                p(\text{d}x|u = 0 I) = A\exp \left \{ -\frac{1}{2} x^2 \right \} f(x)\text{d}x
+                            \end{equation*}
+                        \item from the definition of \(u\), we can see that \(u = 0\) is the same as \(y = 0\), meaning the above conditional PDF differs from the previous conditional PDF by a factor of \(f(x)\)
+                    \end{itemize}
+                \item he goes on to show that this arises from the ambiguity of \(y=0\), without defining which of any number of limits is intended by passing to a measure--zero limit (as the limit \(y = 0\) and be defined in any number of sequences, such as \(A_{\epsilon} \equiv |y| < \epsilon\) or \(B\equiv |y| < \epsilon |x|\))
+                \item in other words, the final result will depend on the limiting operation specified
+            \end{itemize}
+
+        \subsection{Discussion}
+            \begin{itemize} 
+                \item he goes through a few more paradoxes (specifically the marginalization paradox, which he states is still incomplete and much more complex than the previous ones), but I'm tired of writing them and I don't really care about them that much.
+            \end{itemize}
+\end{document}

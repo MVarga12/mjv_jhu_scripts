@@ -1,0 +1,99 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+    \section{Physical measurements}
+        \begin{itemize} 
+            \item in this section, he develops a way to estimate two parameters from three observations
+        \end{itemize}
+
+        \subsection{Reduction of equations of condition}
+            \begin{itemize} 
+                \item suppose we wish to determine the charge \textit{e} and mass \textit{m} of an electron
+                    \begin{itemize} 
+                        \item Milikan oil--drop experiment measures \(e\) (I despise doing this experiment)
+                            \begin{itemize} 
+                                \item measures \(e\) with \(\pm 2\%\) accuracy
+                            \end{itemize}
+                        \item deflection of an electron beam in a known elecromagnetic field measures \(e/m\)
+                            \begin{itemize} 
+                                \item measures \((e/m)\) with \(\pm 1\%\) accuracy
+                            \end{itemize}
+                        \item deflection of an electron toward a metal plate due to attraction of image charges measures \(e^2/m\)
+                            \begin{itemize} 
+                                \item measures \((e^2/m)\) with \(\pm 5\%\) accuracy
+                            \end{itemize}
+                    \end{itemize}
+                \item these three experiments all measure \(e\) and \(m\) differently, and thus different experiments will obtain values which might not agree.\ wish to answer three questions:
+                    \begin{enumerate}
+                        \item how do we process the data to make use of all information available to obtain the best estimates of \(e\) and \(m\)?
+                        \item what is the probable error remaining?
+                        \item how much would our estimates be improved by including another experiment?
+                    \end{enumerate}
+                \item suppose the values of \(e\) and \(m\) known in advance to be \(e \approx e_0\) and \(m \approx m_0\), the measures are linear functions of the corrections
+                \item writing the values of \(e\) and \(m\) as 
+                    \begin{align*} 
+                        e &= e_0 (1 + x_1) \\
+                        m &= m_0 (1 + x_2)
+                    \end{align*}
+                    where \(x_1\) and \(x_2\) are dimensionless corrections, the results of the measurements are three numbers,
+                    \begin{align*} 
+                        M_1 &= e_0 (1 + y_1) \\
+                        M_2 &= \frac{e_0}{m_0} (1 + y_2) \\
+                        M_3 &= \frac{e^2}{m_0} (1 + y_3)
+                    \end{align*}
+                    where \(y_n\) are also dimensionless numbers known in terms of \(e_0\), \(m_0\), and \(M_n\)
+                \item the `true' values are expressible in terms of \(x_i\),
+                    \begin{align*} 
+                        e &= e_0 ( 1 + x_1) \\
+                        \frac{e}{m} &= \frac{e_0 (1 + x_1)}{m_0 (1 + x_2)} = \frac{e_0}{m_0} (1 + x_1 - x_2 + \cdots) \\
+                        \frac{e^2}{m} &= \frac{e^2_0 {(1 + x_1)}^2}{m_0 (1 + x_2)} = \frac{e_0}{m_0} (1 + 2x_1 - x_2 + \cdots) \\
+                    \end{align*}
+                \item taking into account all the errors, the general expression for the \(y_i\) coefficients is 
+                    \begin{equation*} 
+                        y_i = \sum\limits^{n}_{j=1} a_{ij} x_j + {\delta}_i \hspace{1cm} i = 1, 2, \ldots, N
+                    \end{equation*}
+                    or 
+                    \begin{equation*} 
+                        y = Ax + \delta
+                    \end{equation*}
+                    %\begin{align*} 
+                    %    y_1 &= a_{11}x_1 + a_{12}x_2 + {\delta}_1 \\
+                    %    y_2 &= a_{21}x_1 + a_{22}x_2 + {\delta}_2 \\
+                    %    y_3 &= a_{21}x_1 + a_{21}x_2 + {\delta}_3
+                    %\end{align*}
+                    where \({\delta}_i\) are fractional errors and 
+                    \begin{equation*} 
+                        A = \left( \begin{matrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{matrix} \right) = \left( \begin{matrix} 1 & 0 \\ 1 & -1 \\ 2 & -1 \end{matrix}\right)
+                    \end{equation*}
+                \item old reasoning is as follows
+                    \begin{itemize} 
+                        \item plausible that \(x_j\) will be a linear combination of all \(y\)
+                        \item if \(N > n\), cannot just solve the matrix equation, since \(A\) will not be a square matrix, and thus will have no inverse
+                        \item can multiply the left side by some \((n \times N)\) matrix \(B\).\ the product \(BA\) exists, and will have an inverse if we choose \(B\) as such
+                        \item the linear combinations are the \(n\) rows of 
+                            \begin{equation*} 
+                                By = BAx + b\delta
+                            \end{equation*}
+                            with the unique solution
+                            \begin{equation*} 
+                                x = {(BA)}^{-1}B(y-\delta)
+                            \end{equation*}
+                        \item the best estimate of \(x_j\) will be the \(j\)th row of 
+                            \begin{equation*} 
+                                \hat{x} = {(BA)}^{-1}By
+                            \end{equation*}
+                            if the fractional errors are symmetric, i.e.\ \(p(\delta_i) = p(-\delta_i) \Rightarrow \langle \delta_i \rangle = 0\)
+                        \item different choices of \(B\) will give us different estimates.\ so which is the best choice of \(B\)?
+                        \item this is the \textit{reduction of equations of condition}
+                    \end{itemize}
+                \item this problem is actually solved in section 12 (Decision Theory),
+                    \begin{displayquote} 
+                        \ldots where we have seen in generality that the best estimate of any parameter, by the criterion of any loss function, is found by applying Bayes' theorem to find the probability, conditional on the data, that the parameter lies in various intervals, then making the estimate which minimizes the expected loss taken over the posterior probabilities. (pg. 592)
+                    \end{displayquote}
+                \item goes on to do this calculation for the case in which the errors have independent Gaussian probabilities (pp. 592--599).\ not replicated, but some important notes are below
+                    \begin{itemize} 
+                        \item ``\ldots acquisition of new information does not affect our inferences if that new information is only what we would have predicted from our old information.'' (pg. 592)
+                        \item find that no matter how accurately we know \((e^2/m)\), if \((e)\) and \((e/m)\) measurements have the same accuracy, no matter how poor, we should ignore \((e^2/m)\) and base our measurement of \((m)\) solely on the \((e)\) and \((e/m)\) measurements
+                    \end{itemize}
+            \end{itemize}
+\end{document}

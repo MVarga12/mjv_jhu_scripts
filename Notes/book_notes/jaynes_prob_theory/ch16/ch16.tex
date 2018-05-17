@@ -1,0 +1,328 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+\section{The \(\boldsymbol{A_p}\) distribution and rule of succession}
+        \begin{itemize} 
+            \item want to give our probability calculation machine a definite mechanism to store conclusions, not just isolated facts
+            \item one can produce identical `external' probabilities for two events, while having very different `internal' states of knowledge 
+            \item up to this point, all propositions have been `Aristotelian' in that they are binary choices, either true or false. 
+            \item what about propositions that are not so black and white, but to which we still want to assign real number probabilities?
+                \begin{itemize} 
+                    \item introduce a new proposition \(A_p\), defined by
+                        \begin{equation*} 
+                            p(A|A_p E) \equiv p
+                        \end{equation*}
+                        where \(E\) is any additional evidence
+                    \item \(A_p\), in words, is something to the effect of ``regardless of anything else you may have been told, the probability of \(A\) is \(p\)''
+                    \item this is a weird proposition, and nothing stops us from using Bayes' theorem to get its probabilities, \(p(A_p | E)\).\ this is weird, because it is essentially a probability of probabilities
+                    \item not claiming that \(p(A_p|E)\) is a real probability, only that it is a number which obeys the rules of probability theory
+                        \begin{itemize} 
+                            \item to end confusion, use the notation \((A_p|E)\), and call it `the density of \(A_p\), given \(E\)'
+                        \end{itemize}
+                    \item if some information \(X\) tells us nothing other than it is possible for \(A\) to be true or false, in a completely ignorant population (Ch.\ 11),
+                        \begin{equation*} 
+                            (A_p|X) = 1 \hspace{1cm} 0 \leq p \leq 1
+                        \end{equation*}
+                    \item use Bayes' theorem to compute the density of \(A_p\) conditional on other things
+                        \begin{equation*} 
+                            (A_p|EX) = (A_p|X) \frac{P(E|A_p X)}{P(E|X)} = \frac{P(E|A_p)}{P(E|X)}
+                        \end{equation*}
+                    \item Now, 
+                        \begin{equation*} 
+                            P(A|E) = \int^{1}_{0} \text{d}p~(AA_p | E)
+                        \end{equation*}
+                        because every \(A_p\) are mutually exclusive and exhaustive
+                    \item use the product rule to get
+                        \begin{equation*} 
+                            P(A|E) = \int^{1}_{0} \text{d}p~P(A|A_p E)(A_p|E) \Rightarrow P(A|E) = \int^{1}_{0} \text{d}p~p(A_p|E)
+                        \end{equation*}
+                        which states that the probability of \(A\) is the first moment of the density of \(A_p\)
+                    \item therefore, the density for \(A_p\) should contain more information about the robot's state of mind concerning \(A\) than just the probability for \(A\)
+                \end{itemize}
+        \end{itemize}
+
+        \subsection{Relevance}
+            \begin{itemize} 
+                \item note some lemmas about relevance to see why we proposed that the density of \(A_p\) should be more informative
+                \item suppose we have evidence \(E = E_a E_b\), with only \(E_a\) being relevant to \(A\),
+                    \begin{equation*} 
+                        P(A|E) = P(A|E_a E_b) = P(A|E_a)
+                    \end{equation*}
+                \item according to Bayes' theorem, \(A\), given \(E_a\), must also be irrelevant to \(E_b\),
+                    \begin{equation*} 
+                        P(E_b|AE_a) = P(E_b|E_a) \frac{P(A|E_b E_a)}{P(A|E_a)} = P(E_b | E_a)
+                    \end{equation*}
+                \item this is called `weak irrelevance'.\ this does not imply that \(E_b\) is irrelevant to \(A_p\), it only says that the first moments of \((A_p | E_b)\) and \((A_p | E_a E_b)\) are the same
+                \item suppose that for a given \(E_b\), the relationship \(P(A|E_a E_b) = P(A|E_a)\) holds no matter what \(E_a\) is
+                    \begin{itemize} 
+                        \item this is called `strong irrelevance'
+                        \item we then have
+                            \begin{align*} 
+                                P(A|E) &= \int^{1}_{0}\text{d}p~p(A_p|E_a E_b) = \int^{1}_{0}\text{d}p~p(A_p|E_a) \\
+                                       &\Rightarrow P(A_b|A_p E_a) = P(E_b | E_a)
+                            \end{align*}
+                            since the integrands must be identical if it is to hold for all \((A_p | E_a)\)
+                    \end{itemize}
+                \item how does new evidence \(F\) change the state of knowledge about \(A\)
+                    \begin{itemize} 
+                        \item expand by Bayes' theorem using \(A_p\),
+                            \begin{equation} 
+                                P(A|EF) \Rightarrow \int^{1}_{0}\text{d}p~(A_p|E)\frac{P(F|A_p E)}{P(F|E)}
+                            \end{equation}
+                        \item since any evidence irrelevant to \(A\) can be ignored, the likelihood ratio goes to
+                            \begin{equation*} 
+                                \frac{P(F|A_p E_a E_b)}{P(F|E_a E_b)} \Rightarrow \frac{P(F|A_p E_a)}{P(F|E_a)}
+                            \end{equation*}
+                        \item if we continue doing this for all parts of \(E_a\) that are irrelevant to \(A\), we get some \(E_{aa}\) which is relevant only to \(A\)
+                        \item the above expression for \(P(A|EF)\) then reduces to
+                            \begin{equation} 
+                                \label{new_info}
+                                P(A|EF) = \frac{1}{P(F|E_{aa})} \int^{1}_{0} \text{d}p~p(A_p|E)P(F|A_p)
+                            \end{equation}
+                        \item we can eliminate the normalization factor, \(1/(F|E_{aa})\) by calculating the odds on \(A\) instead of the probability,
+                            \begin{equation*} 
+                                O(A|EF) = \frac{P(A|EF)}{P(\overline{A}|EF)} = \frac{\int^{1}_{0}\text{d}p~p(A_p|E)P(F|A_p)}{\int^{1}_{0}\text{d}p~(A_p|E)P(F|A_p)(1-p)}
+                            \end{equation*}
+                            \begin{itemize} 
+                                \item the significant thing here is that the prior information, \(E\), only appears in the density \((A_p|E)\), which indicates that the only property of \(E\) that we need in order to understand the effect of new information is the density itself
+                                \item in other words, everything we need in order to reason about \(A\) from past experience is contained in the \((A_p|E)\) 
+                            \end{itemize}
+                        \item we can then store a density function, \((A_p|E)\) for each proposition \(A\).\ when new evidence \(F\) is introduced, we can calculate \((A_p|EF)\) and store this as the new \((A_p|E)\)
+                        \item looking back to eq.~\ref{new_info}, we can see that the state of mind when we have evidence \(E\) is determined by the width of the density \((A_p|E)\); when the density is already peaked sharply around one value of \(p\), then \(P(F|A_p)\) will be even more sharply peaked around some value \(p^{\prime}\), and if the density is very broad, then a small change in \(P(F|A_p)\) will make a large chang ein the probability of \(A\)
+                    \end{itemize}
+                \item can think of conventional probability formulas as an `outer' process, which reasons about the external world, and the density \(A_p\) as an `inner' process which observes and analyzes the `outer' process
+            \end{itemize}
+
+        \subsection{An application}
+            \begin{itemize} 
+                \item imagine a `random' experiment is being performed, and we want to predict the results in the future based upon results from the past
+                \item make the problem definite by introducing the propositions,
+                    \begin{displayquote}
+                        \(X \equiv\) For each trial we admit two prior hypotheses, \(A\) true, and \(A\) false
+                    \end{displayquote}
+                \item assume two things
+                    \begin{enumerate}
+                        \item probability assigned to \(A\) at the \(n\)th trial is independent of \(n\)
+                        \item the evidence concerning past trials retains full relevance for all times, i.e\ trial \(n=1\) is as relevant as trial \(n=99\) is to the prediction of trial \(n=100\)
+                    \end{enumerate}
+                \item no other prior information.\ additional definitions,
+                \begin{displayquote}
+                    \begin{itemize} 
+                        \item[] \(N_n \equiv\) \(A\) true \(n\) times in \(N\) trials in the past
+                        \item[] \(M_m \equiv\) \(A\) true \(m\) times in \(M\) trials in the future
+                    \end{itemize}
+                \end{displayquote}
+                \item the precise statement of information \(X\) is \((A_p | X) = 1\), \(0 \leq p \leq 1\)
+                    \begin{itemize} 
+                        \item note that the \textit{same} \(A_p\) is used for calculations pertaining to \textit{all} trials
+                        \item we are after \(P(M_m|N_n)\)
+                    \end{itemize}
+                \item through repetitions of the sum and product rules, we come to the binomial distributions
+                    \begin{align*} 
+                        P(N_n|A_p) &= \binom{N}{n} p^n{(1-p)}^{N-n} \\
+                        P(M_m|A_p) &= \binom{M}{n} p^m{(1-p)}^{M-m}
+                    \end{align*}
+                \item find the prior probability \(P(N_n|X)\), recalling the trick for resolving a proposition into mutually exclusive alternatives,
+                    \begin{equation*} 
+                        P(N_n|X) = \int^{1}_{0}\text{d}p~(N_n A_p | X) \Rightarrow \binom{N}{n}\int^{1}_{0}\text{d}p~p^n{(1-p)}^{N-n}
+                        \Rightarrow P(N_n|X) = \left \{\begin{matrix} \frac{1}{N+1} & 0 \leq n \leq N \\ 0 & N < n \end{matrix} \right.
+                    \end{equation*}
+                    the result of which is the uniform distribution of maximum entropy.\ \(P(M_m | X)\) is found in the same manner
+                \item expanding with Bayes' theorem,
+                    \begin{equation*} 
+                        (A_p|N_n) = (A_p | X) \frac{P(N_n|A_p)}{P(N_n|X)} = (N+1)P(N_n|A_p)
+                    \end{equation*}
+                    giving us the desired probability
+                    \begin{align} 
+                        P(M_m|N_n) &= \int^{1}_{0}\text{d}p~(M_m A_p | N_n) = \int^{1}_{0}\text{d}p~P(M_m|A_p N_n)(A_p|N_n) \\
+                        \label{laplace}
+                        \Rightarrow P(M_m|N_n) &= \frac{\binom{n+m}{n} \binom{N+M-n-m}{N-n}}{\binom{N+M+1}{M}}
+                    \end{align}
+                    since \(P(M_m|A_p N_n) = P(M_m|A_p)\) (see the previous section).\ it should be noted that although this looks like it, this is not the hypergeometric distribution discussed in earlier chapters
+                \item in the special case of \(M=m=1\), this collapses to the probability of \(A\) being true in the next trial, given it has been true \(n\) times in the previous \(N\) trials,
+                    \begin{equation*} 
+                        P(A|N_n) = \frac{n+1}{N+2}
+                    \end{equation*}
+                    which is Laplace's rule of succession.
+            \end{itemize}
+
+        \subsection{Laplace's rule of succession}
+            \begin{itemize} 
+                \item though identified several times before, we need to go into more detail
+                \item converts raw information into numerical values of probabilities, and gives a connection between probabilities and frequencies
+                \item must be stated that the rule of succession gives the probability based \textit{only} on the information that the event occurred \(n\) times in \(N\) trials, without additional information
+                \item goes through some objections to the rule of succession, pointing out how they consider problems which are not under the umbrella of the rule.\ Concludes,
+                    \begin{displayquote} 
+                        Probability theory, like any other mathematical theory, cannot give a definite answer unless we ask it a definite question.\ We should always start a problem with an explicit enumeration of the `hypothesis space' consisting of the different propositions that we are going to consider in that problem.\ That is part of the `boundary conditions' which must be specified before we have a well--posed mathematical problem. (pg. 566)
+                    \end{displayquote}
+                \item concludes the section with
+                    \begin{displayquote} 
+                        \ldots Laplace's rule of succession provides a definite, useful solution to a definite, real problem.~\ldots The case where the problem can be reasonably idealized to one with only two hypotheses to be considered, a belief in a constant `causal mechanism', \textit{and no other prior information}, is the only case where it applies. (pg. 568) 
+                    \end{displayquote}
+            \end{itemize}
+
+            \subsection{An example of the rule of succession:\ bass or carp?}
+                \begin{itemize} 
+                    \item suppose a certain lake consists of only bass and carp.\ we catch ten fish and they all turn out to be carp --- what, then, is our state of belief about the percentage of bass in the lake?
+                    \item common sense would tell us that the bass population is likely somewhere in the range \((0\%, 15\%)\), but does not tell us quantitatively how likely this is
+                    \item what does the rule of succession say?
+                        \begin{itemize} 
+                            \item with the bass fraction denoted by \(f\), its posterior cumulative PDF is \(P(f<f_0 |DX) = 1 - {(1 - f_0)}^{11} \Rightarrow 0.833\), meaning we have \(5:1\) odds that the bass population is below \(15\%\)
+                            \item the posterior median value is
+                                \begin{equation*} 
+                                    f_{1/2} = 1 - {\left( \frac{1}{2} \right)}^{11} = 0.061
+                                \end{equation*}
+                                or even odds that the bass population is below \(6.1\%\)
+                            \item the `best' estimate, by minimum mean--square error, is \(\langle f \rangle = 8.3\%\)
+                        \end{itemize}
+                    \item how does a bass catch on the 11th draw change our view?
+                        \begin{itemize} 
+                            \item common sense says that if one out of eleven draws is a bass, we would find it hard to believe that the bass population is below \(5\%\)
+                            \item Laplace agrees, with mean--square estimate being \(\langle f \rangle = 2/13 = 15\%\)
+                        \end{itemize}
+                    \item this is the kind of problem Laplace's rule is good at dealing with:\ only two possibilities at each trial, and our prior knowledge was nothing more than that either of those two events were possible
+                \end{itemize}
+
+            \subsection{Generalization of the rule}
+                \begin{itemize} 
+                    \item provides a derivation of the mathematical technique of Laplace's rule of succession that is generalized (pp. 568--571), which I will not replicate
+                        \begin{itemize} 
+                            \item the problem set up is that we have \(K\) hypotheses, \(\{A_1, A_2, \ldots, A_K\}\), a belief that the `causal mechanism' is constant, and no other prior information
+                            \item a random experiment is performed \(N\) times, with us observing \(A_1\) to be true \(n_1\) times, \(A_2\) to be true \(n_2\) times, and so on
+                            \item based on this, what is the probability that in the next \(M = \sum_{i} m_i\) repetitions of the experiment, \(A_i\) will be true exactly \(m_i\) times?
+                        \end{itemize}
+                    \item so, the generalization of eq.~\ref{laplace} is 
+                        \begin{equation} 
+                            \label{general_laplace}
+                            P(m_1 \cdots m_K | n_1 \cdots n_K) = \mathlarger{\frac{\binom{n_1 + m_1}{n_1} \cdots \binom{n_K + m_K}{n_k}}{\binom{N+M+K-1}{M}}}
+                        \end{equation}
+                    \item again, the special case where we just want the probability that \(A_1\) will be true on the next trial, so \(M=m_1 = 1\) with all other \(m_i = 0\),
+                        \begin{equation*} 
+                            P(A_1|n_1 NK) = \frac{n_1 + 1}{N+K}
+                        \end{equation*}
+                    \item using this rule for small \(N\) is rather dumb, as, having no other prior information about \(A\), the numerical probabilities will be very `soft', since \(A_p\) will be very broad
+                \end{itemize}
+
+            \subsection{Weight of new evidence}
+                \begin{itemize} 
+                    \item the stability of a probability assignment in the face of new evidence is determined by the width of the \(A_p\) distribution
+                    \item with \(E\) being prior evidence, and \(F\) being new evidence,
+                        \begin{equation*} 
+                            P(A|EF) = \int^{1}_{0}\text{d}p~p(A_p|EF) = \frac{\int^{1}_{0}\text{d}p~p(A_p|F)(A_p|E)}{\int^{1}_{0}\text{d}p~(A_p|F)(A_p|E)}
+                        \end{equation*}
+                    \item \(F\) is compatible with \(E\) if \(P(A|EF) = P(A|E)\), i.e.\ \(F\) makes no change in the probability of \(A\)
+                    \item \(F\) can make a large change in the distribution \(A_p\) without changing the first moment, i.e.\ \(F\) can broaden or sharpen the distribution, but unless it changes the maximum, we still will be likely to assign the same probability to \(A\) as without \(F\)
+                        \begin{itemize} 
+                            \item this is called \textit{confirmation}, as the new evidence sharpens the \(A_p\) distribution, making us more confident in the previously assigned probability of \(A\)
+                        \end{itemize}
+                    \item consider \(A_p\) given two different pieces of evidence, \(E\) and \(F\),
+                        \begin{equation*} 
+                            (A_p | EF) = (\text{constant}) \times (A_p|E)(A_p|F)
+                        \end{equation*}
+                        \begin{itemize} 
+                            \item if the distribution \(A_p|F\) is significantly sharper than the distribution \(A_p|E\), then the resulting distribution's width and peak will be determined by \(F\).
+                            \item we would then say that \(F\) carries more \textit{weight} than \(E\)
+                            \item having information \(F\) makes information \(E\) almost irrelevant to our final probability assignment
+                        \end{itemize}
+                \end{itemize}
+
+            \subsection{Indifference through knowledge or ignorance}
+                \begin{itemize} 
+                    \item before we can use the principle of indifference to assign numerical probabilities, we must satisfy two conditions:
+                        \begin{enumerate}
+                            \item we must be able to analyze the situation into mutually exclusive, exhaustive possibilities
+                            \item we must then find the available information gives us no reason to prefer any of the possibilities to any other
+                        \end{enumerate}
+                    \item these conditions are almost never met unless there is some symmetry in the problem
+                    \item condition (2) might be satisfied either through ignorance or through some positive knowledge of the situation
+                        \begin{itemize} 
+                            \item the difference is that the extra knowledge makes no change in the probability for \(A\), but does change the density for \(A_p\)
+                        \end{itemize}
+                \end{itemize}
+
+            \subsection{Carnap's inductive methods}
+                \begin{itemize} 
+                    \item ``\ldots an infinite family of possible `inductive methods' by which one can convert prior information and frequency data into a probability assignment and an estimate of frequencies for the future.'' (pg. 574)
+                    \item the principle is \textit{ad hoc}, and states that the final probability assignment \(P(A|N_n X)\) should be a weighted average of the prior probability \(P(A|X)\) and the observed frequency, \(f=n/N\) 
+                        \begin{itemize} 
+                            \item assigning a weight \(N\) to the prior `empirical factor', \(f\), and a weight \(\lambda\) to the prior `logical factor', \(P(A|X)\), leads to the method \(c_{\lambda}(h,e)\)
+                            \item \(\lambda\) can be interpreted as the weight of prior evidence
+                            \item so, with two hypotheses, Carnap's \(\lambda\) method is what you can calculate from the prior density \((A_p|X) = \text{constant} \cdot {[p(1-p)]}^r\) with \(2r = \lambda - 2\), resulting in
+                                \[
+                                    P(A|N_n X) = \frac{2n + \lambda}{2N + 2\lambda} = \frac{(n-r) + 1}{(N+ 2r) + 2}
+                                \]
+                            \item so, a greater \(\lambda\) results in a more sharply peaked \((A_p | X)\) density
+                            \item one should notice that prior evidence is weighted as \(\lambda =\) (number of prior trials + 2), while new evidence \(N_p\) is weighted only as (number of new trials) \(= N\)
+                                \begin{itemize} 
+                                    \item the \((+2)\) in the weighting of prior evidence comes from the fact that prior knowledge that it is \textit{possible} for \(A\) to be true or false is equivalent to knowledge that \(A\) has been true at least once and false at least once
+                                    \item our `pre--prior' distribution for \(A_p\) is 
+                                        \[
+                                            (A_p|X_0)\text{d}p = (\text{constant}) \frac{\text{d}p}{p(1-p)}
+                                        \]
+                                    \item if we have prior knowledge as defined above, then it would be appropriate to use Laplace's rule \((A_p|X) = 1\)
+                                    \item if not, we should use the above stated pre--prior distribution, which is the quasi--distribution representing `complete ignorance'
+                                \end{itemize}
+                        \end{itemize}
+                \end{itemize}
+
+        \subsection{More on probability and frequency connections}
+            \begin{itemize} 
+                \item two types of connections:
+                    \begin{enumerate}
+                        \item given an observed frequency in a random experiment, convert this information into a probability assignment
+                        \item given a probability assignment, predict the frequency with which some condition will be realized
+                    \end{enumerate}
+                \item problem (2) can be often solved by maximum entropy and transformation groups
+                \item problem (1) is solved mostly by rule of succession,
+                    \begin{displayquote} 
+                        If we have observed whether \(A\) was true in a very large number of trials, \textit{and the only knowledge we have about A is the result of this random experiment, and the consistency of the `causal mechanism'}, then it says that the probability we should assign to A at the next trial becomes practically equal to the observed frequency. (pg. 576)
+                    \end{displayquote}
+                \item let's consider how to do this
+                    \begin{itemize} 
+                        \item this is just parameter estimation (frequency being the parameter)
+                        \item suppose instead of determining the probability that \(A\) will be true in the next trial, we wish to infer the relative frequency of \(A\) in an indefinitely large number of trials, based on some evidence \(N_n\)
+                        \item this is akin to taking the limit of eq.~\ref{laplace} as \(M \rightarrow \infty\) and \(m \rightarrow \infty\), such that \((m/M) \rightarrow f\)
+                        \item introduce the proposition,
+                            \begin{displayquote} 
+                                \(A_f \equiv\) the frequency of \(A\) true in the indefinitely large number of trials is \(f\)
+                            \end{displayquote}
+                        \item we find that the mean--value estimate of the frequency is equal to Laplace's rule of succession, and can interpret it as, ``\textit{the probability which Laplace's theory assigns to A at a single trial is numerically equal to the estimate of frequency which minimizes the expected square of the error.}'' (pg. 577)
+                        \item these results also hold for the generalized Laplace rule (eq.~\ref{general_laplace})
+                    \end{itemize}
+                \item this demonstrates the confusion between probability and frequency.\ when the available information consists of observed frequencies within very large samples and constancy of the `causal mechanism', Laplace's theory becomes mathematically equivalent to frequency theory
+                    \begin{itemize} 
+                        \item most classical problems of statistics are of this type
+                    \end{itemize}
+                \item goes on to, through the example of one--dimensional neutron multiplication, and how the frequency--probability connection applies to real--world problems (pp. 579--586)
+                \item notes an important distinction between frequentist and Bayesian statistics:\ the definition of independence
+                    \begin{itemize} 
+                        \item frequentist:\ only recognizes \textit{causal independence}, i.e.\ the fact that one event occurs does not in itself extert a \textit{physical} influence on the occurence of another.
+                        \item Bayesian:\ independence means that \textit{knowledge} of some event \(B\) does not affect the probability that we assign to an event \(A\), i.e.\ \(P(A|BC) = P(A|C)\).\ this is not just causal independence, but \textit{logical} independence
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{The de Finetti theorem}
+            \begin{itemize} 
+                \item only considered \(A_p\) under the restriction that the underlying `causal mechanism' is constant, though unknown, i.e.\ that we use the same \(A_p\) distribution for all trials
+                \item how general is this?
+                    \begin{itemize} 
+                        \item define,
+                            \begin{equation*} 
+                                x_n \equiv \left \{ \begin{matrix} 1 & \text{if}~A~\text{is true on the}~n~\text{th trial} \\ 0 & \text{if}~A~\text{is false on the}~n~\text{th trial}  \end{matrix} \right.
+                            \end{equation*}
+                        \item the state of knowledge about \(N\) trials is described generally by the probability function \(P(x_1 \ldots x_n | N)\)
+                        \item what is the necessary and sufficient condition on this distribution for it to be derivable from an \(A_p\) distribution?
+                        \item any distribution obtained from \(A_p\) has the property that the probability of \(A\) is true in \(n\) specified trials and false in the remaining \((N-n)\) trials, depending only on the numbers \(n\) and \(N\)
+                        \item the distribution \(P(x_1 \ldots x_n)\) defines an \textit{exchangeable sequence} (the probability of an event is invariant under the permutation of the events)
+                    \end{itemize}
+                \item the de Finetti theorem argues that the converse is also true,
+                    \begin{theorem}
+                        Any exchangeable probability function \(P(x_1 \ldots x_n)\) can be generated by an \(A_p\) distribution.
+                    \end{theorem}
+                \item ergo, there is a function \((A_p|X) = g(p)\) such that \(g(p) \geq 0\), where \(\int^{1}_{0}\text{d}p~g(p) = 1\), and the probability that \(A\) is true in \(n\) trials and false in the remaining \((N-n)\) trials, is given by
+                    \begin{equation*} 
+                        P(n|N) = \int^{1}_{0}\text{d}p~p^n {(1-p)}^{N-n} g(p)
+                    \end{equation*}
+                \item this theorem is important, since it shows that the connection between probability and frequency holds for a large class of probability functions (i.e.\ all exchangeable sequences)
+            \end{itemize}
+\end{document}

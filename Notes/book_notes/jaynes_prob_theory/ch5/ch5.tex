@@ -1,0 +1,349 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+\section{Elementary parameter estimation}
+    \begin{itemize}
+        \item When we have a small number of discrete hypotheses $\{H_1, \ldots, H_n\}$, we want to choose a specific one which is most likely, in light of priors and data (this procedure was shown in Ch.5)
+        \item if $n$ is very large, however, we must use a different approach.
+        \item a set of discrete hypotheses can be classified by one or more numerical indices, such that $H_t$ $(1 \leq t \leq n)$.\ In this case, deciding between the hypotheses and estimating the index $t$ become practically the same thing, i.e.\ we can set the index as the quantity of interest rather than the hypothesis itself
+        \item this is called \textit{parameter estimation}
+    \end{itemize}
+
+\subsection{Inversion of the urn distributions}
+    \begin{itemize}
+        \item in this case, the index is discrete
+        \item recall the urn sampling examples we considered in ch. 4, wherein we knew the number of balls, $N$, of which $R$ were red and $N-R$ were white.\ we were able to make inferences about what the numbers of red, $r$, and white, $n-r$, balls were likely to be drawn in $n$ draws
+        \item now lets invert this example: we know the data, $D \equiv (n, r)$, but not the composition of the population of the urn, $(N, R)$
+        \item recall that the sampling distribution for this situation is the hypergeometric distribution:
+            \begin{equation*}
+                p(D|NRI) = h(r|NR,n) = \binom{N}{n}^{-1} \binom{R}{r} \binom{N-R}{n-r}
+            \end{equation*}
+        where $I$ is the prior information.
+    \end{itemize}
+
+    \subsubsection{Both $N$ and $R$ are unknown}
+    \begin{itemize}
+        \item we know intuitively that if we draw $n$ balls from the urn, then $N \geq n$.\ is the number of red balls drawn, $r$, or the order, be relevant to $N$?
+            \begin{itemize}
+                \item the joint posterior probability distribution for $N$ and $R$, after using the product rule $p(NR|I) = p(N|I)p(R|NI)$, is
+                    \begin{equation*}
+                        p(NR|DI) = p(N|I)p(R|NI) \frac{p(D|NRI)}{p(D|I)}
+                    \end{equation*}
+                where 
+                    \begin{equation*}
+                        p(D|I) = \sum^{\infty}_{N=0} \sum^{N}_{R=0} p(N|I)p(R|NI)p(D|NRI)
+                    \end{equation*}
+                    \begin{itemize}
+                        \item it should be obvious that $p(D|NRI)$ is zero in the cases $N < n$, $R < r$, or $N-R < n-r$
+                    \end{itemize}
+                \item it follows that the marginal posterior probability for $N$ is thus
+                    \begin{equation*}
+                        p(N|DI) = \sum^{N}_{R=0}p(NR|DI) = p(N|I) \frac{\sum_{R}p(R|NI)p(D|NRI)}{p(D|I)}
+                    \end{equation*}
+
+                    \begin{itemize}
+                        \item could alternatively apply Bayes' theorem directly, and it must agree with the above posterior probability by way of sum and product rules
+                    \end{itemize}
+                \item whatever prior $p(N|I)$ we assigned, data can only truncate impossible values:
+                    \begin{equation*}
+                        P(N|DI) = \left \{ \begin{matrix} Ap(N|I) & \mathrm{if}~N\geq n \\ 0 & \mathrm{if}~0\leq N \leq n \end{matrix} \right \}
+                    \end{equation*}
+                where $A$ is a normalization constant
+                    \begin{itemize}
+                        \item it should be noted that this only applies if we have no information linking $N$ and $R$.\ if we know, for example, that $R < 0.06N$, we know that, having the observed data $(n,r) = (10, 6)$, that $N \geq 10$ \textit{and} that $N > 100$, making datum $r$ relevant to the estimation of $N$
+                        \item this is usually not known, however, so it is irrelevant
+                    \end{itemize}
+                \item generally, this is a condition on the prior probability $p(R|NI)$
+                    \begin{equation*}
+                        p(D|NI) = \sum^{N}_{R=0}p(D|NRI)p(R|NI) = \left \{ \begin{matrix} f(n,r) & \mathrm{if}~N\geq n \\ 0 & \mathrm{if}~N<n \end{matrix} \right \}
+                    \end{equation*}
+                where $f(n,r)$ may depend on the $D$, but is independent of $N$
+                \item using the hypergeometric distribution, this is explicitly
+                    \begin{equation}
+                        \label{int_eq}
+                        \sum^{N}_{R=0} \binom{R}{r} \binom{N-R}{n-r}p(R|NI) = f(n,r) \binom{N}{n}, \hspace{0.5cm} N \geq n
+                    \end{equation}
+            \end{itemize}
+        \item so, if the constraint on $p(R|NI)$ is that $f(n,r)$ must be independent of $N$ if $N \geq n$, estimation of $N$ is uninteresting and irrelevant 
+        \item by factoring the joint posterior distribution found earlier, we know that $p(NR|DI) = p(N|DI)p(R|NDI)$, and we are mainly concerned with the distribution $R$:
+            \begin{equation}
+                \label{r_post_prob}
+                p(R|DNI) = p(R|NI) \frac{p(D|NRI)}{p(D|NI)}
+            \end{equation}
+        \item different choices for the prior probability $p(R|NI)$ will yield different results
+        \item \textbf{Uniform prior}
+            \begin{itemize}
+                \item Consider the prior knowledge, $I_0$, to be us absolutely ignorant about $R$ while knowing $N$ exactly,\ i.e.\ the \textit{uniform distribution}
+                    \begin{equation*}
+                        p(R|NI_0) = \left \{ \begin{matrix} \frac{1}{N+1} & \mathrm{if}~0 \leq R \leq N \\ 0 & \mathrm{if}~R > N \end{matrix} \right \}
+                    \end{equation*}
+                \item some terms cancel and eq~\ref{r_post_prob} reduces to 
+                    \begin{equation*}
+                        p(R|DNI_0) = S^{-1} \binom{R}{r} \binom{N-R}{n-r}
+                    \end{equation*}
+                    where $S^{-1}$ is a normalization constant, $S \equiv \sum^{N}_{R=0} \binom{R}{r} \binom{N-R}{n-r} = \binom{N+1}{n+1}$
+                \item combining this and the prior, we get
+                    \begin{equation*}
+                        \sum^{N}_{R=0} \frac{1}{N+1} \binom{R}{r} \binom{N-R}{n-r} = \frac{1}{N+1} \binom{N+1}{n+1} = \frac{1}{n+1} \binom{N}{n}
+                    \end{equation*}
+                    \begin{itemize}
+                        \item this satisfies the integral equation (eq~\ref{int_eq}), as it can tell us nothing about $N$ beyond $N \geq n$ (because $\binom{N}{n}$ where $n > N$ is zero)
+                        \item goes to zero when $R < r$ or $R > N - n + r$
+                        \item goes to $\delta(R,r)$ if $n = N$
+                        \item all these in accordance to intuition
+                        \item if we obtain no data, $n = r = 0$, this reduces to the prior distribution
+                    \end{itemize}
+                \item the most probable value of $R$ is found within one unit by setting $p(R^{\prime}) = p(R^{\prime} - 1)$ and solving for $R^{\prime}$, yielding $R^{\prime} = (N+1) \frac{r}{n}$,\ or the peak of the sampling distribution discussed in the Bernoulli urn section
+                \item can find the expectation value of $R$
+                    \begin{equation*}
+                        \langle R \rangle = \sum^{N}_{R=0} Rp(R|DNI_0) \Rightarrow \frac{(N+2)(r+1)}{(n+2)}
+                    \end{equation*}
+                    \begin{itemize}
+                        \item when $(n, r, N)$ are large, $\langle R \rangle \approx R^{\prime}$, indicating either a sharply peaked or symmetric posterior distribution
+                        \item can further extend this to ask what the expected fraction $F$ of red balls left in the urn: $\langle F \rangle = \frac{\langle R \rangle - r}{N-n} = \frac{r+1}{n+2}$
+                    \end{itemize}
+                \item instead of estimating unobserved contents, we can instead predict future observations, asking ``after drawing $r$ red balls in $n$ draws, what is the probability that the next will be red?'', with the proposition $R_i \equiv$ red on the $i$th draw, where $1 \leq i \leq N$
+                \item this gives us the posterior probability
+                    \begin{equation*}
+                        p(R_{n+1}|DNI_0) = \sum^{N}_{R=0}p(R_{n+1}R|DNI_0) = \sum_{R}p(R_{n+1}|RDNI_0)p(R|DNI_0)
+                    \end{equation*}
+                    or
+                    \begin{equation*}
+                        p(R_{n+1}|DNI_0) = \sum^{N}_{R=0} \frac{R-r}{N-n} \binom{N+1}{n+1}^{-1} \binom{R}{r} \binom{N-R}{n-r} = \frac{r+1}{n+2}
+                    \end{equation*}
+                    \begin{itemize}
+                        \item this result is the same as the expected fraction of red balls left in the urn, above, $\langle F \rangle$
+                        \item brings us to a rule: a probability is not the same thing as a frequency; but, under general conditions, the \textit{predictive probability} of an event at a single trial is numerically equal to the \textit{expectation} of its frequency in a specified class of trials
+                        \item also called \textit{Laplace's rule of succession}
+                    \end{itemize}
+                \item however, this only gives a point estimate.\ what accuracy is claimed? find the variance, $\langle R^2 \rangle - \langle R \rangle^2$, resulting in
+                    \begin{equation*}
+                        \mathrm{var}(R) = \frac{p(1-p)}{n+3}(N+2)(N-n)
+                    \end{equation*}
+                    after a derivation, where $p=\langle F \rangle = (r+1)/(n+2)$
+                \item therefore, our (mean) $\pm$ (standard deviation) is
+                    \begin{equation*}
+                        {(R)}_{\mathrm{est}} = r + (N-n)p \pm \sqrt{\frac{p(1-p)}{n+3} (N+2) (N-n)}
+                    \end{equation*}
+                    with the $N-n$ term inside the square root indicating, as expected, that the estimate becomes more accurate as more of the urn is sampled
+                \item we can also find the (mean) $\pm$ (standard deviation) of $F$
+                    \begin{equation*}
+                        {(F)}_{\mathrm{est}} = p \pm \sqrt{\frac{p(1-p)}{n+3} \frac{N+2}{N-n}}
+                    \end{equation*}
+                and as $N \rightarrow \infty$,
+                    \begin{equation*}
+                        {(F)}_{\mathrm{est}} = p \pm \sqrt{\frac{p(1-p)}{n+3}}
+                    \end{equation*}
+                \item EXAMPLE:\ a poll of 1600 voters finds that 41\% $\pm 3$\% of the population favours a candidate. Is this consistent?
+                    \begin{itemize}
+                        \item to obtain ${(F)}_{\mathrm{est}} = \langle F \rangle (1 \pm 0.03)$, we need an $n$ of,
+                            \begin{equation*}
+                                n+3 = \frac{1-p}{p} \frac{1}{{(0.03)}^2} = \frac{1-0.41}{0.41} \times 1111 \approx 1596
+                            \end{equation*}
+                    \end{itemize}
+            \end{itemize}
+        \item \textbf{Truncated uniform priors}
+            \begin{itemize}
+                \item say we know from the start that $0 < R < N$, i.e.\ that there is at least one red ball and one white ball.\ the new prior is
+                    \begin{equation*}
+                        p(R|NI_1) = \left \{ \begin{matrix} \frac{1}{N-1} & \mathrm{if}~1 \leq R \leq N-1 \\ 0 & \mathrm{otherwise} \end{matrix} \right \}
+                    \end{equation*}
+                \item the summation formula is the same as for a uniform prior (S, above), corrected by subtracting an $R = 0$ and $R = N$ term, $\binom{R}{r} = \binom{R+1}{r+1} = \delta(r,0)$ and $\binom{N-R}{n-r} = \delta(r,n)$,respectively.\ the new summation expressions are
+                    \begin{align*}
+                        S &= \sum^{N-1}_{R=1} \binom{R}{r} \binom{N-R}{n-r} = \binom{N+1}{n+1} - \binom{N}{n}\delta(r,n) - \binom{N}{n}\delta(r,0) \\
+                        S &=  \sum^{N-1}_{R=1} \binom{R+1}{r+1} \binom{N-R}{n-r} = \binom{N+2}{n+2} - \binom{N+1}{n+1}\delta(r,n) - \binom{N}{n}\delta(r,0) 
+                    \end{align*}
+                    \begin{itemize}
+                        \item note that the new terms vanish if $0 < r < n$, and the posterior distribution is unchanged, $p(R|DNI_1) = p(R|DNI_0)$
+                    \end{itemize}
+            \end{itemize}
+        %\item \textbf{Concave priors}
+            %\begin{itemize}
+            %    \item recall that the rule of succession based on the uniform prior, $p(R|NI) \propto \mathrm{const.}~(0 \leq R \leq N)$, results in the interesting phenomenon that the expected fraction of red balls remaining is not the fraction $r/n$, but instead $(r+1)/(n+2)$.\ why is this?
+            %    \item writing the rule of succession in the form
+            %        \begin{equation*}
+            %            \frac{r+1}{n+2} = \frac{n(r/n) + 2(1/2)}{n+2}
+            %        \end{equation*}
+            %    indicates the result is a weighted average of the observed fraction $r/n$ and the prior expectation $1/2$, the data weighted by the number of draws, $n$ and the prior expectation weighted by 2
+            %    \item so the uniform prior is weighted by \textit{two} observations, or a posterior distribution resulting from $(n,r) = (2,1)$ (because the prior expectation is $1/2$)
+            %    \item is there any prior that would lead to a uniform posterior distribution? let's work backwards from Bayes' theorem, denoting the `pre-prior' as $I_{00}$,
+            %        \begin{equation*}
+            %            p(R|DI_{00}) = p(R|I_{00}) \frac{p(D|RI_{00})}{p(D|I_{00})} = \mathrm{const.} \hspace{0.5cm} 0 \leq R \leq N
+            %        \end{equation*}
+            %    \item the sampling distribution is still the hypergeometric distributionas if $R$ is specified, $I_{00}$ becomes irrelevant (why is this?).\ with the sample $(n,r) = (2,1)$, the distribution reduces to $h(r=1|N,R,n=2) = (R(N-R))/(N(N-1))$, in the range $0 \leq R \leq N$
+            %    \item with this distribution, no pre-prior can yield a constant posterior distribution in the range $0 \leq R \leq N$, as it would be infinite at $R = 0$ and $R = N$.\ but since the truncated prior (seen above) yields the same result if the urn contains at least one red ball and one white ball, which our sample $(n,r) = (2,1)$ presupposes, this doesn't matter
+            %\end{itemize}
+        \item \textbf{Binomial monkey prior}
+            \begin{itemize}
+                \item suppose our prior information, $I_2$ is that the urn is filled with monkeys who toss balls up at random such that each ball had a probability $g$ of being red.\ then our prior for $R$ will be the binomial distribution,
+                    \begin{equation*}
+                        p(R|NI_2) = \binom{N}{R} g^{R}{(1-g)}^{N-R} \hspace{0.5cm} 0 \leq R \leq N
+                    \end{equation*}
+                with the prior estimate of the number of red balls being ${(R)}_{\mathrm{est}} = Ng \pm \sqrt{Ng(1-g)}$
+                \item the sum for this prior is thus
+                    \begin{equation*}
+                        p(D|NI) = \binom{n}{r} g^{r}{(1-g)}^{n-r} \hspace{0.5cm} N \geq n
+                    \end{equation*}
+                \item note that this sum is independent of $N$ and thus satifies the integral equation (eq~\ref{int_eq}), $p(NR|DI_2) = p(N|DI_2)p(R|NDI_2)$ and $p(NR|DI_2) = p(R|DI_2)p(N|RDI_2)$
+                \item we are interested in $p(R|NDI_2)$, where $N$ is known, and $P(R|DI)$, which tells us what we know about $R$ regardless of $N$
+                \item using the prior and the hypergeometric distribution we find 
+                    \begin{equation*}
+                        p(R|DNI_2) = A \binom{N}{R} g^{R}{(1-g)}^{N-R} \binom{R}{r} \binom{N-R}{n-r}
+                    \end{equation*}
+                with $A$ being the normalization,
+                    \begin{equation*}
+                        1 = \sum_{R}p(R|DNI_2) = A \binom{N}{n} \binom{n}{r}g^{r}{(1-g)}^{n-r}
+                    \end{equation*}
+                leading to a normalized posterior distribution for $R$ of 
+                    \begin{equation}
+                        \label{binom_monk_pos}
+                        p(R|DNI_2) = \binom{N-n}{R-r} g^{R-r}{(1-g)}^{N-R-n+r}
+                    \end{equation}
+                \item this has a (mean) $\pm$ (standard deviation) of ${(R)}_{\mathrm{est.}} = r+ (N-n)g \pm \sqrt{g(1-g)(N-n)}$
+                \item we can also estimate the fraction of red balls left in the urn:
+                    \begin{equation*}
+                        \frac{{(R-r)}_{\mathrm{est.}}}{N-n} = g \pm \sqrt{\frac{g(1-g)}{N-n}}
+                    \end{equation*}
+                \item though these two estimates seem similar to those derived for the uniform priors, note that these do not depend on $p$ at all, only on $g$, i.e.\ the binomial prior leads us to estimates which are exactly the same as prior estimates with no data whatsoever.
+                    \begin{itemize}
+                        \item ``More precisely, with that prior the data can tell us nothing at all about the unsampled balls.''
+                        \item if the prior information about the population is described accurately by the binomial prior, sampling is futile unless you sample the entire population
+                        \item the binomial prior is more informative about the population than the uniform prior, as it is moderately peaked as opposed to flat
+                        \item however, extra data does not inform us further as each draw has an \textit{independent} probability $g$ to be red (again, this is \textit{logical independence} of the prior and it is preserved in the posterior distribution)
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Continuous parameter estimation}
+    \begin{itemize}
+        \item if our hypotheses become so dense, i.e./ the intervals between their indices $t \rightarrow 0$, have increasingly similar observables, and as such have similar posterior probabilities
+        \item thus one particular hypothesis is likely not favoured over all others and it is more appropriate to think not of discrete indices $t$, but instead of a parameter $\theta$
+            \begin{itemize}
+                \item we have changed the hypothesis testing problem into a parameter estimation problem
+                \item can be changed back if, say, for a hypothesis that a parameter $\theta$ lies in an interval $a < \theta < b$, this is an interval estimation procedure for a compound hypothesis (see section 5)
+            \end{itemize}
+    \end{itemize}
+
+    \subsubsection{Estimation with a binomial sampling distribution}
+        \begin{itemize}
+            \item experiments in which there is a binary result, either yes or no, are called \textit{Bernoulli trials},\ after Bernoulli's urn
+            \item the conditions of one of these experiments will tell us if order is known, but probability theory tells us whether it is relevant.\ for example, flipping a coin 100 times: the order is known but not meaningful if determining if it is rigged.\ sampling a population for disease before and after the introduction of a new drug: order is known and is relevant to whether or not the drug worked
+            \item Let's set up a simple binomial sampling problem, first defining a variable
+                \begin{equation*}
+                    x_i \equiv \left \{ \begin{matrix} 1 & \mathrm{success~on~ith~trial} \\ 0 & \mathrm{otherwise} \end{matrix} \right \}
+                \end{equation*}
+            \item our data is $D \equiv \{x_{1}, \ldots, x_n \}$
+            \item our prior information $I$ specifies that there is a parameter $\theta$ such that for each logically independent trial we have a probability $\theta$ for success and $(1-\theta)$ for failure
+            \item our sampling distribution is thus
+                \begin{equation*}
+                    p(D|{\theta}I) = \prod^{n}_{i=1} p(x_i|{\theta}I) = {\theta}^r{(1-\theta)}^{n-r}
+                \end{equation*}
+            where $r$ is successes and $n-r$ is failures
+            \item we thus have the posterior PDF
+                \begin{equation*}
+                    p(\theta|DI) = \frac{p(\theta|I)p(D|{\theta}I)}{\int d{\theta}~p(\theta|I)p(D|{\theta}I)} = Ap(\theta|I){\theta}^r{(1-\theta)}^{n-r}
+                \end{equation*}
+            where $A$ is a normalizing constant, and with a uniform prior such that $p(\theta|I) = 1$, 
+                \begin{equation*}
+                    A^{-1} = \int^{1}_{0} d{\theta}~{\theta}^r{(1-\theta)}^{n-r} = \frac{r!(n-r)!}{(n+1)!}
+                \end{equation*}
+            providing the normalized PDF
+                \begin{equation}
+                    \label{binom_cont_nom_pdf}
+                    p(\theta|DI) = \frac{(n+1)!}{r!(n-r)!}{\theta}^r{(1-\theta)}^{n-r}
+                \end{equation}
+            \item this is identical to the complete-beta function described in section 5
+            \item we have a predictive probability for success at the next trial of
+                \begin{equation*}
+                    p \equiv \langle \theta \rangle = \int^{1}_{0} d{\theta}~{\theta}p(\theta|DI) = \frac{r+1}{n+2}
+                \end{equation*}
+            which is Laplace's rule of succession
+            \item and a (mean) $\pm$ (standard deviation) of 
+                \begin{equation*}
+                    {(\theta)}_{\mathrm{est.}} = \langle \theta \rangle \pm \sqrt{\langle {\theta}^2 \rangle - {\langle \theta \rangle}^2} = p \pm \sqrt{\frac{p(1-p)}{n+3}}
+                \end{equation*}
+            which is identical to the results for the uniform prior for a discrete set of hypotheses.\
+            \item so the continuous results must be derivable from the discrete results, in the limit $N \rightarrow \infty$, and since the discrete results are independent of $N$, they are identical
+            \item \textbf{A digression on stopping}
+                \begin{itemize}
+                    \item we did not include $n$ or $r$ in the conditioning statements in $p(D|{\theta}I)$, as both are learned from the data $D$
+                    \item what if we decided to stop after $n$ trials? we could write $p(D|n{\theta}I)$
+                    \item or if we stopped after $r$ successes, $p(D|r{\theta}I)$
+                    \item but does this affect our conclusions about $\theta$?
+                    \item in deductive logic $AA = A$, saying $A$ is true twice is the same as saying it once.\ additionally, when something is known already from the priors, no matter what the data says, the likelihood is the same: $p(nr~\mathrm{order}|n{\theta}I) = p(r~\mathrm{order}|n{\theta}I)p(n|n{\theta}I) = p(r~\mathrm{order}|n{\theta}I)$
+                    \item likewise, $p({\theta}n|DI) = p(\theta|nDI)p(n|DI) = p(n|{\theta}DI)p(\theta|DI) \Rightarrow p(\theta|nDI) = p(\theta|DI)$, since $P(n|{\theta}DI) = p(n|DI) = 1$
+                    \item thus if any part of the data is included in the priors, then that part is redundant and cannot affect the conclusions
+                    \item this is general to any function $f(D)$;\ if $f$ is known beforehand it can have a major effect on sampling space and sampling distributions, but it cannot have any effect on rational inferences from the data 
+                    \item furthermore, inference must depend on the data that was actually observed, since possible unobserved data sets gives us no information beyond our priors
+                \end{itemize}
+        \end{itemize}
+
+\subsection{Effects of qualitative prior information}
+    \begin{itemize}
+        \item Two robots $A$ and $B$ have different prior information as to the source of particles hitting a detector.\ the particles hit the detector and create counts with efficiency $\phi = 0.1$
+            \begin{itemize}
+                \item $A$ has no knowleodge about the source
+                \item $B$ knows that the source is a radioactive sample of long lifetime, in a fixed position
+            \end{itemize}
+        \item if during the first second, $c_1 = 10$ counts are registered, what can $A$ and $B$ say about the number $n_1$ of particles?
+            \begin{equation*}
+                p(n_1|{\phi}c_1I_A) = p(n_1|I_A)\frac{p(c_1|{\phi}n_1I_A)}{p(c_1|{\phi}I_A)}
+            \end{equation*}
+        \item we now are stuck with determining $p(n_1|I_A)$.\ how can we assign prior probabilities based on purely qualitative evidence?
+    \end{itemize}
+
+    \subsubsection{Choice of a prior}
+        \begin{itemize}
+            \item The prior for $A$ should avoid all structure which would cause great variations in $p(n_1|I_A)$, as variations such as oscillations or sudden jumps/falls would imply prior information that $A$ does not have
+                \begin{itemize}
+                    \item Jeffreys (1939) states that almost any prior which is smooth in the region of high likelihood will lead to substantially the same final conclusions
+                \end{itemize}
+            \item Let's assign a uniform prior probability out to some large, finite $N$,
+                \begin{equation*}
+                    p(n_1|I_A) = \left \{ \begin{matrix} 1/N & \mathrm{if}~0 \leq n_1 \leq N \\ 0 & \mathrm{if}~N \leq n_1 \end{matrix} \right \}
+                \end{equation*}
+            \item choice of $N$ is important as the final conclusions depend strongly on it.\ need to analyze exact prior information to determine a valid choice and if $n_1 = N$ needs to be smoothed
+            \item plugging this into the above probability, we get
+                \begin{equation*}
+                    p(n_1|{\phi}c_{1}I_{A}) = \left \{ \begin{matrix} Ap(c_1|{\phi}n_1) & \mathrm{if}~0 \leq n_q < N \\ 0 & \mathrm{if}~N \leq n_1 \end{matrix} \right \}
+                \end{equation*}
+                where $A$ is a normalization factor
+                \begin{equation*}
+                    A^{-1} = \sum_{n_1 = 0}^{N-1} p(c_1|{\phi}N-1)
+                \end{equation*}
+            \item the normalization factor $A$ converges so rapidly that its sum is not appreciably different than the sum to infinity, allowing us to use the simplifaction
+                \begin{equation*}
+                    \sum^{\infty}_{m=0} \binom{m+a}{m}m^{n}x^{m} = {\left( x \frac{d}{dx} \right)}^{n} \frac{1}{{(1-x)}^{a+1}},  \hspace{0.5cm} |x| < 1
+                \end{equation*}
+                yielding,
+                \begin{equation*}
+                    A^{-1} \approx \sum^{\infty}_{m=0} p(c_1|{\phi}n_1) = {\phi}^{c} \sum^{\infty}_{m=0} \binom{m+c}{m} {(1-\phi)}^{m} = {\phi}^{c} \left \{ \frac{1}{{[1-(1-\phi)]}^{c+1}} \right \} = \frac{1}{\phi}
+                \end{equation*}
+            \item putting this together, we obtain the result,
+                \begin{equation*}
+                    p(n_1|{\phi}c_{1}I_{A}) = {\phi}p(c_1|{\phi}n_1) = \binom{n_1}{c_1}{\phi}^{c_1 + 1} {(1 - \phi)}^{n_1 - c_1}
+                \end{equation*}
+                yielding a most probable value of $(\hat{n}_1) = c_1 / \phi$, or the same as the maximum likelihood estimate earlier
+        \end{itemize}
+    \subsubsection{The Jeffreys prior}
+        \begin{itemize}
+            \item Jeffreys suggests that the correct way to express `complete ignorance' of a continuous variable known to be positive is to assign uniform prior probability to its logarithm, 
+                \begin{equation}
+                    \label{jeff_prior}
+                    p(s|I_J) \propto \frac{1}{s}, \hspace{0.5cm} (0 \leq s \leq \infty)
+                \end{equation}
+            \item should be noted that this cannot be normalized (why?)
+            \item using this prior gives the following results for the above subsection:
+                \begin{equation*}
+                    p(n_1|I_J) = \frac{1}{n_1} \hspace{1cm} p(c_1|I_J) = \frac{1}{c_1} \hspace{1cm} p(n_1|{\phi}c_{1}I_J) = \frac{c_1}{n_1} p(c_1|{\phi}n_1)
+                \end{equation*}
+                with most probable and mean value estimates of 
+                \begin{equation*}
+                    {(\hat{n}_1)}_J = \frac{c_1 - 1 + \phi}{\phi} = 91 \hspace{1cm} {\langle n_1 \rangle}_J \frac{c}{\phi} = 100
+                \end{equation*}
+            \item Jeffreys prior probability rule reduces the most probable and posterior mean value estimates by nine, bringing the mean value back to the maximum likelihood estimate.\ shows us that different prior probabilities which are not sharply peaked give numerically very similar answers 
+            \item General rule of thumb: changing the prior probability $p(\alpha|I)$ for a parameter by one power of $\alpha$ has about the same effect as does having one more data point, as the likelihood function has a width of $1/\sqrt{n}$, and one more power of $\alpha$ adds an extra small amount of slope in the neighborhood of the maximum, shifting it slightly
+        \end{itemize}
+\end{document}

@@ -1,0 +1,338 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{The central, Gaussian, or normal distribution}
+        \begin{itemize}
+            \item we can only understand why Guassian distributions work for error estimation when ``we learn to think of probability distributions in terms of their demonstrable \textit{information content} instea dof their imagined (and, as we shall see, irrelevant) frequency connections.'' (p 198)
+            \item General properties of Gaussians:
+                \begin{enumerate}
+                    \item Any smooth function with a single rounded maximum, if raised to higher and higher powers, goes into a Gaussian function.
+                    \item The product of two Gaussian functions is another Gaussian function.
+                    \item The convolution of two Gaussian functions is another Gaussian function.
+                    \item The Fourier transform of a Gaussian function is another Gaussian function.
+                    \item A Gaussian probability distribution has higher entropy than any other with the same variance; therefore any operation on a probability distribution which discards information but conserves variance takes us close to a Gaussian. (see the central limit theorem for example)
+                \end{enumerate}
+        \end{itemize}
+
+        \subsection{The gravitating phenomenon}
+            \begin{itemize}
+                \item in probability theory, there is a central, universal distribution 
+                    \begin{equation}
+                        \label{gauss}
+                        {\phi}(x) = \frac{1}{\sqrt{2\pi}} \exp \left \{ -\frac{x^2}{2} \right \}
+                    \end{equation}
+                    toward which all other distributions gravitate under various conditions (ex.\ binomial distribution goes asymptotically to a Gaussian when number of trials increases, and posterior distributions for parameters go into Gaussian when number of data points increases)
+                \item cumulative Gaussian:
+                    \begin{align*}
+                        {\Phi}(x) &\equiv \int^{x}_{-\infty} \mathrm{d}t {\phi}(t) \\
+                                 &= \int^{0}_{-\infty} \mathrm{d}t {\phi}(t) + \int^{x}_{0} \mathrm{d}t {\phi}(t) \\
+                                  &= \frac{1}{2}[1 +~\mathrm{erf}(x)]
+                    \end{align*}
+                \item Jaynes presents three derivations of the Gaussian distribution here (Herschel---Maxwell, Gauss), which I will not replicate.
+                \item Gauss showed that (maximum likelihood estimate) = (arithmetic mean) determines the Gaussian error law, not the uniform error law.
+            \end{itemize}
+
+        \subsection{Why the ubiquitous use of Gaussian distributions?}
+            \begin{itemize}
+                \item If a physicist takes some measurements electronically, the mean square error of those measurements follow the Nyquist thermal fluctuation law.\ If he takes two moments of a noise probability distribution and has no further information about the noise, a Gaussian distribution fits to those moments and will represent the state of knowledge of the noise.
+                \item However, it must be clear that the physicist's state of knowledge is about the specific samples of noise for which he had taken data, not about measurements he is about to make.\ \textit{Past noise samples are relevant for predicting future noise only through those aspects which are reproducible in the future.}
+                \item ``$\ldots$if the Gaussian law is nearly always a good representation of our state of knowledge about the errors \textit{in our specific data set}, it follows that inferences made from it are nearly always the best ones that could have been made from the information that we actually have.''
+                \item Because Bayes' theorem takes into account whatever can be inferred about the noise from the data, Bayesian inferences using a Gaussian sampling distribution can only be approved upon by knowing additional information about the actual errors in a specific data set, beyond its first two moments and what is known from the data.
+            \end{itemize}
+
+            \subsubsection{Non--Gaussian estimators?}
+                \begin{itemize}
+                    \item Since Gauss showed that (maximum likelihood estimator) = (arithmetic mean of the observations) uniquely determines the Gaussian distribution, if our sampling distribution is not Gaussian, these two estimators should be different.
+                    \item Most sampling distributions which are used are of the independent, identically distributed form,
+                        \begin{equation*}
+                            p(x_1 \ldots x_n|{\mu}I) = \sum^{n}_{i=1}f(x_i - \mu)
+                        \end{equation*}
+                    \item if the sampling distribution is not Gaussian, the estimator is usually a linear combination of the observations ${(\mu)}_{\mathrm{est}} = \sum w_i y_i$, with variable weighting coefficients $w_i$ based on the data configuration $(y_i - y_j)$, $1 \leq i$, $j \leq n$.
+                    \item Let's consider a case in which we have no prior probabilities or loss functions.
+                        \begin{itemize}
+                            \item trying to estimate a location parameter $\mu$, with data $D$ of $n$ observations: $D = \{ y_1, \ldots, y_n \}$
+                            \item the data points have errors which vary in an uncontrolled and unpredictable manner
+                            \item with the unknown true value being ${\mu}_0$, $\mu$ being the running variable, and $e_i$ being the error in the $i$th measurement, our model is 
+                                \begin{equation*}
+                                    y_i = {\mu}_0 + e_i \hspace{0.5cm} (1 \leq i \leq n)
+                                \end{equation*}
+                            \item if we assign an independent Gaussian sampling distribution for the errors $e_i = y_i - {\mu}_0$,
+                                \begin{equation*}
+                                    p(D|{\mu}_{0}{\sigma}I) = {\left( \frac{1}{2{\pi}{\sigma}^2} \right)}^{n/2} \exp \left[ -\frac{\sum {(y_i - {\mu}_0)}^2}{2{\sigma}^2} \right]
+                                \end{equation*}
+                                where 
+                                \begin{equation*}
+                                    \sum^{n}_{i=1} {(y_i - {\mu}_0)}^2 = n \left[{({\mu}_0 - \bar{y})}^2 + s^2 \right]
+                                \end{equation*}
+                                with 
+                                \begin{equation*}
+                                    \bar{y} \equiv \frac{1}{n} \sum y_i = {\mu}_0 + \bar{e} \hspace{1cm} s^2 \equiv \bar{y^2} - \bar{y}^2 = \bar{e^2} - \bar{e}^2
+                                \end{equation*}
+                                being the only two properties of the data appearing in the likelihood function.
+                            \item Thus, as a consequence of applying the Gaussian error distribution to the data, only the first two moments of the data are used for inferences about ${\mu}_0$
+                            \item These two moments are called \textit{sufficient statistics}.
+                            \item Note that $\bar{e}$ is the average of the actual errors, not an average over a probability distribution, and this holds for however the errors $e_i$ are distributioned (be it Gaussian or not)
+                        \end{itemize}
+                \end{itemize}
+            
+            \subsubsection{Error cancellation}
+                \begin{itemize}
+                    \item Error cancellation is an important component of the success of the Gaussian sampling distribution
+                    \item Suppose we estimate $\mu$ through a linear combination of data values,
+                        \begin{equation*}
+                            {(\mu)}_{\mathrm{est}} = \sum^{n}_{i=1}w_i y_i
+                        \end{equation*}
+                        where $w_i$ are weighting coefficients, real numbers satisfying $\sum w_i = 1$
+                    \item with this model, the square of the error is
+                        \begin{equation*}
+                            {\Delta}^2 = {[{(\mu)}_{\mathrm{est}} - {{(\mu)}_0}]}^2 = {\left( \sum_i w_i e_i \right)}^2 = \sum^{n}_{i,j=1} w_i w_j e_i e_j
+                        \end{equation*}
+                        with the expectation value of 
+                        \begin{equation*}
+                            \langle {\Delta}^2 \rangle = \sum_{i,j} w_i w_j {\langle e_i e_j \rangle}
+                        \end{equation*}
+                    \item if we assign identical and independent probabilities to each $e_i$, as is always assumed, then $\langle e_i e_j \rangle = {\sigma}^2 \delta_{ij}$ and 
+                        \begin{equation*}
+                            \langle {\Delta}^2 \rangle = {\sigma}^2 \sum_{i} {w_i}^2
+                        \end{equation*}
+                    \item if we set $e_i = n^{-1} + q_i$ (why??), where $\{ q_i \}$ are real numbers constrained by $\sum w_i = 1$ and $\sum q_i = 0$, the square of the error is then
+                        \begin{equation*}
+                            \langle {\Delta}^2 \rangle = {\sigma}^2 \sum_{i} \left( \frac{1}{n^2} + \frac{2q_i}{n} + {q_i}^2 \right) = {\sigma}^2 \left( \frac{1}{n} + \sum_{i} {q_i}^2 \right)
+                        \end{equation*}
+                        which reaches a minimum,
+                        \begin{equation*}
+                            {\langle {\Delta}^2 \rangle}_{\min} = \frac{{\sigma}^2}{n}
+                        \end{equation*}
+                        iff all $q_i = 0$.
+                    \item what this shows is that uniform weighting, $w_i = 1/n$, leads to a smaller expected square error, ${\sigma}^2/n$, than any other weighting, leading to square error ${\sigma}^2 \sum_{i} {w_i}^2$.
+                    \item important point:
+                        \begin{displayquote}
+                            If we have no important prior information, use of the Gaussian sampling distribution automatically leads us to estimate $\mu$ by the arithmetic mean of the observations; and Gauss proved that the Gaussian distribution is the only one which does this. Therefore, among all sampling distributions which estimate $\mu$ by the arithmetic mean of the observations, the Gaussian distribution is uniquely deterined as the one that gives maximun error cancellation. (p. 214)
+                        \end{displayquote}
+                    \item another important point, about the irrelevancy of frequency distributions:
+                        \begin{displayquote}
+                            If we assign the independent Gaussian error distribution, then the error in our estimate is always the arithmetic mean of the true errors in our data set; and whether the frequency distribution of those errors is or is not Gaussian is totally irrelevant. Any error vector $\{e_1, \ldots, e_n \}$ with the same first moment $\bar{e}$ will lead us to the same estimate of $\mu$; and any error vector with the same first two moments will lead us to the same estimates of both $\mu$ and $\sigma$ and the same accuracy claims, \textit{whatever the frequency distributions of the individual errors.} (p. 216)
+                        \end{displayquote}
+                \end{itemize}
+
+        \subsection{Nuisance parameters as safety devices}
+            \begin{itemize}
+                \item if we do not have actual knowledge about the magnitude of $\sigma$, it would be harmful to assume an arbitrary value;\ we should adopt a model which acknowledges ignorance by allowing various values of $\sigma$, with a prior $p(\sigma|I)$ in accordance to prior information (recall that $\sigma$ is the variance)
+                \item the joint posterior PDF for $\mu$ and $\sigma$ is,
+                    \begin{equation*}
+                        p({\mu}{\sigma}|DI) = p({\mu}{\sigma}|I) \frac{p(D|{\mu}{\sigma}I)}{p(D|I)}
+                    \end{equation*}
+                \item using the product rule, we obtain,
+                    \begin{equation*}
+                        p({\mu}{\sigma}|DI) = p({\sigma}|I)p({\mu}|{\sigma}I) \frac{p(D|{\sigma}I)p({\mu}|{\sigma}DI)}{p(D|I)p({\mu}|{\sigma}I)} = p({\mu}|{\sigma}DI)p({\sigma}|DI)
+                    \end{equation*}
+                \item integrating out $\sigma$, we get the marginal posterior PDF for $\mu$,
+                    \begin{equation*}
+                        p({\mu}|DI) = \int \mathrm{d}{\sigma}~p({\mu}|{\sigma}DI)p({\sigma}|DI)
+                    \end{equation*}
+                \item this is a weighted average of the PDFs $p({\mu}|{\sigma}DI)$ for all possible values of $\sigma$, weighted by the marginal posterior PDF $p({\sigma}|DI)$, which is everything we know about $\sigma$.\ Thus, by integrating out $\sigma$ as a nuisance parameter, we don't lose information relevant to the parameters we keep
+                \item important point:
+                    \begin{displayquote}
+                        $\ldots$whatever question we ask, probability theory as logic automatically takes into account all possibilities \textit{allowed by our model} and information. (p. 219)
+                    \end{displayquote}
+            \end{itemize}
+        
+        \subsection{Convolution of Gaussians}
+            \begin{itemize}
+                \item NOTE:\ A convolution is an integral which denotes the amount of overlap of two functions as one is shifted over the other 
+				\item for an excellent description of convolutions, see: \url{http://colah.github.io/posts/2014-07-Understanding-Convolutions}
+				\item expanding eq~\ref{gauss}, we obtain,
+                    \begin{equation*}
+                        {\phi}(x - {\mu}|{\sigma}) = \frac{1}{\sigma} {\phi} \left(\frac{x - \mu}{\sigma} \right) = \sqrt{\frac{1}{2{\pi}{\sigma}^2}} \exp \left[ \frac{-{(x - \mu)}^2}{2{\sigma}^2} \right] = \sqrt{\frac{w}{2\pi}} \exp \left[ -\frac{w}{2} {(x - \mu)}^2 \right]
+                    \end{equation*}
+                    where $w \equiv 1 / {\sigma}^2$ is the `weight.'
+                \item the product of two such functions is,
+                    \begin{equation*}
+                        {\phi}(x - {\mu}_1|{\sigma}_1){\phi}(y-x-{\mu}_2|{\sigma}_2) = \frac{1}{2{\pi}{\sigma}_{1}{\sigma}_{2}} \exp \left \{ -\frac{1}{2} \left[ {\left( \frac{x-{\mu}_1}{{\sigma}_1} \right)}^2 + {\left( \frac{y-x-{\mu}_2}{{\sigma}_2} \right)}^2 \right]\right \}
+                    \end{equation*}
+                \item we can arrange the quadratic as
+                    \begin{equation*}
+                        {\left( \frac{x-{\mu}_1}{{\sigma}_1} \right)}^2 + {\left( \frac{y-x-{\mu}_2}{{\sigma}_2} \right)}^2 = (w_1 + w_2){(x - \hat{x})}^2 + \frac{w_1 w_2}{w_1 + w_2} {(y - {\mu}_1 - {\mu}_2)}^2
+                    \end{equation*}
+                    where $\hat{x} \equiv (w_1 {\mu}_1 + w_2 y - w_2 {\mu}_2)/(w_1 + w_2)$
+                \item this product is still a Gaussian \textit{wrt} $x$, and upon integrating out $x$, we obtain the convolution law,
+                    \begin{equation}
+                        \label{gauss_convol}
+                        \int^{\infty}_{-\infty} \mathrm{d}x~{\phi}(x-{\mu}_1|{\sigma}_1){\phi}(y-x-{\mu}_2|{\sigma}_2) = {\phi}(y-{\mu}|{\sigma})
+                    \end{equation}
+                    where $\mu \equiv {\mu}_1 + {\mu}_2$ and ${\sigma} = {\sigma}^2_1 + {\sigma}^2_2$
+                \item Therefore, two Gaussians convolve to make another Gaussians, with the means $\mu$ and variances ${\sigma}^2$ being additive.
+            \end{itemize}
+        
+        \subsection{An aside: cumulants}
+            \begin{itemize}
+                \item Jaynes states that whether non-Gaussian distributions also have parameters additive under convolution leads to the notion of \textit{cumulants}, and that this is critical to understand before going into the central limit theorem.
+                \item Given a set of real functions $\{f_{1}(x), f_{2}(x), \ldots, f_{n}(x)\}$, defined on the real line and not necessarily non-negative, their integrals (zeroth moment) and their first, second, and third moments are:
+                    \begin{align*}
+                        Z_i &\equiv \int^{\infty}_{-\infty} \mathrm{d}x~f_{i}(x) < \infty & S_i &\equiv \int^{\infty}_{-\infty} \mathrm{d}x~x^{2}f_{i}(x) < \infty \\
+                        F_i &\equiv \int^{\infty}_{\-infty} \mathrm{d}x~xf_{i}(x) < \infty & T_i &\equiv \int^{\infty}_{-\infty} \mathrm{d}x~x^{3}f_{i}(x) < \infty
+                    \end{align*}
+                \item the convolution of $f_1$ and $f_2$ is defined by
+                    \begin{equation*}
+                        h(x) \equiv \int^{\infty}_{-\infty}\mathrm{d}y~f_{1}(y) f_{2}(x-y)
+                    \end{equation*}
+                    or, condensed, $h = f_1 * f_2$, and it is associative: $(f_1 * f_2) * f_3 = f_1 * (f_2 * f_3)$
+                \item what happens to the zeroth moment under convolution?
+                    \begin{equation*}
+                        Z_h = \infint \mathrm{d}x~\infint \mathrm{d}y~f_{1}(y)f_{2}(x-y) = \int \mathrm{d}y~f_{1}Z_2 = Z_{1}Z_{2}
+                    \end{equation*}
+                \item therefore, if $Z_i \neq 0$, we can multiply $f_{i}(x)$ by some constant which makes $Z_i = 1$
+                \item the first moment under convolution is
+                    \begin{align*}
+                        F_h &= \infint \mathrm{d}x~\infint \mathrm{d}y~f_{1}(y)xf_{2}(x-y) = int \mathrm{d}y~f_{1}(y)~\infint \mathrm{d}q~(y+q)f_{2}(q) \\
+                            &= \infint \mathrm{d}y~f_{1}(y)[yZ_2 + F_2] = F_{1}Z_{2} + Z_{1}F_{2}
+                    \end{align*}
+                \item therefore, the first moments are additive under convolution: $F_h = F_1 + F_2$
+                \item doing the same for the second moment, we get, $[S_h - {(F_h)}^2] = [S_1 - {(F_1)}^2] + [S_2 - {(F_2)}^2]$
+                \item and for the third moment, $T_h = T_{1}Z_{2} + 3S_{1}F_{2} + 3F_{1}S_{2} + Z_{1}T_{2}$
+                \item So, we can generalize the moments under convolution as:
+                    \begin{align*}
+                        F_h &= \sum^{n}_{i=1} F_i \\
+                        S_h = F^{2}_h &= \sum^{n}_{i=1} \left( S_i - F^{2}_i \right) \\
+                        T_h - 3S_{h}F_{h} + 2F^{3}_{h} &= \sum^{n}_{i=1} \left( T_i - 3S_{i}F_{i} + 2F^{3}_i \right)
+                    \end{align*}
+                \item these quantities accumulate additively under convolution, and are called \textit{cumulants}.
+                \item we define the $n$th cumulant as the $n$th moment, with correction terms.
+                    \begin{itemize}
+                        \item begs two questions:
+                            \begin{enumerate}
+                                \item do these correction terms always exist?
+                                \item is there a general algorithm to develop them?
+                            \end{enumerate}
+                        \item recall that $\log \mathscr{F}(\alpha)$ is additive under convolution, and the power series expansions of $\mathscr{F}{\alpha}$ and $\log \mathscr{F}(\alpha)$:
+                            \begin{align*}
+                                \mathscr{F}(\alpha) &= M_0 + M_{1}(i\alpha) + M_{2}\frac{{(i\alpha)}^2}{2!} + M_{3}\frac{{(i\alpha)}^3}{3!} + \ldots \\
+                                \log \mathscr{F}(\alpha) &= C_0 + C_{1}(i\alpha) + C_{2}\frac{{(i\alpha)}^2}{2!} + C_{3}\frac{{(i\alpha)}^3}{3!} + \ldots
+                            \end{align*}
+                            with the coefficients
+                            \begin{align*}
+                                M_n &= \frac{1}{i^n} \frac{{\deriv}^{n} \mathscr{F}(\alpha)}{{\deriv}{\alpha}^n} = \infint \mathrm{d}x~x^{n}f(x) \\
+                                C_n &= \frac{1}{i^n} \frac{{\deriv}^n}{{\deriv}{\alpha}^n} \log \mathscr{F}(\alpha) \at[\big]{\alpha = 0}
+                            \end{align*}
+                            which are additive under convolution and therefore cumulants.
+                    \end{itemize}
+            \end{itemize}
+
+            \subsubsection{Relation of cumulants and moments}
+                \begin{itemize}
+                    \item lets use a more general notation for the $n$th moment of a function:
+                        \begin{equation*}
+                            M_n \equiv \infint \mathrm{d}x~x^{n}f(x) = \frac{{\deriv}^n}{{\deriv}{(i\alpha)}^n} int \mathrm{d}x~f(x)e^{i{\alpha}x} \at[\big]{\alpha = 0} = i^{-n}\mathscr{F}^{(n)}(0) \hspace{0.5cm} n = 0, 1, 2, \ldots
+                        \end{equation*}
+                        or, as a notation, $M_n = \overline{x^{n}}$, indicating the average of $x_n$ wrt $f(x)$
+                    \item cumulants $\rightarrow$ moments 
+                        \begin{itemize}
+                            \item if a function $f(x)$ has moments of all orders, then its Fourier transform has a power series expansion,
+                                \begin{equation*}
+                                    \mathscr{F}(\alpha) = \sum^{\infty}_{n=0} M_{n}{(i\alpha)}^{n}
+                                \end{equation*}
+                            \item the first cumulant is the same as the first moment, $C_1 = M_1 = \overline{x}$
+                            \item the second cumulant is $C_2 = M_2 - M^{2}_1$, which is
+                                \begin{equation*}
+                                    C_2 = \int \mathrm{d}x~{[x - M_1]}^{2}f(x) = \overline{{(x-\overline{x})}^2} = \overline{x^2} - \overline{x}^2
+                                \end{equation*}
+                                which is the second moment of $x$ about its mean value, called the \textit{second central moment} of $f(x)$.
+                            \item the third central moment is,
+                                \begin{equation*}
+                                    \int \mathrm{d}x~{(x-\overline{x})}^{3}f(x) = \int \mathrm{d}x~\left[x^3 - 3\overline{x}x^2 + 3\overline{x}^{2}x - \overline{x}^3 \right] f(x)
+                                \end{equation*}
+                                which is the same as the third cumulant, $C_3 = M_3 - 3M_{1}M_{2} + 2M^{3}_{1}$
+                            \item this ($n$th moment) = ($n$th cumulant) relation does not hold past the third moment
+                        \end{itemize}
+                    \item example: Gaussian distribution
+                        \begin{itemize}
+                            \item recall the Gaussian distribution,
+                                \begin{equation*}
+                                    f(x) = \frac{1}{\sqrt{2{\pi}{\sigma}^2}} \exp \left[ \frac{{(x-\mu)}^2}{2{\sigma}^2} \right]
+                                \end{equation*}
+                                with the Fourier transform
+                                \begin{equation*}
+                                    \mathscr{F}(\alpha) = \exp \left[ i{\alpha}{\mu} - \frac{{\alpha}^{2}{\sigma}^{2}}{2} \right]
+                                \end{equation*}
+                            \item such that 
+                                \begin{equation*}
+                                    \log \mathscr{F}(\alpha) = i{\alpha}{\mu} - \frac{{\alpha}^{2}{\sigma}^{2}}{2}
+                                \end{equation*}
+                                and 
+                                \begin{equation*}
+                                    C_0 = 0 \hspace{0.5cm} C_1 = \mu \hspace{0.5cm} C_2 = {\sigma}^2
+                                \end{equation*}
+                            \item all higher $C_n$ are zero, meaning the Gaussian distribution only has two nontrivial cumulants, the mean and the variance
+                        \end{itemize}
+                \end{itemize}
+
+        \subsection{The central limit theorem}
+            \begin{itemize}
+                \item Definition: in most situations, when random independent variables are summed, their normalized sum trends towards a normal distribution
+                \item if we have a set of functions $f_{i}(x)$ which are probability distributions, then they are by definition non-negative and normalized: $f_{i}(x) \geq 0$, $\int \mathrm{d}x~f_{i}(x) =1$.
+                \item the zeroth moments are all $Z_i = 1$ and the Fourier transforms are absolutely convergent for all real $\alpha$ (means that the sum of the absolute integrands is finite):
+                    \begin{equation*}
+                        \mathscr{F}_{i}(\alpha) \equiv \infint \mathrm{d}x~f_{i}(x) {e}^{i{\alpha}x}
+                    \end{equation*}
+                \item consider two variables, $x_1$ and $x_2$, which are assigned probability distributions conditional on some information $I$: $f_{1}(x) = p(x_{1}|I)$, $f_{2}(x) = p(x_{2}|I)$
+                \item we want the cumulative probability distribution $f(y)$ for the sum $y = x_1 + x_2$,
+                    \begin{equation*}
+                        P(y' \leq y|I) = \infint \mathrm{d}x_{1}~f_{1}(x_1)~\int^{y-x_1}_{-\infty} \mathrm{d}x_{2}~f_{2}(x_2)
+                    \end{equation*}
+                    (Note: I don't understand why the upper limit of the second integral is $y-x_1$ and the first integral is $\infty$)
+                \item so, the probability distribution for $y$ is
+                    \begin{equation*}
+                        f(y) = {\left[ \frac{\deriv}{\deriv y} P(y' \leq y|I) \right]}_{y=y'} = \int \mathrm{d}x_{1}f_{1}(x_1)f_{2}(y-x_1) = (f_1 * f_2)
+                    \end{equation*}
+                \item the probability distribution of a third variable $z = y + x_3$ is
+                    \begin{equation*}
+                        g(x) = \int \mathrm{d}y~f(y)f_{3}(z-y) = (f_1 * f_2 * f_3)
+                    \end{equation*}
+                    and so on.\ so through induction, we can say that the probability distribution for the sum $y = x_1 + \cdots + x_n$ is the convolution $h_{n}(y) = (f_1 * \cdots * f_n)$
+                \item in the cumulants section, we saw that convolution in $x$ space corresponds to multiplication in Fourier transform space
+                \item with the \textit{characteristic function} (a function which completely defines its probability distribution, the Fourier transform of the probability distribution) for $f_{k}(x)$,
+                    \begin{equation*}
+                        {\phi}_{k}(\alpha) \equiv \langle e^{i{\alpha}x} \rangle = \infint \mathrm{d}x~f_{k}(x) e^{i{\alpha}x}
+                    \end{equation*}
+                    with the inverse Fourier transform,
+                    \begin{equation*}
+                        f_{k}(x) = \frac{1}{2\pi} \infint \mathrm{d}{\alpha}~{\phi}_{k}(\alpha) \negfexp
+                    \end{equation*}
+                \item the probability distribution for the sum of $n$ variables $x_i$ is then,
+                    \begin{equation*}
+                        h_{n}(q) = \frac{1}{2\pi} \int \mathrm{d}{\alpha}~{\phi}_{1}(\alpha) \cdots {\phi}_{n}(\alpha) e^{-i{\alpha}q}
+                    \end{equation*}
+                    of, if all probability distributions $f_{i}(x)$ are identical,
+                    \begin{equation*}
+                        h_{n}(q) = \frac{1}{x\pi} \int \mathrm{d}{\alpha}~{\left[ {\phi}(\alpha) \right]}^{n} e^{-i{\alpha}q}
+                    \end{equation*}
+                    with the probability density of the arithmetic mean, $\overline{x} = q/n$,
+                    \begin{equation*}
+                        p(\overline{x}) = nh_{n}(n\overline{x}) = \frac{n}{2\pi} \int \mathrm{d}{\alpha}~{\left[{\phi}(\alpha) e^{-i{\alpha}\overline{x}} \right]}^n
+                    \end{equation*}
+                \item there is only \textit{one} probability distribution with this property.
+                    \begin{itemize}
+                        \item if the probability distribution $p(x|I)$ for a single observation $x$ has the characteristic function,
+                            \begin{equation*}
+                                {\phi}(\alpha) = \int \mathrm{d}x~p(x|I) \fexp
+                            \end{equation*}
+                            then the one for the average of $n$ observations, $\overline{x} = n^{-1} \sum x_i$, has the characteristic function of a form ${\phi}^{n}(n^{-1}\alpha)$
+                        \item it is a necessary and sufficient condition that for $x$ and $\overline{x}$ to have the same probability distribution is for ${\phi}(\alpha)$ to satisfy the funtional equation ${\phi}^{n}(n^{-1}\alpha) = {\phi}(\alpha) \Rightarrow n{\log}{\phi}(\alpha) = {\log}{\phi}(n\alpha)$ for $-\infty < \alpha < \infty$, $n = 1, 2, 3, \ldots$
+                        \item this requires a linear relation, ${\log}{\phi}(\alpha) = C\alpha$, $0 \leq \alpha < \infty$, where $C$ is some complex number $C = -k + i\theta$
+                        \item the most general solution satisfying ${\phi}(-\alpha) = {\phi}^{*}(\alpha)$ is
+                            \begin{equation*}
+                                {\phi}(\alpha) = e^{i{\alpha}{\theta} - k|\alpha|} \hspace{0.5cm} -\infty < \theta < \infty \hspace{0.5cm} 0 < k < \infty
+                            \end{equation*}
+                        \item which ultimately gives us the probability distribution,
+                            \begin{equation*}
+                                p(x|I) = \frac{1}{2\pi} \infint \mathrm{d}x~e^{-k|\alpha|}e^{i{\alpha}{\theta} - x} = \frac{1}{\pi} \left[ \frac{k}{k^2 + {(x - \theta)}^2} \right]
+                            \end{equation*}
+                            which is the \textit{Cauchy distribution} with median $\theta$ and quartiles $\theta \pm k$.
+                    \end{itemize}
+                \item there are a few interesting applications of this in pp. 224--240, which I will not replicate (see pg. 229 in particular)
+                \item important note from these applications: any sufficently smooth non--Gaussian distribution can be generated from many different superpositions of different Gaussians of varying widths
+            \end{itemize}
+\end{document}
+

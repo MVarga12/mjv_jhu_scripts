@@ -1,0 +1,79 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage{amsmath}
+%\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section{Notation and Equations}
+
+\subsection{Notation}
+    \begin{itemize}
+        \item Greek letters ($\alpha$, $\beta$, etc.) denote continuously variable parameters and Latin letters (a, b, etc) denote discrete indices or data values, unless otherwise stated
+        \item Probabilities are denoted by capital P's, which signifies that the arguments are propositions
+            \begin{itemize}
+                \item[] $P(A|B)$
+            \end{itemize}
+    
+        \item Probabilities whose arguments are numerical values are denoted by other function symbols, such as
+            \begin{itemize}
+                \item[] $f(r|np)$
+            \end{itemize}
+    
+        \item Small p functions means the arguments can be propositions or numerical values
+            \begin{itemize}
+                \item[] $p(x|y)$ or $p(A|B)$ or $p(x|B)$
+            \end{itemize}
+    
+        \item Should be noted that this book only applies to finite sets of propositions
+        \item \textit{Kernel}: This means something different in probability theory.\ Form of the PDF in which all factors which are not functions of any of the variables in the domain are omitted.
+    \end{itemize}
+
+\subsection{General Equations}
+    \begin{itemize}
+        \item Binomial coefficient
+            \begin{equation*}
+                \binom{n}{k} = \frac{n!}{k!(n-k)!}
+            \end{equation*}
+        \item Fourier transform:
+            \begin{equation*}
+                \mathscr{F}_{i}(\alpha) = \infint \mathrm{d}x~f_{i}(x)e^{i{\alpha}x} \hspace{1cm} f_{i}(x) = \frac{1}{2\pi} \infint \mathrm{d}{\alpha}~\mathscr{F}_{i}(\alpha)e^{-i{\alpha}x}
+            \end{equation*}
+        \item Power series:
+            \begin{equation*}
+                \sum^{\infty}_{n=0} a_{n}{(x-c)}^n = a_0 + a_{1}{(x-c)}^1 + a_{2}{(x-c)}^2 + \ldots
+            \end{equation*}
+            with special cases, such as for exponentials:
+            \begin{equation*}
+                e^x = \sum^{\infty}_{n=0} \frac{x^n}{n!} = 1 + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots
+            \end{equation*}
+        \item Stirling's approximation:
+            \begin{equation*}
+                \log (n!) \sim n \log (n) - n + \log \sqrt{2 \pi n} + O \left( \frac{1}{n} \right)
+            \end{equation*}
+        \item Gaussian error function:
+            \begin{equation*} 
+                \text{erf}(x) = \frac{1}{\sqrt{\pi}} \int^{x}_{-x} e^{-t^2} \text{d}t = \frac{2}{\sqrt{\pi}} \int^{x}_{0} e^{-t^2} \text{d}t
+            \end{equation*}
+        \item Poisson distribution (probability that \(n\) counts will appear in one timestep):\
+            \begin{equation*} 
+                p(n|l) = \frac{l^n}{n!}e^{-l} \hspace{1cm} n = 1, 2, \ldots
+            \end{equation*}
+            where \(l\) is the sampling expectation value of \(n\), \(\langle n \rangle = l\)
+        \item Cauchy--Schwarz Inequality:
+            \begin{equation*} 
+                {|\langle \hat{u}, \hat{v} \rangle|}^2 \leq \langle \hat{u}, \hat{u} \rangle \cdot \langle \hat{v}, \hat{v} \rangle
+            \end{equation*}
+            where \(\langle \ldots, \ldots \rangle\) denotes an inner product.\ So, it states that the square of the inner product of two vectors, \(\hat{u}\) and \(\hat{v}\), is less than or equal to the dot product of their inner products.\\
+            a more common notation for probability theory is
+            \begin{equation*} 
+                {|\langle XY \rangle|}^2 \leq {\langle X^2 \rangle} {\langle Y^2 \rangle}
+            \end{equation*}
+            where \(X\) and \(Y\) are random variables
+        \item Laplace transform (takes a function of a real variable \(t\), usually time, to a function of a complex variable \(s\), usually frequency):
+            \begin{equation*} 
+                F(s) = \int^{\infty}_{0} \text{d}t~f(t)e^{-st}
+            \end{equation*}
+            where \(s\) is a complex number frequency parameter, \(s = \sigma + i\omega\), with \(\sigma\) and \(\omega\) being real numbers
+    \end{itemize}
+
+\end{document}

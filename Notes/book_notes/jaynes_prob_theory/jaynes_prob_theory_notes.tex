@@ -1,0 +1,117 @@
+\documentclass[8pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{images/}{../images/}}
+\usepackage{amsmath}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage[smallfamily,noopticals,lf,italicgreek,loosequotes]{MinionPro}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\urlstyle{same}
+
+\newcommand{\infint}{\int^{\infty}_{-\infty}}
+\newcommand{\deriv}{\mathrm{d}}
+\newcommand{\fexp}{e^{i{\alpha}x}}
+\newcommand{\negfexp}{e^{-i{\alpha}x}}
+\newcommand{\at}[2][]{#1|_{#2}}
+\newtheorem{theorem}{Theorem}[section]
+
+\title{Notes on Probability Theory: The Logic of Science by Jaynes}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{2} % preclude subsubsections from TOC
+\tableofcontents
+
+\pagebreak
+
+\subfile{notation/notation}
+\subfile{ch1/ch1}
+\subfile{ch2/ch2}
+\subfile{ch3/ch3}
+\subfile{ch4/ch4}
+\subfile{ch5/ch5}
+\subfile{ch6/ch6}
+\subfile{ch7/ch7}
+\subfile{ch8/ch8}
+\subfile{ch9/ch9}
+\subfile{ch10/ch10}
+\subfile{ch11/ch11}
+\subfile{ch12/ch12}
+\subfile{ch13/ch13}
+\subfile{ch14/ch14}
+\subfile{ch15/ch15}
+\subfile{ch16/ch16}
+\subfile{ch17/ch17}
+\subfile{ch18/ch18}
+
+\section{Some quotes}
+    \begin{displayquote}
+        Probability theory gives us the results of consistent plausible reasoning from the information \textit{that was actually used} in our calculation. (p. 123)
+    \end{displayquote}
+    
+    \begin{displayquote}
+        But if our prior probability for S is lower than our prior probability that we are being deceived, hearing this claim has the opposite effect on our state of belief from what the claimant intended. The same is true in science and politics; the new information a scientist gets is not that an experiment did in fact yield this result, with adequate protection against error. It is that some colleague has claimed that it did. The information we get from the TV evening news is not that a certain event actually happened in a certain way; it is that some news reporter has claimed that it did. (p. 128)
+    \end{displayquote}
+
+    \begin{displayquote}
+        Seeing is not a direct apprehension of reality, as we often like to pretend. Quite the contrary: \textit{seeing is inference from incomplete information}, no different in nature from the inference that we are studying here. (p. 133)
+    \end{displayquote}
+    
+    \begin{displayquote}
+        For example, if you ask a scientist, `How well did the Zilch experiment support the Wilson theory?' you may get an answer like this: `Well, if you had asked me last week I would have said that it supports the Wilson theory very handsomely; Zilch's experimental points lie much closer to Wilson’s predictions than to Watson's. But, just yesterday, I learned that this fellow Woffson has a new theory based on more plausible assumptions, and his curve goes right through the experimental points. So now I'm afraid I have to say that the Zilch experiment pretty well demolishes the Wilson theory.' (p. 135)
+    \end{displayquote}
+
+    \begin{displayquote}
+        \ldots there is not the slightest use in rejecting any hypothesis $H_0$ unless we can do in it favor of some definite alternative $H_1$ which better fits the facts. (p. 135)
+    \end{displayquote}
+
+    \begin{displayquote}
+        $\ldots$Euler concentrated his attention entirely on the worst possible thing that could happen, as if it were certain to happen -- which makes him perhaps the first really devout believer in Murphy's Law. (p. 203)
+    \end{displayquote}
+
+    \begin{displayquote}
+        For example, the philosopher Karl Popper (1974) has gone so far as to flatly deny the possibility of induction. He asked the rhetorical question: `Are we rationally justified in reasoning from repeated instances of which we have experience to instances of which we have no experience?' (pg. 276)
+    \end{displayquote}
+    
+    \begin{displayquote} 
+        The fundamental, inescapable distinction between probability and frequency lies within this relativity principle:\ probabilities change when we change our state of knowledge; frequencies do not. (pg. 292)
+    \end{displayquote}
+
+    \begin{displayquote}
+        The First Commandment of scientific data analysis publication ought to be: `Thou shalt reveal thy full original data, unmutilated by any processing whatsoever.' (pg. 309)
+    \end{displayquote}
+
+    \begin{displayquote}
+        In denying the possibility of induction, Popper holds that theories can never attain a high probability. But this presupposes that the theory is being tested against an infinite number of alternatives. We would observe that the number of atoms in the known universe is finite; so also, therefore, is the amount of paper and ink available to write alternative theories. It is not the absolute status of an hypothesis embedded in the universe of all conceivable theories, but the plausibility of an hypothesis \textit{relative to a definite set of specified alternatives}, that Bayesian inference determines. (pg. 310)
+    \end{displayquote}
+
+    \begin{displayquote}
+        What is done in quantum theory today is just the opposite; when no cause is apparent one simply postulates that no cause exists --- ergo, the laws of physics are indeterministic and can be expressed only in probability form. The central dogma is that the light determines not whether a photoelectron will appear, but only the probability that it will appear. The mathematical formalism of present quantum theory --- incomplete in the same way that our present knowledge is incomplete --- does not even provide the vocabulary in which one could ask a question about the real cause of an event. (pg. 328) 
+    \end{displayquote}
+
+    \begin{displayquote}
+        Indeed, quite apart from probability theory, no scientist ever has sure knowledge of what is `really true'; the only thing we can ever know with certainty is: \textit{what is our state of knowledge}? (pg. 411)
+    \end{displayquote}
+
+    \begin{displayquote}
+        In any field, the most reliable and instantly recognizable sign of a fanatic is a lack of any sense of humor. (pg. 497)
+    \end{displayquote}
+    
+    \begin{displayquote}
+        Inside every Non-Bayesian, there is a Bayesian struggling to get out. \\
+        -- Dennis V. Lindley
+    \end{displayquote}
+
+    \begin{displayquote}
+        Note in passing a simple counter--example to a principle sometimes stated by philosophers, that theories cannot be proved true, only false.\ We seem to have just the opposite situation for the theory that there was once life on Mars.\ To prove it false, it would not suffice to dig up every square foot of the surface of Mars; to prove it true one needs only to find a single fossil. (pg. 554)
+    \end{displayquote}
+
+    \begin{displayquote} 
+        \ldots we have to remember that probability theory never solves problems of actual practice, because all such problems are infinitely complicated.\ We solve only idealizations of the real problem, and the solution is useful to the extent that the idealization is a good one. (pg. 568)
+    \end{displayquote}
+\end{document}

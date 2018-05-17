@@ -1,0 +1,63 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+    \section{Orthodox methods:\ historical background}
+        \begin{itemize} 
+            \item as much of this chapter is historical ramblings, I will only reproduce some insights I find interesting
+            \item this chapter is concerned with the history of orthodox statistics circa 1900--1970, with the express purpose of informing us about the failings of the orthodoxy of statistics
+            \item orthodox and Bayesian statistics differ in how they relate to data
+                \begin{itemize} 
+                    \item orthodox statistics is limited at the outset to pre--data considerations, giving correct answers to questions of the form (verbatim)
+                        \begin{enumerate}
+                            \item Before you have seen the data, what data do you expect to get?
+                            \item If the as yet unknown data are used to estimate parameters by some known algorithm, how accurate do you expect the estimates to be?
+                            \item If the hypothesis being tested is in fact true, what is the probability that we shall get data indicating that it is true?
+                        \end{enumerate}
+                    \item however, essentially all real scientific inferences problems are concerned with post--data questions (verbatim),
+                        \begin{enumerate}
+                            \item After we have seen the data, do we have any reason to be surprised by them?
+                            \item After we have seen the data, what parameter estimates can we now make, and what accuracy are we entitled to claim?
+                            \item What is the probability \textit{conditional on the data}, that the hypothesis is true?
+                        \end{enumerate}
+                \end{itemize}
+        \end{itemize}
+            
+        \subsection{Sampling distribution for an estimator}
+            \begin{itemize} 
+                \item a major part of orthodoxy is devoted to calculating, approximating, and comparing sampling PDFs for estimators, as it is the only criterion orthodoxy has for judging estimators
+                \item on the other hand, in Bayesian analysis, we do not need to do this, as we know that an estimator derived from Bayes' theorem with a specific loss function is the optimal estimator for the problem as defined
+                \item suppose we are estimating some parameter, \(\alpha\),
+                    \begin{itemize} 
+                        \item in orthodoxy, the width of the sampling PDF for the estimator would answer the pre--data question, ``How much would the estimate of \(\alpha\) vary over the class of all data sets that we might conceivably get?''
+                        \item as this is not quite relevant to scientists, we should be concerned with the post--data question, ``How accurately is the value of \(\alpha\) determined by the one data set \(D\) that we actually have?''
+                    \end{itemize}
+                \item this difference is a source of contention between orthodox and Bayesian statistics, so let's examine how they can often be the same
+                    \begin{itemize} 
+                        \item scientific inference has been, historically, dominated by Gaussian sampling distributions.
+                        \item suppose we have a data set \(D = \{y_1, \ldots, y_n\}\), with the sampling distribution,
+                            \begin{equation*} 
+                                p(D|\mu \sigma I) \propto \exp \left \{ -\sum\limits_i \frac{{(y_i - \mu)}^2}{w {\sigma}^2} \right \}
+                            \end{equation*}
+                            where we know the value of sigma
+                        \item the Bayesian posterior PDF for \(\mu\), with a uniform prior, is
+                            \begin{equation*} 
+                                p(\mu |D \sigma I) \propto \exp \left \{ - \frac{n{(\mu - \overline{y})}^2}{2 {\sigma}^2} \right \}
+                            \end{equation*}
+                            from which the post--data estimate of \(\mu\) is
+                            \begin{equation*} 
+                                {(\mu)}_{\text{est}} = \overline{y} \pm \frac{\sigma}{\sqrt{n}}
+                            \end{equation*}
+                        \item we can see that the sample mean, \(\overline{y} \equiv n^{-1} \sum y_i\) is a sufficient statistic
+                        \item an orthodox satistician using \(\overline{y}\) as an estimator of \(\mu\) would find the sampling distribution to be
+                            \begin{equation*} 
+                                p(\overline{y}|\mu \sigma I) \propto \exp \left \{ - \frac{n{(\overline{y} - \mu)}^2}{2 \sigma^2} \right \}
+                            \end{equation*}
+                            leading to a pre--data estimate of 
+                            \begin{equation*} 
+                                {(\overline{y})}_{\text{est}} = \mu \pm \frac{\sigma}{\sqrt{n}}
+                            \end{equation*}
+                        \item though differing in conceptual meaning, the pre-- and post--data estimates are nearly idential mathematically that the Bayesian and orthodox statisticians would make the same numerical estimate of \(\mu\) with the same claimed accuracy
+                        \item \textbf{Important}:\ in problems where we have sufficient statistics but no nuisance parameters, there is mathematical symmetry which can make pre-- and post--data questions closely related 
+                    \end{itemize}
+            \end{itemize}
+\end{document}

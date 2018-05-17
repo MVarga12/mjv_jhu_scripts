@@ -1,0 +1,244 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+    \section{Simple applications of decision theory}
+        \begin{itemize} 
+            \item statisticians would call these procedures ``significance tests''
+            \item gist of what we need to do is apply the Bayesian inference rules and hypothesis testing, supplemented by the loss function
+        \end{itemize}
+
+        \subsection{Definitions and preliminaries}
+            \begin{itemize} 
+                \item Employ the following notation for this chapter (this is a summary of the rules of Bayesian statistics)
+                    \begin{itemize} 
+                        \item \(p(A|B) = \) conditional probability for \(A\), given \(B\)
+                        \item \(p(AB|CD) = \) joint conditional probability for \(A\) and \(B\), given \(C\) and \(D\)
+                        \item everything follows from the product rule, \(p(AB|C) = p(A|BC)p(B|C) = p(B|AC)p(A|C)\)
+                        \item if the propositions \(B\) and \(C\) are not mutually contradictory, this can be rearranged into Bayes' theorem,
+                            \begin{equation*} 
+                                p(A|BC) = p(A|C) \frac{p(B|AC)}{p(B|C)} = p(A|B) \frac{p(C|AB)}{p(C|B)}
+                            \end{equation*}
+                        \item if there are several mutually exclusive and exhaustive propositions \(B_i\), then by summing over them, we obtain the chain rule,
+                            \begin{equation*} 
+                                p(A|C) = \sum\limits_i p(A|B_i C)p(B_i | C)
+                            \end{equation*}
+                        \item also, let the following definitions
+                            \begin{align*} 
+                                X &= \text{prior knowledge, of any kind} \\
+                                S &= \text{signal} \\
+                                N &= \text{noise} \\
+                                V &= V(S,N) = \text{observed voltage} \\
+                                D &= \text{decision about the nature of the signal}
+                            \end{align*}
+                        \item so, we have
+                            \begin{itemize} 
+                                \item[] \(p(S|X) =\) prior probability for a particular signal, \(S\)
+                                \item[] \(p(N|X) = W(N) =\) prior probability for the particular sample of noise \(N\)
+                            \end{itemize}
+                        \item prior information \(X\) is always built into the right--hand side of probability symbols, whether explicitly written or not.\ thus, in a linear system \(V = S + N\)
+                            \begin{equation*} 
+                                p(V|S) \equiv p(V|SX) = W(V-S)
+                            \end{equation*}
+                        \item a \textit{decision rule}, \(p(D_i | V_j)\), or \(p(D|V)\) for simplicity, is the process of drawing inferences about the signal from observed voltage
+                            \begin{itemize} 
+                                \item any decision must be made on the basis of \(V\) alone, as it, by definition, contains all information actually used (including \(X\)) in arriving to that decision
+                                \item so, if \(Y \neq D\) is another proposition, \(p(D|V) = p(D|VY)\)
+                                \item or, equivalently, we can say that the probabilty for reaching decision \(D\) depends on any proposition \(Y\) only through the influence \(Y\) has on \(X\),
+                                    \begin{equation*} 
+                                        p(D|Y) = \sum\limits_V p(D|V)p(V|Y)
+                                    \end{equation*}
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{Sufficiency and information}
+            \begin{itemize} 
+                \item that \(p(D|V) = p(D|VY)\) leads to an interesting consequence
+                    \begin{itemize} 
+                        \item suppose we wish to know the probability for \(Y\), on the basis of knowing \(D\) and \(V\).\ using the product rule,
+                            \begin{equation*} 
+                                p(DY|V) = p(Y|VD)p(D|V) = p(D|VY)p(Y|V) \Rightarrow p(Y|VD) = p(Y|V)
+                            \end{equation*}
+                        \item note that the reduction (indicated by \(\Rightarrow\)) comes from using \(p(D|V) = p(D|VY)\)
+                        \item this is interesting as it indicates that if \(V\) is known, \(D\) is redundant and does not help us in estimating any other quantity.\ the reverse, however, is not true
+                    \end{itemize}
+                \item this leads to the following theorem:
+                    \begin{theorem}
+                        Let \(D\) be a possible decision, given \(V\).\ then \(p(V|D) \neq 0\) and
+                            \begin{equation*} 
+                                p(Y|V) = p(Y|D)~\text{iff}~p(V|D) = p(V|YD)
+                            \end{equation*}
+                    \end{theorem}
+                \item in other words, knowledge of \(D\) is as good as knowledge of \(V\) for judgements about \(Y\) iff \(Y\) is irrelevant for judgements about \(V\), given \(D\).
+                \item another rewording:\ in the `environment' produced by knowledge of \(D\), the probabilities for \(Y\) and \(V\) are independent, i.e.\ \(p(YV|D) = p(Y|D)p(V|D)\)
+                \item so, \(D\) is a \textit{sufficient statistic} for judgements about \(Y\)
+                \item sufficiency is closely related to the concept of information.\ the theorem could be state equally as well as:\ \(D\) is a sufficient statistic for judgements about \(Y\) if it contains all the information about \(Y\) that \(V\) contains
+                \item he goes on to describe this loose definition of `information' and how it connects to sufficiency using Shannon's measure of information, concluding that
+                    \begin{displayquote}
+                        \ldots if by `information' we mean minus the expectation of the entropy \(Y\) over the prior distribution of \(D\) or \(V\), zero information loss in going from \(V\) to \(D\) is equivalent to sufficiency of \(D\). (pg. 430)
+                    \end{displayquote}
+                \item also, he notes that acquisition of new data can never increase \(\overline{H}\) (the expectation value of the entropy)
+            \end{itemize}
+        
+        \subsection{Loss functions and criteria of optimum performance}
+            \begin{itemize} 
+                \item need some criterion to determine which decision rule to use over another.\ criterion will change with application, no one criterion to rule them all (lol)
+                \item general criterion is obtained by assigning a \textit{loss function}, \(L(D,S)\), representing the judgement of how serious it is to make decision \(D\) when signal \(S\) is present
+                \item example:
+                    \begin{itemize} 
+                        \item suppose there are only two possible signals, \(S_0 = 0\) and \(S_1 > 0\), which in turn lead to two decisions, \(D_0\) and \(D_1\)
+                        \item there are two types of error, a false alarm \(A = (D_1, S_0)\) and false rest \(R = (D_0, S_1)\), and we consider a false rest ten times more serious than a false alarm, while the correct decision of either type represents `no loss'
+                        \item so our loss functions are then \(L(D_0, S_0) = L(D_1, S_1) = 0\), \(L(D_0, S_1) = 10\), and \(L(D_1, S_0) = 1\), leading to a \textit{loss matrix} (in the case of discrete sets of decisions),
+                            \begin{equation*} 
+                                L{ij} = \left( \begin{matrix} 0 & 10 \\ 1 & 0 \end{matrix} \right)
+                            \end{equation*}
+                        \item we can also consider \textit{information loss} by assigning \(L(D,S) = -\log [p(S|D)]\), instead of arbitrary loss values
+                            \begin{itemize} 
+                                \item more difficult, as the loss function now depends on the decision rule
+                                \item minimization of the information loss leads to a decision which is as close as possible to being a sufficient statistic for judgements about the signal
+                            \end{itemize}
+                        \item the \textit{conditional loss}, \(L(S)\), is the expected loss when a signal \(S\) is present,
+                            \begin{equation*} 
+                                L(S) = \sum\limits_D L(D,S) p(D|S)
+                            \end{equation*}
+                        \item \textit{average loss} is indicated by the expectation of conditional loss over all possible signals,
+                            \begin{equation*} 
+                                \langle L \rangle = \sum\limits_S L(S)p(S|X)
+                            \end{equation*}
+                    \end{itemize}
+                \item now can see two types of criteria for optimal performance (taken verbatim):
+                    \begin{itemize} 
+                        \item \textbf{The minimax criterion}: For a given decision rule \(p(D|V)\), consider the conditional loss \(L(S)\) for all possible signals, and let \({[L(S)]}_{\max}\) be the maximum value attained by \(L(S)\).\ We seek that decision rule for which \({[L(S)]}_{\max}\) is as small as possible.\ldots this criterion concentrates attention on the worst possible case, regardless of the probability for occurrence of this case, and it is thus in a sense too conservative.\ However, it gives some psychological comfort that it does not involve the prior probabilities for the different signals \(p(S|X)\), and therefore can be applied by persons who, under the handicap of orthodox training, have a mental hangup against prior probabilities. 
+                        \item \textbf{The Bayes criterion}: We seek the decision rule for which the expected loss \(\langle L \rangle\) is minimized.\ In order to apply this, a prior distribution \(p(S|X)\) must be available.\ (pg.\ 431)
+                    \end{itemize}
+                \item note that Wikipedia shows the formal definition of Bayes' criterion as
+                    \begin{equation*} 
+                        \text{BIC} = \ln(n)k - 2\ln(\hat{L})
+                    \end{equation*}
+                    where
+                    \begin{itemize} 
+                        \item \(\hat{L} =\) maximum value of the likelihood function of model \(M\), \( \hat{L} = p(D|\hat{\theta},M)\), where \(\hat{\theta}\) is the parameter values that maximize the likelihood function
+                        \item \(D =\) observed data
+                        \item \(n =\) number of data points in \(D\)
+                        \item \(k =\) number of parameters estimated by the model
+                    \end{itemize}
+                \item let's find the Bayes solution 
+                    \begin{itemize} 
+                        \item substitution leads to the expression for expected loss
+                            \begin{equation*} 
+                                \langle L \rangle = \sum\limits_{DV} \left[ \sum\limits_S L(D,S)p(VS|X) \right] p(D|V)
+                            \end{equation*}
+                        \item if \(L(D,S)\) is independent of \(p(D|V)\), there is no \(p(D|V)\) for which this expression is stationary
+                        \item then minimize \(\langle L \rangle\) by choosing each possible \(V\) leading to decision \(D_1 (V)\) for which the coefficient
+                            \begin{equation*} 
+                                K(D,V) \equiv \sum\limits_S L(D_1, S)p(VS|X)
+                            \end{equation*}
+                            is minimum
+                        \item therefore, we adopt the decision rule \(p(D|V) = \delta (D, D_1)\)
+                    \end{itemize}
+                \item goes on to provide a detailed example (pp. 432--437)
+            \end{itemize}
+
+        \subsection{The widget problem}
+            \begin{itemize} 
+                \item interesting problem, as we have no occasion to use Bayes' theorem, since no `new' information is acquired;\ it is a pure use of maximum entropy
+                \item Formulation of the problem:
+            \end{itemize}
+                    \begin{displayquote}
+                        \ldots Mr \(A\) is in charge of a widget factor, which proudly advertises that it can make delivery in \(24\) hours on any size order.\ This, of course, is not really true, and Mr \(A\)'s job is to protect, as best he can, the advertising manager's reputation for veracity.\ This means that each morning he must decide whether the day's run of \(200\) widgets will be painted red, yellow, or green.\ (For complex technological reasons, not relevant to the present problem, only one color can be produced per day.) We follow his problem of decision through several stages of increasing knowledge. (pg. 441)
+                    \end{displayquote}
+                
+                \subsubsection{Stage 1}
+                    \begin{itemize} 
+                        \item Mr \(A\) checks the stock at the beginning of the day to find 100 red widgets, 150 yellow widgets, and 50 green widgets.
+                        \item with complete ignorance of the day's orders, common sense would say to build up the stock of green widgets
+                    \end{itemize}
+                
+                \subsubsection{Stage 2}
+                    \begin{itemize} 
+                        \item Calling the front desk leads him to learn that average orders per day break down to 50 red, 100 yellow, and 10 green widgets per day.
+                        \item likely would change decision to yellow widgets
+                    \end{itemize}
+
+                \subsubsection{Stage 3}
+                    \begin{itemize} 
+                        \item he gets further information on the total number of orders processed, leading to a break down of average widgets per order of 75 red, 10 yellow, and 20 green widgets
+                        \item likely would change decision to red widgets
+                    \end{itemize}
+
+                \subsubsection{Stage 4}
+                    \begin{itemize} 
+                        \item gets word of an emergency order for 40 green widgets
+                        \item no longer can make a qualitative decision, must make a quantitative decision
+                    \end{itemize}
+
+                    \begin{table}[]
+                        \centering
+                        \caption{Summarized data of the 4 stages}
+                            \begin{tabular}{lllll}
+                                \textbf{Stage}          & \textbf{R}   & \textbf{Y}   & \textbf{G}  & \textbf{Decision} \\
+                                \toprule
+                                1.\ In stock                & 100 & 150 & 50 & G        \\
+                                2.\ Avg.\ daily order total & 50  & 100 & 10 & Y        \\
+                                3.\ Avg.\ individual order  & 75  & 10  & 20 & R        \\
+                                4.\ Specific order          & NA  & NA  & 40 &?\        \\
+                                \bottomrule
+                            \end{tabular}
+                    \end{table}
+
+                \subsubsection{Mathematical solution for Stage 2}
+                    \begin{itemize} 
+                        \item only will solve truncated problem of today not affecting tomorrow's manufacturing
+                        \item begin by enumerating states of nature \(\theta_j\) corresponding to all possible order situations
+                        \item let \(n_1 = 1, 2, 3, \ldots\) be the number of red widgets that will be sold today, with \(n_2\) and \(n_3\) indicating the yellow and green widgets, respectively.\ therefore, any conceivable order can be represnted by a set of three non--negative integers, \(\{n_1, n_2, n_3\}\)
+                        \item next we assign prior probabilities \(p(\theta_j | X) = p(n_1 n_2 n_3|X)\) to the states of nature, maximizing the entropy of the distribution subject to constraints (see \S 10 for solution to this)
+                        \item the index \(i\) in \(x_i\) indicates the three integers \(n_1\), \(n_2\), and \(n_3\), the function \(f_k(x_i)\) corresponds to the \(n_i\), since the expectation values \(\langle n_1 \rangle\), \(\langle n_2 \rangle\), and \(\langle n_3 \rangle\) are fixed by information given in Stage 2
+                        \item leads to the partition function
+                            \begin{align*} 
+                                Z(\lambda_1, \lambda_2, \lambda_3) &= \sum\limits^{\infty}_{n_1 = 0} \sum\limits^{\infty}_{n_2 = 0} \sum\limits^{\infty}_{n_3 = 0} \exp \left \{ -\lambda_1 n_1 - \lambda_2 n_2 - \lambda_3 n_3 \right \} \\
+                                                                   &= \prod\limits^{3}_{i=1} {\left(1 - \exp \left \{-\lambda_i \right \} \right)}^{-1}
+                            \end{align*}
+                            with \(\lambda_i\) being the Lagrange multipliers for the three expectation value constraints, determined by
+                            \begin{equation*} 
+                                \langle n_i \rangle = -\frac{\partial \log(Z)}{\partial \lambda_i} = \frac{1}{\exp \{\lambda_i\} - 1}
+                            \end{equation*}
+                        \item the maximum entropy probability assignment factors as \(p(n_1 n_2 n_3) = p_1(n_1)p_2(n_2)p_3(n_3)\) where
+                            \begin{align*} 
+                                p_i(n_i) &= (1 - \exp \{-\lambda_i\})\exp \{-\lambda_i n_i\} \hspace{1cm} n_i = 1, 2, 3, \ldots \\
+                                         &= \frac{1}{\langle n_i \rangle + 1} {\left[ \frac{\langle n_i \rangle}{\langle n_i \rangle + 1} \right]}^{n_i}
+                            \end{align*}
+                        \item so Mr \(A\)'s initial state of knowledge about today's order is given by the three exponential distributions
+                            \begin{equation*} 
+                                p_1(n_1) = \frac{1}{51} {\left( \frac{50}{51} \right)}^{n_1} \hspace{1cm} p_2(n_2) = \frac{1}{101} {\left( \frac{100}{101} \right)}^{n_2} \hspace{1cm} p_3(n_3) = \frac{1}{11} {\left( \frac{10}{11} \right)}^{n_3}
+                            \end{equation*}
+                        \item since there is no new evidence \(E\), we cannot use Bayes' theorem and must make decisions based solely on the prior distributions
+                        \item enumerate the decisions \(D_1 \equiv\) make red ones, \(D_2 \equiv\) make yellow ones, \(D_3 \equiv\) make green ones, with the loss function \(L(D_i, \theta)\) (we take the loss as no loss for all orders filled, and loss proportional to the number of unfilled orders)
+                        \item present stock is \(S_1 = 100\), \(S_2 = 150\), \(S_3 = 50\)
+                        \item loss on each decision is
+                            \begin{align*} 
+                                L(D_1; n_1, n_2, n_3) &= R(n_1 - S_1 - 200) + R(n_2 - S_2) + R(n_3 - S_3) \\
+                                L(D_2; n_1, n_2, n_3) &= R(n_1 - S_1) + R(n_2 - S_2 - 200) + R(n_3 - S_3) \\
+                                L(D_3; n_1, n_2, n_3) &= R(n_1 - S_1) + R(n_2 - S_2) + R(n_3 - S_3 - 200)
+                            \end{align*}
+                            where
+                            \begin{equation*} 
+                                R(x) \equiv \left \{ \begin{matrix} x & x \leq 0 \\ 0 & x \geq 0 \end{matrix} \right.
+                            \end{equation*}
+                        \item expected loss is then
+                            \begin{align*} 
+                                {\langle L \rangle}_1 &= \langle n_1 \rangle \exp \{-\lambda_1 (S_1 + 200) \} + \langle n_2 \rangle \exp \{-\lambda_2 S_2 \} + \langle n_3 \rangle \exp \{-\lambda_3 S_3 \} \Rightarrow 22.70 \\
+                                {\langle L \rangle}_2 &= \langle n_1 \rangle \exp \{-\lambda_1 S_1 \} + \langle n_2 \rangle \exp \{-\lambda_2(S_2 + 200) \} + \langle n_3 \rangle \exp \{-\lambda_3 S_3\} \Rightarrow 10.6 \\
+                                {\langle L \rangle}_3 &= \langle n_1 \rangle \exp \{-\lambda_1 S_1 \} + \langle n_2 \rangle \exp \{ -\lambda_2S_2\} + \langle n_3 \rangle \exp \{-\lambda_3(S_3 + 200)\} \Rightarrow 29.38
+                            \end{align*}
+                            leading to the expected decision to make yellow widgets
+                        \item he goes on to show a mathematical solution for Stage 3, which I will not replicate 
+                            \begin{itemize}
+                                \item because we know average of individual orders, we need to define new states of nature \(\theta = \{u_1 \ldots; v_1 \ldots; w_1 \ldots \}\) where \(u_r\), \(v_y\), and \(w_g\) are orders for \(r\) red widgets, \(y\) yellow widgets, and \(g\) green widgets, respectively
+                                \item the expectation values end up giving the same expectation value form as in Bose--Einstein statistics,
+                                    \begin{equation*} 
+                                        \langle u_r \rangle = \frac{1}{\exp \{ r\lambda_1 + \mu_1\} - 1}
+                                    \end{equation*}
+                                    which is \textit{fucking cool}.
+                            \end{itemize}
+                    \end{itemize}
+\end{document}

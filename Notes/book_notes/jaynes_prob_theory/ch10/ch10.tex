@@ -1,0 +1,158 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Ignorance priors and transformation groups}
+        \begin{itemize} 
+            \item how do we translate prior information into prior probability assignments?.\ maximum entropy provides one powerful tool
+            \item if prior probabilities just represent prior opinions, they are useless.\ problems of inference are ill--posed until we recognize three things (this is taken verbatim):
+                \begin{enumerate}
+                    \item The prior probabilities represent our prior \textit{information}, and are to be determined, not only by introspection, but by \textit{logical analysis} of that information.
+                    \item Since the final conclusions depend necessarily on both the prior information and the data, it follows that, in formulating a problem, one must specify the prior information to be used just as fully as one specifies the data
+                    \item Our goal is that inferences are to be completely `objective' in the sense that two persons with the same prior information must assign the same prior probabilities. (pg. 373)
+                \end{enumerate}
+            \item the natural starting point in translating prior information is the state of complete ignorance
+            \item maximum entropy tells us that for discrete probabilities complete ignorance is represented by a uniform prior probability assignment.\ for continuous probabilities, this problem is more complicated
+            \item this chapter talks about the method of transformation groups, but first goes into some detail about using maximum entropy for continuous distributions
+        \end{itemize}
+
+        \subsection{Continuous distributions}
+            \begin{itemize} 
+                \item Shannon's theorem holds true only for discrete distributions, and the  corresponding expression for continuous distributions must pass to the limit from a discrete distribution
+                    \begin{itemize} 
+                        \item taking the discrete entropy expression
+                            \begin{equation*} 
+                                H^{\text{d}}_{I} = - \sum\limits^{n}_{i=1} p_i \log [p_i]
+                            \end{equation*}
+                            suppose that the points \( x_i \) become more and more numbers such that in the limit \( n \rightarrow \infty \)
+                            \begin{equation*} 
+                                \lim_{n \rightarrow \infty} \frac{1}{n} (\text{number of points in}~a < x < b) = \int^{b}_{a} \mathrm{d}x~m(x)
+                            \end{equation*}
+                        \item if this limit is well--behaved, then it is also true that the difference between discrete points, \( (x_{i+1} - x_i) \), tends to zero such that
+                            \begin{equation*} 
+                                \lim_{n \rightarrow \infty} [n(x_{i+1} - x_i)] = {[m(x_i)]}^{-1}
+                            \end{equation*}
+                        \item the discrete probability distribution \( p_i \) will go over into a continuous probability \( p(x|I) \) according to
+                            \begin{align*} 
+                                p_i &= p(x_i|I)(x_{i+1} - x_i) \\
+                                p_i &\rightarrow p(x_i | I){[nm(x_i)]}^{-1}
+                            \end{align*}
+                        \item so the discrete entropy goes over into an integral
+                            \begin{equation*} 
+                                H^{\text{d}}_{I} \rightarrow \int \mathrm{d}x~p(x|I)\log \left[ \frac{p(x|I)}{nm(x)} \right]
+                            \end{equation*}
+                            where \( m(x) \) is some `invariant measure' function, which is proportional to the limiting density of discrete points
+                        \item contains an infinite term \( \log (n) \), and subtracting this causes the integral to tend towards a definitely limit
+                            \begin{equation*} 
+                                H^{\text{c}}_{I} \equiv \lim_{n \rightarrow \infty} [H^{\text{d}}_{I} - \log (n) ] = - \int \mathrm{d}x~p(x|I) \log \left[ \frac{p(x|I)}{m(x)} \right]
+                            \end{equation*}
+                        \item \( H^{\text{c}}_{I} \) is invariant, since \( p(x|I) \) and \( m(x) \) transform in the same way under change of variables
+                        \item we seek a normalized probability distribution \( p(x|I) \)
+                            \begin{itemize} 
+                                \item constrained by information fixing the mean values of \( m \) different functions \( f_k (x) \)
+                                    \begin{equation*} 
+                                        F_k = \int \mathrm{d}x~p(x|I) f_k (x)
+                                    \end{equation*}
+                                \item the solution is
+                                    \begin{equation*} 
+                                        p(x|I) = Z^{-1} m(x) \exp \{\lambda_1 f_1 (x) + \cdots + \lambda_m f_m (x) \}
+                                    \end{equation*}
+                                    with partition function
+                                    \begin{equation*} 
+                                        Z(\lambda_1, \ldots, \lambda_m) \equiv \int \mathrm{d}x~m(x) \exp \{\lambda_1 f_1 (x) + \cdots + \lambda_m f_m (x) \}
+                                    \end{equation*}
+                                    and Lagrange multipliers
+                                    \begin{equation*} 
+                                        F_k = - \frac{\partial \log Z(\lambda_1, \ldots, \lambda_m)}{\partial \lambda_k} \hspace{1cm} k = 1, \ldots, m
+                                    \end{equation*}
+                            \end{itemize}
+                        \item what is \( m(x) \)?
+                            \begin{itemize} 
+                                \item consider a one--dimensional case, supposing that we know \( a < x < b\) but no other prior information.
+                                \item there are then no Lagrange multipliers and the distribution reduces to
+                                    \begin{equation*} 
+                                        p(x|I) = {\left[ \int^{b}_{a} \mathrm{d}x~m(x) \right]}^{-1} m(x)
+                                    \end{equation*}
+                                \item this tells us that the measure \( m(x) \) is also the prior distribution describing complete ignorance of \( x \).\ but how do we find this?
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{Aside on assigning priors}
+            \begin{itemize} 
+                \item Bayes suggests we express ignorance by assigning a uniform prior
+                    \begin{itemize} 
+                        \item not invariant under change of parameters, and no criterion to tell us which parameterization to use
+                    \end{itemize}
+                \item Jeffreys suggested assigning a prior \( \mathrm{d}\sigma / \sigma \) to a continuous, positive parameter \( \sigma \), since this is invariant whether we use \( \sigma \) or \( {\sigma}^m \)
+                    \begin{itemize} 
+                        \item but we don't want it to be invariant under \textit{all} parameter changes
+                    \end{itemize}
+                \item the real problem is then, ``For which choice of parameters does a given form, such as that of Bayes of Jeffreys, apply?''
+                \item can apply groups of transformations
+            \end{itemize}
+
+        \subsection{Transformation groups}
+            \begin{itemize} 
+                \item best illustrated by example
+            \end{itemize}
+
+            \subsubsection{Location and scale parameters}
+                \begin{itemize} 
+                    \item \textit{location parameter}:\ parameter which translates a PDF along the x--axis
+                    \item \textit{scale parameter}:\ parameter which widens or sharpens the PDF
+                    \item Sample from a continuous two--parameter distribution \( p(x|{\nu}{\sigma}) = {\phi}(x, \nu, \sigma)~\text{d}x \)
+                    \item Given a sample \( \{x_1, \ldots, x_n \} \), estimate \( \nu \) and \( \sigma \).
+                        \begin{itemize} 
+                            \item cannot do this until we define some prior distribution
+                                \begin{equation*} 
+                                    p({\nu}{\sigma}|I)~\text{d}\nu~\text{d}\sigma = f(\nu, \sigma)~\text{d}\nu~\text{d}\sigma
+                                \end{equation*}
+                            \item if in complete initial ignorance, doesn't tell us which function \( f(\nu, \sigma) \) to use
+                            \item suppose we change variables to \( \{x', \nu', \sigma' \}\) such that
+                                \begin{align*}
+                                    \nu' &= \nu + b \\
+                                    \sigma' &= a \sigma \\
+                                    x' - \nu' &= a(x - \nu)
+                                \end{align*}
+                                where \( (0 < a < \infty) \) and \( (-\infty < b < \infty) \)
+                            \item the new distribution is then
+                                \begin{equation*} 
+                                    p(x'|\nu' \sigma') = \psi(x', \nu', \sigma') = \phi(x, \nu, \sigma)~\text{d}x
+                                \end{equation*}
+                                or, \( \psi(x', \nu', \sigma') = a^{-1}\phi(x, \nu, \sigma) \)
+                            \item the prior has changed to \( g(\nu', \sigma') = a^{-1}f(\nu,\sigma) \), according to the Jacobian of the transformation
+                            \item suppose that the distribution is invariant under transformation, i.e. \( \psi(x, \nu, \sigma) = \phi(x, \nu, \sigma) \), which means that \( \phi(x, \nu, \sigma) \) must satisfy
+                                \begin{equation*} 
+                                    \phi(x, \nu, \sigma) = a\phi(ax - a\nu + \nu + b, \nu + b, a \sigma) 
+                                \end{equation*}
+                            \item differentiating with respect to \( a,b \) and solving the differential equation, we get
+                                \begin{equation*} 
+                                    \phi(x, \nu, \sigma) = \frac{1}{\sigma}h \left(\frac{x-\nu}{\sigma} \right)
+                                \end{equation*}
+                                where \( h(q) \) is an arbitrary function
+                            \item ``Thus, the usual definition of a location parameter \( \nu \) and a scale parameter \( \sigma \) is equivalent to specifying that the distribution shall be invariant under the group of transformations.'' (pg. 379)
+                            \item If a change of scale makes the problem different, then we are not completely ignorant in the prior.\ complete ignorance of a location and scale parameter is a state of knowledge such that changing either parameter does not  change the state of knowledge
+                        \end{itemize}
+                    \item lets look at some consequences of this
+                        \begin{itemize} 
+                            \item given a sample \( \{x'_1, \ldots, x'_n \} \), estimate \( \nu' \) and \( \sigma' \)
+                            \item if in complete ignorance, this has the same sampling distribution as before, and our state of knowledge is also the same as before
+                            \item since we have formulated two problems which have the same prior information, we would then, to be consistent, assign the same prior, \( f(\nu, \sigma) = g(\nu, \sigma) \)
+                            \item now the form of the prior is uniquely determined, and, combining this with above, we get
+                                \begin{equation*} 
+                                    f(\nu, \sigma) = af(\nu + b, a\sigma)
+                                \end{equation*}
+                                with a general solution of
+                                \begin{equation*} 
+                                    f(v, \sigma) = \frac{\text{const.}}{\sigma}
+                                \end{equation*}
+                                which is Jeffreys rule, described above.
+                            \item we can see that this result is uniquely determined by the \textit{transformation group}, not the form of the distribution (he goes on to show that for a different transformation group, the end result is different)
+                            \item so, it is not enough to say that a change of scale and location does not change the state of knowledge, we must specify a definite group of transformations
+                        \end{itemize}
+                    \item to summarize this, specifying complete initial ignorance precludes us from obtaining any definite prior distribution, but defining a set of operations which transforms the problems into an equivalent one places nontrivial restrictions on the form of the prior, allowing us to obtain it
+                    \item goes on to present several other examples of complete ignorance and its effects on priors
+                \end{itemize}
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+
+\section{The quantitative rules}
+This chapter focuses on the deduction of quantitative rules for inference which follow these desiderata:
+    \begin{enumerate}
+        \item Representation of degrees of plausibility by real numbers
+        \item Qualtitative correspondence with common sense
+        \item Consistency
+    \end{enumerate}
+
+\begin{itemize}
+    \item $F(x,y)$, i.e.\ a Boolean function of propositions x and y (i'm fuzzy on this), must be a continuous monotonic increasing function of both x and y. 
+        \begin{itemize}
+            \item monotonic increasing function: a function which never decreases
+            \item $F_1(x,y) \equiv \frac{\delta F}{\delta x} \geq 0$
+            \item $F_2(x,y) \equiv \frac{\delta F}{\delta y} \geq 0$
+            \item equivalency only when $x$ represents an impossibility
+        \end{itemize}
+  
+    \item Consistency requires that propositions be true regardless of association:
+        \begin{itemize}
+            \item $F[F(x,y),z] = F[x,F(x,y)]$
+            \item This functional equation is a big deal in mathematics. Called "The Associativity Equation"
+        \end{itemize}
+
+    \item Product rule:
+        \begin{itemize}
+            \item[] $w(AB|C) = w(A|BC)w(B|C) = w(B|AC)w(A|C)$
+            \item $w(x)$ must be continuous monotonic
+        \end{itemize}
+
+    \item Sum rule (super long derivation which I didn't quite follow):
+        \begin{itemize}
+            \item[] $p(A|B) + p(\bar{A}|B) = 1$, or more generally,
+            \item[] $p(A + B|C) = p(A|C) + p(B|C) - p(AB|C)$
+        \end{itemize}
+  
+    \item given several propositions $A_i$ which are mutually exclusive, it can be shown that,
+        \begin{itemize}
+            \item[] $p(A_1 + \ldots + A_m|B) = \sum^m_{i=1} p(A_i|B)$ where $1 \leq m \leq n$
+        \end{itemize}
+
+    \item if these propositions $A_i$ are not only mutually exclusive but also exhaustive,
+        \begin{itemize}
+            \item[] $\sum^m_{i=1} p(A_i|B) = 1$
+        \end{itemize}
+
+    \item we are given two sets of mutually exclusive propositions, $\{A_1, \ldots, A_n\}$ and $\{A_1^{\prime}, \ldots, A_n^{\prime}\}$, with the only differences between the two sets being the subscripts 1 and 2 being swapped in the prime set
+        \begin{itemize}
+            \item If the given information $B$ is the same between the two sets of propositions,
+                \begin{itemize}
+                    \item[] $p(A_1|B)_I = p(A_2^{\prime}|B)_{II}$
+                    \item[] and
+                    \item[] $p(A_2|B)_I = p(A_1^{\prime}|B)_{II}$
+                \end{itemize}
+            \item If the information $B$ is indifferent between propositions $A_1$ and $A_2$, and since we know that equivalent states of knowledge must be represented by equivalent plausibility, we can say
+                \begin{itemize}
+                    \item[] $p(A_i|B)_I = p(A_i^{\prime}|B)_{II}$
+                \end{itemize}
+            \item Therefore, $P(A_1|B)_I = p(A_2|B)_I$
+            \item this is a ``baby" version of the group invariance principle for assigning plausibilites
+            \item If the information $B$ is indifferent between all propositions $A_i$, it  can be shown that 
+                \begin{itemize}
+                    \item[] $p(A_i|B)_I = \frac{1}{n}$ where $1 \leq i \leq n)$
+                    \item this is called the ``principle of indifference"
+                \end{itemize}
+        \end{itemize}
+        
+    \item the information given can determine numerical values of the quantities $p(x) = p(A_i|B)$, not the numerical values of the plausibilities $x = A_i|B$
+    \item the plausibility $x \equiv A|B$ is an arbitrary monotonic function of $p$, defined in $(0 \leq p \leq 1)$
+        \begin{itemize}
+            \item these functions $p$ are called ``probabilities"
+        \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{EXAMPLE: Bernoulli urn}
+\begin{itemize}
+    \item Prior information:
+        \begin{itemize}
+            \item Ten balls of identical size and weight are in an urn
+            \item three balls (4, 5, and 6) are black, the rest are white
+            \item what is the probability that we draw a black one?
+        \end{itemize}
+    
+    \item Propositions:
+        \begin{itemize}
+            \item $A_i \equiv $ the $i^{th}$ ball drawn
+        \end{itemize}
+    
+    \item the probability to choose a particular ball is,
+        \begin{itemize}
+            \item[] $p(A_i|B) = \frac{1}{10}$
+        \end{itemize}
+    
+    \item the probability to choose a black ball is,
+        \begin{itemize}
+            \item[] $p(\mathrm{black}|B) = p(A_4 + A_5 + A_6|B)$
+        \end{itemize}
+    
+    \item and since $A_4$, $A_5$, and $A_6$ are mutually exclusive,
+        \begin{itemize}
+            \item[] $p(\mathrm{black}|B) = \frac{3}{10}$
+        \end{itemize}
+\end{itemize}
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[8pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{images/}{../images/}}
+\usepackage{amsmath}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage[smallfamily,noopticals,lf,italicgreek,loosequotes]{MinionPro}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\urlstyle{same}
+
+\newcommand{\infint}{\int^{\infty}_{-\infty}}
+\newcommand{\deriv}{\mathrm{d}}
+\newcommand{\fexp}{e^{i{\alpha}x}}
+\newcommand{\negfexp}{e^{-i{\alpha}x}}
+\newcommand{\at}[2][]{#1|_{#2}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{algorithm}{Algorithm}[section]
+
+\title{Notes on The Art of Computer Programming, Book 1}
+\author{Donald Knuth, Notes by Matt Varga}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{2} % preclude subsubsections from TOC
+\tableofcontents
+
+\pagebreak
+
+\subfile{ch1/ch1}
+\end{document}

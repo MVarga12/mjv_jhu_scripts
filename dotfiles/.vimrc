@@ -111,9 +111,7 @@
 
 " Random other settings
     " open with folds
-        set foldmethod=indent
-        set foldlevelstart=1 " start with most folds open
-        set foldnestmax=10 " limit nested folds
+        set foldmethod=syntax
     
     " Make folder for swap files
         set swapfile
@@ -154,11 +152,11 @@
 
             " TNE-Edited
             " set background=dark
-            " colorscheme Tomorrow-Night-Eighties 
-
-            "Pencil Light
-            set background=light
             colorscheme pencil
+
+           "Pencil Light
+            " set background=light
+            " colorscheme pencil
         else
             colorscheme desert
         endif
@@ -176,18 +174,20 @@
 
     " Comments as italics (make sure terminfo has sitm="\E[3m" and ritm="\E[23m"
     " this is specifically for TMUX, but I don't want to wrap it in an if statement
-        let t_ZH="\e[3m"
-        let t_ZR="\e[23m"
-        if (&bg == "dark")
-            highlight Comment gui=italic cterm=italic term=italic guifg=#696969
-        else 
-            highlight Comment gui=italic cterm=italic term=italic guifg=#2F4F4F
-        endif
 
     " Some custom syntax highlighting
         set list
         set listchars:trail:+
         " todos, their priorities, and notes syntax highlighting 
+        function! SetItalicComments()
+            let t_ZH="\e[3m"
+            let t_ZR="\e[23m"
+            if (&bg == "dark")
+                highlight Comment gui=italic cterm=italic term=italic
+            else 
+                highlight Comment gui=italic cterm=italic term=italic
+            endif
+        endfunction!
         function! PriorityHighlighting()
             hi TodoPriorityHigh cterm=italic ctermfg=52 gui=italic guifg=#DB0700
             hi TodoPriorityLow cterm=italic ctermfg=52 gui=italic guifg=#DBC200
@@ -214,15 +214,14 @@
             highlight link math Statement
         endfunction!
 
+        highlight ColorColumn guibg = magenta 
         augroup highlight
             au!
+            autocmd BufEnter,BufRead,BufNew * call SetItalicComments()
             autocmd BufEnter,BufRead,BufNew * call PriorityHighlighting()
             autocmd BufEnter,BufRead,BufNew *.md,*.mkd,*.markdown call MarkdownSyntaxIgnore()
+            autocmd BufEnter, BufRead, BufNew * call matchadd('ColorColumn', '\%120v\S', 100)
         augroup END
-
-
-        highlight ColorColumn guibg = magenta 
-        call matchadd('ColorColumn', '\%120v\S', 100)
 
     function! LinterStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
@@ -262,4 +261,3 @@
 
         " set tab to two spaces for markdown
         autocmd BufRead,BufEnter,BufNew *.md,*.mkd,*.markdown :setl shiftwidth=2
-

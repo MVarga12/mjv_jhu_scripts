@@ -1,0 +1,69 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+\section{The Nature of Differential Equations}
+    \begin{itemize}
+        \item \textsc{DEFN}: An equation involving one dependent variable and its derivatives with respect to one or more independent variables.
+        \item Recall that for an equation $y=f(x)$, its derivative $dy/dx$ can be interpreted as the rate of change of $y$ wrt $x$.
+        \item A differential equation is an \textit{ordinary differential equation} if there is only one independent variable, so that all derivatives occurring in it are ordinary derivatives.
+        \item The \textit{order} of a differential equation is the order of the highest derivative present.
+        \item A differential equation is a \textit{partial differential equation} if it involves more than one independent variables, such that the derivatives occurring are partial derivatives.
+            \begin{itemize}
+                \item For example, if we have some function $w = f(x,y,z,t)$, then the following are partial differential equations of the second order:
+                    \begin{align*}
+                        \frac{{\partial}^2 w}{\partial x^2} + \frac{{\partial}^2 w}{\partial y^2} + \frac{{\partial}^2 w}{\partial z^2} &= 0 \\
+                        a^{2} \left( \frac{{\partial}^2 w}{\partial x^2} + \frac{{\partial}^2 w}{\partial y^2} + \frac{{\partial}^2 w}{\partial z^2} \right) &= \frac{\partial w}{\partial t} \\
+                        a^{2} \left( \frac{{\partial}^2 w}{\partial x^2} + \frac{{\partial}^2 w}{\partial y^2} + \frac{{\partial}^2 w}{\partial z^2} \right) &= \frac{{\partial}^2 w}{\partial t^2} 
+                    \end{align*}
+                \item As an aside, these are the \textit{Laplace's}, \textit{heat}, and \textit{wave} equations, respectively.
+            \end{itemize}
+    \end{itemize}
+
+    \subsection{General remarks on solutions}
+        \begin{itemize}
+            \item The general ordinary differential equation of the $n$th order is:
+                \begin{equation*}
+                    F \left( x,y, \frac{dy}{dx}, \frac{d^{2}y}{d^{2}x}, \ldots, \frac{d^{n}y}{d^{n}x} \right) = 0
+                \end{equation*}
+                or, using the prime notation,
+                \begin{equation*}
+                    F \left( x,y,y',y'', \ldots, y^{(n)} \right) = 0
+                \end{equation*}
+                
+                \begin{itemize}
+                    \item A general first order equation is taking the case of $n=1$,
+                        \begin{equation*}
+                            f \left( x,y, \frac{dy}{dx} \right) = 0
+                        \end{equation*}
+                    \item let us assume that this can be solved for $dy/dx$,
+                        \begin{equation*}
+                            \label{solve_example}
+                            \frac{dy}{dx} = f(x,y)
+                        \end{equation*}
+                    \item we also assume that $f(x,y)$ is a continuous function throughout some rectable $R$ in the $xy$ plane. 
+                    \item The geometric meaning of this solution can be thought as such:
+                        \begin{itemize}
+                            \item if $P_0 = (x_0, y_0)$ is a point in R, then
+                                \begin{equation*}
+                                    {\left( \frac{dy}{dx} \right)}_{P_0} = f(x_0,y_0)
+                                \end{equation*}
+                            determines a direction at $P_0$
+                            \item now define a new point $P_1 = (x_1,y_1)$, such that 
+                            \begin{equation*}
+                                    {\left( \frac{dy}{dx} \right)}_{P_1} = f(x_1,y_1)
+                            \end{equation*}
+                            determines a new direction at $P_1$
+                            \item if we continue this process, defining new points $P_i = (x_i, y_i)$ and their directions, we obtain a broken line with points scattered along it like beads
+                            \item as we decrease the distance between these beads, the line collapses into a smooth curve through the initial point $P_0$, and this curve is the solution $y = y(x)$ of eq.~\ref{solve_example}
+                        \end{itemize}
+                \end{itemize}
+            \item this is merely meant to provide plausibility to the following theorem:
+                \begin{theorem}[Picard's Theorem]
+                    If $f(x,y)$ and $\partial f/ \partial y$ are continuous functions on a closed rectangle $R$, then through each point $(x_0, y_0)$ in the interior of $R$ there passes a unique integral curve of the equation $dy/dx = f(x,y)$.
+                \end{theorem}
+            \item consider a fixed value of $x_0$.\ the integral curve that passes through $(x_0, y_0)$ is determined solely by the choice of $y_0$
+            \item the integral curves of eq.~\ref{}
+        \end{itemize}
+\end{document}

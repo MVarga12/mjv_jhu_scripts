@@ -1,0 +1,113 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+
+\begin{document}
+    \section{Model comparison}
+        \begin{itemize} 
+            \item how do we decide between two models which both account for the facts?
+            \item Ockham said, ``Reality exists solely in individual things, and universals are merely abstract signs.'' i.e.\ the abstract creations of the mind are not realities in the external world
+            \item really just a generalization of compound hypothesis testing
+            \item working within one model, the normalization constants usually cancel.\ however, when multiple hypotheses are under consideration, we need to take into account all normalizations
+        \end{itemize}
+
+        \subsection{Formulation of the problem}
+            \begin{itemize} 
+                \item let's first see why the normalization constants do not cancel.\ recall parameter estimation (section 6)
+                    \begin{itemize} 
+                        \item a model \(M\) contains parameters given by \(\theta\)
+                        \item given data \(D\) and prior information \(I\), we first start with Bayes' theorem,
+                            \begin{equation*} 
+                                p(\theta |DMI) = p(\theta |MI) \frac{p(D|\theta MI)}{p(D|MI)}
+                            \end{equation*}
+                            where \(M\) on the right--hand side assumes the model's correctness
+                        \item the denominator is the normalization constant,
+                            \begin{equation*} 
+                                p(D|MI) = \int \text{d}\theta~p(D \theta | MI) = \int \text{d}\theta~p(D|\theta MI)p(\theta |MI)
+                            \end{equation*}
+                            which is the prior expectation of the likelihood \(L(\theta) = p(D|\theta MI)\)
+                        \item to judge which model of a given set \(\{M_1, \ldots, M_r\}\) should be chosen, Bayes' theorem gives us the posterior probability of the \(j\)th model as
+                            \begin{equation*} 
+                                p(M_j | DI) = p(M_j | I) \frac{p(D|M_j I)}{p(D|I)} \hspace{1cm} 1 \leq j \leq r
+                            \end{equation*}
+                        \item eliminating the denominator by calculating the odds ratios, the posterior odds ratio for model \(M_j\) over \(M_k\) is 
+                            \begin{equation*} 
+                                \frac{p(M_j|DI)}{p(M_k|DI)} = \frac{p(M_j|I)}{p(M_k|I)}\frac{p(D|M_j I)}{p(D|M_k I)}
+                            \end{equation*}
+                    \end{itemize}
+                \item so the probability \(p(D|M_j I)\) which appears in single parameter estimation as a normalization constant is now key to determining the status of the model \(M_j\) over others
+                \item the measure of what the data tell us about this is the prior expectation of its likelihood function over the prior probability \(p(\theta_j | M_j I)\)
+                \item intuitively, the model which assigns the highest probability to the observed data is the correct one
+                    \begin{itemize} 
+                        \item this is a colloquial restatement of the likelihood principle for parameter estimation within a model
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{Fair judge vs.\ cruel realist}
+            \begin{itemize} 
+                \item two ways to approach model comparison
+                    \begin{enumerate}
+                        \item fair judge:\ compare models by giving each the best possible prior probability for its parameters, as to compare the best case scenarios
+                        \item cruel realist:\ compare models by assigning prior probabilities based on the prior information we actually have pertaining to them, so as to show the most realistic performance of the models
+                    \end{enumerate}
+                \item when real results are at stake, best to be a cruel realist
+            \end{itemize}
+
+            \subsubsection{Known parameters}
+                \begin{itemize} 
+                    \item assume there is no internal parameter space, i.e.\ the parameters of the model are known in advance \((\theta = {\theta}^{\prime})\)
+                    \item problem reduces to simple hypothesis testing
+                    \item assign prior \(p(\theta_j | M_j I) = \delta (\theta_j - \theta^{\prime}_j)\), which reduces the normalization constant \(p(D|MI)\), discussed earlier, to
+                        \begin{equation*} 
+                            p(D|M_j I) = p(D| \theta^{\prime}_j M_j I) = L_j (\theta^{\prime}_j)
+                        \end{equation*}
+                        or the likelihood of \(\theta^{\prime}\) in the \(j\)th model
+                    \item the fair judge would note that this is maximum if \(\theta_j\) is equal to the maximum--likelihood estimate \(\hat{\theta}_j\) for that model, reducing the posterior odds ratio to
+                        \begin{equation} 
+                            \label{fair_odds}
+                            \frac{p(M_j|DI)}{p(M_k|DI)} = \frac{p(M_j|I)}{p(M_k|I)}\frac{{(L_j)}_{\max}}{{(L_k)}_{\max}}
+                        \end{equation}
+                    \item we saw previously that, given enough data, most models will produce such sharpley peaked likelihood functions that the prior ends up making no important inferences about the parameters
+                        \begin{itemize} 
+                            \item they are still important, however, to inferences about the \textit{models}
+                        \end{itemize}
+                \end{itemize}
+
+            \subsubsection{Unknown parameters}
+                \begin{itemize} 
+                    \item let model \(M\) have parameters \(\theta \equiv \{\theta_1, \ldots, \theta_m\}\)
+                    \item comparing the two above definition of the posterior odds, we write, \(p(D|MI) = {L}_{\max}W\), where \(W\) is the Ockham factor, the amount by which model \(M\) is penalized by our nonoptimal prior information,
+                        \begin{equation*} 
+                            W \equiv \int \text{d}\theta~\frac{L(\theta)}{L_{\max}} p(\theta|MI)
+                        \end{equation*}
+                    \item if the data are much more informative about the parameters than the prior information, we can define a `high--likelihood' subspace, \(\Omega^{\prime}\), the smallest subspace of the parameter space \(\Omega\), which contains some large, specified amount of integrated likelihood
+                    \item therefore, most of the contribution to the Ockham factor \(W\) comes from this subspace
+                    \item the subspace \(\Omega^{\prime}\) is defined as the region of volume \(V(\Omega^{\prime})\) that contains the maximum possible amount of integrated likelihood,
+                        \begin{equation*} 
+                            \int \text{d}\theta~L(\theta) = L_{\max}V(\Omega^{\prime})
+                        \end{equation*}
+                    \item if the prior density \(p(\theta |MI)\) is sufficiently broad that it is near uniform over this subspace, the expression for \(W\) reduces to
+                        \begin{equation*} 
+                            W \approxeq V(\Omega^{\prime})p(\hat{\theta}|MI)
+                        \end{equation*}
+                        meaning the Ockham factor is the \textit{amount of prior probability contained in the high--likelihood subspace \(\Omega^{\prime}\)}, as defined by the data
+                    \item the posterior odds ratio then becomes to
+                        \begin{equation} 
+                            \label{unknown_odds_ratio}
+                            \frac{p(M_j|DI)}{p(M_k|DI)} = \frac{p(M_j|I)}{p(M_k|I)}\frac{{(L_j)}_{\max}}{{(L_k)}_{\max}}\frac{W_j}{W_k}
+                        \end{equation}
+                    \item this odds ratio depends only on the data and models.\ if two models achieve the same maximum--likelihood, they can account for the data equally well, and orthodox probability theory cannot distinguish between them.\ Bayesian statistics takes into account prior information, giving us a basis for choosing between the two models
+                    \item if the data are highly informative compared to the prior information, then the relative merit of two models is determined by two factors,
+                        \begin{enumerate}
+                            \item how high a likelihood can be attained on their respective parameter spaces, \(\Omega_j\) and \(\Omega_k\) 
+                            \item how much prior probability is concentrated in their respective high--likelihood subspaces, \(\Omega^{\prime}_j\) and \(\Omega^{\prime}_k\) 
+                        \end{enumerate}
+                    \item how does this relate to simplicity?
+                        \begin{itemize} 
+                            \item suppose we have two explanations, \(A\) and \(B\) which account for some fact equally well.\ if \(A\) makes four highly plausible assumptions, while \(B\) makes only two, but unlikely, assumptions, intuition would tell us to choose explanation \(A\), regardless of its higher complexity
+                            \item so our intuition would choose not the simplest hypotheses, but the most plausible hypotheses
+                                \begin{itemize} 
+                                    \item these two ideas are connected, though, since the more complicated a set of hypotheses is, the larger the set of conceivable alternatives is, and the smaller the prior probability of any particular hypothesis in the set is
+                                \end{itemize}
+                            \item while most statisticians state that simpler hypotheses are more plausible, Bayesians state that more plausible hypotheses tend to be simpler
+                        \end{itemize}
+                \end{itemize}
+\end{document}

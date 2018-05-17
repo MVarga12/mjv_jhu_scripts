@@ -46,6 +46,17 @@ Note: all commands are in Normal mode or Command mode (denoted by ':'), unless o
 * `I` - enter insert mode at beginning of current line, disregarding leading whitespace
 * `A` - enter insert mode at the end of current line
 
+### Fix fucked up files
+* If you opened a file in an editor which, for some reason, replaces the
+  carriage returns with Windows style returns (you'll know this by the
+  existence of `^M` littered throughout the file in (n)vim) the following
+  command will fix this for the entire file: `:%s/<C-v><C-m>/\r/g`
+    * Explanation:
+      * Need to actually press Control-V and Control-M, not type it in
+        verbatim (this is what <C-v> signifies)
+      * Searches for the `^M` character and replaces it globally with
+        a carriage return, `\r`
+
 [This](http://vimregex.com/#pattern) is a good description of regex commands in vim
 
 ---

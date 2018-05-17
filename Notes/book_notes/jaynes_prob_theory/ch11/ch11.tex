@@ -1,0 +1,143 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Decision theory, historical background}
+        \subsection{Inference vs.\ decision}
+            \begin{itemize} 
+                \item Nothing inherent in probability theory which would tell us where to make decisions, like rejecting or accepting a batch of widgets, or when to make another test
+                \item need to develop a defined criterion for making estimates, not just intuitive \textit{ad hockeries}
+                \item Probability theory alone can only solve inference, giving us the probability distribution which represents our final state of knowledge with all available prior information and data taken into account
+                \item missing a concrete way to turn those probabilities into definite action
+                \item two opposing ways to develop this
+            \end{itemize}
+
+            \subsubsection{Bernoulli's suggestion}
+                \begin{itemize} 
+                    \item consider possibilities \(i = 1, 2, \ldots, n\), with probabilities \(p_i\), and numbers \(M_i\) representing `profit' we would obtain if the \(i\)th possibility is true
+                    \item the expectation of profit is then
+                        \begin{equation*} 
+                            E(M) = \langle M \rangle = \sum\limits^{n}_{i=1} p_i M_i
+                        \end{equation*}
+                    \item Bernoulli discovered some paradoxes that led him to believe that simple expectation of profit does not always lend itself as a sensible criterion for action
+                        \begin{itemize} 
+                            \item for example, if you can bet any amount of money with the probability \((1-10^{-6})\) that wou will lose all your money, but with the probability \(10^{-6}\) that you will win \(1000001\) times the amount bet, the criterion of maximizing profit would tell you to bet, regardless of how stupid it would be
+                            \item he proposed that the true value to a person, of receiving a certain amount of money, is not measured simply by the amount received, but also by how much he already has
+                        \end{itemize}
+                    \item he proposed that the `moral value', or `utility', of an amount of money \(M\) should be taken proportional to \(\log(M)\)
+                    \item he goes on to show that intuition indicates that the utility of money must increase less rapidly than the \(\log\) for extremely large values
+                \end{itemize}
+
+            \subsubsection{Example:\ The honest weatherman}
+                \begin{itemize} 
+                    \item a weatherman's prior and data yield a probability \(\rho = P(\text{rain}|\text{data}, I)\) that it will rain
+                    \item what is the probability \(q\) that he will announce this forecast?\ this depends on his perceived utility function
+                    \item we would imagine that he would overstate the probability for bad weather, i.e.\ announce a value \(q > p\), so as to not incur criticism
+                    \item but is there a utility environment which would induce him to always tell the truth?
+                    \item suppose he won't ever be fired for making a wrong prediction, but his pay for the day will be \(B\log(2q)\) if it actually rains, and \(B\log(2[1-q])\) if it does not, where \(B\) is the base pay.\ his expected pay for today, if announcing a probability \(q\) is then
+                        \begin{equation*} 
+                            B[p\log(2q) + (1-p)\log(2[1-q])] = B[\log(2) + p\log(q) + (1-p)\log(1-q)]
+                        \end{equation*}
+                        which is maximum at \(q = p\)
+                    \item any continuous function appears linear if we look at a small enough portion of it, so if the weatherman considers a single day's pay small enough so that his utility for it is linear, it will always be advantagous to tell the truth
+                    \item what if there was a reward?
+                        \begin{itemize} 
+                            \item let there be \(n\) possible events \((A_1, \ldots, A_n)\), for which the priors and data indicate probabilities \((p_1, \ldots, p_n)\).\ but the weatherman announces probabilities \((q_1, \ldots, q_n)\)
+                            \item let him be paid \(B\log(nq_i)\) if the event \(A_i\) occurs, puting a reward for placing a high probability on a true event
+                            \item his expectation of pay is then
+                                \begin{equation*} 
+                                    B[\log(n) - I(q; p)]
+                                \end{equation*}
+                                where \(I(q;p) = \sum p_i \log(q_i)\), or the relative entropy of the distributions
+                            \item it will then be to the weatherman's advantage to always announce \(q_i = p_i\), with his maximum expectation of pay being
+                                \begin{equation*} 
+                                    B[\log(n) - H(p_1, \ldots, p_n)]
+                                \end{equation*}
+                                where \(H(p_i) = - \sum p_i \log(p_i)\) is the entropy that measures uncertainty about \(A_i\).\ it is in his advantage to acquire maximum amount of data so as to minimize the entropy
+                        \end{itemize}
+                \end{itemize}
+    
+        \subsection{Wald's decision theory}
+            \begin{itemize} 
+                \item begin by enumerating a set of possible `states of nature',  \(\{\theta_1, \ldots, \theta_N\}\)
+                    \begin{itemize} 
+                        \item important to note that enumerating these states of nature is not describing any real property, rather it is describing a state of knowledge about the range of possibilities
+                    \end{itemize}
+                \item next enumerate a set of decisions, \(\{D_1, \ldots, D_k\}\), which might be made.\ for example, in quality control there would be three decisions:
+                    \begin{align*}
+                        D_1 &\equiv \text{accept the batch} \\
+                        D_2 &\equiv \text{reject the batch} \\
+                        D_3 &\equiv \text{make another test}
+                    \end{align*}
+                \item the enumeration of these decisions is a means of describing our knowledge as to what kind of actions are \textit{feasible}, as it is wasteful to enumerate a decision that we would never act on
+                    \begin{itemize} 
+                        \item two points
+                            \begin{enumerate}
+                                \item There is a continuous gradient --- the consequences of an action might be serious without being intolerable
+                                \item the consequences of an action will depend on the true state of nature
+                            \end{enumerate}
+                    \end{itemize}
+                \item this idea of consequence brings up a third concept, the loss function \(L(D_i, \theta_j)\), which is a set of numbers representing our judgement as to the loss incurred by making some decision \(D_i\) should \(\theta_j\) turn out to be the true state of nature
+                    \begin{itemize} 
+                        \item if both \(D_i\) and \(\theta_j\) are discrete, the loss function \(\rightarrow\) a loss matrix, \(L_{ij}\)
+                    \end{itemize}
+                \item a few possible criteria:
+                    \begin{itemize}
+                        \item minimax criterion:\ for each \(D_i\) find the maximum possible loss \(M_i = \max_j (L_{ij})\), then choose the \(D_i\) for which \(M_i\) is minimum.\ represents an adversarial Nature
+                        \item minimin criterion:\ for each \(D_i\) find the minimum possible loss \(m_i = \min_j (L_{ij})\), then choose the \(D_i\) for which \(m_i\) is minimum.\ represents a benevolent Nature
+                        \item science would choose an intermediate between the two, that Nature is neutral
+                    \end{itemize}
+                \item full decision theory must also take into account evidence \(E\)
+                \item if we knew the true state of nature, making the correct decision would be trivial;\ if \(\theta_3\) was the true state of nature, then the best decision \(D_i\) is the one that minimizes \(L_{i3}\)
+                    \begin{itemize} 
+                        \item so once the loss function is specified, the uncertainty as to the best decision comes entirely from the uncertainty as to the true state of nature
+                        \item so, rephrased, what we should ask is `Conditional on all the available evidence, what is the \textit{probability} \(P_3\) that \(\theta_3\) is the true state of nature?'
+                    \end{itemize}
+                \item goes on to show (pp. 410--417) how a purely sampling theory point of view, relegating parameter estimation and hypothesis testing to a separate field, misses some detail and information which introducing the loss function rectifies
+                    \begin{itemize} 
+                        \item determines the `best' estimator, \(\beta\) of some variable \(\alpha\) from \(n\) observations \((x_1, \ldots, x_n)\) is
+                            \begin{equation*} 
+                                \langle R \rangle = \int \text{d}\alpha~g(\alpha)R_{\alpha}
+                            \end{equation*}
+                            or, a weighted average of \(R_{\alpha}\), the `risk'
+                        \item the variation, \(\delta \langle R \rangle\), due to an arbitrary variation \(\delta \beta (x_1, \ldots, x_n)\) in the estimator is
+                            \begin{equation*} 
+                                \delta \langle R \rangle = \int \cdots \int \text{d}x_1~\cdots~\text{d}x_n \left \{ \int \text{d}\alpha~g(\alpha) \frac{\partial L(\alpha, \beta)}{\partial \beta} f(x_1, \ldots, x_n | \alpha) \right \} \delta \beta (x_1, \ldots, x_n)
+                            \end{equation*}
+                            which vanishes, independently of \(\delta \beta\) if 
+                            \begin{equation*} 
+                                \int \text{d}\alpha~g(\alpha) \frac{\partial L(\alpha, \beta)}{\partial \beta} f(x_1, \ldots, x_n | \alpha) = 0
+                            \end{equation*}
+                        \item eventually leads to the conclusion that estimation of parameters requires estimators which end up being medians/modes over the Bayesian posterior PDF
+                        \item concludes:
+                            \begin{displayquote}
+                                \ldots if the \(\theta_j\) are discrete and we agree not to include in our enumeration of states of nature any \(\theta_j\) that is known to be impossible, then the class of admissible strategies is just the class of Bayes strategies (i.e.\ those that minimize expected loss over a posterior pdf).\ If the possible \(\theta_j\) form a continuum, the admissible rules are the proper Bayesian ones;\ i.e.\ Bayes rules from proper (normalizable) prior probabilities. \ldots For a given sampling distribution and loss function, we are content to say simply that the defensible decision rules are the Bayes rules character by different proper priors, and their well--behaved limits. (pg. 415)
+                            \end{displayquote}
+                        \item leads to a `fundamental integral equation' for minimization of loss,
+                            \begin{equation} 
+                                \label{loss_min}
+                                \frac{\partial}{\partial \beta} \int \text{d}\alpha~g(\alpha)L(\alpha, \beta)f(x_1, \ldots, x_n | \alpha) = 0
+                            \end{equation}
+                    \end{itemize}
+            \end{itemize}
+
+        \subsection{General decision theory}
+            \begin{itemize} 
+                \item Eq.~\ref{loss_min} is generalized outside of just parameter estimation, and we can use it as a criterion to find the optimal decision in any case
+                \item to solve the problem of inference, we have four steps (taken verbatim):
+                    \begin{enumerate}
+                        \item Enumerate the possible states of nature \(\theta_j\), discrete or continuous, as the case may be.
+                        \item Assign prior probabilities \(p(\theta_j|I)\) which represent whatever prior information \(I\) you have about them
+                        \item Assign sampling probabilities \(p(E_i|\theta_j)\) which represent your prior knowledge about the mechanism of the measurement process yielding the possible data sets \(E_i\)
+                        \item Digest any additional evidence \(E = E_1E_2\cdots\) by application of Bayes' theorem, thus obtaining posterior probabilities \(p(\theta_j|EI)\)
+                    \end{enumerate}
+                \item \(p(\theta_j|EI)\) expresses all information about \(\theta_j\) contained in the prior and data.\ to solve the problem of decision, we have three more steps:
+                    \begin{enumerate}
+                        \setcounter{enumi}{4}
+                        \item Enumerate the possible decisions \(D_i\)
+                        \item Assign the loss function \(L(D_i, \theta_j)\) that tells what you want to accomplish
+                        \item Make that decision \(D_i\) which minimizes the expected loss over the posterior probabilities for \(\theta_j\)
+                    \end{enumerate}
+            \end{itemize}
+\end{document}

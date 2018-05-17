@@ -1,0 +1,376 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Repetitive experiments: probability and frequency}
+        \begin{itemize}
+            \item traditionally, probability theory has focused on drawing inferences from experiments which can be repeated indefinitely under identical conditions, but give different results on different trials
+            \item applications--oriented definitions of probability focus on `limiting frequency in independent repetitions of random experiments' rather than on its logic
+            \item many examples of how frequency--based probability theory fails
+        \end{itemize}
+        
+        \subsection{Physical experiments}
+            \begin{itemize}
+                \item inferences from experiments must obviously take into account knowledge of the physical laws concerning the situation; e.g.\ inferences from medicatal experiments must take into account physiology and biochemistry
+                \item this knowledge will determine the model used to help solve the problem
+                \item in repeatable experiments, we can keep some relevant factors the same for all trials, but some are not under our control
+                    \begin{itemize}
+                        \item the factors that are teh same are called \textit{systematic}
+                        \item the factors which vary uncontrollably are called \textit{random}, or as Jaynes likes to say, \textit{irreproducible by the experimental technique used}
+                    \end{itemize}
+                        \item let our experiment consist of $n$ trials with $m$ possible results at each trial (so if tossing a coin, $m=2$, if rolling a die, $m=6$)
+                            \begin{itemize}
+                        \item $m$ is a description of the state of knowledge within which we conduct probabilistic analysis, but it may or may not correspond to the number of \textit{real} possibilities.\ we typically cannot know in advance the true value of $m$
+                        \item generally, we should take $m$ as the number of results per trial that we will take into account \textit{in the present calculation}
+                            \begin{itemize}
+                                \item by specifing $m$, we are defining a tentative working hypothesis
+                            \end{itemize}
+                        \item we are concerned with two sample spaces: $S$ for a single trial, consisting of $m$ points, and an extension space, $S^n = S \otimes S \otimes \cdots \otimes S$ ($\otimes$ is a tensor product of vector spaces, yielding another vector space)
+                            \begin{itemize}
+                                \item \textit{result} refers to $S$ space, \textit{outcome} refers to $S^n$
+                                \item the number of results being considered is then $m$, the number of outcomes is then $N=m^n$
+                            \end{itemize}
+                        \item let the $i$th trial be denoted by $r_i$ ($1 \leq r_i \leq m$, $1 \leq i \leq n$)
+                        \item any outcome of the experiment denoted by the set of results $D = \{r_1, \ldots, r_n\}$
+                        \item outcomes are mutually exclusive and exhausive, so, given prior information $I$, we can assign a probability $P(D|I) = p(r_1 \ldots r_n)$, satisfying the sum over all data sets,
+                            \begin{equation*}
+                                \sum\limits^{m}_{r_1=1} \sum\limits^{m}_{r_2=1} \cdots \sum\limits^{m}_{r_n=1} p(r_1 \ldots r_n) = 1
+                            \end{equation*}
+                        \item regard $r_i$ as digits ($\%~m$) in a number $R$ in base $m$: $(0 \leq R \leq N-1)$ (oh god why)
+                            \begin{displayquote}
+                                More generally, for an experiment with $m$ possible results at each trial, repeated $n$ times, we communicate with the robot in the base $m$ system, whereupon each number displayed with have exactly $n$ digits, and for us the $i$th digit will represent, $\%~m$, the result of the $i$th trial. (pg. 273)
+                            \end{displayquote}
+                \end{itemize}
+            \end{itemize}
+
+            \subsubsection{Poorly defined prior}
+                \begin{itemize}
+                    \item suppose we know only that there are $N$ possibilities, and nothing else; we are completely ignorant not only of the physical laws of the system, but also that the full experiment consist of $n$ repetitions of a simpler experiment
+                    \item let's first see what predictions we can make while this poorly informed, and see how this changes as we add more and more information
+                        \begin{itemize}
+                            \item denote the initial state of ignorance by $I_0$
+                            \item the principle of indifference then applies, with the sample space consisting of $N=m^n$ discrete points, each with $N^{-1}$ probability
+                            \item a proposition $A$ defined to be true in the subspace $S' \subset S^n$ and false in the subspace $S^n - S'$ will be assigned the probability
+                                \begin{equation*}
+                                    P(A|I_0) = \frac{M(n,A)}{N} 
+                                \end{equation*}
+                                where $M(n,A)$ is the multiplicity of $A$, the number of points in $S^n$ where $A$ is true
+                            \item trivial to show that if $m=6$ (rolling a die), $p(r_1 = k|I_0)=1/6$ and $p(r_1=k, r_2=j|I_0)=1/36$ where $(1 \leq k \leq 6)$ and $(1 \leq i \leq n)$, and so on
+                        \end{itemize}
+                    \item adding more information: out of the possible $N$ outcomes, the correct one belongs to the subclass in which the first digit is $r_1 = 3$
+                        \begin{itemize}
+                            \item what probability can we now assign to the proposition $r_2 = j$?
+                            \item probability determined by product rule,
+                                \begin{equation*}
+                                    p(r_1|r_{1}I_0) = \frac{p(r_{1}r_{2}|I_0)}{p(r_{1}|I_{0})}
+                                \end{equation*}
+                            \item which is then
+                                \begin{equation*}
+                                    p(r_2|r_{1}I) = \frac{1/36}{1/6} = 1/6
+                                \end{equation*}
+                            \item so the probability is then unchanged
+                        \end{itemize}
+                    \item defining further die rolls will give similar results:\ this type of information clearly doesn't help our inferences
+                \end{itemize}
+
+        \subsection{Induction}
+            \begin{itemize}
+                \item a human, noticing a regular pattern in results, would expect the pattern to continue.\ this is called \textit{induction}.
+                \item our inferences made with the poorly defined prior does not have the ability to reason inductively
+                \item want to show that, if we provide a prior which provides logical connections between different trials, that induction can be done logically
+                \item for example, by what logic can we say that, because 672 people of 1000 people polled support some proposition, 67\% of the entire population support the proposition?
+            \end{itemize}
+
+            \subsubsection{Are there general inductive rules?}
+                \begin{itemize}
+                    \item we showed that with prior information $I_0$, the results of each toss are logically independent propositions
+                        \begin{itemize}
+                            \item this is because the prior does not include the fact that each successive toss $\{r_1, r_2, \ldots \}$ are successive repetitions of the same experiment
+                        \end{itemize}
+                    \item what, then, is the `extra, hidden' information that we use to inductively reason that we could include in this prior?
+                    \item suppose the data we have say that the first three tosses of the coin are all heads:\ $D = H_1 H_2 H_3$.\ what is our \textit{intuitive} probability $p(H_4 | DI)$
+                        \begin{itemize}
+                            \item this depends on the prior used
+                            \item if we use $I_0$, the answer is \textit{always} $p(H_4 | DI) = 1/2$
+                            \item other priors could be:
+                                \begin{displayquote}
+                                    $I_1 \equiv$ we have examined the coin and know that each side is symmetrical, with `no funny business'
+                                    $I_2 \equiv$ we did not examine the coin and cannot know the honesty of the coin or the person tossing it
+                                \end{displayquote}
+                            \item with prior $I_1$, we have no reason to believe $p(H_4 |DI)$ is anything other than $1/2$
+                            \item but with prior $I_2$, we would feel that three heads in a row would increase the probability of a fourth head, $p(H_4 | DI) > 1/2$
+                            \item interesting paradox that $I_1$ has more information than $I_2$, but it agrees more with $I_0$
+                        \end{itemize}
+                    \item there are a great variety of conclusions based on what prior you use, so there is no universal inductive rule; different inductive rules correspond to different prior information
+                \end{itemize}
+
+        \subsection{Multiplicity}
+            \begin{itemize}
+                \item recall the multiplicity factor, $M(n,A)$
+                \item this may seem trivial, but could in fact be extremely computationally intensive.\ for example, what if we toss the die twelve times? then the number of conveivable outcomes is $6^{12} = 2.18 \times 10^{9}$
+                \item so while it is true that we are dealing in finite sets, we are dealing in very large finite sets.\ how do we calculate on these sets?
+                \item most problems can fit into the following scheme:
+                    \begin{itemize}
+                        \item let $\{g_1, g_2, \ldots, g_m\}$ be any set of $m$ finite, real numbers
+                        \item the individual $g_j$ are independent, but additive
+                        \item lets also say we are interested in predicting linear functions of the $n_j$
+                        \item the total amount of $G$ generated is then
+                            \begin{equation*}
+                                G = \sum\limits^{n}_{i=1} g\left( r_i \right) = \sum\limits^{m}_{j=1} n_{j}g_{j}
+                            \end{equation*}
+                            where the sample number $n_j$ is the number of times the $j$th result happened
+                        \item the probability of obtaining $G$ is 
+                            \begin{equation*}
+                                p(G|n, I_0) = f(G|n,I_0) = \frac{M(n,G)}{N}
+                            \end{equation*}
+                            where $N=m^n$ and $M(n,G)$ is the multiplicity of $G$
+                    \end{itemize}
+            \end{itemize}
+                \subsubsection{Partition function algorithms}
+                    \begin{itemize}
+                        \item expanding $M(n,G)$ around the $n$th result gives
+                            \begin{equation*}
+                                M(n,G) = \sum\limits^{m}_{j=1} M(n-1, G-g_j)
+                            \end{equation*}
+                        \item cannot solve this directly for large $n$.\ it is a linear difference equation, so the solutions must be of the form $\exp\{{\alpha}n + {\lambda}G\}$
+                        \item this is a solution if $\alpha$ and $\lambda$ are related by
+                            \begin{equation*}
+                                e^{\alpha} = Z(\lambda) \equiv \sum\limits^{m}_{j=1} e^{-{\lambda}g_j}
+                            \end{equation*}
+                            where $Z(\lambda)$ is a \textit{partition function}
+                        \item an arbitrary superposition of the elementary solutions is
+                            \begin{equation*}
+                                H(n,G) = \int \mathrm{d}{\lambda}~Z^{n}(\lambda)e^{{\lambda}G}h(\lambda)
+                            \end{equation*}
+                            which is a form of an \textit{inverse Laplace transformation}
+                        \item the true multiplicity $M(n,G)$ must satisfy the boundary condition $M(0,G) = \delta (G,0)$ and is only defined at certain discrete values
+                        \item to find the discrete Laplace transform of $M(n,G)$, we multiply it by $\exp \{-\lambda G\}$ and sum over all possible values,
+                            \begin{equation}
+                                \label{11}
+                                \sum\limits_{G} e^{-\lambda G}M(n,G) = \sum\limits_{n_j \in U} W(n_1, \ldots, n_m) \exp \left \{ -\lambda \sum n_j g_j \right \}
+                            \end{equation}
+                            where
+                            \begin{equation*}
+                                W(n_1, \ldots, n_m) \equiv \frac{n!}{n_{1}! \cdots n_{m}!}
+                            \end{equation*}
+                            is the multinomial coefficient, containing the number of outcomes leading to sample numbers $n_j$
+                        \item this contains contributions from every possible outcome in the experiment.
+                        \item if we let $N^{n_j}_{j} = \exp \{ -n_j g_j\}$, then $\exp \left \{ - \sum^{m}_{j} n_j g_j \right \} = x^{n_1}_{1} x^{n_2}_{2} \ldots x^{n_m}_{m}$ and the multinomial expansion is
+                            \begin{equation}
+                                \label{12}
+                                {(x_1 + \cdots + x_m)}^n = \sum\limits_{n_j \in U} W(n_1, \ldots, n_m)X^{n_1}_{1} \ldots X^{n_m}_{m}
+                            \end{equation}
+                        \item the universal set which we sum over contains all possible sample numbers in $n$ trials, and is defined by
+                            \begin{equation*}
+                                \left \{ U : n_j \geq 0, \hspace{0.5cm} \sum\limits^{m}_{j=1} n_j = n \right \}
+                            \end{equation*}
+                        \item comparing eqs.~\ref{11} and~\ref{12}, this is just
+                            \begin{equation*}
+                                \sum\limits_{G} e^{-\lambda G} M(n,G) = Z^{n}(\lambda)
+                            \end{equation*}
+                            (I think this is because eq.~\ref{12} is equivalent to $Z^{n}(\lambda)$)
+                        \item this shows the number of ways $M(n,G)$ in which $G$ can be realized is a coefficient of $\exp \{-\lambda G \}$ in $Z^{n}(\lambda)$
+                        \item so $Z(\lambda)$ to the $n$th power is the exact way in which all possible outcomes in $n$ trials are partitioned among the possible values of $G$
+                        \item there follows (pp. 282--285) a very interesting discussion and calculation of the partition functions in simple cases, wherein he derives the binomial distribution from this information and the `poor prior', $I_0$
+                        \item he says that the usual probability distributions, Poisson, gamma, Gaussian, chi--squared, etc., are all limiting forms of the binomial distribution, and that ``\textit{frequentist probability theory is, functionally, just the reasoning of the poorly informed robot.} (pg. 284)
+                        \item so, the poor prior is unable to lead to inductive reasoning
+                    \end{itemize}
+
+                \subsubsection{Entropy algorithms}
+                    \begin{itemize}
+                        \item Consider a proposition $A(n_1, \ldots, n_m)$ which is a function of sample numbesr $n_j$ and is defined to be true when $(n_1, \ldots, n_m)$ are in some subset $R \in U$ and false in a complementary set $\overline{R} = U-R$
+                        \item if $A$ is linear on $n_j$, then $A$ acts like $G$, and the multiplicity of $A$ is
+                            \begin{equation*}
+                                M(n,G) = \sum\limits_{n_j \in U} W(n_1, \ldots, n_m)
+                            \end{equation*}
+                        \item how many terms $T(n,m)$ are in this sum?
+                            \begin{equation*}
+                                T(n,m) = \binom{n+m-1}{n} = \frac{(n+m-1)!}{n!(m-1)!}
+                            \end{equation*}
+                            this is the same as the `Bose--Einstein multiplicity factor' from statistical mechanics, and a $n \rightarrow \infty$,
+                            \begin{equation*}
+                                T(n,m) \sim \frac{n^{m-1}}{(m-1)!}
+                            \end{equation*}
+                        \item we find, after a few steps I won't replicate, that
+                            \begin{equation*}
+                                \frac{1}{n} \log M(n,A) \rightarrow \frac{1}{n} \log (W_{\max})
+                            \end{equation*}
+                            where $n \rightarrow \infty$ and $W_{\max} \equiv \max_{R} \left[W(n_1, \ldots, n_m) \right]$, or the greatest term in region $R$
+                        \item so $W$ grows so rapidly with $n$ that a single maximum term in the sum dominates it
+                        \item how does $\log (W/n)$ behave in the limit in which the sample frequencies $f_j = n_j / n$ tend to constants, i.e.\ the limit of $n \rightarrow \infty$ of 
+                            \begin{equation*}
+                                \frac{1}{n} \log \left[ \frac{n!}{(nf_1)! \cdots (nf_m)!} \right]
+                            \end{equation*}
+                            as $f_j$ are held constant
+                        \item using Stirling's approximation, we find that $\log (W/n)$ tends to a finite constant independent of $n$,
+                            \begin{equation}
+                                \label{max_entropy}
+                                \frac{1}{n} \rightarrow H \equiv \sum\limits^{m}_{j=1} f_j \log (f_j)
+                            \end{equation}
+                            which is called the \textit{entropy} of the frequency distribution $\{ f_1, \ldots, f_m \}$
+                        \item so, for large $n$, if the $f_j$ tend to constants, the multiplicity of $A$ tends to $M(n,A) \sim \exp \{nH\}$
+                        \item IMPORTANT:\
+                            \begin{displayquote}
+                                We now see what was not evident before; that this multiplicity is to be found by determining the \textit{frequency} distribution $\{f_1, \ldots, f_m \}$ which has maximum entropy subject to whatever constraints define $R$. (pg. 287)
+                            \end{displayquote}
+                        \item this is, along with eq.~\ref{max_entropy}, the \textit{maximum entropy principle}
+                        \item how does acquiring this information change the results of the poor prior?
+                            \begin{itemize}
+                                \item first note that if $A$ is linear in $n_j$, then the multiplicity is asymptotically equal to $M(n,G) = \exp \{nH \}$
+                                    \begin{itemize}
+                                            \item the probability of getting the total $G$ is then
+                                            \begin{equation*}
+                                                p(G|n, I_0) = m^{-n}e^{nH} = e^{-n(H_0 - H)}
+                                            \end{equation*}
+                                            where $H_0 = \log (m)$ is the absolutely maximum of the entropy (derived below)
+                                        \item the difference between the maxium entropy and the observed entropy is a measure of how strong the constraints $R$ are
+                                    \end{itemize}
+                                \item we now know that a specified trial yields some amount $g_j$, which changes the multiplicity of $A$, since now the remaining $(n-1)$ trials must yield $(G-g_j)$, with a multiplicity of $M(n-1, G-g_j)$
+                                \item the frequencies also change, as one trial yielding $g_j$ is omitted,
+                                    \begin{equation*}
+                                        f_k = \frac{n_k}{n} \Rightarrow {f'}_k = \frac{n_k - {\delta}_{jk}}{n-1} \hspace{1cm} 1 \leq k \leq m
+                                    \end{equation*}
+                                \item these changes lead to a small change in the entropy, $H' = H + {\delta}H$, where 
+                                    \begin{equation*}
+                                        {\delta}H = \sum\limits_{k} \frac{\partial H}{\partial f_k} + O \left( \frac{1}{n^2} \right) = \left[ \frac{H + \log (f_j)}{n-1} \right] + O \left(\frac{1}{n^2} \right)
+                                    \end{equation*}
+                                    so,
+                                    \begin{equation*}
+                                        H' = \frac{nH + \log (f_j)}{n-1} + O \left( \frac{1}{n^2} \right)
+                                    \end{equation*}
+                                \item leading to a multiplicity of 
+                                    \begin{equation*}
+                                        M(n-1, G-g_j) = e^{(n-1)H'} = f_j e^{nH} \left[1 + O \left( \frac{1}{n} \right) \right]
+                                    \end{equation*}
+                                \item in large $n$ limit, the set $S^n$ disappears, and all we need to do is calculate the $f_k$ which maximizes the entropy over the domain $R$
+                                \item with this new information, the probability to get total $G$ is 
+                                    \begin{equation*}
+                                        p(G|r_i = j, nI_0) = \frac{M(n-1, G-g_j)}{m^{n-1}}
+                                    \end{equation*}
+                                \item given $I_0$, the prior probability for $r_i = j$ is 
+                                    \begin{equation*}
+                                        p(r_i = j|nI_0) = \frac{1}{m}
+                                    \end{equation*}
+                                \item and applying Bayes' theorem,
+                                    \begin{equation*}
+                                    \begin{split}
+                                        p(r_i = j | GnI_0) &= p(r_i = j | nI_0) \frac{p(G|r_i = j, nI_)}{p(G|nI_0)} \\
+                                                           &= \frac{1}{m} \frac{[M(n-1, G-g_j) / m^{n-1}]}{[M(n,G)/m^n]} = \frac{M(n-1, G-g_j)}{M(n,G)} = f_k
+                                    \end{split}
+                                    \end{equation*}
+                                \item therefore, knowing $G$ changes the probability of the $j$th result from uniform $1/m$ to the observed frequency $f_k$ of that result
+                            \end{itemize}
+                    \end{itemize}
+
+                \subsubsection{Maximum entropy}
+                    \begin{itemize}
+                        \item in the situation where $G = A$, and we are concerned with a linear function $G = \sum n_j g_j$, the domain $R$ is defined by the average of $G$ over $n$ trials:
+                            \begin{equation*}
+                                \overline{G} = \frac{G}{n} = \sum\limits^{m}_{j=1}f_j g_j
+                            \end{equation*}
+                        \item the problem of maximization thus has a solution, provided by Gibbs (!).\ a full description of maxiumum entropy will come later, but this focuses on the situation at hand
+                            \begin{itemize}
+                                \item Let  $\{ f_1, \ldots, f_m \}$ be any possible frequency distribution over $m$ points, satisfying $(f_j \geq 0)$ and $\sum_j f_j = 1$
+                                \item let $\{ u_1, \ldots, u_m \}$ be any other frequency distribution satisfying the same critera
+                                \item then using the fact that on the positive real line $\log (x) \leq (x-1)$ iff $x=1$ (need to think more about this), we get
+                                    \begin{equation*}
+                                        \sum\limits^{m}_{j=1} f_j \log \left( \frac{u_j}{f_k} \right) \leq 0
+                                    \end{equation*}
+                                    with equality iff $f_j = u_j$ for all $j$
+                                \item in this, we see eq.~\ref{max_entropy}, so this inequality becomes
+                                    \begin{equation*}
+                                        H(f_1, \ldots, f_m) \leq - \sum\limits^{m}_{j=1} f_j \log (u_j)
+                                    \end{equation*}
+                                \item for example, let's choose 
+                                    \begin{equation*}
+                                        u_j = \frac{e^{-{\lambda}g_j}}{Z(\lambda)}
+                                    \end{equation*}
+                                    where we choose some $\lambda$ such that an average $\overline{G} = \sum u_j g_j$ is attained
+                                \item the Gibb's inequality then becomes
+                                    \begin{equation*}
+                                        H \leq \sum f_j g_j + \log \left[ Z(\lambda) \right]
+                                    \end{equation*}
+                                \item varying $f_j$ over all frequency distributions that yield the wanted $\overline{G}$, and we get
+                                    \begin{equation*}
+                                        H_{\max} = \overline{G} + \log \left[ Z(\lambda) \right]
+                                    \end{equation*}
+                                    iff $f_j = u_j$
+                                \item it is further evident, from the definition we chose for $u_j$, that
+                                    \begin{equation*}
+                                        \overline{G} = - \frac{\partial}{\log (Z) \partial \lambda}
+                                    \end{equation*}
+                                    and the solution must be a decreasing monotonic function
+                                \item this is the canonical ensemble formalism from statistical mechanics
+                            \end{itemize}
+                    \end{itemize}
+
+        \subsection{Significance tests}
+            \begin{itemize}
+                \item Significance tests demonstrate the subtle differences between frequency and probability
+                \item recall that how some evidence $E$ affects our view of a certain hypothesis depends entirely on which hypothesis it is being tested against
+                \item suppose we wish to consider two hypotheses, $H$ and $H'$, and with data $D$ and prior information $I$, we must have $P(H|DI) + P(H'|DI) = 1$
+                \item in terms of logarithmic measure of plausibility (in decibels), we have
+                    \begin{equation*}
+                        e(H|DI) = e(H|I) + 10 \log_{10} \left[ \frac{P(D|H)}{P(D|H')} \right]
+                    \end{equation*}
+                    which is a precise way of saying ``Data $D$ supports hypothesis $H$ relative to $H'$ by $10 \log_{10} [P(D|H)/P(D|H')]$ decibels''
+                \item the world \textit{relative} is critical in this sentence;\ an different hypothesis $H''$ could change the evidence the evidence in a different manner
+                \item no matter what $H'$ is, we \textit{must} have $p(D|H') \leq 1$
+                \item so a statement independent of any alternative hypothesis is
+                    \begin{equation*}
+                        e(H|DI) \geq p(H|I) + 10\log_{10} p(D|H) = e(H|I) - {\psi}_{\infty}
+                    \end{equation*}
+                    where 
+                    \begin{equation*}
+                        {\psi}_{\infty} \equiv -10 \log_{10} p(D|H) \geq 0
+                    \end{equation*}
+                \item so there is no possible alternative hypothesis which the data could support, relative to $H$, by more than ${\psi}_{\infty}$ decibels
+                \item we can answer the question ``Are there any alternatives $H'$ which data $D$ would support relative to $H$, and how much support is possible?''
+                \item we are not concerned with considering all possible alternatives, only those in some class $\Omega$ which we consider to be `reasonable'.\ here's an example
+                    \begin{itemize}
+                        \item consider tossing a die with $m$ possible results $\{A_1, \ldots, A_m\}$ at each trial
+                        \item further more, let $x_i \equiv k$, if $A_k$ is true at the $i$th trial.\ so each $x_i$ can take on the values $(1,2, \ldots, m)$
+                        \item let our class of hypotheses of interest be a `Bernoulli class' $B_m$, where there are $m$ possible results at each trial with the probabilities of $A_k$ on successive repetitions being independent and stationary
+                        \item so when $H$ is in $B_m$, the conditional probability of any specific sequence of observations has the form
+                            \begin{equation*}
+                                p(x_1 \ldots x_n | H) = p^{n_1}_{1} \ldots p^{n_m}_{m}
+                            \end{equation*}
+                            where $n_k$ is the sample number
+                        \item to every hypothesis in $B_m$ there is a set of numbers $\{p_1 \ldots p_m \}$ where $p_k \geq 0$ and $\sum_k p_k = 1$, and, for our purposes, these numbers characterize the hypothesis completely
+                        \item An important lemma from Gibbs
+                            \begin{itemize}
+                                \item let $x=n_k /np_k$, and knowing that on the positive real line $\log (x) \geq (1-x^{-1})$ with equality iff $x=1$, we know that
+                                    \begin{equation*}
+                                        \sum\limits^{m}_{k=1} n_k \log \left( \frac{n_k}{np_k} \right) \geq 0
+                                    \end{equation*}
+                                    with equality iff $p_k = n_k / n$ for every $k$
+                                \item this is the same as 
+                                    \begin{equation*}
+                                        \log p(x_1 \ldots x_n | H) \leq n \sum\limits^{m}_{k=1} f_k \log (f_k)
+                                    \end{equation*}
+                                    where $f_k = n_k / n$ is the observed frequency of result $A_k$
+                                \item the right hand side of the ${\psi}_{\infty}$ inequality depends only on $D$, so the closer to equality each hypothesis brings this value to, the better the fit to the data
+                            \end{itemize}
+                        \item for convenience, lets express ${\psi}_{\infty}$ in decibels
+                            \begin{equation*}
+                                {\psi}_B \equiv 10 \sum\limits^{m}_{k=1} n_k \log_{10} \left( \frac{n_k}{np_k} \right)
+                            \end{equation*}
+                        \item consider two hypotheses $H = \{p_1, \ldots, p_m\}$ and $H'=\{{p'}_1, \ldots, {p'}_m\}$ with respective ${\psi}_B$ and ${\psi}'_B$
+                        \item Bayes' theorem is then
+                            \begin{equation*}
+                                e(H|x_1 \ldots x_n) = e(H|I) + 10 \log_{10} \left[ \frac{p(x_1 \ldots x_n | H)}{p(x_1 \ldots x_n|H')} \right] = e(H|I) + {\psi}'_B - {\psi}_B
+                            \end{equation*}
+                        \item we can always find a hypothesis $H'$ in $B_m$ for which ${p'}_k = n_k / n$ and so ${\psi}'_B = 0$.\ so $\psi_B$ then means:
+                            \begin{displayquote}
+                                Given an hypothesis $H$ and the observed data $D \equiv \{ x_1, \ldots, x_n \}$, compute $\psi_B$ \ldots\ Then, given any $\psi$ in the range $0 \leq \psi \leq \psi_B$, it is possible to find an alternative hypothesis $H'$ in $B_m$ such that the data support $H'$ relative to $H$ by $\psi$ decibels. There is no $H'$ in $B_m$ which is supported relative to $H$ by more than $\psi_B$ decibels. (pg. 298)
+                            \end{displayquote}
+                        \item $(-\psi_B / n)$ is the entropy per symbol $H(f;p)$ of the observed distribution relative to the `expected' distribution
+                    \end{itemize}
+                \item he does a comparison of the $\chi^2$ and $\psi$ tests, and shows that $\chi^2$, because of the $(1/p_i)$ term, concentrates on unlikely possibilities of the hypothesis and over-penalizes hypotheses which have slight discrepancies between the expected and observed sample numbers
+                \item concludes:
+                    \begin{displayquote}
+                        For testing hypotheses involving moderately large probabilities, which agree moderately well with observation, it will not make much difference whether we use $\psi$ or $\chi^2$. But for testing hypotheses involving extremely unlikely events, we had better use $\psi$; or life might become too exciting for us. (pg. 302)
+                    \end{displayquote}
+            \end{itemize}
+\end{document}

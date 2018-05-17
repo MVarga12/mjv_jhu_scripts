@@ -25,3 +25,5 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_usr_paths
 set -g fish_user_paths "/usr/local/opt/qt@5.5/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/qt@5.5/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths

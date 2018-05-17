@@ -1,0 +1,266 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Sufficiency, ancillarity, and all that}
+        \begin{itemize}
+            \item these are features of probability theory that ``take care of themselves as long as we obey the rules.'' 
+            \item help us better understand the inner workings of probability theory
+        \end{itemize}
+
+        \subsection{Sufficiency}
+            \begin{itemize}
+                \item Probability theory sometimes disregards information that we provide it.\ As an example, when we estimated a parameter $\theta$ of a binomial distribution from $n$ trials, the posterior PDF for $\theta$ only depended on the $n$ number of trials and $r$ number of successes, and not at all on order of those successes/failures (several other examples are presented).
+                \item it seems that some information provided must be \textit{irrelevant} to the question at hand.\ can we confirm this?
+                    \begin{itemize}
+                        \item if certain information is known but not used, it would follow that it would not matter to the conclusion if the information was instead completely unknown
+                        \item so, if the posterior PDF for parameter $\theta$ is found to depend on the data $D = \{x_1, \ldots, x_n \}$ only through a function $r(x_1, \ldots, x_n)$, then it would follow that we would reach the same posterior PDF if given $r$ alone
+                        \item with a sampling density function $p(x_1 \ldots x_n | \theta)$ and prior $p(\theta | I) = f(\theta)$, the posterior PDF is,
+                            \begin{equation*}
+                                p(\theta | DI) = h(\theta | D) = \frac{f(\theta) p(x_1 \ldots x_n | \theta)}{\int \mathrm{d}{\theta}' f({\theta}') p(x_1 \ldots x_n | {\theta}')}
+                            \end{equation*}
+                        \item now let's change variables $(x_1, \ldots, x_n) \rightarrow (y_1, \ldots, y_n)$ in sample space $S_x$, such that $y_1 = r(x_1, \ldots, x_n)$ and choose $(y_2, \ldots, y_n)$ so that the Jacobian
+                            \begin{equation*}
+                                J = \frac{\partial (y_1, \ldots, y_n)}{\partial (x_1, \ldots, x_n)}
+                            \end{equation*}
+                            is bounded and nonvanishing over all $S_x$.
+                        \item thus, the change of variables is a 1:1 map of $S_x$ onto $S_y$, and the sampling density,
+                            \begin{equation*}
+                                g(y_1, \ldots, y_n | \theta) = J^{-1} p(x_1 \ldots x_n | \theta)
+                            \end{equation*}
+                            may be used in place of $p(x_1 \ldots x_n | \theta)$ (with the Jacobian, being independent of $\theta$, cancelling out),
+                            \begin{equation*}
+                                h(\theta | D) = \frac{f(\theta) g(y_1 \ldots y_n | \theta)}{\int \mathrm{d}{\theta}' f({\theta}') g(y_1 \ldots y_n | {\theta}')}
+                            \end{equation*}
+                        \item the property R, described by $r(x_1 \ldots x_n)$, is the statement that for all $\theta \in S_{\theta}$ is independent of $(y_2 \ldots y_n)$.
+                        \item this defines $n-1$ simultaneous integral equations that the prior $f(\theta)$ must satisfy,
+                            \begin{equation}
+                                \label{kernel}
+                                \int_{S_{\theta}} \mathrm{d}{\theta}'~K_{i}(\theta, {\theta}')f({\theta}') = 0 \hspace{1cm} \left \{ \begin{matrix} \theta \in S_{\theta} \\ 2 \leq i \leq n \end{matrix} \right \}
+                            \end{equation}
+                            where the $i$th kernel is,
+                            \begin{equation*}
+                                K_{i}(\theta, {\theta}') \equiv g(y|\theta) \frac{\partial g(y|{\theta}')}{\partial y_i} - g(y|{\theta}')\frac{\partial g(y|\theta)}{\partial y_i}
+                            \end{equation*}
+                            where $y \equiv (y_1, \ldots, y_n)$.\ $K_{i}(\theta, {\theta}')$ is antisymmetric.
+                    \end{itemize}
+            \end{itemize}
+
+            \subsubsection{Generalized sufficiency}
+                \begin{itemize}
+                    \item unlike in Fisher sufficiency (no notes here, see the book), the property R may hold under weak conditions that depend on the prior chosen.
+                    \item since the integral equations in~\ref{kernel} are linear, we may think of them in terms of linear vector spaces.
+                    \item Let all priors span a Hilbert space $H$ of functions on the parameter space $S_{\theta}$.\ If property R holds only for some priors $f(\theta) \in H'$ that span a subspace $H' \subset H$, then it is only required that the projection of $K_{i}(\theta, {\theta}')$ onto that subspace vanishes.
+                    \item so $K_{i}(\theta, {\theta}')$ is an arbitrary function on the Hilbert space $(H - H')$ of functions orthogonal to $H'$ (need to think about this some more).
+                    \item given any specified function $r(x_1, \ldots, x_n)$ and sampling density $p(x_1 \ldots x_n | \theta)$, this determines a kernel $K_{i}(\theta, {\theta}')$.\ If this kernel is not complete (i.e. if as $(\theta, {\theta}', i)$ vary, the kernel does not span all of Hilbert space $H$), then there are a set of nonvanishing solutions $f(\theta)$
+                    \item however, if there are non-negative solutions, then they determine a subclass of priors $f(\theta)$ for which $r$ is a sufficient statistic.
+                    \item this leaves open the possibility that for different priors, different functions $r(x_1, \ldots, x_n)$ may be sufficient statistics.
+                        \begin{itemize}
+                            \item VERY IMPORTANT NOTE: ``This means that \textit{use of a particular prior may make certain particular aspects of the data irrelevant.\ Then a different prior may make different aspects of the data irrelevant.}'' (pg. 249)
+                        \end{itemize}
+                \end{itemize}
+
+            \subsubsection{The likelihood principle}
+                \begin{itemize}
+                    \item According to Bayes' theorem, since the posterior PDF of $\theta$ is always a product of a prior, $p(\theta | I)$, and a likelihood function, $L(\theta) \propto p(D|{\theta}I)$, the only place the data appears is in the likelihood function.
+                    \item Therefore, we can make the following statement, called the \textit{likelihood principle},
+                        \begin{displayquote}
+                            \textit{Within the context of the specified model}, the likelihood function $L(\theta)$ from data $D$ contains all the information about $\theta$ tht is contained in $D$. (pg. 250)
+                        \end{displayquote}
+                    \item Think of it like this: given two data sets $D$ and $D'$ that lead to the same likelihood function $L(\theta) = aL'(\theta)$, where $a$ is some constant independent of $\theta$, both $L(\theta)$ and $L'(\theta)$ have the same importance for any inferences we make about $\theta$
+                    \item Early argument supporting this principle, by George Barnard:
+                        \begin{itemize}
+                            \item Any irrelevant data should cancel out of the inferences
+                            \item suppose in obtaining $D$, we flip a coin and record the result $Z = H$ or $T$.
+                            \item the sampling probability is then $p(DZ|\theta) = p(D|\theta)p(Z)$
+                            \item the result of a coin flip can tell us nothing more about $\theta$ than the data $D$ can, so inferences about $\theta$ based on $D$ and $DZ$ should be the same
+                            \item so, constant factors in the likelihood must be irrelevant to inferences, i.e.\ inferences about $\theta$ may depend only on the ratios of likelihoods:
+                                \begin{equation*}
+                                    \frac{L_1}{L_2} = \frac{p(DZ|{\theta}_{1}T)}{p(DZ|{\theta}_{2}T)} = \frac{p(D|{\theta}_{1}I)}{p(D|{\theta}_{2}I)}
+                                \end{equation*}
+                        \end{itemize}
+                    \item Further arguments by Alan Birnbaum gave rise to the \textit{conditionality principle}:
+                        \begin{displayquote}
+                            Suppose we can estimate $\theta$ from either of two experiments, $E_1$ and $E_2$. If we flip a coin to decide which to do, then the information we get about $\theta$ should depend only on the experiment that was actually performed. That is, recognition of an experiment that might have been performed, but was not, cannot tell us anything about $\theta$. (pg. 251)
+                        \end{displayquote}
+                    \item orthodox probability theory violates the likelihood principle for three reasons:
+                        \begin{enumerate}
+                            \item the central statement of orthodox probability theory, that the merit of an estimator is solely determined by its sampling properties over time, makes no reference to the likelihood function.
+                            \item its second central statement, that the accuracy of an estimate is determined by the width of the sampling distribution, again makes no reference to the likelihood function.
+                            \item ``procedures in which `randomization' is held to generate the probability distribution \textit{used in the inference}!'' (not sure what this means yet)
+                        \end{enumerate}
+                    \item for example, in the case of the coin flip, if there is any connection between $\theta$ and the coin flip such that knowing $\theta$ would tell us something about the coin flip, then conversely, knowing the result of the coin flip must tell us something about $\theta$
+                        \begin{itemize}
+                            \item if the coin was tossed in some gravitational field, then there is a logical connection between the coin flip and knowledge of the gravitational field.
+                            \item both Barnard and Birnbaum's arguments disregard this
+                        \end{itemize}
+                \end{itemize}
+
+        \subsection{Ancillarity}
+            \begin{itemize}
+                \item consider the estimation of a parameter $\theta$ from a sampling distribution $p(x|{\theta}I) = f(x - \theta | I)$ (if the mean of a set of observations is used as the estimator, then the observed variation of the mean is the sampling distribution of the mean)
+                    \begin{itemize}
+                        \item if we take some function ${\theta}^{*}(x_1, \ldots, x_n)$ as the estimator, two different data sets may give the same estimate for $\theta$ but have different configurations, e.g.\ range, central moments, etc.
+                        \item so, a broad distribution and sharply peaked distribution could give the same estimated $\theta$, but tell us different conclusions about the accuracy
+                        \item but we previously held that the accuracy of the estimate was determined by the width of the \textit{sampling distribution}.\ from this we would have to conclude that both estimates are equally accurate.\ how do we rectify this?
+                    \end{itemize}
+                \item Fisher's remedy was to propose using sampling distributions conditional on some `ancillary' statistic, $z(x_1, \ldots, x)n)$ that gives some information about the configuration of the data
+                    \begin{itemize}
+                        \item this could require as many as $(n-1)$ ancillary statistics,\ which Fisher often could not provide, as he demanded that $p(z|{\theta}I) = p(z|I)$
+                    \end{itemize}
+                \item what can we make of this from a Bayesian viewpoint?
+                    \begin{itemize}
+                        \item Fisher's sampling distribution would be,
+                            \begin{equation*}
+                                p(D|z{\theta}I) = \frac{p(zD|{\theta}I)}{p(z|{\theta}I)} = p(D|{\theta}I) \frac{p(z|D{\theta}I)}{p(z|{\theta}I)}
+                            \end{equation*}
+                        \item if $z = z(D)$ is a function of the data alone, then $p(z|D{\theta}I) = \delta [z - z(d)]$
+                        \item so, if $p(z|{\theta}I)$ is independent of $\theta$, then the conditional sampling distribution $p(D|z{\theta}I)$ also is independent of $\theta$
+                        \item another way, from a Bayesian standpoint, Fisher's procedure does nothing, the likelihood is unchanged
+                        \item can also thought of in terms of previous discussions; if $z$ is a function of only the data, then we know the value of $z$ from the data already.\ i.e.\ $AA = A$
+                    \end{itemize}
+            \end{itemize}
+
+            \subsubsection{Generalized ancillary information}
+                \begin{itemize}
+                    \item Let's take a broad view of ancillary information, referring to any additional quantity $Z$ that is not part of prior information or data
+                    \item Let
+                        \begin{align}
+                            \label{anc_defs}
+                            \theta &= \mathrm{parameters} \\
+                            E &= e_1, \ldots, e_n \hspace{0.5cm} \mathrm{noise} \\
+                            D &= d_1, \ldots, d_n \hspace{0.5cm} \mathrm{data} \\
+                            d_i &= f(t_{i}{\theta}) + e_i \hspace{0.5cm} \mathrm{model} \\
+                            Z &= z_1, \ldots, z_n \hspace{0.5cm} \mathrm{ancillary~data}
+                        \end{align}
+                    \item we want to estimate $\theta$ from the posterior PDF
+                        \begin{equation*}
+                            p({\theta}|DZI) = p({\theta}|I) \frac{p(DZ|{\theta}I)}{p(DZ|I)}
+                        \end{equation*}
+                        \begin{itemize}
+                            \item assume $Z$ is independent of $\theta$, i.e.\ $p({\theta}|ZI) = p({\theta}|I)$ and $p(Z|{\theta}I) = p(Z|I)$ (these expressions are the same, as per the product rule)
+                            \item expanding the likelihood ratio with this assumption, we can rewrite the posterior PDF as
+                                \begin{equation*}
+                                     p({\theta}|DZI) = p({\theta}|I) \frac{p(DZ|{\theta}I)}{p(DZ|I)}= p({\theta}|ZI) \frac{p(D|{\theta}ZI)}{p(D|ZI)}
+                                \end{equation*}
+                                so that the generalized ancillary information appears to be part of the prior information
+                        \end{itemize}
+                    \item one important property of generalized ancillary information is that the relationship between $Z$ and $\theta$ is reciprocal, i.e.\ if we are interested in estimating $Z$, $\theta$ is then the generalized ancillary statistic
+                \end{itemize}
+
+            \subsubsection{Asymptotic likelihood: Fisher information}
+                \begin{itemize}
+                    \item Given a data set $D \equiv \{x_1, \ldots, x_n\}$, the log likelihood is 
+                        \begin{equation*}
+                            \frac{1}{n} \log L(\theta) = \frac{1}{n} \sum\limits^{n}_{i=1} \log [p(x_i | \theta)]
+                        \end{equation*}
+                    \item what happens as continue to accumulate data?
+                        \begin{itemize}
+                            \item usual assumption is that as $n \rightarrow \infty$, the sampling distribution $p(x|{\theta})$ is equal to the limiting relative frequencies of the various data values $x_i$
+                            \item with this assumption, as $n \rightarrow \infty$,
+                                \begin{equation*}
+                                    \frac{1}{n} \log L(\theta) \rightarrow \int \mathrm{d}x~p(x|{\theta}_{0}) \log [p(x|{\theta})]
+                                \end{equation*}
+                                where ${\theta}_{0}$ is the `true' value
+                            \item the entropy of the `true' value is
+                                \begin{equation*}
+                                    H_0 = -\int \mathrm{d}x~p(x|{\theta}_{0}) \log [p(x|{\theta}_{0})]
+                                \end{equation*}
+                                we have the asymptotic likelihood function
+                                \begin{equation*}
+                                    \frac{1}{n} \log [L(\theta)] + H_0 = \int \mathrm{d}x~p(x|{\theta}_{0}) \log \left[ \frac{p(x|\theta)}{p(x|{\theta}_{0})} \right] \leq 0
+                                \end{equation*}
+                            \item this is an equality iff $p(x|{\theta}) = p(x|{\theta}_{0})$ for all $x$ for which $p(x|{\theta}_{0} > 0$
+                            \item however, if two values $\theta$ and ${\theta}_{0}$ lead to the same sampling distributions, then the data cannot distinguish between them
+                            \item if different values of $\theta$ always leads to different sampling distributions, then the asymptotic likelihood function reaches equality iff $\theta = {\theta}_{0}$, so $L(\theta)$ reaches its maximum at $\theta = {\theta}_{0}$
+                                \begin{itemize}
+                                    \item given a multidimensional parameter $\theta \equiv \{{\theta}_{1}, \ldots, {\theta}_{m}\}$, and expanding around $\theta = {\theta}_{0}$, we get
+                                        \begin{align*}
+                                            \log [p(x|\theta)] = \log [p(x|{\theta}_{0}) - &\frac{1}{2} \sum\limits^{m}_{i,j=1} \frac{{\partial}^{2} \log[p(x|\theta)]}{\partial {\theta}_{i} \partial {\theta}_{j}} \delta {\theta}_{i} \delta {\theta}_{j} \Rightarrow \\
+                                            \frac{1}{n} \log \left[ \frac{L(\theta)}{L({\theta}_{0}} \right] &= -\frac{1}{2} \sum\limits_{ij} I_{ij}\delta {\theta}_{i} \delta {\theta}_{j}
+                                        \end{align*}
+                                        where 
+                                        \begin{equation*}
+                                            I_{ij} \equiv \int \mathrm{d}^{n}x~p(x|{\theta}_{0}) \frac{{\partial}^{2} \log[p(x|\theta)]}{\partial {\theta}_{i} \partial {\theta}_{j}}
+                                        \end{equation*}
+                                        is called the \textit{Fisher information matrix}, which tells us how large the separation $| \theta - {\theta}'|$ between two close values $\theta$ and ${\theta}'$ must be before we can distinguish them in an experiment
+                                \end{itemize}
+                        \end{itemize}
+                \end{itemize}
+
+            \subsection{Combining evidence from different sources}
+                \begin{itemize}
+                    \item Starts with a quote that I like:
+                        \begin{displayquote}
+                            We all know that there are good and bad experiments. The latter accumulate in vain. Whether there are a hundred or a thousand, one single piece of work by a real master --- Pasteur, for example --- will be sufficient to sweep them into oblivion. (Henri Poincar\'e, 1904, pg. 141)
+                        \end{displayquote}
+                    \item it is the na\"ive assumption that, for example, if we have 25 experiments with accuracy of $\pm 10\%$, then by averaging them we would get an accuracy of $\pm10/\sqrt{25} = \pm2\%$.\ we can use probability theory to determine when this is a safe assumption
+                    \item this is called \textit{meta-analysis}
+                    \item an example of how this assumption can lead us awry
+                        \begin{itemize}
+                            \item suppose that each person in china knows the height of the emperor to within $\pm 1$ meter.
+                            \item if we poll $N = 1 \times 10^{10}$ inhabitants, then, by this logic, we would get an accuracy of
+                                \begin{equation*}
+                                    \frac{1}{\sqrt{1 \times {10}^{10}}} = 3 \times {10}^{-5} \mathrm{m} = 0.03 \mathrm{mm}
+                                \end{equation*}
+                                which is obviously absurd
+                            \item therefore, the $\sqrt{N}$ rule is not always valid
+                            \item the data values must not be merely causally independent, they must be \textit{logically} independent for this to hold true
+                            \item most inhabitants of china have never seen the emperor, so their estimates are built on folklore, which surely introduces some systematic error
+                            \item can put this as
+                                \begin{equation*}
+                                    \mathrm{error~in~estimate} = S \pm \frac{R}{\sqrt{N}}
+                                \end{equation*}
+                                where $S$ is the systematic error in each datum, $R$ is the RMS random error in the individual data points
+                        \end{itemize}
+                    \item so we know that we must use some kind of probabilistic model in scientific inference to be truly rigorous
+                    \item unless we know that the systematic error is less than rougly one--third of the random error, we can't be sure that the average of one million data points is more accurate than the average of ten
+                        \begin{itemize}
+                            \item Jaynes throws some shade at `soft sciences' here:
+                                \begin{displayquote}
+                                    Indeed, this has been well recognized by experimental physicists for generations:\ but warnings about it are conspicuously missing from textbooks written by statisticians, and so it is not sufficiently recognized in the `soft' sciences whose practitioners are educated from those textbooks. (pp. 258--259)
+                                \end{displayquote}
+                        \end{itemize}
+                    \item let's investigate this from a Bayesian perspective:
+                        \begin{itemize}
+                            \item suppose we want to know about hypothesis $H$ using two experiments which yield data sets $A$ and $B$
+                            \item with prior information $I$, we first know
+                                \begin{equation*}
+                                    p(H|AI) = p(H|I) \frac{p(A|HI)}{p(A|I)}
+                                \end{equation*}
+                            \item with this as the prior probability, adding in data set $B$ gives us
+                                \begin{equation*}
+                                    p(H|ABI) = p(H|AI)\frac{p(B|AHI)}{p(B|AI)} = p(H|I)\frac{p(A|HI)p(B|AHI)}{p(A|I)p(B|AI)}
+                                \end{equation*}
+                            \item knowing that $p(A|HI)p(B|AHI) = p(AB|HI)$ and $p(A|I)p(B|AI) = p(AB|I)$ (the product rule), this further reduces to
+                                \begin{equation*}
+                                    p(H|ABI) = p(H|I)\frac{p(AB|HI)}{p(AB|I)}
+                                \end{equation*}
+                            \item this is the same probability as if we used $C = AB$ in a single Bayes theorem.\ This is called the \textit{chain consistency property}
+                            \item therefore, it is valid to combine \textit{evidence} from several experiments iff:
+                                \begin{enumerate}
+                                    \item the prior information $I$ is the same
+                                    \item the prior for each experiment includes the results of the earlier experiments
+                                \end{enumerate}
+                            \item condition 2 can apparently be violated properly if $A$ and $B$ are totally logically independent
+                        \end{itemize}
+                    \item his conclusion is that, although meta-analysis is not always incorrect, if it is applied without careful thought, it is wildly misleading
+                \end{itemize}
+                
+            \subsection{A folk theorem}
+                \begin{itemize}
+                    \item suppose we are given a number of unknowns $\{x_i, \ldots, x_n\}$ in some domain $X$ to be determined, and are given $m$ functions of them,
+                        \begin{align*}
+                            y_1 &= f_{1}(x_1, \ldots, x_n) \\
+                            y_2 &= f_{2}(x_1, \ldots, x_n) \\
+                                &\ldots \\
+                            y_m &= f_{m}(x_1, \ldots, x_n)
+                        \end{align*}
+                    \item if $m=n$ and the Jacobian $\partial (y_1, \ldots, y_n) / \partial (x_1, \ldots, x_n)$ is non--zero, then we can solve for individual $x_i$
+                    \item but if $m < n$, then the system is \textit{underdetermined} and we cannot find individual $x_i$ as we have insufficient information
+                    \item gives rise to the folk theorem, that from $m$ observations one cannot estimate more than $m$ parameters.
+                    \item nothing in probability theory places this limited.\ as our data tend to zero, it is not that we cannot estimate many parameters, its just that those estimates must relax back to the prior estimates
+                    \item a grain of truth is found in this theorem if adding parameters correlates to the posterior PDF, i.e.\ if the posterior PDFs for different parameters are not independent
+                \end{itemize}
+\end{document}

@@ -64,7 +64,6 @@ endif
     call plug#begin('~/.vim/plugged')
     " Coding Plugins
     " Syntax enhancements
-    Plug 'tpope/vim-markdown', {'for' : ['mkd','md','markdown']}
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'dag/vim-fish', {'for' : 'fish'}
 
@@ -76,14 +75,17 @@ endif
     Plug 'roxma/nvim-completion-manager'
     Plug 'roxma/ncm-clang'
     Plug 'ervandew/supertab'
-    Plug 'autozimu/LanguageClient-neovim', {
-                \ 'branch' : 'next',
-                \ 'do' : 'bash install.sh'
-                \ }
+    " Plug 'autozimu/LanguageClient-neovim', {
+    "             \ 'branch' : 'next',
+    "             \ 'do' : 'bash install.sh'
+    "             \ }
 
     " Formatting
     Plug 'tomtom/tcomment_vim' " universal commenter for embedded filetypes
     Plug 'rhysd/vim-clang-format' " plugin for clang-format
+
+    " Plug 'vhdirk/vim-cmake'
+    " Plug 'vim-scripts/TaskList.vim'
 
     " Debugging
     Plug 'rizzatti/dash.vim'
@@ -92,7 +94,6 @@ endif
     Plug 'reedes/vim-pencil'
     Plug 'reedes/vim-litecorrect'
     Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
     Plug 'chrisbra/unicode.vim'
 
     " Snippets
@@ -102,9 +103,8 @@ endif
     " Better search tools
     Plug 'junegunn/fzf.vim'
 
-
     " Bookmarks and Tags
-    Plug 'MattesGroeger/vim-bookmarks'
+    " Plug 'MattesGroeger/vim-bookmarks'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar'
     Plug 'Valloric/ListToggle'
@@ -125,13 +125,17 @@ endif
 
     " Other
     Plug 'mbbill/undotree' " graphical visualization of the vim undotree
+    Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " Plugin options
     " NCM
     " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    
+
+    " bookmarks
+    let g:bookmarks_location_list=1
+
     "SuperTab
     let g:SuperTabLongestHighlight = 1
 
@@ -143,15 +147,15 @@ call plug#end()
     autocmd Filetype fish setlocal foldmethod=expr
 
     " clang-format
-    let col_width = 120 " column width for ClangFormat
+    " let col_width = 120 " column width for ClangFormat
     let g:clang_format#code_style = 'Webkit'
     let g:clang_format#style_options = {
-                \"ColumnLimit" : col_width,
+                \"ColumnLimit" : 120,
                 \"AlwaysBreakTemplateDeclarations" : "true"
     \}
 
     let g:clang_format#command = "clang-format"
-    autocmd Filetype c,cpp ClangFormatAutoEnable
+    autocmd BufUnload *.c,*.cpp ClangFormat
 
     " FZF
         " this is where fzf lives
@@ -225,9 +229,9 @@ call plug#end()
     let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']
 
     " Tagbar
-    autocmd FileType c,cpp,py,h,hpp nested :call tagbar#autoopen(1)
     nmap <silent> <F8> :TagbarToggle<CR>
-    let g:tagbar_width = 30
+    let g:tagbar_autoclose = 1
+    let g:tagbar_autofocus = 1
     let g:tagbar_autoshowtag = 1 " automatically open folds to show tag
 
     " Snippets
@@ -245,10 +249,10 @@ call plug#end()
             let g:ale_sign_warning = 'W'
             let g:ale_set_highlighs = 0
         "C++
-            let g:ale_cpp_clang_options = '-std=c++11 -Iinclude -Wall'
+            " let g:ale_cpp_clang_options = '-std=c++11 -I include -Wall'
+            let g:ale_cpp_clang_options = '-std=c++11 -I include -I /usr/local/opt/qt/include -L /usr/local/opt/qt/lib -lQt5Core -fPIC -Wall'
             let g:ale_cpp_clangtidy_options = '-Wall -std=c++11 -x c++'
             let g:ale_c_build_dir = '.'
-        " Python
 
     "some writing stuff
     " autocmd Filetype tex,latex,text,td,md,markdown,mkd

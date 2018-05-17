@@ -1,0 +1,116 @@
+\contentsline {section}{\numberline {1}Notation and Equations}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Notation}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}General Equations}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Boolean Algebra}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Trivial identities of Boolean algebra}{4}{subsection.2.1}
+\contentsline {section}{\numberline {3}The quantitative rules}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}EXAMPLE: Bernoulli urn}{6}{subsection.3.1}
+\contentsline {section}{\numberline {4}Elementary sampling theory}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Sampling without replacement}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Logic vs Propensity}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Expectations}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Binomial Distribution}{8}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Sampling with replacement}{9}{subsection.4.5}
+\contentsline {section}{\numberline {5}Elementary hypothesis testing}{10}{section.5}
+\contentsline {subsection}{\numberline {5.1}Prior probabilities}{10}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Testing binary hypotheses with binary data}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Noextensibility beyond the binary case}{13}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Multiple hypothesis testing}{13}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Continuous probability distribution functions}{15}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Testing an infinite set of hypotheses}{15}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Simple and compound hypotheses}{17}{subsection.5.7}
+\contentsline {section}{\numberline {6}Elementary parameter estimation}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Inversion of the urn distributions}{18}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Both $N$ and $R$ are unknown}{18}{subsubsection.6.1.1}
+\contentsline {subsection}{\numberline {6.2}Continuous parameter estimation}{21}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Estimation with a binomial sampling distribution}{21}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Effects of qualitative prior information}{23}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Choice of a prior}{23}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}The Jeffreys prior}{24}{subsubsection.6.3.2}
+\contentsline {section}{\numberline {7}The central, Gaussian, or normal distribution}{24}{section.7}
+\contentsline {subsection}{\numberline {7.1}The gravitating phenomenon}{24}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Why the ubiquitous use of Gaussian distributions?}{25}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Non--Gaussian estimators?}{25}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Error cancellation}{26}{subsubsection.7.2.2}
+\contentsline {subsection}{\numberline {7.3}Nuisance parameters as safety devices}{27}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Convolution of Gaussians}{27}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}An aside: cumulants}{28}{subsection.7.5}
+\contentsline {subsubsection}{\numberline {7.5.1}Relation of cumulants and moments}{29}{subsubsection.7.5.1}
+\contentsline {subsection}{\numberline {7.6}The central limit theorem}{30}{subsection.7.6}
+\contentsline {section}{\numberline {8}Sufficiency, ancillarity, and all that}{31}{section.8}
+\contentsline {subsection}{\numberline {8.1}Sufficiency}{31}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Generalized sufficiency}{32}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}The likelihood principle}{32}{subsubsection.8.1.2}
+\contentsline {subsection}{\numberline {8.2}Ancillarity}{33}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Generalized ancillary information}{34}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}Asymptotic likelihood: Fisher information}{34}{subsubsection.8.2.2}
+\contentsline {subsection}{\numberline {8.3}Combining evidence from different sources}{35}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}A folk theorem}{36}{subsection.8.4}
+\contentsline {section}{\numberline {9}Repetitive experiments: probability and frequency}{36}{section.9}
+\contentsline {subsection}{\numberline {9.1}Physical experiments}{37}{subsection.9.1}
+\contentsline {subsubsection}{\numberline {9.1.1}Poorly defined prior}{37}{subsubsection.9.1.1}
+\contentsline {subsection}{\numberline {9.2}Induction}{38}{subsection.9.2}
+\contentsline {subsubsection}{\numberline {9.2.1}Are there general inductive rules?}{38}{subsubsection.9.2.1}
+\contentsline {subsection}{\numberline {9.3}Multiplicity}{38}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {9.3.1}Partition function algorithms}{39}{subsubsection.9.3.1}
+\contentsline {subsubsection}{\numberline {9.3.2}Entropy algorithms}{40}{subsubsection.9.3.2}
+\contentsline {subsubsection}{\numberline {9.3.3}Maximum entropy}{42}{subsubsection.9.3.3}
+\contentsline {subsection}{\numberline {9.4}Significance tests}{42}{subsection.9.4}
+\contentsline {section}{\numberline {10}Discrete prior probabilities:\ the entropy principle}{44}{section.10}
+\contentsline {subsection}{\numberline {10.1}A new kind of prior information}{44}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}Minimum $\mathbf {\DOTSB \tsum \slimits@ p^{2}_{i}}$}{44}{subsubsection.10.1.1}
+\contentsline {subsubsection}{\numberline {10.1.2}Entropy:\ Shannon's theorem}{45}{subsubsection.10.1.2}
+\contentsline {subsubsection}{\numberline {10.1.3}Formal properties of maximum entropy distributions}{46}{subsubsection.10.1.3}
+\contentsline {subsubsection}{\numberline {10.1.4}Conceptual problems --- frequency correspondence}{48}{subsubsection.10.1.4}
+\contentsline {section}{\numberline {11}Ignorance priors and transformation groups}{49}{section.11}
+\contentsline {subsection}{\numberline {11.1}Continuous distributions}{49}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Aside on assigning priors}{50}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}Transformation groups}{50}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}Location and scale parameters}{50}{subsubsection.11.3.1}
+\contentsline {section}{\numberline {12}Decision theory, historical background}{52}{section.12}
+\contentsline {subsection}{\numberline {12.1}Inference vs.\ decision}{52}{subsection.12.1}
+\contentsline {subsubsection}{\numberline {12.1.1}Bernoulli's suggestion}{52}{subsubsection.12.1.1}
+\contentsline {subsubsection}{\numberline {12.1.2}Example:\ The honest weatherman}{52}{subsubsection.12.1.2}
+\contentsline {subsection}{\numberline {12.2}Wald's decision theory}{53}{subsection.12.2}
+\contentsline {subsection}{\numberline {12.3}General decision theory}{54}{subsection.12.3}
+\contentsline {section}{\numberline {13}Simple applications of decision theory}{54}{section.13}
+\contentsline {subsection}{\numberline {13.1}Definitions and preliminaries}{55}{subsection.13.1}
+\contentsline {subsection}{\numberline {13.2}Sufficiency and information}{55}{subsection.13.2}
+\contentsline {subsection}{\numberline {13.3}Loss functions and criteria of optimum performance}{56}{subsection.13.3}
+\contentsline {subsection}{\numberline {13.4}The widget problem}{57}{subsection.13.4}
+\contentsline {subsubsection}{\numberline {13.4.1}Stage 1}{57}{subsubsection.13.4.1}
+\contentsline {subsubsection}{\numberline {13.4.2}Stage 2}{57}{subsubsection.13.4.2}
+\contentsline {subsubsection}{\numberline {13.4.3}Stage 3}{57}{subsubsection.13.4.3}
+\contentsline {subsubsection}{\numberline {13.4.4}Stage 4}{58}{subsubsection.13.4.4}
+\contentsline {subsubsection}{\numberline {13.4.5}Mathematical solution for Stage 2}{58}{subsubsection.13.4.5}
+\contentsline {section}{\numberline {14}Paradoxes of probability theory}{59}{section.14}
+\contentsline {subsection}{\numberline {14.1}Summing a series the easy way}{59}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Nonconglomerability}{60}{subsection.14.2}
+\contentsline {subsection}{\numberline {14.3}The Borel--Kolmogorov paradox}{60}{subsection.14.3}
+\contentsline {subsection}{\numberline {14.4}Discussion}{61}{subsection.14.4}
+\contentsline {section}{\numberline {15}Orthodox methods:\ historical background}{61}{section.15}
+\contentsline {subsection}{\numberline {15.1}Sampling distribution for an estimator}{62}{subsection.15.1}
+\contentsline {section}{\numberline {16}Principles and pathology of orthodox statistics}{62}{section.16}
+\contentsline {subsection}{\numberline {16.1}Information loss}{63}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}Bayesian spectrum analysis}{63}{subsection.16.2}
+\contentsline {subsubsection}{\numberline {16.2.1}The folly of randomization}{65}{subsubsection.16.2.1}
+\contentsline {subsection}{\numberline {16.3}Continuing on}{65}{subsection.16.3}
+\contentsline {section}{\numberline {17}The \(\boldsymbol {A_p}\) distribution and rule of succession}{66}{section.17}
+\contentsline {subsection}{\numberline {17.1}Relevance}{66}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}An application}{67}{subsection.17.2}
+\contentsline {subsection}{\numberline {17.3}Laplace's rule of succession}{68}{subsection.17.3}
+\contentsline {subsection}{\numberline {17.4}An example of the rule of succession:\ bass or carp?}{69}{subsection.17.4}
+\contentsline {subsection}{\numberline {17.5}Generalization of the rule}{69}{subsection.17.5}
+\contentsline {subsection}{\numberline {17.6}Weight of new evidence}{70}{subsection.17.6}
+\contentsline {subsection}{\numberline {17.7}Indifference through knowledge or ignorance}{70}{subsection.17.7}
+\contentsline {subsection}{\numberline {17.8}Carnap's inductive methods}{70}{subsection.17.8}
+\contentsline {subsection}{\numberline {17.9}More on probability and frequency connections}{71}{subsection.17.9}
+\contentsline {subsection}{\numberline {17.10}The de Finetti theorem}{72}{subsection.17.10}
+\contentsline {section}{\numberline {18}Physical measurements}{72}{section.18}
+\contentsline {subsection}{\numberline {18.1}Reduction of equations of condition}{72}{subsection.18.1}
+\contentsline {section}{\numberline {19}Model comparison}{74}{section.19}
+\contentsline {subsection}{\numberline {19.1}Formulation of the problem}{74}{subsection.19.1}
+\contentsline {subsection}{\numberline {19.2}Fair judge vs.\ cruel realist}{75}{subsection.19.2}
+\contentsline {subsubsection}{\numberline {19.2.1}Known parameters}{75}{subsubsection.19.2.1}
+\contentsline {subsubsection}{\numberline {19.2.2}Unknown parameters}{75}{subsubsection.19.2.2}
+\contentsline {section}{\numberline {20}Some quotes}{76}{section.20}

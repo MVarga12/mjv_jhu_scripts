@@ -1,0 +1,63 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+\section{Boolean Algebra}
+    \begin{itemize}
+        \item AB -- logical product or conjunction
+            \begin{itemize}
+            \item both A and B are true, order does not matter
+            \end{itemize}
+        \item A + B -- logical sum or disjunction
+            \begin{itemize}
+            \item at least one of A or B is true, order does not matter
+            \end{itemize}
+        \item if A or B is true iff the other is true, they both have the same truth value
+            \begin{itemize}
+                \item does not matter how it is established that they have the same truth value
+                \item leads to the most primative axiom of plausible reasoning: two propositions with the same truth value are equally plausible
+            \end{itemize}
+    \end{itemize}
+    
+    \subsection{Trivial identities of Boolean algebra}
+    \begin{itemize}
+        \item[] Idempotence:  
+        $AA = A$
+        $A + A = A$
+    
+        \item[] Commutativity:
+            $AB = BA$
+            $A + B = B + A$
+        
+        \item[] Associativity:
+            $A(BC) = B(AC) = ABC$
+            $A + (B + C) = (A + B) + C = A + B + C$
+        
+        \item[] Distributivity:
+            $A(B+C) = AB + BC$
+            $A + (BC) = (A + B)(A + C)$
+        
+        \item[] Duality:
+            If $C + AB$, then $\bar{C} = \bar{A} + \bar{B}$
+            If $D = A + B$, then $\bar{D} = \bar{A}\bar{B}$
+          
+        \item these trivial identities can be used to prove more important relations
+        \item $A \Rightarrow B$
+            \begin{itemize}
+                \item A implies B, does not assert that either A or B is true
+                \item same thing as $A\bar{B}$ is false
+                \item if A is false, it says nothing about B, and vice versa
+                \item means A and AB have the same truth value
+            \end{itemize}
+        \item the three operations, conjunction, disjunction, and negation (the bar over the letter) are adequate to generate all logic functions of a single proposition
+    \end{itemize}
+
+    \begin{itemize}
+        \item Conditional probability: $A|B$
+            \begin{itemize}
+                \item the conditional probabiltiy that A is true given that B is true
+                \item can use all the above identities
+            \end{itemize}
+    \end{itemize}
+\end{document}

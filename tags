@@ -559,8 +559,6 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 <Leader>z	dotfiles/.vimrc	/^            nnoremap <silent> <Leader>z :call system("tmux resize-pane -Z")<CR>$/;"	m
 <Left>	dotfiles/.vimrc	/^        nnoremap <Left> :vertical resize -2<CR>$/;"	m
 <Right>	dotfiles/.vimrc	/^        nnoremap <Right> :vertical resize +2<CR>$/;"	m
-<S-Tab>	dotfiles/init.vim	/^    inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
-<Tab>	dotfiles/init.vim	/^    inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
 <Up>	dotfiles/.vimrc	/^        nnoremap <Up> :resize -2<CR>$/;"	m
 <leader>n	dotfiles/.vimrc	/^    map <leader>n :call RenameFile()<cr>$/;"	m
 Ag	dotfiles/init.vim	/^        command! -bang -nargs=* Ag$/;"	c
@@ -696,6 +694,7 @@ ReadHeader	dotfiles/init.vim	/^    fun! ReadHeader(name)$/;"	f
 RenameFile	dotfiles/.vimrc	/^    function! RenameFile()$/;"	f
 ScratchEdit	dotfiles/.vimrc	/^    function! ScratchEdit(cmd,options)$/;"	f
 Sedit	dotfiles/.vimrc	/^    command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)$/;"	c
+SetItalicComments	dotfiles/.vimrc	/^        function! SetItalicComments()$/;"	f
 Ssplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Ssplit call ScratchEdit('aboveleft 10split', <q-args>)$/;"	c
 Svsplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Svsplit call ScratchEdit('10vsplit', <q-args>)$/;"	c
 W	jctc_2016_code/integ.f90	/^  real, dimension(-3:3) :: W /;"	v
@@ -772,7 +771,6 @@ Yfit	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(:), Yfit(/
 Yfit	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 Yfit	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 a	cpp_tests/poly_vctr_test.cpp	/^    int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
-active_relative_number	dotfiles/.vimrc	/^        augroup active_relative_number$/;"	a
 aint	jctc_2016_code/hist_out.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out2.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_copy.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
@@ -795,7 +793,6 @@ cltc	analysis_scripts/nfsim/avg_bound.py	/^	cltc = d[i][3]\/d[i][1]$/;"	v	access
 cltc	analysis_scripts/nfsim/species.py	/^cltc = "CLTC"$/;"	v	access:public
 cltc_hist	analysis_scripts/nfsim/species.py	/^cltc_hist = []$/;"	v	access:public
 cltc_num	analysis_scripts/nfsim/species.py	/^    cltc_num = 0$/;"	v	access:public
-col_width	dotfiles/init.vim	/^    let col_width = 120 " column width for ClangFormat$/;"	v
 color	plot.py	/^color=iter(plt.cm.rainbow(np.linspace(0,1,len(filenames))))$/;"	v	access:public
 colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>colour(r, g, b)$/;"	f
 cons	analysis_scripts/nfsim/gdat_plot.py	/^    cons = int(cons)$/;"	v	access:public
@@ -877,11 +874,9 @@ find_max	daily_programmer/330/main.cpp	/^Point Bound::find_max(Bound& b) {$/;"	f
 find_min	daily_programmer/330/main.cpp	/^Point Bound::find_min(Bound& b) {$/;"	f	class:Bound	typeref:typename:Point	signature:(Bound & b)
 finfile	jctc_2016_code/hist_int.py	/^finfile = open('productregion.dat','w')$/;"	v	access:public
 frame	analysis_scripts/md/extract_xtc_frame.py	/^frame = int(sys.argv[3])$/;"	v	access:public
-g:UltiSnipsExpandTrigger	dotfiles/init.vim	/^    let g:UltiSnipsExpandTrigger="<Tab>"$/;"	v
-g:UltiSnipsJumpBackwardTrigger	dotfiles/init.vim	/^    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"$/;"	v
-g:UltiSnipsJumpForwardTrigger	dotfiles/init.vim	/^    let g:UltiSnipsJumpForwardTrigger="<Tab"$/;"	v
+g:SuperTabLongestHighlight	dotfiles/init.vim	/^    let g:SuperTabLongestHighlight = 1$/;"	v
 g:ale_c_build_dir	dotfiles/init.vim	/^            let g:ale_c_build_dir = '.'$/;"	v
-g:ale_cpp_clang_options	dotfiles/init.vim	/^            let g:ale_cpp_clang_options = '-std=c++11 -Iinclude -Wall'$/;"	v
+g:ale_cpp_clang_options	dotfiles/init.vim	/^            let g:ale_cpp_clang_options = '-std=c++11 -I include -I \/usr\/local\/opt\/qt\/inclu/;"	v
 g:ale_cpp_clangtidy_options	dotfiles/init.vim	/^            let g:ale_cpp_clangtidy_options = '-Wall -std=c++11 -x c++'$/;"	v
 g:ale_lint_on_enter	dotfiles/init.vim	/^            let g:ale_lint_on_enter = 1$/;"	v
 g:ale_lint_on_text_changed	dotfiles/init.vim	/^            let g:ale_lint_on_text_changed = 1$/;"	v
@@ -889,6 +884,7 @@ g:ale_linters	dotfiles/init.vim	/^            let g:ale_linters = {'cpp': ['clan
 g:ale_set_highlighs	dotfiles/init.vim	/^            let g:ale_set_highlighs = 0$/;"	v
 g:ale_sign_error	dotfiles/init.vim	/^            let g:ale_sign_error = 'E'$/;"	v
 g:ale_sign_warning	dotfiles/init.vim	/^            let g:ale_sign_warning = 'W'$/;"	v
+g:bookmarks_location_list	dotfiles/init.vim	/^    let g:bookmarks_location_list=1$/;"	v
 g:clang_format#code_style	dotfiles/init.vim	/^    let g:clang_format#code_style = 'Webkit'$/;"	v
 g:clang_format#command	dotfiles/init.vim	/^    let g:clang_format#command = "clang-format"$/;"	v
 g:clang_format#style_options	dotfiles/init.vim	/^    let g:clang_format#style_options = {$/;"	v
@@ -902,8 +898,9 @@ g:fzf_history_dir	dotfiles/init.vim	/^        let g:fzf_history_dir = '~\/.local
 g:goyo_width	dotfiles/init.vim	/^        let g:goyo_width = 120$/;"	v
 g:gutentags_ctags_extra_args	dotfiles/init.vim	/^    let g:gutentags_ctags_extra_args = ['--extra=+p','--fields=+iaS']$/;"	v
 g:procession_tmux_title	dotfiles/init.vim	/^    let g:procession_tmux_title = 1$/;"	v
+g:tagbar_autoclose	dotfiles/init.vim	/^    let g:tagbar_autoclose = 1$/;"	v
+g:tagbar_autofocus	dotfiles/init.vim	/^    let g:tagbar_autofocus = 1$/;"	v
 g:tagbar_autoshowtag	dotfiles/init.vim	/^    let g:tagbar_autoshowtag = 1 " automatically open folds to show tag$/;"	v
-g:tagbar_width	dotfiles/init.vim	/^    let g:tagbar_width = 30$/;"	v
 g:undotree_SetFocusWhenToggle	dotfiles/init.vim	/^        let g:undotree_SetFocusWhenToggle = 1$/;"	v
 gaussian	jctc_2016_code/smoothing.f	/^      function gaussian /;"	f
 gaussian	jctc_2016_code/smoothing2.f	/^      function gaussian /;"	f
@@ -1076,8 +1073,6 @@ sum2	analysis_scripts/nfsim/ana.py	/^sum2=0$/;"	v	access:public
 sum3	analysis_scripts/nfsim/ana.py	/^sum3 = sum3\/3$/;"	v	access:public
 sum3	analysis_scripts/nfsim/ana.py	/^sum3=0$/;"	v	access:public
 system	analysis_scripts/md/extract_xtc_frame.py	/^system = MDAnalysis.Universe(inTop, inFile)$/;"	v	access:public
-t_ZH	dotfiles/.vimrc	/^        let t_ZH="\\e[3m"$/;"	v
-t_ZR	dotfiles/.vimrc	/^        let t_ZR="\\e[23m"$/;"	v
 target	analysis_scripts/nfsim/gdat_plot.py	/^target = sys.argv[2]    # target specie$/;"	v	access:public
 targlist	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
 templates	dotfiles/init.vim	/^                augroup templates$/;"	a

@@ -1,0 +1,227 @@
+\documentclass[../jaynes_prob_theory_notes.tex]{subfiles}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{amsmath}
+
+\begin{document}
+    \section{Discrete prior probabilities:\ the entropy principle}
+        \begin{itemize} 
+            \item in order to consistently provide `correct' probabilities, we must first know how to recognize the relevance of prior information
+            \item if we can break the situation up into mutually exclusive, exhaustive probabilities, we can use the principle of indifference.\ but there is often prior information that doesn't change the number of possibilities, but does give reason to prefer some over the others
+        \end{itemize}
+
+        \subsection{A new kind of prior information}
+            \begin{itemize} 
+                \item imagine a problem in which the prior information consists of average values of certain things, like the average window is broken into $\overline{m} = 9.76$ pieces.\ what we are not told is that out of 100 windows, 976 pieces of glass were found.
+                \item given this information, what is the probability that a window will break into $m$ pieces?\ or more generally, how do we assign informative prior probabilities?
+                \item this is actually two problems:\ estimating a frequency distribution and assigning a probability  distribution.\ in an exchangeable sequence, these are almost identical mathematically
+                \item a uniform prior represents a state of knowledge absolutely noncommittal with respect to all possibilities.\ what we would like to do is assign a probability that is as uniform as possible, while still agreeing with the available information
+                \item this is a \textit{variational} problem (think principle of least action or variational method in QM)
+            \end{itemize}
+
+            \subsubsection{Minimum $\mathbf{\sum p^{2}_{i}}$}
+                \begin{itemize} 
+                    \item a measure of how spread out a probability distribution is is the sum of the squares of the probabilities assigned to each possibility
+                    \item the distribution which minimizes this expression, with relevant constraints, may be a reasonable way to solve the above stated problem
+                    \item mathematically, we want to minimize
+                        \begin{equation}
+                            \label{min_var}
+                            \sum\limits_{m} p^{2}_{m}
+                        \end{equation}
+                        subject to the constraint that the sum of all $p_m$ is unity and the average over the distribution is $\overline{m}$
+
+                        \begin{itemize}
+                            \item applying the variational method, we get the solution
+                                \begin{equation*} 
+                                    \delta \left[ \sum\limits_{m} p^{2}_{m} - \lambda \sum\limits_{m} mp_m - \mu \sum\limits_{m} p_m \right] = \sum\limits_{m} (2p_m - \lambda m - \mu) \delta p_m = 0
+                                \end{equation*}
+                                where $\lambda$ and $\mu$ are \textit{Lagrange multipliers}. 
+                            \item Lagrange multipliers are used to find local maxima and minima of functions subject to constraints.\ It seems that there is one multiplier for each constraint.\ for a case of a $n$ choice variables and $M$ constraints, the Lagrangian takes the form
+                                \begin{equation*} 
+                                    \mathscr{L} (x_1, \ldots, x_n, {\lambda}_1, \ldots, {\lambda}_M) = f(x_1, \ldots, x_n) - \sum\limits^{M}_{k=1} {\lambda}_k g_k (x_1, \ldots, x_n)
+                                \end{equation*}
+                            \item so $p_m$ will be a linear function of $m$, $2pm - \lambda m - \mu = 0$
+                            \item $\mu$ and $\lambda$ can be found from
+                                \begin{equation*} 
+                                    \sum\limits_{m} p_m = 1
+                                \end{equation*}
+                                and
+                                \begin{equation*} 
+                                    \sum\limits_{m} mp_m = \overline{m}
+                                \end{equation*}
+                            \item if $m$ is a positive, real integer, then we get the solutions
+                                \begin{equation*} 
+                                    p_1 = \frac{4}{3} - \frac{\overline{m}}{2} \hspace{0.5cm} p_2 = \frac{1}{3} \hspace{0.5cm} p_3 = \frac{\overline{m}}{2} - \frac{2}{3}
+                                \end{equation*}
+                            \item but then the probability for $p_1$ becomes negative when $\overline{m} > 2.667$ and $p_3$ becomes negative when $\overline{m} < 1.33$.\ so the formal solution for the $\min \left[ \sum p_i \right]$ lacks the property of non-negativity
+                        \end{itemize}
+                    \item so while not exactly what we want, variational methods do have promise
+                \end{itemize}
+
+            \subsubsection{Entropy:\ Shannon's theorem}
+                \begin{itemize}
+                    \item comes from Shannon's work on information theory
+                    \item if there exists a consistent measure of `uncertainty' represented by a probability distribution, there are certain conditions which it must satisfy (this is taken verbatim)
+                        \begin{enumerate}
+                            \item We assume that some numerical measure $H_n (p_1, \ldots, p_n)$ exists; i.e.\ that it is possible to set up some kind of association between `uncertainty' and real numbers
+                            \item We assume a continuity principle: $H_n$ is a continuous function of the $p_i$.\ Otherwise an arbitrarily small change in the probability distribution would lead to a large change in the uncertainty.
+                            \item We require that this measure should correspond qualitatively to common sense in that, when there are many possibilities, we are more uncertain than when there are few.\ This condition takes the form that in the case that all $p_i$ are equal, the quantity:
+                                \begin{equation*} 
+                                    h(n) = H_n \left( \frac{1}{n}, \frac{1}{n}, \ldots, \frac{1}{n} \right)
+                                \end{equation*}
+                                is a monotonic increasing function of $n$.\ This establishes the `sense of direction'
+                            \item We require that the measure $H_n$ be consistent in the same sense as before; i.e.\ if there is more than one way of working out its value, we must get the same answer for every possible way
+                        \end{enumerate}
+                    \item suppose we perceive two possibilities, which we assign $p_1$ and $q \equiv 1 - p_1$.\ the amount of uncertainty is then represented by the distribution $H_2 (p_1 , q)$
+                    \item what if we learn that the second possibility is actually two possibilities such that $p_2 + p_3 = q$?\ what then is the full uncertainty, $H_3 (p_1, p_2, p_3)$
+                        \begin{itemize}
+                            \item this process can be broken into two steps
+                            \item first decide if the first possibility is true.\ this removes uncertainty $H(p_1, q)$
+                            \item then we encounter the additional uncertainty of events $2$ and $3$, with probability $q$, leading to
+                                \begin{equation*} 
+                                    H_3 (p_1, p_2, p_3) = h_2 (p_1, q) + q H_2 \left (\frac{p_2}{q}, \frac{p_3}{q} \right)
+                                \end{equation*}
+                                as the condition that we obtain the same net uncertainty for either method
+                            \item generally $H_n$ can be broken down in many different ways
+                        \end{itemize}
+                    \item he shows a proof of Shannon's theorem on pp.\ 348--350, which I will not replicate (also, I really have a hard time following it, as a not math person)
+                    \item Shannon's theorem:\ the only function $H(p_1, \ldots, p_n)$ satisfying the conditions we have imposed is
+                        \begin{equation} 
+                            \label{shannon}
+                            H(p_1, \ldots, p_n) = - \sum\limits^{n}_{i=1} p_i \log (p_i)
+                        \end{equation}
+                    \item it follows that the distribution $(p_1, \ldots, p_n)$ which maximizes eq.~\ref{shannon}, subject to constraints, will represent the `most honest' description about what we know about propositions $(A_1, \ldots, A_n)$
+                    \item the function $H$ is the \textit{information entropy} of the distribution $\{p_i\}$
+                    \item he provides another derivation, the Wallis derivation, which he says is more satisfying conceptually
+                        \begin{itemize} 
+                            \item We are given information $I$, which is to be used in assigning probabilities $\{p_1, \ldots, p_m\}$ to $m$ possibilities, with the total probability $\sum^{m}_{i=1} p_i = 1$
+                            \item choose some integer $n \gg m$, where we have $n$ quanta of probability, each with the magnitude $\delta = n^{-1}$ to distribute
+                            \item suppose we were to distribute the $n$ quanta randomly among the $m$ possibilities; the first $m$ receives $n_1$ quanta, the second $n_2$ quanta, and so on, until we have the probability assignment
+                                \begin{equation*} 
+                                    p_i = n_i \delta = \frac{n_i}{n} \hspace{1cm} i = 1, 2, \ldots, m
+                                \end{equation*}
+                                with the probability that this will happen being the multinomial distribution
+                                \begin{equation*} 
+                                    m^{-n} = \frac{n!}{n_1! \cdots n_m!}
+                                \end{equation*}
+                            \item suppose we do this procedure repeatedly, rejecting each probability assignment if it does not conform to $I$.\ what is the most likely probability distribution result?
+                            \item it is the one that maximizes the probability
+                                \begin{equation*} 
+                                    W = \frac{n!}{n_1! \cdots n_m!}
+                                \end{equation*}
+                            \item we can refine this by using smaller and smaller quanta, and in this limit we have, by Stirling's approximation
+                                \begin{equation*} 
+                                    \log (n!) = n\log (n) - n + \sqrt(2\pi n) + \frac{1}{12n} + O \left( \frac{1}{n^2} \right)
+                                \end{equation*}
+                                where $O$ denotes terms that tend to zero as $n \rightarrow \infty$
+                            \item using this and writing $n_i = np_i$, we find that as $n \rightarrow \infty$, $n_i \rightarrow \infty$ in such a way that $n_i/n \rightarrow p_i = \mathrm{const.}$,
+                                \begin{equation*} 
+                                    \frac{1}{n} \log (W) \rightarrow - \sum\limits^{m}_{i=1} p_i \log (p_i) = H(p_1, \ldots, p_m)
+                                \end{equation*}
+                            \item so the most likely probability assignment is the one that has maximum entropy subject to the given information $I$
+                        \end{itemize}
+                \end{itemize}
+
+            \subsubsection{Formal properties of maximum entropy distributions}
+                \begin{itemize} 
+                    \item want to list the formal properties of the canonical distribution (look at pg. 357)
+                        \begin{equation} 
+                            \label{canon_dist}
+                            u_i \equiv \frac{1}{Z({\lambda}_1, \ldots, {\lambda}_m)} \exp \left \{ - \sum\limits^{m}_{j=1} {\lambda}_j f_j {x_i} \right \}
+                        \end{equation}
+                    \item the maximum \( H \) attainable by holding averages fixed depends on the averages we specify,
+                        \begin{equation*} 
+                            H_{\max} = S(F_1, \ldots, F_m) = \log Z({\lambda}_1, \ldots, {\lambda}_m) + \sum\limits^{m}_{k=1} {\lambda}_k F_k
+                        \end{equation*}
+                    \item \( H \) is the measure of the `amount of uncertainty' in a probability  distribution and, once maximized, it becomes a function of the definite data of the problem \( \{ F_i \} \), which we'll call \( S(F_1, \ldots, F_m) \) 
+                    \item \( S(F_1, \ldots, F_m) \) is still a measure of uncertainty, just uncertainty \textit{when all the information we have consists of just these numbers}
+                    \item if \( S \) is a function only of \( (F_1, \ldots, F_m) \), then the partition function \( Z({\lambda}_1, \ldots, {\lambda}_m) \) is also a function of \( (F_1, \ldots, F_m) \)
+                    \item different Lagrange multipliers, \( {\lambda}_i \) are different canonical probability distributions, in which the averages over these distributions agree with the given averages \(F_k\) if 
+                        \begin{equation*} 
+                            F_k = \langle f_k \rangle = - \frac{\partial \log Z({\lambda}_1, \ldots, {\lambda}_m)}{\partial {\lambda}_k} \hspace{1cm} k = 1, 2, \ldots, m
+                        \end{equation*}
+                        which is a set of \(m\) simultaneous nonlinear equations which must be solved for the multipliers in terms of \( F_k \)
+                    \item small changes in \( F_k \) changes the maxium attainable \( H \) by
+                        \begin{equation} 
+                            \label{del_canon_dist}
+                            {\lambda}_k = \frac{\partial S(F_1, \ldots, F_m)}{\partial F_k}
+                        \end{equation}
+                    \item differentiating either eqs.~\ref{canon_dist} or~\ref{del_canon_dist}, with respect to \( \lambda_j \), we get a general reciprocity law
+                        \begin{equation*} 
+                            \frac{\partial F_k}{\partial \lambda_j} = \frac{\partial^2 \log Z(\lambda_1, \ldots, \lambda_m)}{\partial \lambda_j \partial \lambda_k} = \frac{\partial F_j}{\partial \lambda_k}
+                        \end{equation*}
+                    \item differentiating again will give a second reciprocity law dependent on the first derivative
+                    \item lets now consider the possibility that one of the functions \( f_k (x) \) contains a parameter \( \alpha \) which can vary (e.g.\ say \(f_k (x_i ; \alpha) \) stands for the \(i\)th energy level of a system and \( \alpha \) is the volume of the system), where we want to predict how quantities change as we change \( \alpha \)
+                        \begin{itemize} 
+                            \item the best estimate of the derivative would be the mean value over the probability distribution
+                                \begin{align*} 
+                                    \left \langle \frac{\partial f_k}{\partial \alpha} \right \rangle &= \frac{1}{Z} \sum\limits_{i} \exp \{- \lambda_i f_1 (x_i) - \cdots - \lambda_k f_k (x_i ; \alpha) - \cdots - \lambda_m f_m (x_i) \} \frac{\partial f_k (x_i ; \alpha)}{\partial \alpha} \\
+                                    \Rightarrow \left \langle \frac{\partial f_k}{\partial \alpha} \right \rangle &= - \frac{1}{\lambda_k} \frac{\partial \log Z(\lambda_1, \ldots, \lambda_m ; \alpha)}{\partial \alpha} 
+                                \end{align*}
+                                which assumes \( \alpha \) appears in only one function.\ if the same parameter appears in multiple functions, we can generalize it to
+                                \begin{equation*} 
+                                    \sum\limits^{m}_{k=1} \lambda_k \left \langle \frac{\partial f_k}{\partial \alpha} \right \rangle = - \frac{\partial \log Z(\lambda_1, \ldots, \lambda_m ; \alpha)}{\partial \alpha}
+                                \end{equation*}
+                        \end{itemize}
+                    \item now lets note some \textit{fluctuation laws}, or moment laws
+                        \begin{itemize} 
+                            \item Note: \( F_k \) and \( \langle f_k \rangle \) stand for the same number, since we specified that the expectation values \( \{ \langle f_1 \rangle, \ldots, \langle f_m \rangle \} \) are set to be equal to the given data \( \{F_1, \ldots, F_m \} \)
+                                \begin{itemize} 
+                                    \item when we want to emphasize that the quantities are averages over the distribution, we will use \( \langle f_k \rangle \), and when we want to emphasize that they are the given data, we use \( F_k \)
+                                \end{itemize}
+                            \item the reciprocity law can be written as
+                                \begin{equation*} 
+                                    \frac{\partial \langle f_k \rangle}{\partial \lambda_j} = \frac{\partial \langle f_j \rangle}{\partial \lambda_k} = \frac{\partial^2 \log Z(\lambda_1, \ldots, \lambda_m)}{\partial \lambda_j \partial \lambda_k}
+                                \end{equation*}
+                            \item varying \(\lambda\)'s changes from one canonical distribution to another, where their averages are slightly different. 
+                            \item the new distribution corresponds to \( (\lambda_k + \delta \lambda_k) \), and since it is of canonical form, its maximum entropy corresponds to slightly different data \( (F_k + d F_k) \)
+                            \item how are the different quantities \( f_k (x) \) correlated?\ measure of covariance of the distribution
+                                \begin{equation*} 
+                                    \left \langle (f_j - \langle f_j \rangle)(f_k - \langle f_k \rangle) \right \rangle = \left\langle f_j f_k - f_j \langle f_k \rangle - \langle f_j \rangle f_k + \langle f_j \rangle \langle f_k \rangle \right\rangle = \langle f_j f_k \rangle - \langle f_j \rangle \langle f_k \rangle
+                                \end{equation*}
+                                if \( f_k \) is greater than \( \langle f_k \rangle \), it is likely that the \( f_j \) is also larger than \( \langle f_j \rangle \) and the covariance is positive.\ if the oppositive, it is negative.\ if their variations are uncorrelated, the covariance is zero
+                            \item if \( j = k \), this reduces to the variance
+                                \begin{equation*} 
+                                    \left\langle {(f_k - \langle f_k \rangle)}^2 \right\rangle = \langle f^{2}_k \rangle - {\langle f_k \rangle}^2 \geq 0
+                                \end{equation*}
+                            \item he goes on to calculate these for the canonical distribution explicitly
+                        \end{itemize}
+                    \item we now have a new class of problems we can solve wholesale:\ first evaluate the partition function, then by differentiating this with respect to all arguments, we can obtain predictions in the form of mean values over the maximum entropy distribution
+                    \item I need to spend more time looking at this to truly grok it
+                \end{itemize}
+
+            \subsubsection{Conceptual problems --- frequency correspondence}
+                \begin{itemize} 
+                    \item Maximum entropy is conceptually difficult, especially from a frequentist's perspective
+                    \item some common objections:
+                        \begin{enumerate}
+                            \item The only justification for the canonical entropy is `maximum uncertainty', which is a negative;\ you can't get results out of ignorance
+                            \item no reason to assume that distributions observed experimentally would correspond to those found from maximum entropy, as the distributions have nothing to do with frequencies
+                            \item the principle is restricted to cases where constraints are average values, but data \( F_k \) are almost never averages
+                            \item the principle can't lead to definite physical results because if different people had different information, they would come up with different distributions
+                        \end{enumerate}
+                    \item to which he responds:
+                        \begin{enumerate}
+                            \item the uncertainty was always there;\ maximizing the entropy does not \textit{create} uncertainty
+                            \item maximum entropy fundamentally has nothing to do with the frequencies of `random experiments', but this does not mean that it cannot be applied to such cases
+                                \begin{itemize}
+                                    \item see the dice example --- maximum entropy probabilities do have precise connections to frequencies
+                                    \item this relation is usually not needed 
+                                    \item maximum entropy is most useful when observed frequencies do not agree with maximum entropy probabilities
+                                \end{itemize}
+                            \item if given information does consist of mean values, then the math is neat and gives us a partition function.\ but for given information which places any type of constraint, we can conclude that the \textit{probability} distribution which maximizes the entropy is identical to the \textit{frequency} distribution which can be realized in the greatest number of ways
+                            \item goes into quite some detail here, saying that this misses the point of maximum entropy
+                                \begin{itemize} 
+                                    \item if we have two people with different prior information, B having more than A, the measure of the ratio of maximum probabilities is
+                                        \begin{equation*} 
+                                            \frac{W_A}{W_B} \sim \exp \left \{ N(H_A - H_B) \right \}
+                                        \end{equation*}
+                                    \item even for large \( N \), a slight decrease in the entropy leads to a large decrease in the number of possibilities
+                                    \item justifies the weak statement of frequency correspondence:
+                                        \begin{displayquote}
+                                            If the information incorporated into the maximum entropy analysis includes all the constraints actually operating in the random experiment, then the distribution predicted by maximum entropy is overwhelmingly the most likely to be observed experimentally.\ Indeed, most frequency distributions observed in Nature are maximum entropy distributions, simply because they can be realized in so many more ways than can any other. (pg. 370)
+                                        \end{displayquote}
+                                \end{itemize}
+                        \end{enumerate}
+                    \item he says, to summarize:\ ``\ldots the principle of maximum entropy is not an oracle telling which predictions \textit{must} be right;\ it is a rule for inductive reasoning that tells us which predictions \textit{are most strongly indicated by our present information}. (pg. 370)
+                \end{itemize}
+\end{document}
