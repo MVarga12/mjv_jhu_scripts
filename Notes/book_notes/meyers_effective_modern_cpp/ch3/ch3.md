@@ -1,6 +1,6 @@
 # Chapter 3 -- Moving to Modern C++
 
-## Distinguish between () and {} when creating objects
+## Item 7: Distinguish between () and {} when creating objects
   - C++11 has too many ways to initialize objects
     ```cpp
     int x(0); // initializer in parantheses
@@ -63,3 +63,65 @@
         std::vector<int> v2{ 10, 20 }; // creates a vector of size 2 with values 10 and 20
         ```
         
+## Item 8: Prefer `nullptr` to `0` or `NULL`
+  - `0` is just straight up an `int`. But, if it is used in a situation in which `int` is not an option for the compiler to interpret it as, it will, with a great sigh, interpret it as a pointer
+  - for all intents and purposes, `NULL` is the same -- neither of them actually has a pointer type
+  - implication of this, in C++98, is in function overloading with `int` and pointer types
+    - say we have three overloaded functions:
+      ```cpp
+      void f(int);
+      void f(bool);
+      void f(void*);
+
+      f(0); // calls f(int), not f(void*)
+      f(NULL); // may not compile, but usually calls f(int), never f(void*)
+      ```
+  - C++11's `nullptr` does not have an `int` type, though it also doesn't have a pointer type
+    - as an aside, the author points out that `nullptr`'s real type is `std::nullptr_t`, which is defined to be of type `nullptr`, which is hilarious
+    - `std::nullptr_t` implicitly converts to pointers of all types
+    - it avoids the above problem of function overloading with `int` and pointers; `nullptr` will always call `f(void*)`
+  - `nullptr` also helps when `auto` is invoked:
+    ```cpp
+    auto result = someFunction(...);
+    if (result == nullptr)
+        ...
+    ```
+    - this has no ambiguity, `result` absolutely must be a pointer
+    
+## Item 9: Prefer alias to `typedef`
+  - `typedef` is used to avoid writing long, verbose types, such as `std::unique_ptr<std::unordered_map<std::string, std::string>>`
+    ```cpp
+    typedef
+        std::unique_ptr<std::unordered_map<std::string, std::string>>
+        UptrMapSS;
+    ```
+    - `UptrMapSS` can now be used as the type instead of the long version
+  - C++11 introduces alias declarations:
+    ```cpp
+    using UptrMapSS = 
+        std::unique_ptr<std::unordered_map<std::string, std::string>>
+    ```
+    which functionally does the same thing
+  - So why prefer aliases?
+    - aliases declarations can be templatized, `typedef` cannot
+      - as an exampled, say we have a linked list synonym using an allocator `MyAlloc`:
+        ```cpp
+        template<typename T>
+        using MyAllocList = std::list<T, MyAlloc<T>>;
+
+        MyAllocList<Dog>::type lw; // some other code
+        ```
+      - doing the same thing with `typedef` would make McGuiver proud:
+        ```cpp
+        template<typename T>
+        struct MyAllocList {
+            typedef std::list<T, MyAlloc<T>> type;
+        };
+
+        MyAllocList<Dog>::type lw; // some other code
+        ```
+      - when compilers see this, they don't know for sure that it names a type; it could be some specialization of `MyAllocList` that it just hasn't seen yet 
+      - he mentions *template metaprogramming* here, and that if you haven't done it, you're not a truly effective C++ programmer
+        - Wiki says,
+        > **Template metaprogramming** (**TMP**) is a metaprogramming technique in which templates are used by a compiler to generate temporary source code, which is merged by the compiler which the rest of the source code and then compiled. The output of these templates include compile-time constants, data structures, and complete functions.
+        - Some examples are found in Items 23 and 27

@@ -122,11 +122,13 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 100	jctc_2016_code/smoothing2.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
 100	jctc_2016_code/smoothing2_prod.f	/^  100    KOUNT(II) = KOUNT(II) + 1$/;"	l	subroutine:XERSAV	file:
 100	jctc_2016_code/smoothing2_prod.f	/^  100 CONTINUE$/;"	l	subroutine:XERRWV	file:
+11	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                                \\label{11}$/;"	l
 110	jctc_2016_code/hermite.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
 110	jctc_2016_code/hermite_prod.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
 110	jctc_2016_code/smoothing.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
 110	jctc_2016_code/smoothing2.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
 110	jctc_2016_code/smoothing2_prod.f	/^  110    MESTAB(II) = MES$/;"	l	subroutine:XERSAV	file:
+12	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                                \\label{12}$/;"	l
 120	jctc_2016_code/hermite.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
 120	jctc_2016_code/hermite_prod.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
 120	jctc_2016_code/smoothing.f	/^  120 CONTINUE$/;"	l	subroutine:XERRWV	file:
@@ -561,14 +563,52 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	dotfiles/.vimrc	/^            let $NVIM_TUI_ENABLE_T
 <Right>	dotfiles/.vimrc	/^        nnoremap <Right> :vertical resize +2<CR>$/;"	m
 <Up>	dotfiles/.vimrc	/^        nnoremap <Up> :resize -2<CR>$/;"	m
 <leader>n	dotfiles/.vimrc	/^    map <leader>n :call RenameFile()<cr>$/;"	m
+A	cpp_tests/boost_tests/stable_vector/performance.cpp	/^    A() {$/;"	f	struct:A	file:	access:public	signature:()
+A	cpp_tests/boost_tests/stable_vector/performance.cpp	/^struct A {$/;"	s	file:
+A	cpp_tests/construct_order_test.cpp	/^        A(int _a)$/;"	f	class:A	file:	access:public	signature:(int _a)
+A	cpp_tests/construct_order_test.cpp	/^class A {$/;"	c	file:
+A	cpp_tests/math_tests.cpp	/^    A(int _x)$/;"	f	struct:A	file:	access:public	signature:(int _x)
+A	cpp_tests/math_tests.cpp	/^struct A {$/;"	s	file:
+A	cpp_tests/ptr_test/ptr_test.cpp	/^class A {$/;"	c	file:
+A	cpp_tests/reference_wrapper_test.cpp	/^    A(int _x, int _y, int _z)$/;"	f	struct:A	file:	access:public	signature:(int _x,int _y,int _z)
+A	cpp_tests/reference_wrapper_test.cpp	/^struct A {$/;"	s	file:
+A	cpp_tests/vec_find_test.cpp	/^    explicit A(std::string _name)$/;"	f	struct:A	file:	access:public	signature:(std::string _name)
+A	cpp_tests/vec_find_test.cpp	/^struct A {$/;"	s	file:
+A folk theorem	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsection{A folk theorem}$/;"	u	section:Sufficiency  ancillarity  and all that
+A new kind of prior information	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^        \\subsection{A new kind of prior information}$/;"	u	section:Discrete prior probabilities:  the entropy principle
 Ag	dotfiles/init.vim	/^        command! -bang -nargs=* Ag$/;"	c
+Algorithms	Notes/book_notes/knuth_art_comp_prog/book_1/ch1/ch1.tex	/^    \\subsection{Algorithms}$/;"	u	section:Basic Concepts
 AlterHeader	dotfiles/init.vim	/^        fun! AlterHeader(name)$/;"	f
+An application	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^        \\subsection{An application}$/;"	u	section:The   boldsymbol  A_p
+An aside: cumulants	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{An aside: cumulants}$/;"	u	section:The central  Gaussian  or normal distribution
+An example of the rule of succession:  bass or carp 	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^            \\subsection{An example of the rule of succession:\\ bass or carp?}$/;"	u	section:The   boldsymbol  A_p
+Ancillarity	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^        \\subsection{Ancillarity}$/;"	u	section:Sufficiency  ancillarity  and all that
+Ancillary	cpp_tests/enum_namespace_test.cpp	/^enum Ancillary { bound, unbound, state };$/;"	g	namespace:Involvement	file:
+Are there general inductive rules 	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^            \\subsubsection{Are there general inductive rules?}$/;"	b	subsection:Repetitive experiments: probability and frequency""Induction
+Aside on assigning priors	Notes/book_notes/jaynes_prob_theory/ch10/ch10.tex	/^        \\subsection{Aside on assigning priors}$/;"	u	section:Ignorance priors and transformation groups
+Asymptotic likelihood: Fisher information	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsubsection{Asymptotic likelihood: Fisher information}$/;"	b	subsection:Sufficiency  ancillarity  and all that""Ancillarity
+B	cpp_tests/ptr_test/ptr_test.cpp	/^class B {};$/;"	c	file:
+B	cpp_tests/vec_find_test.cpp	/^    explicit B(std::string _name)$/;"	f	struct:B	file:	access:public	signature:(std::string _name)
+B	cpp_tests/vec_find_test.cpp	/^struct B {$/;"	s	file:
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base() {$/;"	f	class:Base	file:	access:public	signature:()
 Base	cpp_tests/poly_vctr_test.cpp	/^    Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
 Base	cpp_tests/poly_vctr_test.cpp	/^class Base {$/;"	c	file:
+Base	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        Base() {}$/;"	f	class:Base	file:	access:public	signature:()
+Base	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
+Base	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^class Base {$/;"	c	file:
+Base	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        Base() {}$/;"	f	class:Base	file:	access:public	signature:()
+Base	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        Base(int x1)$/;"	f	class:Base	file:	access:public	signature:(int x1)
+Base	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^class Base {$/;"	c	file:
+Basic Concepts	Notes/book_notes/knuth_art_comp_prog/book_1/ch1/ch1.tex	/^\\section{Basic Concepts}$/;"	s
 Batt	dotfiles/.tmux.conf	/^set -g status-right '#{prefix_highlight} #[fg=colour233,bg=colour241,bold] %v #[fg=colour233,bg=/;"	k
+Bayesian spectrum analysis	Notes/book_notes/jaynes_prob_theory/ch15/ch15.tex	/^        \\subsection{Bayesian spectrum analysis}$/;"	u	section:Principles and pathology of orthodox statistics
+Bernoulli  s suggestion	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^            \\subsubsection{Bernoulli's suggestion}$/;"	b	subsection:Decision theory  historical background""Inference vs.  decision
+Binomial Distribution	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^    \\subsection{Binomial Distribution}$/;"	u	section:Elementary sampling theory
+Boolean Algebra	Notes/book_notes/jaynes_prob_theory/ch1/ch1.tex	/^\\section{Boolean Algebra}$/;"	s
+Both $N$ and $R$ are unknown	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^    \\subsubsection{Both $N$ and $R$ are unknown}$/;"	b	subsection:Elementary parameter estimation""Inversion of the urn distributions
 Bound	daily_programmer/330/main.cpp	/^    Bound() {};$/;"	f	struct:Bound	file:	access:public	signature:()
 Bound	daily_programmer/330/main.cpp	/^struct Bound {$/;"	s	file:
+Bptr	cpp_tests/ptr_test/ptr_test.cpp	/^    std::unique_ptr<B> Bptr;$/;"	m	class:A	typeref:typename:std::unique_ptr<B>	file:	access:public
 CHFDV	jctc_2016_code/hermite.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
 CHFDV	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
 CHFDV	jctc_2016_code/smoothing.f	/^      SUBROUTINE CHFDV(/;"	s	signature:(X1, X2, F1, F2, D1, D2, NE, XE, FE, DE, NEXT, IERR)
@@ -579,8 +619,25 @@ CHFIV	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION CHFIV(/;"	f
 CHFIV	jctc_2016_code/smoothing.f	/^      REAL FUNCTION CHFIV(/;"	f
 CHFIV	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION CHFIV(/;"	f
 CHFIV	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION CHFIV(/;"	f
+Carnap  s inductive methods	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^            \\subsection{Carnap's inductive methods}$/;"	u	section:The   boldsymbol  A_p
+Choice of a prior	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^    \\subsubsection{Choice of a prior}$/;"	b	subsection:Elementary parameter estimation""Effects of qualitative prior information
 Circle	daily_programmer/330/main.cpp	/^    Circle() {};$/;"	f	struct:Circle	file:	access:public	signature:()
 Circle	daily_programmer/330/main.cpp	/^struct Circle {$/;"	s	file:
+Combining evidence from different sources	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsection{Combining evidence from different sources}$/;"	u	section:Sufficiency  ancillarity  and all that
+Conceptual problems --- frequency correspondence	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^            \\subsubsection{Conceptual problems --- frequency correspondence}$/;"	b	subsection:Discrete prior probabilities:  the entropy principle""A new kind of prior information
+Continuing on	Notes/book_notes/jaynes_prob_theory/ch15/ch15.tex	/^        \\subsection{Continuing on}$/;"	u	section:Principles and pathology of orthodox statistics
+Continuous distributions	Notes/book_notes/jaynes_prob_theory/ch10/ch10.tex	/^        \\subsection{Continuous distributions}$/;"	u	section:Ignorance priors and transformation groups
+Continuous parameter estimation	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^\\subsection{Continuous parameter estimation}$/;"	u	section:Elementary parameter estimation
+Continuous probability distribution functions	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Continuous probability distribution functions}$/;"	u	section:Elementary hypothesis testing
+Convolution of Gaussians	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{Convolution of Gaussians}$/;"	u	section:The central  Gaussian  or normal distribution
+Coord	cpp_tests/pub_priv_test/main 2.cpp	/^    Coord() {$/;"	f	class:Coord	file:	access:public	signature:()
+Coord	cpp_tests/pub_priv_test/main 2.cpp	/^    Coord(double x1, double y1, double z1)$/;"	f	class:Coord	file:	access:public	signature:(double x1,double y1,double z1)
+Coord	cpp_tests/pub_priv_test/main 2.cpp	/^class Coord {$/;"	c	file:
+Coord	cpp_tests/pub_priv_test/main.cpp	/^    Coord() {$/;"	f	class:Coord	file:	access:public	signature:()
+Coord	cpp_tests/pub_priv_test/main.cpp	/^    Coord(double x1, double y1, double z1)$/;"	f	class:Coord	file:	access:public	signature:(double x1,double y1,double z1)
+Coord	cpp_tests/pub_priv_test/main.cpp	/^class Coord {$/;"	c	file:
+Coord	cpp_tests/vector_class_test.cpp	/^    Coord(double _x, double _y, double _z)$/;"	f	class:Coord	file:	access:public	signature:(double _x,double _y,double _z)
+Coord	cpp_tests/vector_class_test.cpp	/^class Coord {$/;"	c	file:
 D	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
 D	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
 D	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
@@ -588,10 +645,33 @@ D	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
 D	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(/;"	v
 Date	daily_programmer/338/main.cpp	/^    Date() {};$/;"	f	struct:Date	file:	access:public	signature:()
 Date	daily_programmer/338/main.cpp	/^struct Date {$/;"	s	file:
+Decision theory  historical background	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^    \\section{Decision theory, historical background}$/;"	s
+Definitions and preliminaries	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^        \\subsection{Definitions and preliminaries}$/;"	u	section:Simple applications of decision theory
 Derived_a	cpp_tests/poly_vctr_test.cpp	/^    Derived_a(int a1)$/;"	f	class:Derived_a	file:	access:public	signature:(int a1)
 Derived_a	cpp_tests/poly_vctr_test.cpp	/^class Derived_a : public Base {$/;"	c	file:	inherits:Base
+Derived_a	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        Derived_a(int a1)$/;"	f	class:Derived_a	file:	access:public	signature:(int a1)
+Derived_a	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^class Derived_a : public Base {$/;"	c	file:	inherits:Base
+Derived_a	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        Derived_a(int a1)$/;"	f	class:Derived_a	file:	access:public	signature:(int a1)
+Derived_a	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^class Derived_a : public Base {$/;"	c	file:	inherits:Base
 Derived_b	cpp_tests/poly_vctr_test.cpp	/^    Derived_b(int b1)$/;"	f	class:Derived_b	file:	access:public	signature:(int b1)
 Derived_b	cpp_tests/poly_vctr_test.cpp	/^class Derived_b : public Base {$/;"	c	file:	inherits:Base
+Derived_b	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        Derived_b(int b1)$/;"	f	class:Derived_b	file:	access:public	signature:(int b1)
+Derived_b	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^class Derived_b : public Base {$/;"	c	file:	inherits:Base
+Derived_b	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        Derived_b(int b1)$/;"	f	class:Derived_b	file:	access:public	signature:(int b1)
+Derived_b	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^class Derived_b : public Base {$/;"	c	file:	inherits:Base
+Discrete prior probabilities:  the entropy principle	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^    \\section{Discrete prior probabilities:\\ the entropy principle}$/;"	s
+Discussion	Notes/book_notes/jaynes_prob_theory/ch13/ch13.tex	/^        \\subsection{Discussion}$/;"	u	section:Paradoxes of probability theory
+EXAMPLE: Bernoulli urn	Notes/book_notes/jaynes_prob_theory/ch2/ch2.tex	/^\\subsection{EXAMPLE: Bernoulli urn}$/;"	u	section:The quantitative rules
+Effects of qualitative prior information	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^\\subsection{Effects of qualitative prior information}$/;"	u	section:Elementary parameter estimation
+Elementary hypothesis testing	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\section{Elementary hypothesis testing}$/;"	s
+Elementary parameter estimation	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^\\section{Elementary parameter estimation}$/;"	s
+Elementary sampling theory	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^\\section{Elementary sampling theory}$/;"	s
+Entropy algorithms	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                \\subsubsection{Entropy algorithms}$/;"	b	subsection:Repetitive experiments: probability and frequency""Multiplicity
+Entropy:  Shannon  s theorem	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^            \\subsubsection{Entropy:\\ Shannon's theorem}$/;"	b	subsection:Discrete prior probabilities:  the entropy principle""A new kind of prior information
+Error cancellation	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^            \\subsubsection{Error cancellation}$/;"	b	subsection:The central  Gaussian  or normal distribution""Why the ubiquitous use of Gaussian distributions 
+Estimation with a binomial sampling distribution	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^    \\subsubsection{Estimation with a binomial sampling distribution}$/;"	b	subsection:Elementary parameter estimation""Continuous parameter estimation
+Example:  The honest weatherman	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^            \\subsubsection{Example:\\ The honest weatherman}$/;"	b	subsection:Decision theory  historical background""Inference vs.  decision
+Expectations	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^\\subsection{Expectations}$/;"	u	section:Elementary sampling theory
 F	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(/;"	v
 F	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(/;"	v
 F	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(/;"	v
@@ -602,6 +682,7 @@ FDUMP	jctc_2016_code/hermite_prod.f	/^      SUBROUTINE FDUMP$/;"	s
 FDUMP	jctc_2016_code/smoothing.f	/^      SUBROUTINE FDUMP$/;"	s
 FDUMP	jctc_2016_code/smoothing2.f	/^      SUBROUTINE FDUMP$/;"	s
 FDUMP	jctc_2016_code/smoothing2_prod.f	/^      SUBROUTINE FDUMP$/;"	s
+Fair judge vs.  cruel realist	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^        \\subsection{Fair judge vs.\\ cruel realist}$/;"	u	section:Model comparison
 Fd	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
 Fd	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
 Fd	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(:), Xe(:), Fd(/;"	v
@@ -612,6 +693,14 @@ Fe	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), 
 Fe	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
 Fe	jctc_2016_code/smoothing2.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
 Fe	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(:), Fe(/;"	v
+Formal properties of maximum entropy distributions	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^            \\subsubsection{Formal properties of maximum entropy distributions}$/;"	b	subsection:Discrete prior probabilities:  the entropy principle""A new kind of prior information
+Formulation of the problem	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^        \\subsection{Formulation of the problem}$/;"	u	section:Model comparison
+General Equations	Notes/book_notes/jaynes_prob_theory/notation/notation.tex	/^\\subsection{General Equations}$/;"	u	section:Notation and Equations
+General decision theory	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^        \\subsection{General decision theory}$/;"	u	section:Decision theory  historical background
+General remarks on solutions	Notes/book_notes/ode/ch1/ch1.tex	/^    \\subsection{General remarks on solutions}$/;"	u	section:The Nature of Differential Equations
+Generalization of the rule	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^            \\subsection{Generalization of the rule}$/;"	u	section:The   boldsymbol  A_p
+Generalized ancillary information	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsubsection{Generalized ancillary information}$/;"	b	subsection:Sufficiency  ancillarity  and all that""Ancillarity
+Generalized sufficiency	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsubsection{Generalized sufficiency}$/;"	b	subsection:Sufficiency  ancillarity  and all that""Sufficiency
 I	dotfiles/.tmux.conf	/^setw -g window-status-current-format " #F#I:#W#F "$/;"	k
 I	dotfiles/.tmux.conf	/^setw -g window-status-format " #F#I:#W#F "$/;"	k
 I1MACH	jctc_2016_code/hermite.f	/^      INTEGER FUNCTION I1MACH(/;"	f
@@ -619,24 +708,51 @@ I1MACH	jctc_2016_code/hermite_prod.f	/^      INTEGER FUNCTION I1MACH(/;"	f
 I1MACH	jctc_2016_code/smoothing.f	/^      INTEGER FUNCTION I1MACH(/;"	f
 I1MACH	jctc_2016_code/smoothing2.f	/^      INTEGER FUNCTION I1MACH(/;"	f
 I1MACH	jctc_2016_code/smoothing2_prod.f	/^      INTEGER FUNCTION I1MACH(/;"	f
+Ignorance priors and transformation groups	Notes/book_notes/jaynes_prob_theory/ch10/ch10.tex	/^    \\section{Ignorance priors and transformation groups}$/;"	s
+Indifference through knowledge or ignorance	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^            \\subsection{Indifference through knowledge or ignorance}$/;"	u	section:The   boldsymbol  A_p
+Induction	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^        \\subsection{Induction}$/;"	u	section:Repetitive experiments: probability and frequency
+Inference vs.  decision	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^        \\subsection{Inference vs.\\ decision}$/;"	u	section:Decision theory  historical background
+Information loss	Notes/book_notes/jaynes_prob_theory/ch15/ch15.tex	/^        \\subsection{Information loss}$/;"	u	section:Principles and pathology of orthodox statistics
 Interface	cpp_tests/read_inputs.cpp	/^    Interface() {}$/;"	f	class:Interface	file:	access:public	signature:()
 Interface	cpp_tests/read_inputs.cpp	/^    Interface(std::string name1, int index1)$/;"	f	class:Interface	file:	access:public	signature:(std::string name1,int index1)
 Interface	cpp_tests/read_inputs.cpp	/^class Interface {$/;"	c	file:
 Interfaces	cpp_tests/read_inputs.cpp	/^        std::vector<Interface> Interfaces;$/;"	m	class:Molecule	typeref:typename:std::vector<Interface>	file:	access:public
+Inversion of the urn distributions	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^\\subsection{Inversion of the urn distributions}$/;"	u	section:Elementary parameter estimation
+Involved	cpp_tests/enum_namespace_test.cpp	/^enum Involved { binding, unbinding, onlyStateChange };$/;"	g	namespace:Involvement	file:
+Involvement	cpp_tests/enum_namespace_test.cpp	/^namespace Involvement {$/;"	n	file:
 J4SAVE	jctc_2016_code/hermite.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/hermite_prod.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing2.f	/^      FUNCTION J4SAVE(/;"	f
 J4SAVE	jctc_2016_code/smoothing2_prod.f	/^      FUNCTION J4SAVE(/;"	f
+Known parameters	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^            \\subsubsection{Known parameters}$/;"	b	subsection:Model comparison""Fair judge vs.  cruel realist
+Laplace  s rule of succession	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^        \\subsection{Laplace's rule of succession}$/;"	u	section:The   boldsymbol  A_p
 LinterStatus	dotfiles/.vimrc	/^    function! LinterStatus() abort$/;"	f
+Location and scale parameters	Notes/book_notes/jaynes_prob_theory/ch10/ch10.tex	/^            \\subsubsection{Location and scale parameters}$/;"	b	subsection:Ignorance priors and transformation groups""Transformation groups
+Logic vs Propensity	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^\\subsection{Logic vs Propensity}$/;"	u	section:Elementary sampling theory
+Loss functions and criteria of optimum performance	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^        \\subsection{Loss functions and criteria of optimum performance}$/;"	u	section:Simple applications of decision theory
 MarkdownSyntaxIgnore	dotfiles/.vimrc	/^        function! MarkdownSyntaxIgnore()$/;"	f
+Mathematical solution for Stage 2	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^                \\subsubsection{Mathematical solution for Stage 2}$/;"	b	subsection:Simple applications of decision theory""The widget problem
+Maximum entropy	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                \\subsubsection{Maximum entropy}$/;"	b	subsection:Repetitive experiments: probability and frequency""Multiplicity
+Minimum $ mathbf  sum p   2	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^            \\subsubsection{Minimum $\\mathbf{\\sum p^{2}_{i}}$}$/;"	b	subsection:Discrete prior probabilities:  the entropy principle""A new kind of prior information
+Model comparison	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^    \\section{Model comparison}$/;"	s
 Modified	dotfiles/init.vim	/^        fun! Modified()$/;"	f
 Molecule	cpp_tests/read_inputs.cpp	/^        Molecule() {}$/;"	f	class:Molecule	file:	access:public	signature:()
 Molecule	cpp_tests/read_inputs.cpp	/^        Molecule(int protype1, std::string name1, std::vector<Interface> Int1)$/;"	f	class:Molecule	file:	access:public	signature:(int protype1,std::string name1,std::vector<Interface> Int1)
 Molecule	cpp_tests/read_inputs.cpp	/^class Molecule {$/;"	c	file:
+More on probability and frequency connections	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^        \\subsection{More on probability and frequency connections}$/;"	u	section:The   boldsymbol  A_p
+Multiple hypothesis testing	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Multiple hypothesis testing}$/;"	u	section:Elementary hypothesis testing
+Multiplicity	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^        \\subsection{Multiplicity}$/;"	u	section:Repetitive experiments: probability and frequency
 N	jctc_2016_code/integ.f90	/^integer :: N$/;"	v
 N	jctc_2016_code/integ2.f90	/^integer :: N$/;"	v
 N	jctc_2016_code/integ_real.f90	/^  integer :: N$/;"	v
+Noextensibility beyond the binary case	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Noextensibility beyond the binary case}$/;"	u	section:Elementary hypothesis testing
+Non--Gaussian estimators 	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^            \\subsubsection{Non--Gaussian estimators?}$/;"	b	subsection:The central  Gaussian  or normal distribution""Why the ubiquitous use of Gaussian distributions 
+Nonconglomerability	Notes/book_notes/jaynes_prob_theory/ch13/ch13.tex	/^        \\subsection{Nonconglomerability}$/;"	u	section:Paradoxes of probability theory
+Notation	Notes/book_notes/jaynes_prob_theory/notation/notation.tex	/^\\subsection{Notation}$/;"	u	section:Notation and Equations
+Notation and Equations	Notes/book_notes/jaynes_prob_theory/notation/notation.tex	/^\\section{Notation and Equations}$/;"	s
+Nuisance parameters as safety devices	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{Nuisance parameters as safety devices}$/;"	u	section:The central  Gaussian  or normal distribution
+Orthodox methods:  historical background	Notes/book_notes/jaynes_prob_theory/ch14/ch14.tex	/^    \\section{Orthodox methods:\\ historical background}$/;"	s
 PCHDF	jctc_2016_code/hermite.f	/^      REAL FUNCTION PCHDF(/;"	f
 PCHDF	jctc_2016_code/hermite_prod.f	/^      REAL FUNCTION PCHDF(/;"	f
 PCHDF	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHDF(/;"	f
@@ -682,21 +798,76 @@ PCHST	jctc_2016_code/smoothing.f	/^      REAL FUNCTION PCHST(/;"	f
 PCHST	jctc_2016_code/smoothing2.f	/^      REAL FUNCTION PCHST(/;"	f
 PCHST	jctc_2016_code/smoothing2_prod.f	/^      REAL FUNCTION PCHST(/;"	f
 Packet	daily_programmer/333/main.cpp	/^struct Packet {$/;"	s	file:
+Paradoxes of probability theory	Notes/book_notes/jaynes_prob_theory/ch13/ch13.tex	/^    \\section{Paradoxes of probability theory}$/;"	s
+Partition function algorithms	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                \\subsubsection{Partition function algorithms}$/;"	b	subsection:Repetitive experiments: probability and frequency""Multiplicity
+Physical experiments	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^        \\subsection{Physical experiments}$/;"	u	section:Repetitive experiments: probability and frequency
+Physical measurements	Notes/book_notes/jaynes_prob_theory/ch17/ch17.tex	/^    \\section{Physical measurements}$/;"	s
 Point	daily_programmer/330/main.cpp	/^    Point() {};$/;"	f	struct:Point	file:	access:public	signature:()
 Point	daily_programmer/330/main.cpp	/^    Point(float x1,float y1)$/;"	f	struct:Point	file:	access:public	signature:(float x1,float y1)
 Point	daily_programmer/330/main.cpp	/^struct Point {$/;"	s	file:
+Poorly defined prior	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^            \\subsubsection{Poorly defined prior}$/;"	b	subsection:Repetitive experiments: probability and frequency""Physical experiments
+Principles and pathology of orthodox statistics	Notes/book_notes/jaynes_prob_theory/ch15/ch15.tex	/^    \\section{Principles and pathology of orthodox statistics}$/;"	s
+Prior probabilities	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Prior probabilities}$/;"	u	section:Elementary hypothesis testing
 PriorityHighlighting	dotfiles/.vimrc	/^        function! PriorityHighlighting()$/;"	f
 Products	cpp_tests/read_inputs.cpp	/^        std::vector<int> Products;$/;"	m	class:Reaction	typeref:typename:std::vector<int>	file:	access:public
 Reactants	cpp_tests/read_inputs.cpp	/^        std::vector<int> Reactants;$/;"	m	class:Reaction	typeref:typename:std::vector<int>	file:	access:public
 Reaction	cpp_tests/read_inputs.cpp	/^        Reaction() {}$/;"	f	class:Reaction	file:	access:public	signature:()
 Reaction	cpp_tests/read_inputs.cpp	/^class Reaction {$/;"	c	file:
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^    ReactionList() {}$/;"	f	class:ReactionList	file:	access:private	signature:()
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^    ReactionList(std::string &n)$/;"	f	class:ReactionList	file:	access:private	signature:(std::string & n)
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^class ReactionList {$/;"	c	file:
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^    ReactionList() {}$/;"	f	class:ReactionList	file:	access:private	signature:()
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^    ReactionList(std::string &n)$/;"	f	class:ReactionList	file:	access:private	signature:(std::string & n)
+ReactionList	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^class ReactionList {$/;"	c	file:
 ReadHeader	dotfiles/init.vim	/^    fun! ReadHeader(name)$/;"	f
+Reduction of equations of condition	Notes/book_notes/jaynes_prob_theory/ch17/ch17.tex	/^        \\subsection{Reduction of equations of condition}$/;"	u	section:Physical measurements
+Relation of cumulants and moments	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^            \\subsubsection{Relation of cumulants and moments}$/;"	b	subsection:The central  Gaussian  or normal distribution""An aside: cumulants
+Relevance	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^        \\subsection{Relevance}$/;"	u	section:The   boldsymbol  A_p
 RenameFile	dotfiles/.vimrc	/^    function! RenameFile()$/;"	f
+Repetitive experiments: probability and frequency	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^    \\section{Repetitive experiments: probability and frequency}$/;"	s
+Sampling distribution for an estimator	Notes/book_notes/jaynes_prob_theory/ch14/ch14.tex	/^        \\subsection{Sampling distribution for an estimator}$/;"	u	section:Orthodox methods:  historical background
+Sampling with replacement	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^\\subsection{Sampling with replacement}$/;"	u	section:Elementary sampling theory
+Sampling without replacement	Notes/book_notes/jaynes_prob_theory/ch3/ch3.tex	/^\\subsection{Sampling without replacement}$/;"	u	section:Elementary sampling theory
 ScratchEdit	dotfiles/.vimrc	/^    function! ScratchEdit(cmd,options)$/;"	f
 Sedit	dotfiles/.vimrc	/^    command! -bar -nargs=* Sedit call ScratchEdit('edit', <q-args>)$/;"	c
 SetItalicComments	dotfiles/.vimrc	/^        function! SetItalicComments()$/;"	f
+Significance tests	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^        \\subsection{Significance tests}$/;"	u	section:Repetitive experiments: probability and frequency
+Simple and compound hypotheses	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Simple and compound hypotheses}$/;"	u	section:Elementary hypothesis testing
+Simple applications of decision theory	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^    \\section{Simple applications of decision theory}$/;"	s
+Some quotes	Notes/book_notes/jaynes_prob_theory/jaynes_prob_theory_notes.tex	/^\\section{Some quotes}$/;"	s
+SomeInfo	cpp_tests/ref_test/main 2.cpp	/^    SomeInfo(int _x)$/;"	f	struct:SomeInfo	file:	access:public	signature:(int _x)
+SomeInfo	cpp_tests/ref_test/main 2.cpp	/^struct SomeInfo {$/;"	s	file:
+SomeInfo	cpp_tests/ref_test/main.cpp	/^    SomeInfo(int _x)$/;"	f	struct:SomeInfo	file:	access:public	signature:(int _x)
+SomeInfo	cpp_tests/ref_test/main.cpp	/^struct SomeInfo {$/;"	s	file:
 Ssplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Ssplit call ScratchEdit('aboveleft 10split', <q-args>)$/;"	c
+Stage 1	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^                \\subsubsection{Stage 1}$/;"	b	subsection:Simple applications of decision theory""The widget problem
+Stage 2	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^                \\subsubsection{Stage 2}$/;"	b	subsection:Simple applications of decision theory""The widget problem
+Stage 3	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^                \\subsubsection{Stage 3}$/;"	b	subsection:Simple applications of decision theory""The widget problem
+Stage 4	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^                \\subsubsection{Stage 4}$/;"	b	subsection:Simple applications of decision theory""The widget problem
+Sufficiency	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^        \\subsection{Sufficiency}$/;"	u	section:Sufficiency  ancillarity  and all that
+Sufficiency  ancillarity  and all that	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^    \\section{Sufficiency, ancillarity, and all that}$/;"	s
+Sufficiency and information	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^        \\subsection{Sufficiency and information}$/;"	u	section:Simple applications of decision theory
+Summing a series the easy way	Notes/book_notes/jaynes_prob_theory/ch13/ch13.tex	/^        \\subsection{Summing a series the easy way}$/;"	u	section:Paradoxes of probability theory
 Svsplit	dotfiles/.vimrc	/^    command! -bar -nargs=* Svsplit call ScratchEdit('10vsplit', <q-args>)$/;"	c
+Testing an infinite set of hypotheses	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Testing an infinite set of hypotheses}$/;"	u	section:Elementary hypothesis testing
+Testing binary hypotheses with binary data	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^\\subsection{Testing binary hypotheses with binary data}$/;"	u	section:Elementary hypothesis testing
+The   boldsymbol  A_p	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^\\section{The \\(\\boldsymbol{A_p}\\) distribution and rule of succession}$/;"	s
+The Borel--Kolmogorov paradox	Notes/book_notes/jaynes_prob_theory/ch13/ch13.tex	/^        \\subsection{The Borel--Kolmogorov paradox}$/;"	u	section:Paradoxes of probability theory
+The Jeffreys prior	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^    \\subsubsection{The Jeffreys prior}$/;"	b	subsection:Elementary parameter estimation""Effects of qualitative prior information
+The Nature of Differential Equations	Notes/book_notes/ode/ch1/ch1.tex	/^\\section{The Nature of Differential Equations}$/;"	s
+The central  Gaussian  or normal distribution	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^    \\section{The central, Gaussian, or normal distribution}$/;"	s
+The central limit theorem	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{The central limit theorem}$/;"	u	section:The central  Gaussian  or normal distribution
+The de Finetti theorem	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^        \\subsection{The de Finetti theorem}$/;"	u	section:The   boldsymbol  A_p
+The folly of randomization	Notes/book_notes/jaynes_prob_theory/ch15/ch15.tex	/^            \\subsubsection{The folly of randomization}$/;"	b	subsection:Principles and pathology of orthodox statistics""Bayesian spectrum analysis
+The gravitating phenomenon	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{The gravitating phenomenon}$/;"	u	section:The central  Gaussian  or normal distribution
+The likelihood principle	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^            \\subsubsection{The likelihood principle}$/;"	b	subsection:Sufficiency  ancillarity  and all that""Sufficiency
+The quantitative rules	Notes/book_notes/jaynes_prob_theory/ch2/ch2.tex	/^\\section{The quantitative rules}$/;"	s
+The widget problem	Notes/book_notes/jaynes_prob_theory/ch12/ch12.tex	/^        \\subsection{The widget problem}$/;"	u	section:Simple applications of decision theory
+Transformation groups	Notes/book_notes/jaynes_prob_theory/ch10/ch10.tex	/^        \\subsection{Transformation groups}$/;"	u	section:Ignorance priors and transformation groups
+Trivial identities of Boolean algebra	Notes/book_notes/jaynes_prob_theory/ch1/ch1.tex	/^    \\subsection{Trivial identities of Boolean algebra}$/;"	u	section:Boolean Algebra
+Unknown parameters	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^            \\subsubsection{Unknown parameters}$/;"	b	subsection:Model comparison""Fair judge vs.  cruel realist
+Vector	cpp_tests/vector_class_test.cpp	/^    Vector(Coord& _coord)$/;"	f	struct:Vector	file:	access:public	signature:(Coord & _coord)
+Vector	cpp_tests/vector_class_test.cpp	/^struct Vector : public Coord {$/;"	s	file:	inherits:Coord
 W	jctc_2016_code/integ.f90	/^  real, dimension(-3:3) :: W /;"	v
 W	jctc_2016_code/integ2.f90	/^  real, dimension(-3:3) :: W /;"	v
 W	jctc_2016_code/integ_real.f90	/^  real, dimension(-3:3) :: W /;"	v
@@ -707,6 +878,9 @@ WW	jctc_2016_code/integ_real.f90	/^  real, dimension(-3:3) :: W = (\/ 1,3,6,7,6,
 WW	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(/;"	v
 WW	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(/;"	v
 WW	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(/;"	v
+Wald  s decision theory	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^        \\subsection{Wald's decision theory}$/;"	u	section:Decision theory  historical background
+Weight of new evidence	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^            \\subsection{Weight of new evidence}$/;"	u	section:The   boldsymbol  A_p
+Why the ubiquitous use of Gaussian distributions 	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^        \\subsection{Why the ubiquitous use of Gaussian distributions?}$/;"	u	section:The central  Gaussian  or normal distribution
 Wk	jctc_2016_code/hermite.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
 Wk	jctc_2016_code/hermite_prod.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
 Wk	jctc_2016_code/smoothing.f	/^      real, allocatable :: X(:), F(:), D(:), Wk(/;"	v
@@ -770,22 +944,45 @@ Yfit	jctc_2016_code/integ_real.f90	/^  real, allocatable :: X(:), Y(:), Yfit(/;"
 Yfit	jctc_2016_code/smoothing.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 Yfit	jctc_2016_code/smoothing2.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
 Yfit	jctc_2016_code/smoothing2_prod.f	/^      real, allocatable :: W(:), WW(:), Yfit(/;"	v
+__anon901c1dd70102	cpp_tests/vec_find_test.cpp	/^            = std::find_if(testA.begin(), testA.end(), [&](const A& oneA) -> bool { return oneA./;"	f	function:main	typeref:typename:bool	file:	signature:(const A& oneA) 
+__anon901c1dd70202	cpp_tests/vec_find_test.cpp	/^            = std::find_if(testA.begin(), testA.end(), [&](const A& oneA) -> bool { return oneA./;"	f	function:main	typeref:typename:bool	file:	signature:(const A& oneA) 
+__anon901c1dd70302	cpp_tests/vec_find_test.cpp	/^                = std::find_if(oneNameItr, testA.end(), [&](const A& oneA) -> bool { return oneA/;"	f	function:main	typeref:typename:bool	file:	signature:(const A& oneA) 
+__anon901c1dd70402	cpp_tests/vec_find_test.cpp	/^            = std::find_if(testA.begin(), testA.end(), [&](const A& oneA) -> bool { return haveS/;"	f	function:main	typeref:typename:bool	file:	signature:(const A& oneA) 
+__anon9eb66b4d0102	cpp_tests/boost_tests/stable_vector/iteration.cpp	/^        std::find_if(test.begin(), test.end(), [&](std::string animal) -> bool { return std::mov/;"	f	function:main	typeref:typename:bool	file:	signature:(std::string animal) 
+__anon9eb66b4d0202	cpp_tests/boost_tests/stable_vector/iteration.cpp	/^        test.begin(), test.end(), [&](std::string animal) -> bool { return std::move(animal) == /;"	f	function:main	typeref:typename:bool	file:	signature:(std::string animal) 
+a	cpp_tests/construct_order_test.cpp	/^        int a{1};$/;"	m	class:A	typeref:typename:int	file:	access:private
 a	cpp_tests/poly_vctr_test.cpp	/^    int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
+a	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
+a	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        int a;$/;"	m	class:Derived_a	typeref:typename:int	file:	access:public
+a	cpp_tests/ptr_test/ptr_test.cpp	/^    int a;$/;"	m	class:A	typeref:typename:int	file:	access:public
 aint	jctc_2016_code/hist_out.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out2.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_copy.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_newbin.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_newbin10.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
 aint	jctc_2016_code/hist_out_newbin10_err.py	/^                  aint = [float(b) for b in a]$/;"	v	access:public
+allSame	cpp_tests/vector_itr.cpp	/^bool allSame(const std::vector<X>& v) {$/;"	f	typeref:typename:bool	signature:(const std::vector<X> & v)
+anc_defs	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^                            \\label{anc_defs}$/;"	l
 angles	cpp_tests/read_inputs.cpp	/^        std::array<double, 3> angles;$/;"	m	class:Reaction	typeref:typename:std::array<double,3>	file:	access:public
 ans	analysis_scripts/nfsim/gdat_plot.py	/^ans = raw_input("Alter column (y\/n)?")$/;"	v	access:public
 args	plot.py	/^args = parser.parse_args()$/;"	v	access:public
 b	cpp_tests/poly_vctr_test.cpp	/^    int b;$/;"	m	class:Derived_b	typeref:typename:int	file:	access:public
+b	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        int b;$/;"	m	class:Derived_b	typeref:typename:int	file:	access:public
+b	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        int b;$/;"	m	class:Derived_b	typeref:typename:int	file:	access:public
 b:hfile	dotfiles/init.vim	/^    let b:hfile="\/Users\/mvarga\/.vim\/headers\/header.".expand("%:e")$/;"	v
 base16colorspace	dotfiles/.vimrc	/^            let base16colorspace=256$/;"	v
+binding	cpp_tests/enum_namespace_test.cpp	/^enum Involved { binding, unbinding, onlyStateChange };$/;"	e	enum:Involvement::Involved	file:	access:public
+binom_cont_nom_pdf	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^                    \\label{binom_cont_nom_pdf}$/;"	l
+binom_monk_pos	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^                        \\label{binom_monk_pos}$/;"	l
+binom_pdf	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^                \\label{binom_pdf}$/;"	l
+blah	cpp_tests/math_tests.cpp	/^    void blah() {*this = *this \/x;}$/;"	f	struct:A	typeref:typename:void	file:	access:public	signature:()
+boff	cpp_tests/vector_class_test.cpp	/^std::ostream& boff(std::ostream& os) { $/;"	f	typeref:typename:std::ostream &	signature:(std::ostream & os)
+bon	cpp_tests/vector_class_test.cpp	/^std::ostream& bon(std::ostream& os) { $/;"	f	typeref:typename:std::ostream &	signature:(std::ostream & os)
 bonds	cpp_tests/read_inputs.cpp	/^        std::vector<int> bonds;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<int>	file:	access:public
+bound	cpp_tests/enum_namespace_test.cpp	/^enum Ancillary { bound, unbound, state };$/;"	e	enum:Involvement::Ancillary	file:	access:public
 box	daily_programmer/330/main.cpp	/^    Bound box;$/;"	m	struct:Circle	typeref:typename:Bound	file:	access:public
 calc_box	daily_programmer/330/main.cpp	/^void Circle::calc_box(Circle& c) {$/;"	f	class:Circle	typeref:typename:void	signature:(Circle & c)
+canon_dist	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^                            \\label{canon_dist}$/;"	l
 cent	daily_programmer/330/main.cpp	/^    Point cent;$/;"	m	struct:Circle	typeref:typename:Point	file:	access:public
 cfig	plot.py	/^cfig = plt.figure()$/;"	v	access:public
 clat	plot.py	/^clat = cfig.add_subplot(111, projection='3d')$/;"	v	access:public
@@ -795,6 +992,10 @@ cltc_hist	analysis_scripts/nfsim/species.py	/^cltc_hist = []$/;"	v	access:public
 cltc_num	analysis_scripts/nfsim/species.py	/^    cltc_num = 0$/;"	v	access:public
 color	plot.py	/^color=iter(plt.cm.rainbow(np.linspace(0,1,len(filenames))))$/;"	v	access:public
 colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>colour(r, g, b)$/;"	f
+conj_a	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        class Derived_a *conj_a;$/;"	m	class:Derived_b	typeref:class:Derived_a *	file:	access:public
+conj_a	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        class Derived_a *conj_a;$/;"	m	class:Derived_b	typeref:class:Derived_a *	file:	access:public
+conj_b	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        class Derived_b *conj_b;$/;"	m	class:Derived_a	typeref:class:Derived_b *	file:	access:public
+conj_b	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        class Derived_b *conj_b;$/;"	m	class:Derived_a	typeref:class:Derived_b *	file:	access:public
 cons	analysis_scripts/nfsim/gdat_plot.py	/^    cons = int(cons)$/;"	v	access:public
 cons	analysis_scripts/nfsim/gdat_plot.py	/^    cons = raw_input("Divide column by what symmetry? (integer) ")$/;"	v	access:public
 corr	jctc_2016_code/hist_out.py	/^                  corr = 0.5 $/;"	v	access:public
@@ -817,7 +1018,9 @@ corrtot	jctc_2016_code/hist_out_newbin10_err.py	/^corrtot = dict2[1]$/;"	v	acces
 d	analysis_scripts/nfsim/ana.py	/^d = [line.split() for line in open("things_bound.dat","r")]$/;"	v	access:public
 d	analysis_scripts/nfsim/avg_bound.py	/^d = [line.split() for line in open(filename,"r")]$/;"	v	access:public
 d	analysis_scripts/nfsim/gdat_plot.py	/^d = [line.split() for line in open(filename, "r")]$/;"	v	access:public
+data	cpp_tests/boost_tests/stable_vector/performance.cpp	/^    std::vector<double> data;$/;"	m	struct:A	typeref:typename:std::vector<double>	file:	access:public
 day	daily_programmer/338/main.cpp	/^    int day;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
+del_canon_dist	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^                            \\label{del_canon_dist}$/;"	l
 denom	analysis_scripts/nfsim/species.py	/^denom = 0$/;"	v	access:public
 dict	jctc_2016_code/hist_out.py	/^dict = {}$/;"	v	access:public
 dict	jctc_2016_code/hist_out2.py	/^dict = {}$/;"	v	access:public
@@ -845,9 +1048,19 @@ dictop	jctc_2016_code/hist_out_newbin10.py	/^dictop = {}$/;"	v	access:public
 dictop	jctc_2016_code/hist_out_newbin10_err.py	/^dictop = {}$/;"	v	access:public
 display	cpp_tests/poly_vctr_test.cpp	/^void Derived_a::display() {$/;"	f	class:Derived_a	typeref:typename:void	signature:()
 display	cpp_tests/poly_vctr_test.cpp	/^void Derived_b::display() {$/;"	f	class:Derived_b	typeref:typename:void	signature:()
+display	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^void Derived_a::display() {$/;"	f	class:Derived_a	typeref:typename:void	signature:()
+display	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^void Derived_b::display() {$/;"	f	class:Derived_b	typeref:typename:void	signature:()
+display	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^void Derived_a::display() {$/;"	f	class:Derived_a	typeref:typename:void	signature:()
+display	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^void Derived_b::display() {$/;"	f	class:Derived_b	typeref:typename:void	signature:()
+display	cpp_tests/pub_priv_test/main 2.cpp	/^void Coord::display() {$/;"	f	class:Coord	typeref:typename:void	signature:()
+display	cpp_tests/pub_priv_test/main.cpp	/^void Coord::display() {$/;"	f	class:Coord	typeref:typename:void	signature:()
 display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	class:Reaction	typeref:typename:void	file:	access:public	signature:()
 display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	struct:parse_reaction::parsedMol	typeref:typename:void	file:	access:public	signature:()
 display	cpp_tests/read_inputs.cpp	/^        void display() {$/;"	f	struct:parse_reaction::parsedRxn	typeref:typename:void	file:	access:public	signature:()
+display	cpp_tests/vector_class_test.cpp	/^void Coord::display() const {$/;"	f	class:Coord	typeref:typename:void	signature:() const
+display	cpp_tests/vector_class_test.cpp	/^void Vector::display() const {$/;"	f	class:Vector	typeref:typename:void	signature:() const
+dispose	cpp_tests/ref_test/main 2.cpp	/^    void dispose() { delete this; };$/;"	f	struct:SomeInfo	typeref:typename:void	file:	access:public	signature:()
+dispose	cpp_tests/ref_test/main.cpp	/^    void dispose() { delete this; };$/;"	f	struct:SomeInfo	typeref:typename:void	file:	access:public	signature:()
 endwin	jctc_2016_code/hist_out.py	/^endwin = []$/;"	v	access:public
 endwin	jctc_2016_code/hist_out2.py	/^endwin = []$/;"	v	access:public
 endwin	jctc_2016_code/hist_out_copy.py	/^endwin = []$/;"	v	access:public
@@ -856,6 +1069,7 @@ endwin	jctc_2016_code/hist_out_newbin10.py	/^endwin = []$/;"	v	access:public
 endwin	jctc_2016_code/hist_out_newbin10_err.py	/^endwin = []$/;"	v	access:public
 epn1	analysis_scripts/nfsim/avg_bound.py	/^	epn1 = d[i][4]\/d[i][2]$/;"	v	access:public
 f	analysis_scripts/nfsim/gdat_plot.py	/^f = open('tmp', 'w')$/;"	v	access:public
+fair_odds	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^                            \\label{fair_odds}$/;"	l
 filein	plot.py	/^    filein = [line.split() for line in open(filenames[i], 'r')]$/;"	v	access:public
 filename	analysis_scripts/nfsim/avg_bound.py	/^filename = str(sys.argv[1])$/;"	v	access:public
 filename	analysis_scripts/nfsim/gdat_plot.py	/^filename = sys.argv[1]  # gdat file to be analyzed$/;"	v	access:public
@@ -902,6 +1116,9 @@ g:tagbar_autoclose	dotfiles/init.vim	/^    let g:tagbar_autoclose = 1$/;"	v
 g:tagbar_autofocus	dotfiles/init.vim	/^    let g:tagbar_autofocus = 1$/;"	v
 g:tagbar_autoshowtag	dotfiles/init.vim	/^    let g:tagbar_autoshowtag = 1 " automatically open folds to show tag$/;"	v
 g:undotree_SetFocusWhenToggle	dotfiles/init.vim	/^        let g:undotree_SetFocusWhenToggle = 1$/;"	v
+gauss	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^                        \\label{gauss}$/;"	l
+gauss	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^                        \\label{gauss}$/;"	l
+gauss_convol	Notes/book_notes/jaynes_prob_theory/ch6/ch6.tex	/^                        \\label{gauss_convol}$/;"	l
 gaussian	jctc_2016_code/smoothing.f	/^      function gaussian /;"	f
 gaussian	jctc_2016_code/smoothing2.f	/^      function gaussian /;"	f
 gaussian	jctc_2016_code/smoothing2_prod.f	/^      function gaussian /;"	f
@@ -923,9 +1140,12 @@ gciw	dotfiles/.vimrc	/^            nmap gciw guiw~h$/;"	m
 gciw	dotfiles/.vimrc	/^            nmap gciw guiw~l$/;"	m
 gcw	dotfiles/.vimrc	/^            nmap gcw guw~h$/;"	m
 gcw	dotfiles/.vimrc	/^            nmap gcw guw~l$/;"	m
+general_laplace	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^                            \\label{general_laplace}$/;"	l
+get_a	cpp_tests/construct_order_test.cpp	/^        int get_a() const {return a;};$/;"	f	class:A	typeref:typename:int	file:	access:public	signature:() const
 grey_colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_colour(n)$/;"	f
 grey_level	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_level(n)$/;"	f
 grey_number	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>grey_number(x)$/;"	f
+haveSameName	cpp_tests/vec_find_test.cpp	/^bool haveSameName(const X& item1, const Y& item2)$/;"	f	typeref:typename:bool	signature:(const X & item1,const Y & item2)
 hcorr	jctc_2016_code/final_integ.py	/^hcorr = [s\/intin for s in corrtot]$/;"	v	access:public
 highlight	dotfiles/.vimrc	/^        augroup highlight$/;"	a
 hin	jctc_2016_code/hist_int.py	/^hin = [float(hin) for hin in hin]$/;"	v	access:public
@@ -950,6 +1170,7 @@ histogram	jctc_2016_code/hist_out_newbin10_err.py	/^def histogram(start,stop,win
 histogram2	jctc_2016_code/hist_out_newbin.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
 histogram2	jctc_2016_code/hist_out_newbin10.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
 histogram2	jctc_2016_code/hist_out_newbin10_err.py	/^def histogram2(start,stop,win):$/;"	f	access:public	signature:(start,stop,win)
+hyptest	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^                    \\label{hyptest}$/;"	l
 i	jctc_2016_code/hist_int.py	/^i = input('Integration value: ')$/;"	v	access:public
 id	daily_programmer/333/main.cpp	/^    int id; \/\/ packet id$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
 ifaces	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> ifaces;$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:std::vector<std::string>	file:	access:public
@@ -957,39 +1178,80 @@ ifaces	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> ifaces;$/;"	
 inFile	analysis_scripts/md/extract_xtc_frame.py	/^inFile = sys.argv[2]$/;"	v	access:public
 inTop	analysis_scripts/md/extract_xtc_frame.py	/^inTop = sys.argv[1]$/;"	v	access:public
 index	cpp_tests/read_inputs.cpp	/^    int index;$/;"	m	class:Interface	typeref:typename:int	file:	access:public
+int_eq	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^                        \\label{int_eq}$/;"	l
 intercept	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
 intin	jctc_2016_code/final_integ.py	/^intin = float(intin)$/;"	v	access:public
 intin	jctc_2016_code/final_integ.py	/^intin = raw_input('Enter full histogram integral:' )$/;"	v	access:public
 is_fzf	dotfiles/.tmux.conf	/^is_fzf="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
 is_vim	dotfiles/.tmux.conf	/^is_vim="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
 it	dotfiles/.tmux.conf	/^set -ga terminal-overrides "screen-256color-it:Tc"$/;"	k
+jeff_prior	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^                    \\label{jeff_prior}$/;"	l
+kernel	Notes/book_notes/jaynes_prob_theory/ch7/ch7.tex	/^                                \\label{kernel}$/;"	l
 l	analysis_scripts/nfsim/avg_bound.py	/^        l = 1-(d[i][5]\/1000)$/;"	v	access:public
+laplace	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^                        \\label{laplace}$/;"	l
 lines	jctc_2016_code/final_integ.py	/^lines = [line.split() for line in open('histogramcorr.dat','r')]$/;"	v	access:public
 lip	analysis_scripts/nfsim/species.py	/^lip = "L"$/;"	v	access:public
 lip_num	analysis_scripts/nfsim/species.py	/^        lip_num = 1$/;"	v	access:public
 lip_num	analysis_scripts/nfsim/species.py	/^    lip_num = 0$/;"	v	access:public
+loss_min	Notes/book_notes/jaynes_prob_theory/ch11/ch11.tex	/^                                \\label{loss_min}$/;"	l
+magnitude	cpp_tests/vector_class_test.cpp	/^    double magnitude{ 0.0 };$/;"	m	struct:Vector	typeref:typename:double	file:	access:public
+main	cpp_tests/boost_tests/stable_vector/iteration.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/boost_tests/stable_vector/performance.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/construct_order_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/enum_namespace_test.cpp	/^int main() {}$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/map_test/map_test 2.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/map_test/map_test.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/math_tests.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 main	cpp_tests/poly_vctr_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^int main() {$/;"	f	typeref:class:ReactionList int	signature:()
+main	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^int main() {$/;"	f	typeref:class:ReactionList int	signature:()
+main	cpp_tests/ptr_test/ptr_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/pub_priv_test/main 2.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/pub_priv_test/main.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 main	cpp_tests/read_inputs.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/ref_test/main 2.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/ref_test/main.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/reference_wrapper_test.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/regex.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/state_split_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/string_tests/range_test.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/string_tests/remove_comment.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/string_tests/str_buff_tests/str_vs_buff.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/string_tests/string_tests.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/vec_find_test.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/vector_class_test.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/vector_itr.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
+main	cpp_tests/vector_sort.cpp	/^int main()$/;"	f	typeref:typename:int	signature:()
 main	daily_programmer/330/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 main	daily_programmer/333/main.cpp	/^int main() {$/;"	f	typeref:typename:int	signature:()
 main	daily_programmer/338/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int	signature:(int argc,char * argv[])
 make_exe	dotfiles/init.vim	/^                augroup make_exe$/;"	a
 mapleader	dotfiles/init.vim	/^let mapleader = "\\<SPACE>"$/;"	v
 matchval	jctc_2016_code/hist_out_newbin.py	/^      matchval = slope*old + intercept $/;"	v	access:public
+max_entropy	Notes/book_notes/jaynes_prob_theory/ch8/ch8.tex	/^                                \\label{max_entropy}$/;"	l
+min_var	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^                            \\label{min_var}$/;"	l
 month	daily_programmer/338/main.cpp	/^    int month;$/;"	m	struct:Date	typeref:typename:int	file:	access:public
+name	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^    std::string name;$/;"	m	class:ReactionList	typeref:typename:std::string	file:	access:private
+name	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^    std::string name;$/;"	m	class:ReactionList	typeref:typename:std::string	file:	access:private
 name	cpp_tests/read_inputs.cpp	/^        std::string name;$/;"	m	class:Molecule	typeref:typename:std::string	file:	access:public
 name	cpp_tests/read_inputs.cpp	/^        std::string name;$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:std::string	file:	access:public
 name	cpp_tests/read_inputs.cpp	/^    std::string name;$/;"	m	class:Interface	typeref:typename:std::string	file:	access:public
+name	cpp_tests/vec_find_test.cpp	/^    std::string name;$/;"	m	struct:A	typeref:typename:std::string	file:	access:public
+name	cpp_tests/vec_find_test.cpp	/^    std::string name;$/;"	m	struct:B	typeref:typename:std::string	file:	access:public
 new	jctc_2016_code/hist_out.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
 new	jctc_2016_code/hist_out2.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
 new	jctc_2016_code/hist_out_copy.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
 new	jctc_2016_code/hist_out_newbin.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
 new	jctc_2016_code/hist_out_newbin10.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
 new	jctc_2016_code/hist_out_newbin10_err.py	/^            new = [(s*corr) for s in dict2[i+1]]$/;"	v	access:public
+new_back_rxn	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^void Derived_a::new_back_rxn(std::vector<std::unique_ptr<Base> > &v) {$/;"	f	class:Derived_a	typeref:typename:void	signature:(std::vector<std::unique_ptr<Base>> & v)
+new_back_rxn	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^void Derived_a::new_back_rxn(std::vector<std::unique_ptr<Base> > &v) {$/;"	f	class:Derived_a	typeref:typename:void	signature:(std::vector<std::unique_ptr<Base>> & v)
+new_info	Notes/book_notes/jaynes_prob_theory/ch16/ch16.tex	/^                                \\label{new_info}$/;"	l
 np	plot.py	/^import numpy as np$/;"	I	access:public
 num	daily_programmer/333/main.cpp	/^    int num; \/\/ number of packets in message$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
 offrate	cpp_tests/read_inputs.cpp	/^        double offrate;$/;"	m	class:Reaction	typeref:typename:double	file:	access:public
 old	jctc_2016_code/hist_out_newbin.py	/^            old = ((dictop[i][int(len(dictop[i])-1)] + 5)\/1000)$/;"	v	access:public
+onlyStateChange	cpp_tests/enum_namespace_test.cpp	/^enum Involved { binding, unbinding, onlyStateChange };$/;"	e	enum:Involvement::Involved	file:	access:public
 onmem	cpp_tests/read_inputs.cpp	/^        bool onmem;$/;"	m	class:Reaction	typeref:typename:bool	file:	access:public
 onrate	cpp_tests/read_inputs.cpp	/^        double onrate;$/;"	m	class:Reaction	typeref:typename:double	file:	access:public
 op	jctc_2016_code/final_integ.py	/^op = [float(line[0]) for line in lines]$/;"	v	access:public
@@ -1001,19 +1263,26 @@ op3	jctc_2016_code/hist_out_newbin10.py	/^op3 = [x\/1000 for x in op3]$/;"	v	acc
 op3	jctc_2016_code/hist_out_newbin10.py	/^op3 = dictop[1]$/;"	v	access:public
 op3	jctc_2016_code/hist_out_newbin10_err.py	/^op3 = [x\/1000 for x in op3]$/;"	v	access:public
 op3	jctc_2016_code/hist_out_newbin10_err.py	/^op3 = dictop[1]$/;"	v	access:public
+operator *=	cpp_tests/reference_wrapper_test.cpp	/^void operator*=(A& a, int val)$/;"	f	typeref:typename:void	signature:(A & a,int val)
+operator /	cpp_tests/math_tests.cpp	/^    A operator\/(int val) {return {this->x\/val};}$/;"	f	struct:A	typeref:typename:A	file:	access:public	signature:(int val)
+operator /=	cpp_tests/math_tests.cpp	/^    A operator\/=(int val) {return {this->x\/val};}$/;"	f	struct:A	typeref:typename:A	file:	access:public	signature:(int val)
 operator <	daily_programmer/330/main.cpp	/^bool operator<(Point& p1, Point& p2) {$/;"	f	typeref:typename:bool	signature:(Point & p1,Point & p2)
+operator <<	cpp_tests/reference_wrapper_test.cpp	/^std::ostream& operator<<(std::ostream& os, const A& a) { return os << '(' << a.x << ", " << a.y /;"	f	typeref:typename:std::ostream &	signature:(std::ostream & os,const A & a)
 operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Bound& b) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Bound & b)
 operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Circle& c) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Circle & c)
 operator <<	daily_programmer/330/main.cpp	/^ostream& operator<<(ostream& os, Point& p) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Point & p)
 operator <<	daily_programmer/333/main.cpp	/^ostream& operator<<(ostream& os, Packet& in) {$/;"	f	typeref:typename:ostream &	signature:(ostream & os,Packet & in)
 opx	jctc_2016_code/final_integ.py	/^opx = op[37:]$/;"	v	access:public
 ord	daily_programmer/333/main.cpp	/^    int ord; \/\/ order of packet in overall block message$/;"	m	struct:Packet	typeref:typename:int	file:	access:public
+otherInfo	cpp_tests/ref_test/main 2.cpp	/^    std::shared_ptr<SomeInfo> otherInfo;$/;"	m	struct:SomeInfo	typeref:typename:std::shared_ptr<SomeInfo>	file:	access:public
+otherInfo	cpp_tests/ref_test/main.cpp	/^    std::shared_ptr<SomeInfo> otherInfo;$/;"	m	struct:SomeInfo	typeref:typename:std::shared_ptr<SomeInfo>	file:	access:public
 out	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
 out	analysis_scripts/nfsim/species.py	/^out = str(sys.argv[2])$/;"	v	access:public
 outfile	jctc_2016_code/hist_out.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
 outfile	jctc_2016_code/hist_out2.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
 outfile	jctc_2016_code/hist_out_copy.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
 outfile	jctc_2016_code/hist_out_newbin.py	/^                        outfile = open('op_'+str(j)+'\/op_'+str(j)+'_'+str(i)+'.dat','w')$/;"	v	access:public
+outp	cpp_tests/state_split_test.cpp	/^void outp(T &vec) {$/;"	f	typeref:typename:void	signature:(T & vec)
 p1	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
 p2	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
 p3	daily_programmer/330/main.cpp	/^    Point p1, p2, p3, p4;$/;"	m	struct:Bound	typeref:typename:Point	file:	access:public
@@ -1031,14 +1300,18 @@ prod	jctc_2016_code/final_integ.py	/^prod = hcorr[37:]$/;"	v	access:public
 prodhist	jctc_2016_code/final_integ.py	/^prodhist = open('productregion.dat','w')$/;"	v	access:public
 prodspecies	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> prodspecies; \/\/ strings showing the BNGL products, for compar/;"	m	class:Reaction	typeref:typename:std::vector<std::string>	file:	access:public
 protype	cpp_tests/read_inputs.cpp	/^        int protype;$/;"	m	class:Molecule	typeref:typename:int	file:	access:public
+r_post_prob	Notes/book_notes/jaynes_prob_theory/ch5/ch5.tex	/^                \\label{r_post_prob}$/;"	l
 r_value	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
 rad	daily_programmer/330/main.cpp	/^    float rad;$/;"	m	struct:Circle	typeref:typename:float	file:	access:public
 reactants	cpp_tests/read_inputs.cpp	/^        std::vector<std::string> reactants;$/;"	m	struct:parse_reaction::parsedRxn	typeref:typename:std::vector<std::string>	file:	access:public
+remove_comment	cpp_tests/string_tests/remove_comment.cpp	/^void remove_comment(std::string& line)$/;"	f	typeref:typename:void	signature:(std::string & line)
 rgb	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb(rgb)$/;"	f
 rgb_colour	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_colour(x, y, z)$/;"	f
 rgb_level	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_level(n)$/;"	f
 rgb_number	Tomorrow-Night-Eighties-edited.vim	/^	fun <SID>rgb_number(x)$/;"	f
 run	analysis_scripts/nfsim/species.py	/^run = [line.split() for line in open(filename, "r")]$/;"	v	access:public
+rxns	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^    std::vector<std::unique_ptr<Base> > rxns;$/;"	m	class:ReactionList	typeref:typename:std::vector<std::unique_ptr<Base>>	file:	access:private
+rxns	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^    std::vector<std::unique_ptr<Base> > rxns;$/;"	m	class:ReactionList	typeref:typename:std::vector<std::unique_ptr<Base>>	file:	access:private
 s:aqua	Tomorrow-Night-Eighties-edited.vim	/^let s:aqua = "66cccc"$/;"	v
 s:background	Tomorrow-Night-Eighties-edited.vim	/^let s:background = "2d2d2d"$/;"	v
 s:blue	Tomorrow-Night-Eighties-edited.vim	/^let s:blue = "6699cc"$/;"	v
@@ -1052,11 +1325,15 @@ s:red	Tomorrow-Night-Eighties-edited.vim	/^let s:red = "f2777a"$/;"	v
 s:selection	Tomorrow-Night-Eighties-edited.vim	/^let s:selection = "515151"$/;"	v
 s:window	Tomorrow-Night-Eighties-edited.vim	/^let s:window = "4d5057"$/;"	v
 s:yellow	Tomorrow-Night-Eighties-edited.vim	/^let s:yellow = "ffcc66"$/;"	v
+set_crds	cpp_tests/pub_priv_test/main 2.cpp	/^void Coord::set_crds(int nx, int ny, int nz) {$/;"	f	class:Coord	typeref:typename:void	signature:(int nx,int ny,int nz)
+set_crds	cpp_tests/pub_priv_test/main.cpp	/^void Coord::set_crds(int nx, int ny, int nz) {$/;"	f	class:Coord	typeref:typename:void	signature:(int nx,int ny,int nz)
+shannon	Notes/book_notes/jaynes_prob_theory/ch9/ch9.tex	/^                            \\label{shannon}$/;"	l
 sigma	cpp_tests/read_inputs.cpp	/^        std::array<double, 3> sigma; \/\/ TODO: this should be a Coord class to make it easier?$/;"	m	class:Reaction	typeref:typename:std::array<double,3>	file:	access:public
 simpson	jctc_2016_code/smoothing.f	/^      function simpson(/;"	f
 simpson	jctc_2016_code/smoothing2.f	/^      function simpson(/;"	f
 simpson	jctc_2016_code/smoothing2_prod.f	/^      function simpson(/;"	f
 slope	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
+solve_example	Notes/book_notes/ode/ch1/ch1.tex	/^                            \\label{solve_example}$/;"	l
 spe_num	analysis_scripts/nfsim/species.py	/^    spe_num = 0$/;"	v	access:public
 spe_num	analysis_scripts/nfsim/species.py	/^    spe_num = species[i][len(species[i])-1]$/;"	v	access:public
 species	analysis_scripts/nfsim/species.py	/^species = []$/;"	v	access:public
@@ -1065,6 +1342,7 @@ spline	jctc_2016_code/hermite_prod.f	/^      logical spline$/;"	v
 spline	jctc_2016_code/smoothing.f	/^      logical spline$/;"	v
 spline	jctc_2016_code/smoothing2.f	/^      logical spline$/;"	v
 spline	jctc_2016_code/smoothing2_prod.f	/^      logical spline$/;"	v
+state	cpp_tests/enum_namespace_test.cpp	/^enum Ancillary { bound, unbound, state };$/;"	e	enum:Involvement::Ancillary	file:	access:public
 std_err	jctc_2016_code/hist_out_newbin.py	/^      slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)$/;"	v	access:public
 sum1	analysis_scripts/nfsim/ana.py	/^sum1 = sum1\/3$/;"	v	access:public
 sum1	analysis_scripts/nfsim/ana.py	/^sum1=0$/;"	v	access:public
@@ -1072,6 +1350,7 @@ sum2	analysis_scripts/nfsim/ana.py	/^sum2 = sum2\/3$/;"	v	access:public
 sum2	analysis_scripts/nfsim/ana.py	/^sum2=0$/;"	v	access:public
 sum3	analysis_scripts/nfsim/ana.py	/^sum3 = sum3\/3$/;"	v	access:public
 sum3	analysis_scripts/nfsim/ana.py	/^sum3=0$/;"	v	access:public
+sum_of_likelihoods	Notes/book_notes/jaynes_prob_theory/ch4/ch4.tex	/^            \\label{sum_of_likelihoods}$/;"	l
 system	analysis_scripts/md/extract_xtc_frame.py	/^system = MDAnalysis.Universe(inTop, inFile)$/;"	v	access:public
 target	analysis_scripts/nfsim/gdat_plot.py	/^target = sys.argv[2]    # target specie$/;"	v	access:public
 targlist	analysis_scripts/nfsim/gdat_plot.py	/^time, targlist, out = [], [], []$/;"	v	access:public
@@ -1084,6 +1363,9 @@ tmp	analysis_scripts/nfsim/species.py	/^    tmp = [x,y]$/;"	v	access:public
 tmp	analysis_scripts/nfsim/species.py	/^    tmp = fin2[i][0] * fin2[i][1]       #total clat in agg size$/;"	v	access:public
 tmp	analysis_scripts/nfsim/species.py	/^    tmp = float(fin2[i][1])\/float(denom) #normalize$/;"	v	access:public
 trapezoid	jctc_2016_code/final_integ.py	/^def trapezoid(f,a,b,n):$/;"	f	access:public	signature:(f,a,b,n)
+unbinding	cpp_tests/enum_namespace_test.cpp	/^enum Involved { binding, unbinding, onlyStateChange };$/;"	e	enum:Involvement::Involved	file:	access:public
+unbound	cpp_tests/enum_namespace_test.cpp	/^enum Ancillary { bound, unbound, state };$/;"	e	enum:Involvement::Ancillary	file:	access:public
+unknown_odds_ratio	Notes/book_notes/jaynes_prob_theory/ch18/ch18.tex	/^                            \\label{unknown_odds_ratio}$/;"	l
 used	cpp_tests/read_inputs.cpp	/^        int *used; \/\/ this is the interface used to react$/;"	m	struct:parse_reaction::parsedMol	typeref:typename:int *	file:	access:public
 val	analysis_scripts/nfsim/gdat_plot.py	/^        val = i$/;"	v	access:public
 val	analysis_scripts/nfsim/gdat_plot.py	/^val = 0$/;"	v	access:public
@@ -1100,7 +1382,16 @@ win_num	jctc_2016_code/hist_out_newbin10_err.py	/^win_num = 8$/;"	v	access:publi
 x	analysis_scripts/nfsim/species.py	/^    x = [spe_num,cltc_num,lip_num]$/;"	v	access:public
 x	analysis_scripts/nfsim/species.py	/^    x = int(fin[i][0])$/;"	v	access:public
 x	analysis_scripts/nfsim/species.py	/^    x = run[i][0].split(".")$/;"	v	access:public
+x	cpp_tests/math_tests.cpp	/^    int x {0};$/;"	m	struct:A	typeref:typename:int	file:	access:public
 x	cpp_tests/poly_vctr_test.cpp	/^    int x;$/;"	m	class:Base	typeref:typename:int	file:	access:public
+x	cpp_tests/poly_vctr_test/poly_vctr_test 2.cpp	/^        int x;$/;"	m	class:Base	typeref:typename:int	file:	access:public
+x	cpp_tests/poly_vctr_test/poly_vctr_test.cpp	/^        int x;$/;"	m	class:Base	typeref:typename:int	file:	access:public
+x	cpp_tests/pub_priv_test/main 2.cpp	/^    double x;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+x	cpp_tests/pub_priv_test/main.cpp	/^    double x;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+x	cpp_tests/ref_test/main 2.cpp	/^    int x;$/;"	m	struct:SomeInfo	typeref:typename:int	file:	access:public
+x	cpp_tests/ref_test/main.cpp	/^    int x;$/;"	m	struct:SomeInfo	typeref:typename:int	file:	access:public
+x	cpp_tests/reference_wrapper_test.cpp	/^    int x{ 0 };$/;"	m	struct:A	typeref:typename:int	file:	access:public
+x	cpp_tests/vector_class_test.cpp	/^    double x;$/;"	m	class:Coord	typeref:typename:double	file:	access:public
 x	daily_programmer/330/main.cpp	/^    float x, y;$/;"	m	struct:Point	typeref:typename:float	file:	access:public
 x	jctc_2016_code/hist_out.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
 x	jctc_2016_code/hist_out2.py	/^                        x = [line.strip() for line in open('..\/window_'+str(j)+'_tot\/disha_'+s/;"	v	access:public
@@ -1113,6 +1404,10 @@ xfloat	jctc_2016_code/hist_out2.py	/^                        xfloat = [float(x) 
 xfloat	jctc_2016_code/hist_out_copy.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
 xfloat	jctc_2016_code/hist_out_newbin.py	/^                        xfloat = [float(x) for x in x]$/;"	v	access:public
 y	analysis_scripts/nfsim/species.py	/^    y = int(fin[i][1])$/;"	v	access:public
+y	cpp_tests/pub_priv_test/main 2.cpp	/^    double y;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+y	cpp_tests/pub_priv_test/main.cpp	/^    double y;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+y	cpp_tests/reference_wrapper_test.cpp	/^    int y{ 0 };$/;"	m	struct:A	typeref:typename:int	file:	access:public
+y	cpp_tests/vector_class_test.cpp	/^    double y;$/;"	m	class:Coord	typeref:typename:double	file:	access:public
 y	daily_programmer/330/main.cpp	/^    float x, y;$/;"	m	struct:Point	typeref:typename:float	file:	access:public
 y	jctc_2016_code/hist_out.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'\/distances\/di/;"	v	access:public
 y	jctc_2016_code/hist_out2.py	/^                        y = [line.strip() for line in open('..\/window_'+str(j)+'_tot\/dishd_'+s/;"	v	access:public
@@ -1125,5 +1420,9 @@ yfloat	jctc_2016_code/hist_out.py	/^                        yfloat = [float(y) f
 yfloat	jctc_2016_code/hist_out2.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
 yfloat	jctc_2016_code/hist_out_copy.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
 yfloat	jctc_2016_code/hist_out_newbin.py	/^                        yfloat = [float(y) for y in y]$/;"	v	access:public
+z	cpp_tests/pub_priv_test/main 2.cpp	/^    double z;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+z	cpp_tests/pub_priv_test/main.cpp	/^    double z;$/;"	m	class:Coord	typeref:typename:double	file:	access:private
+z	cpp_tests/reference_wrapper_test.cpp	/^    int z{ 0 };$/;"	m	struct:A	typeref:typename:int	file:	access:public
+z	cpp_tests/vector_class_test.cpp	/^    double z;$/;"	m	class:Coord	typeref:typename:double	file:	access:public
 z	plot.py	/^    x, y, z = [], [], []$/;"	v	access:public
 zeller	daily_programmer/338/main.cpp	/^string zeller(Date d) {$/;"	f	typeref:typename:string	signature:(Date d)
