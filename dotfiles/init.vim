@@ -8,6 +8,7 @@ filetype plugin on
 filetype plugin indent on
 autocmd BufNewFile,BufReadPost *.md set ft=markdown
 autocmd BufNewFile,BufReadPost *.mdp set ft=dosini " this is solely for commenting with t-comment
+autocmd BufNewFile,BufReadPost *.info, *.inp, *.mol set ft=conf " solely for commenting
 
 " map leader to comma
 let mapleader = "\<SPACE>"
@@ -112,6 +113,10 @@ endif
     " Automatic session creation
     Plug 'tpope/vim-obsession'
     Plug 'dhruvasagar/vim-prosession'
+
+    " Markdown preview (w/ MathJax)
+    Plug 'iamcco/mathjax-support-for-mkdp'
+    Plug 'iamcco/markdown-preview.vim'
 
     " Easier movement
     " Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement

@@ -3,6 +3,7 @@
 [user]
 	signingkey = 7E7830F4BB6B1992
 	email = matthewjvarga@gmail.com
+	name = Matt Varga
 [commit]
 	gpgsign = true
 [credential]

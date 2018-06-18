@@ -1,0 +1,2 @@
+resid 2 and name CA
+resid 3 and name CA
