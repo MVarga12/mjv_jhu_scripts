@@ -92,6 +92,7 @@ endif
     Plug 'rizzatti/dash.vim'
 
     " writing
+    Plug 'reedes/vim-colors-pencil' " my favourite colorscheme
     Plug 'reedes/vim-pencil'
     Plug 'reedes/vim-litecorrect'
     Plug 'junegunn/goyo.vim'

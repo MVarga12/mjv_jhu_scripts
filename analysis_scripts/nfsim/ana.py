@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python2
 # script to take columns from a formatted data file 
 # and return the averages of several runs
 #import sys

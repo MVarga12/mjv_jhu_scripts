@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python2
 # this reads a .species file from nfsim and looks at each species
 # for the CLTC, EPN1, and L
 # it then finds the number of CLTC and EPN1 in each species

@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python2
 # #
 # Created:  7-May-2018 01:38:58 PM EDT
 # Modified:  7-May-2018 02:51:17 PM EDT
