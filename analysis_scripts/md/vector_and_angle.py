@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 ##
-# Created: 15-Jun-2018 12:08:57 PM EDT
-# Modified: 18-Jun-2018 04:23:58 PM EDT
+# Created: 15-Jun-2018
+# Modified: 20-Jun-2018
 # Created by: Matthew Varga
 # Purpose: Translation of vector_and_angle.m into python, using mdanalysis
 # Takes a trajectory, or single frame, its associated tpr file, and user provided
@@ -49,7 +49,8 @@ class Vector(object):
             return np.arccos(theta)
 
     def display(self):
-        print "[" + str(round(self.x, 5)) + ", " + str(round(self.y, 5)) + ", " + str(round(self.z, 5)) + "]"
+        print "[" + str(round(self.x, 5)) + ", " + \
+            str(round(self.y, 5)) + ", " + str(round(self.z, 5)) + "]"
 
 
 def get_vector(pairFrame, pair):
@@ -57,9 +58,12 @@ def get_vector(pairFrame, pair):
     vector = Vector.from_array(pair[1] - pair[0])
 
     # correct for PBC
-    corrX = vector.x - (pairFrame.dimensions[0]*round(vector.x/pairFrame.dimensions[0]))
-    corrY = vector.y - (pairFrame.dimensions[1]*round(vector.y/pairFrame.dimensions[1]))
-    corrZ = vector.z - (pairFrame.dimensions[2]*round(vector.z/pairFrame.dimensions[2]))
+    corrX = vector.x - \
+        (pairFrame.dimensions[0]*round(vector.x/pairFrame.dimensions[0]))
+    corrY = vector.y - \
+        (pairFrame.dimensions[1]*round(vector.y/pairFrame.dimensions[1]))
+    corrZ = vector.z - \
+        (pairFrame.dimensions[2]*round(vector.z/pairFrame.dimensions[2]))
     return Vector(corrX, corrY, corrZ)
 
 
@@ -67,19 +71,22 @@ def get_angle(vector1, vector2):
     return vector1.dot_theta(vector2)
 
 
-def display_results(pairList, arg, vec1, vec2 = None):
-    print "\nFound angle between the two vectors."
-    print "Vector 1: atoms (" + pairList[0][0] + ") and (" + pairList[0][1] + "):\n\t",
+def display_results(pairList, arg, vec1, vec2=None):
+    print "\nRESULTS:"
+    print "Vector 1: atoms (" + pairList[0][0] + \
+        ") and (" + pairList[0][1] + "):\n\t",
     vec1.display()
 
     if vec2 is not None:
-        print "Vector 2: atoms (" + pairList[1][1] + ") and (" + pairList[1][1] + "):\n\t",
+        print "Vector 2: atoms (" + pairList[1][1] + \
+            ") and (" + pairList[1][1] + "):\n\t",
         vec2.display()
     else:
         print "Vector 2: z-Axis vector"
 
     print "Angle (radians): ", ang
     print "Angle (degrees): ", ang * (180/np.pi)
+
 
 # set up argument parser and groups
 parser = argparse.ArgumentParser(description='Calculate the vector and angle between one or two sets of atoms, using \
@@ -89,12 +96,18 @@ frameArgs = parser.add_argument_group('frame arguments')
 trajArgs = parser.add_argument_group('trajectory arguments')
 
 # set up arguments
-reqdArgs.add_argument('--tpr', action='store', dest='tpr', help="TPR file for trajectory or single frame")
-reqdArgs.add_argument('--pairs', action='store', dest='pairs', type=int, help="Number of pairs (1 or 2) to get get vectors and angles from")
-trajArgs.add_argument('--frame', action='store', dest='frame', type=int, default=-1, help="Frame number (timestep) from which you want to extract the angle(s) and vector(s)")
-trajArgs.add_argument('--traj', action='store', dest='traj',  help="XTC or TRR format trajectory file")
-frameArgs.add_argument('--gro', action='store', dest='gro',  help="GRO single frame file")
-parser.add_argument('--pair_file', action='store', dest='pairFile', help='File containing atom pairs, in VMD syntax, with one atom per line.')
+reqdArgs.add_argument('-p', '--tpr', action='store', dest='tpr',
+                      help="TPR file for trajectory or single frame")
+reqdArgs.add_argument('-pr', '--pairs', action='store', dest='pairs', type=int,
+                      help="Number of pairs (1 or 2) to get get vectors and angles from")
+trajArgs.add_argument('-n', '--frame', action='store', dest='frame', type=int, default=-1,
+                      help="Frame number (timestep) from which you want to extract the angle(s) and vector(s)")
+trajArgs.add_argument('-t', '--traj', action='store', dest='traj',
+                      help="XTC or TRR format trajectory file")
+frameArgs.add_argument('-g', '--gro', action='store',
+                       dest='gro',  help="GRO single frame file")
+parser.add_argument('-pf', '--pair_file', action='store', dest='pairFile',
+                    help='File containing atom pairs, in VMD syntax, with one atom per line.')
 
 args = parser.parse_args()
 
@@ -122,10 +135,13 @@ if args.pairFile is not None:
     if len(rawPairs) == 2:
         rawPairs.append([tmpPairs[2], tmpPairs[3]])
 elif args.pairs == 1:
-    rawPairs.append([raw_input("Enter the first atom: "), raw_input("Enter the second atom: ")])
+    rawPairs.append([raw_input("Enter the first atom: "),
+                     raw_input("Enter the second atom: ")])
 elif args.pairs == 2:
-    rawPairs.append([raw_input("Enter the first atom of the first pair: "), raw_input("Enter the second atom of the first pair: ")])
-    rawPairs.append([raw_input("Enter the first atom of the second pair: "), raw_input("Enter the second atom of the second pair: ")])
+    rawPairs.append([raw_input("Enter the first atom of the first pair: "), raw_input(
+        "Enter the second atom of the first pair: ")])
+    rawPairs.append([raw_input("Enter the first atom of the second pair: "), raw_input(
+        "Enter the second atom of the second pair: ")])
 else:
     print "Please provide one or two valid atom pair(s) in VMD syntax."
     exit()
@@ -137,16 +153,20 @@ if args.gro is not None:
 else:
     print "Reading trajectory from", args.traj,
     pairFrame = MDAnalysis.Universe(args.tpr, args.traj)
+    pairFrame.trajectory[args.frame]
     print "with " + str(len(pairFrame.trajectory)) + " frames."
 
 # Get pair coordinates from the desired frame
 if args.pairs == 1:
     # if only one pair is provided, find the angle between the vector between them and the z-axis
-    vec1 = get_vector(pairFrame, [pairFrame.select_atoms(rawPairs[0][0]).positions, pairFrame.select_atoms(rawPairs[0][1]).positions])
+    vec1 = get_vector(pairFrame, [pairFrame.select_atoms(
+        rawPairs[0][0]).positions, pairFrame.select_atoms(rawPairs[0][1]).positions])
     ang = get_angle(vec1, Vector(0, 0, 1))
     display_results(rawPairs, ang, vec1, None)
 else:
-    vec1 = get_vector(pairFrame, [pairFrame.select_atoms(rawPairs[0][0]).positions, pairFrame.select_atoms(rawPairs[0][1]).positions])
-    vec2 = get_vector(pairFrame, [pairFrame.select_atoms(rawPairs[1][0]).positions, pairFrame.select_atoms(rawPairs[1][1]).positions])
+    vec1 = get_vector(pairFrame, [pairFrame.select_atoms(
+        rawPairs[0][0]).positions, pairFrame.select_atoms(rawPairs[0][1]).positions])
+    vec2 = get_vector(pairFrame, [pairFrame.select_atoms(
+        rawPairs[1][0]).positions, pairFrame.select_atoms(rawPairs[1][1]).positions])
     an = get_angle(vec1, vec2)
     display_results(rawPairs, ang, vec1, vec2)

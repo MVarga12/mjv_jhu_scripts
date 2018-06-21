@@ -3,14 +3,13 @@ abbr dl "curl -fLo"
 abbr lt "env LC_COLLATE=C ls -alFh | less"
 abbr starthpc "ssh -X \"mvarga3@jhu.edu\"@gateway2.marcc.jhu.edu"
 abbr gmx "/usr/local/gromacs/bin/gmx"
-set PATH $HOME/.jenv/bin $PATH
+#set PATH $HOME/.jenv/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/X11/lib/pkgconfig/ /opt/X11/lib/pkgconfig/
-set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
-set QTDIR $QTDIR /usr/local/opt/qt5
+#set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
 function fish_mode_prompt; end # turns off the vi indicator
 set -g fish_key_bindings fish_vi_key_bindings
-#set -gx term $TERM screen-256color
+set -gx term $TERM screen-256color
 
 # Less Colors for Man Pages
 set -gx LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
