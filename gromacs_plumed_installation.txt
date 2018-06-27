@@ -1,0 +1,28 @@
+Instructions to build Gromacs with PLUMED
+MJV March 2018
+
+1) Download your chosen gromacs build (manual.gromacs.org/documentation) and PLUMED (plumed.org/get-it)
+
+2) install PLUMED
+    2a) tar xfz plumed_$BUILD.tar.gz # replace $BUILD with build version
+    2b) cd plumed_$BUILD
+    2c) ./configure --prefix=$PATH # replace $PATH with installation path you want 
+        2c_i) usually $HOME/opt, but this only installs it for the current user
+        2c_ii) if another user tries running gromacs with plumed, it might throw a permission denied error. install it in /usr/local/ instead
+    2d) make
+    2e) sudo make install
+
+3) unpack gromacs
+    3a) tar xfz gromacs_$BUILD.tar.gz # replace $BUILD with build version
+    3b) cd gromacs $BUILD
+    3c) $PLUMED_PATH/./plumed -patch -p # this patches plumed into the gromacs code, replace $PLUMED_PATH with the path to the plumed executable (if you use the above path, /home/local/WIN/$USR/opt/plumed) if just plain plumed doesn't work
+        3c_i) it will ask you which MD package you want to patch plumed into. Choose the closest appropriate build 
+    3d) cmake -DGMX_GPU=ON -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_INSTALL_PREFIX=$PATH # replacing $PATH with the path you want to install gromacs in
+        3d_i) -DGMX_GPU=ON compiles it to run on GPUs
+        3d_ii) -DGMX_BUILD_OWN_FFTW=ON downloads and builds the version's own FFTW module (not necessary if you already have FFTW installed)
+    3e) make
+    3f) make check
+    3g) sudo make install
+
+This should be the end. 
+Fin.
