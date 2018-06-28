@@ -1,9 +1,0 @@
-from nvt.gro (also nvt.trr)
-
-[pair 1]
-resid 2 and name CA
-resid 3 and name CA
-
-[pair 2]
-resid 2 and name CA
-resid 7 and name CA

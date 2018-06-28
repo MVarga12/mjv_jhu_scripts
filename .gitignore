@@ -3,6 +3,9 @@
 *.trr
 *.tpr
 *.xtc
+*.dat
+*.png
+*.jpeg
 tags
 tags.*
 analysis_scripts/md/test_gromacs_files

@@ -1,2 +1,2 @@
-resid 0 and name CA
-resid 1 and name CA
+resid 2 and name CA
+resid 3 and name CA
