@@ -8,6 +8,10 @@
 # atom pairs and returns a vector between the two atoms as well as:
 #   1) the angle between the atom-pair vector and the z-axis, if only one pair is provided, or
 #   2) the angle between the two atom-pair vectors, if two atom pairs are provided
+#
+# Troubleshooting:
+#   - If you get an error that reads, approximately, "Your tpx version is XXX, which this parser
+#     does not support, yet.", you need to update MDAnalysis to the most recent version
 ##
 
 import matplotlib.pyplot as plt
