@@ -12,6 +12,10 @@
 # Troubleshooting:
 #   - If you get an error that reads, approximately, "Your tpx version is XXX, which this parser
 #     does not support, yet.", you need to update MDAnalysis to the most recent version
+#   - If being used on MARCC, or any other environment in which you cannot install python modules
+#     globally and if you get errors which ultimately end up being due to MDAnalysis being out of date,
+#     you will need to use virtualenv (pip install --user virtualenv) to set up a virtual environment
+#     in which local packages are preferred to global packages (see script create_md_env.sh)
 ##
 
 import matplotlib.pyplot as plt

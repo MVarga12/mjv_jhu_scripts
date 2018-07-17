@@ -47,6 +47,8 @@
     > CA = u.select_atoms("protein and name CA")
     ```
     where we select all C_alpha in the protein
+  - For some reason, if you want to select everything except for a specific portion, you cannot use, for example, "all not water", you instead need to use "not water". I don't know why.
+- individual atoms can be selected using the `bynum` keyword, which is similar to VMD's `index` keyword. Note, however, that the `bynum` keyword is indexed from 0 and `index` is indexed from 1.
 - range atom selections by index, using `first-last` or `first:last` are inclusive:
     ```python
     > u.select_atoms("resid 5-100")
