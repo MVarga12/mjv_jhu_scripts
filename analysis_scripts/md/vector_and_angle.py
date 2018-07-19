@@ -232,8 +232,8 @@ else:
                 args.traj.split("/")[-1].split(".")[0] + ".dat."
             if args.pairs == 1:
                 wOut.write("(%s) \t (%s)\n" % (rawPairs[0][0], rawPairs[0][1]))
-                wOut.write("%8s \t %8s \t %8s \t %5s\n" %
-                           ("x", "y", "z", "ang"))  # print header
+                wOut.write("%8s \t %8s \t %8s \t %8s \t %5s\n" %
+                           ("ts", "x", "y", "z", "ang"))  # print header
                 # if only one pair is provided, find the angle between the vector between them and the z-axis
                 for frame in range(0, len(system.trajectory), args.intr):
                     system.trajectory[frame]  # ffwd to frame number
@@ -241,8 +241,8 @@ else:
                         rawPairs[0][0]).positions, system.select_atoms(rawPairs[0][1]).positions])
                     ang = get_angle(vec, Vector(0, 0, 1))
                     angles.append(ang*(180/np.pi))
-                    wOut.write("%8.4f \t %8.4f \t %8.4f \t %5.2f\n" %
-                               (vec.x, vec.y, vec.z, ang*(180/np.pi)))
+                    wOut.write("%8i \t %8.4f \t %8.4f \t %8.4f \t %5.2f\n" %
+                               (frame, vec.x, vec.y, vec.z, ang*(180/np.pi)))
                 plot_histogram(angles)
                 exit()  # we're done, exit so we don't try to go further
             else:
