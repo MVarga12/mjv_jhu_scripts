@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 ##
 # Created: 15-Jun-2018
-# Modified: 20-Jun-2018
+# Modified: 19-Jul-2018 09:44:33 AM EDT
 # Created by: Matthew Varga
 # Purpose: Translation of vector_and_angle.m into python, using mdanalysis
 # Takes a trajectory, or single frame, its associated tpr file, and user provided
@@ -18,6 +18,7 @@
 #     in which local packages are preferred to global packages (see script create_md_env.sh)
 ##
 
+from __future__ import division # without this, floating point division doesn't work
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 from scipy import stats
