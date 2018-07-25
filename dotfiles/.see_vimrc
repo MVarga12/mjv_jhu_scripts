@@ -1,0 +1,12 @@
+set runtimepath=~/.vim
+map q :q
+
+"small status line
+set statusline=
+"set statusline+=%(%#ShortFilePath#%f%0*%) " filename
+set statusline+=%f
+set statusline+=%m
+set statusline+=%R%=
+set statusline+=%< " folding left
+set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
+set statusline+=[%p%%] " percentage of the file
