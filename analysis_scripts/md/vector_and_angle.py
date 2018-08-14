@@ -18,7 +18,8 @@
 #     in which local packages are preferred to global packages (see script create_md_env.sh)
 ##
 
-from __future__ import division # without this, floating point division doesn't work
+# without this, floating point division doesn't work
+from __future__ import division
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 from scipy import stats
@@ -112,7 +113,7 @@ def plot_histogram(angles):
 
     # Create and save the histogram
     print "Creating histogram with", numBins, "bins, using bin size", binSize
-    hist = plt.hist(angles, normed=True, bins=numBins)
+    plt.hist(angles, normed=True, bins=numBins)
 
     xt = plt.xticks()[0]
     xMin, xMax = min(xt), max(xt)
