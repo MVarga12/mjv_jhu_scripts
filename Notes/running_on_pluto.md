@@ -29,7 +29,15 @@
     2. Type `defaults write org.macosforge.xquartz.X11 enable_iglx -bool true` 
     3. Type `reset` or kill the terminal and open a new one. You should now be able to open a VMD window from the remote machine. Viewing trajectories in it does not work well, though.
 
-### Process Priority
+## Process Control
+### Core Pinning
+  - Processes can be pinned to specific cores/threads using `taskset`:
+    ```bash
+    taskset $CORE $CMD # generic command
+    taskset 1 python test.py # pins the python script to core 1
+    ```
+    - This can be done retroactively, as a process is already running, but using `taskset $CORE -p $PID`
+### Priority
   - Niceness dictates what process a CPU will prioritize, on a scale [-20,20), with lower niceness being prioritized over higher niceness. This means that a process with niceness 0 will be prioritized, in terms of CPU time, over a process with niceness 1 (niceness can be seen with commands such as `ps` and `top`).
   - To set niceness at the beginning of a process, use `nice -n $NICE $CMD`, where `$NICE` is the niceness and `$CMD` is whatever command you want to run.
   - To set the niceness of a currently running process, use `sudo renice $NICE -p $PID`.

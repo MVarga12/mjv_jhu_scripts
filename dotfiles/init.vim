@@ -73,13 +73,11 @@ endif
     " Plug 'neomake/neomake'
     " Plug 'lervag/vimtex'
     Plug 'w0rp/ale'
-    Plug 'roxma/nvim-completion-manager'
-    Plug 'roxma/ncm-clang'
+    " Plug 'roxma/nvim-completion-manager'
+    Plug 'ncm2/ncm2'
+    " Plug 'roxma/ncm-clang'
+    Plug 'ncm2/ncm2-pyclang'
     Plug 'ervandew/supertab'
-    " Plug 'autozimu/LanguageClient-neovim', {
-    "             \ 'branch' : 'next',
-    "             \ 'do' : 'bash install.sh'
-    "             \ }
 
     " Formatting
     Plug 'tomtom/tcomment_vim' " universal commenter for embedded filetypes
