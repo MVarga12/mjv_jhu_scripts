@@ -1,13 +1,13 @@
-# viewing defaults
-mol default style CPK
+# defaults
+mol default style VDW
 display projection orthographic
 mol default material Diffuse
 axes location off
+render default method
 
 # menus and their locations
 menu main move 30 200
 menu graphics move 190 450
-
 menu main on
 menu graphics on
 
