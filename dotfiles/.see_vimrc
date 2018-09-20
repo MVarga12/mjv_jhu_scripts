@@ -10,3 +10,5 @@ set statusline+=%R%=
 set statusline+=%< " folding left
 set statusline+=%(%3l,%02c%03V%)\ " row,column,virtual-column
 set statusline+=[%p%%] " percentage of the file
+
+hi Search ctermbg=36 guibg=36
