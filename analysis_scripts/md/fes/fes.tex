@@ -1,0 +1,24 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+    \pagenumbering{gobble}
+    \begin{figure}[!ht]
+        \centering
+        \subfloat[\label{3d1}]{%
+            \includegraphics[width=2.3in]{3dfes1.png}
+        }
+        \subfloat[\label{3d2}]{%
+            \includegraphics[width=2.3in]{3dfes2.png}
+        }
+
+        %%
+
+        \subfloat[\label{2d}]{%
+                \includegraphics[width=2.3in]{fes2d.png}
+        }
+        % \caption{Angle distributions for long (panels~\ref{long_pro1}-\ref{long_pro2_time}) and short axes (panels~\ref{short_pro1}-\ref{short_pro2_time}) over a 409 ns trajectory using Plumed and angle restraints of 1579.970 kJ/mol and 76.563 kJ/mol and reference angles of $38.752^{\circ}$ and $78.428^{\circ}$, respectively.}
+    \end{figure}
+\end{document}
