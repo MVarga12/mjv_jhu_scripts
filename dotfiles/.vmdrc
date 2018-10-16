@@ -1,51 +1,36 @@
-# defaults
+### defaults ###
 mol default style VDW
 display projection orthographic
-mol default material Diffuse
-axes location off
-render default method
+Display Background white
 
-# menus and their locations
+# Ambient Occlusion #
+display ambientocclusion on
+display aoambient 0.60
+display aodirect 0.50
+display mol default material AOChalky
+
+axes location off
+render default Tachyon
+
+### menus and their locations ###
 menu main move 30 200
 menu graphics move 190 450
+menu files move 1430 198
+
 menu main on
 menu graphics on
+menu files on
 
-# change display size and position
+### change display size and position ###
 display resize 900 900
 display reposition 510 980
 display rendermode GLSL
 
-# X,Y,Z colors
+### X,Y,Z colors ###
 color Element X red
 color Element Y blue
 
 ##### SCRIPTS #####
 
-# vmd tcl procedure: reload the last trajectory data set 
-#                    for the current top molecule. 
-#
-# Copyright (c) 2004 by <Axel.Kohlmeyer@theochem.ruhr-uni-bochum.de>
-
-proc reload {args} {
-    set tmol [molinfo top]
-    array set viewpoints {}
-    foreach mol [molinfo list] {
-    # save orientation and zoom parameters
-      set viewpoints($mol) [molinfo $mol get { 
-        center_matrix rotate_matrix scale_matrix global_matrix}]
-    } 
-    # delete all coordinates and (re)load the latest data set.
-    animate delete all $tmol
-    set files [lindex [molinfo $tmol get filename] 0]
-    set lf [expr [llength $files] - 1]
-
-    mol addfile [lindex $files $lf] mol $tmol \
-        type [lindex [lindex [molinfo $tmol get filetype] 0] $lf]
-
-    foreach mol [molinfo list] {
-    # restore orientation and zoom
-      molinfo $mol set {center_matrix rotate_matrix scale_matrix
-        global_matrix} $viewpoints($mol)
-    }
-}
+source ~/vmd_scripts/cg_bonds.tcl
+source ~/vmd_scripts/reload.tcl
