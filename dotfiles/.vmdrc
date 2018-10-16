@@ -1,7 +1,7 @@
 ### defaults ###
 mol default style VDW
 display projection orthographic
-Display Background white
+display Background white
 
 # Ambient Occlusion #
 display ambientocclusion on

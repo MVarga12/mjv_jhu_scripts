@@ -112,19 +112,19 @@
 " Random other settings
     " open with folds
         set foldmethod=syntax
-    
+
     " Make folder for swap files
         set swapfile
         set dir=~/tmp
-        
+
         set updatetime=100
         set autoread
         set lazyredraw
-        
+
     "split-term
         set nosplitright
         set splitbelow
-    
+
     " spell check
         set spell spelllang=en_us
 
@@ -134,7 +134,7 @@
             nnoremap <silent> <Leader>z :call system("tmux resize-pane -Z")<CR>
             " autocmd FocusGained * call system("tmux resize-pane -Z") " TODO: make it so that this doesn't fire if switching desktops
         endif
-    
+
     " Focused pane numbering options 
         set number norelativenumber
         " augroup active_relative_number
@@ -142,7 +142,7 @@
         "     autocmd BufEnter,FocusGained,InsertLeave * :setlocal number relativenumber
         "     autocmd BufLeave,FocusLost,InsertEnter * :setlocal number norelativenumber
         " augroup END
-    
+
     " set colour scheme
     "set t_Co=256
         if has('nvim')
