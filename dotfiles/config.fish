@@ -4,8 +4,8 @@ set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/X11/lib/pkgco
 set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
 set QTDIR $QTDIR /usr/local/opt/qt5
 
-abbr startpluto "ssh -Y mvarga3@pluto.bph.jhu.edu"
-abbr startdaffy "ssh -Y mvarga3@daffy.bph.jhu.edu"
+# abbr startpluto "ssh -Y mvarga3@pluto.bph.jhu.edu"
+# abbr startdaffy "ssh -Y mvarga3@daffy.bph.jhu.edu"
 abbr btx "byobu-tmux"
 abbr see "nvim -R -u ~/.see_vimrc"
 abbr lt "ls -alth | nvim -R -u ~/.see_vimrc -"

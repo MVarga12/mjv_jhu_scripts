@@ -14,52 +14,52 @@ autocmd BufNewFile,BufReadPost *.info, *.inp, *.mol set ft=conf " solely for com
 let mapleader = "\<SPACE>"
 
 " read skeleton files for code headers
-if (&readonly == "off")
-    let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e")
-    autocmd BufNewFile * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call ReadHeader("hfile")
-    autocmd BufRead,BufEnter * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call AlterHeader("hfile")
-
-    fun! ReadHeader(name)
-        if filereadable(b:{a:name})
-            augroup templates
-                au!
-                autocmd Filetype * silent! execute "0r $HOME/.vim/headers/header.".expand("%:e")
-                autocmd Filetype * %substitute#\[:VIM_EVAL_NEW:\]\(.\{-\}\)\[:END_EVAL_NEW:\]#\=eval(submatch(1))#ge
-                autocmd Filetype * %substitute#\[:VIM_EVAL_POST:\]\(.\{-\}\)\[:END_EVAL_POST:\]#\=eval(submatch(1))#ge
-                autocmd BufWritePre * ks|call Modified()|'s
-                augroup make_exe
-                    autocmd BufWritePre *.py,*.sh if !filereadable(expand('%')) | let b:is_new = 1 | endif
-                    autocmd BufWritePost *.py,*.sh if get(b:, 'is_new', 0) | silent execute '!chmod +x %' | endif
-                augroup END
-            else 
-                augroup templates
-                    au!
-                augroup END
-            endif
-        endfun!
-
-        fun! AlterHeader(name)
-            if filereadable(b:{a:name})
-                augroup templates
-                    au!
-                    autocmd BufWritePre * ks | call Modified() | 's
-                augroup END
-            else
-                augroup templates
-                    au!
-                augroup END
-            endif
-        endfun!
-
-        fun! Modified()
-            if line("$") > 20
-                let l = 20
-            else
-                let l = line("$")
-            endif
-            exe "1," . l . "g/Modified: /s/Modified: .*/Modified: " . strftime('%v %I:%M:%S %p %Z')
-        endfun!
-endif
+" if (&readonly == "off")
+"     let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e")
+"     autocmd BufNewFile * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call ReadHeader("hfile")
+"     autocmd BufRead,BufEnter * let b:hfile="/Users/mvarga/.vim/headers/header.".expand("%:e") | call AlterHeader("hfile")
+"
+"     fun! ReadHeader(name)
+"         if filereadable(b:{a:name})
+"             augroup templates
+"                 au!
+"                 autocmd Filetype * silent! execute "0r $HOME/.vim/headers/header.".expand("%:e")
+"                 autocmd Filetype * %substitute#\[:VIM_EVAL_NEW:\]\(.\{-\}\)\[:END_EVAL_NEW:\]#\=eval(submatch(1))#ge
+"                 autocmd Filetype * %substitute#\[:VIM_EVAL_POST:\]\(.\{-\}\)\[:END_EVAL_POST:\]#\=eval(submatch(1))#ge
+"                 autocmd BufWritePre * ks|call Modified()|'s
+"                 augroup make_exe
+"                     autocmd BufWritePre *.py,*.sh if !filereadable(expand('%')) | let b:is_new = 1 | endif
+"                     autocmd BufWritePost *.py,*.sh if get(b:, 'is_new', 0) | silent execute '!chmod +x %' | endif
+"                 augroup END
+"             else 
+"                 augroup templates
+"                     au!
+"                 augroup END
+"             endif
+"         endfun!
+"
+"         fun! AlterHeader(name)
+"             if filereadable(b:{a:name})
+"                 augroup templates
+"                     au!
+"                     autocmd BufWritePre * ks | call Modified() | 's
+"                 augroup END
+"             else
+"                 augroup templates
+"                     au!
+"                 augroup END
+"             endif
+"         endfun!
+"
+"         fun! Modified()
+"             if line("$") > 20
+"                 let l = 20
+"             else
+"                 let l = line("$")
+"             endif
+"             exe "1," . l . "g/Modified: /s/Modified: .*/Modified: " . strftime('%v %I:%M:%S %p %Z')
+"         endfun!
+" endif
 
 "vim-plug
     call plug#begin('~/.vim/plugged')
@@ -86,15 +86,12 @@ endif
     " Plug 'vhdirk/vim-cmake'
     " Plug 'vim-scripts/TaskList.vim'
 
-    " Debugging
-    Plug 'rizzatti/dash.vim'
-
     " writing
     Plug 'reedes/vim-colors-pencil' " my favourite colorscheme
     Plug 'reedes/vim-pencil'
     Plug 'reedes/vim-litecorrect'
-    Plug 'junegunn/goyo.vim'
     Plug 'chrisbra/unicode.vim'
+    Plug 'vim-latex/vim-latex'
 
     " Snippets
     Plug 'SirVer/ultisnips'
@@ -118,7 +115,7 @@ endif
     Plug 'iamcco/markdown-preview.vim'
 
     " Easier movement
-    " Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement
+    Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement
     Plug 'wesQ3/vim-windowswap' " swap splits while retaining layout
 
     " Tmux stuff
@@ -266,5 +263,8 @@ call plug#end()
                 \ | setlocal spell spelllang=en_us noruler nonumber norelativenumber
                 \ | setlocal foldopen+=search
                 \ | setlocal nocursorcolumn
+
+    " Pencil theme
+        let g:pencil_terminal_italics=1
 
 source ~/.vimrc
