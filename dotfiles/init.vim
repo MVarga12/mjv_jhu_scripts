@@ -8,7 +8,7 @@ filetype plugin on
 filetype plugin indent on
 autocmd BufNewFile,BufReadPost *.md set ft=markdown
 autocmd BufNewFile,BufReadPost *.mdp set ft=dosini " this is solely for commenting with t-comment
-autocmd BufNewFile,BufReadPost *.info, *.inp, *.mol set ft=conf " solely for commenting
+autocmd BufNewFile,BufReadPost *.info, *.inp, *.mol, *.bngl set ft=conf " solely for commenting
 
 " map leader to comma
 let mapleader = "\<SPACE>"
@@ -69,22 +69,14 @@ let mapleader = "\<SPACE>"
     Plug 'dag/vim-fish', {'for' : 'fish'}
 
     " Linters
-    " Plug 'Shougo/neoinclude.vim'
-    " Plug 'neomake/neomake'
-    " Plug 'lervag/vimtex'
     Plug 'w0rp/ale'
-    " Plug 'roxma/nvim-completion-manager'
     Plug 'ncm2/ncm2'
-    " Plug 'roxma/ncm-clang'
     Plug 'ncm2/ncm2-pyclang'
     Plug 'ervandew/supertab'
 
     " Formatting
     Plug 'tomtom/tcomment_vim' " universal commenter for embedded filetypes
     Plug 'rhysd/vim-clang-format' " plugin for clang-format
-
-    " Plug 'vhdirk/vim-cmake'
-    " Plug 'vim-scripts/TaskList.vim'
 
     " writing
     Plug 'reedes/vim-colors-pencil' " my favourite colorscheme
@@ -95,13 +87,12 @@ let mapleader = "\<SPACE>"
 
     " Snippets
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    " Plug 'honza/vim-snippets'
 
     " Better search tools
     Plug 'junegunn/fzf.vim'
 
     " Bookmarks and Tags
-    " Plug 'MattesGroeger/vim-bookmarks'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar'
     Plug 'Valloric/ListToggle'
@@ -109,10 +100,6 @@ let mapleader = "\<SPACE>"
     " Automatic session creation
     Plug 'tpope/vim-obsession'
     Plug 'dhruvasagar/vim-prosession'
-
-    " Markdown preview (w/ MathJax)
-    Plug 'iamcco/mathjax-support-for-mkdp'
-    Plug 'iamcco/markdown-preview.vim'
 
     " Easier movement
     Plug 'chaoren/vim-wordmotion' " more intuitive defintions of words for w and e movement
@@ -156,7 +143,8 @@ call plug#end()
     \}
 
     let g:clang_format#command = "clang-format"
-    autocmd BufUnload *.c,*.cpp ClangFormat
+    let g:clang_format#auto_format=0
+    " autocmd BufUnload *.c,*.cpp ClangFormat
 
     " FZF
         " this is where fzf lives
@@ -236,9 +224,9 @@ call plug#end()
     let g:tagbar_autoshowtag = 1 " automatically open folds to show tag
 
     " Snippets
-    " let g:UltiSnipsExpandTrigger="<Tab>"
-    " let g:UltiSnipsJumpForwardTrigger="<Tab"
-    " let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+    let g:UltiSnipsExpandTrigger="<Tab>"
+    let g:UltiSnipsJumpForwardTrigger="<Tab"
+    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
     " ALE
         " Generic Options
@@ -258,11 +246,11 @@ call plug#end()
     "some writing stuff
     " autocmd Filetype tex,latex,text,td,md,markdown,mkd
     autocmd BufAdd,BufReadPre *.tex,*.latex,*.tex,*.text,*.txt,*.md,*.markdown,*.mkd
-                \ call pencil#init({'wrap':'soft','textwidth':120, 'conceallevel':2, 'autoformat':1})
+                \ call pencil#init({'wrap':'soft','textwidth':120, 'conceallevel':1, 'autoformat':1})
                 \ | call litecorrect#init()
                 \ | setlocal spell spelllang=en_us noruler nonumber norelativenumber
                 \ | setlocal foldopen+=search
-                \ | setlocal nocursorcolumn
+                " \ | setlocal nocursorcolumn
 
     " Pencil theme
         let g:pencil_terminal_italics=1

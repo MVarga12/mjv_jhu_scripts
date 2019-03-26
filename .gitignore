@@ -6,6 +6,11 @@
 *.dat
 *.png
 *.jpeg
+*.aux
+*.log
+*.toc
+*.fls
+*.fdb_latexmk
 tags
 tags.*
 analysis_scripts/md/test_gromacs_files

@@ -1,0 +1,184 @@
+%% GLOSSARY
+\newglossaryentry{bus}{
+    name=bus,
+    description={Electrical conduits that carry bytes of information between other components in a computer.}
+}
+
+\newglossaryentry{compiler} {
+    name=compiler,
+    description={Program which translates ASCII code into a machine--language executable (e.g. g++).}
+}
+
+\newglossaryentry{assemblyLanguage} {
+    name=assembly--language,
+    description={A common language to which compilers translate code.}
+}
+
+\newglossaryentry{machineLanguage} {
+    name=machine--language,
+    description={Binary language in which executables are written (as translated from ASCII by compilers).}
+}
+
+\newglossaryentry{word} {
+    name=word,
+    description={Fixed--sized chunks of bytes (4 bytes in 32 bit systems, 8 bytes in 64 bit systems) carried along buses to different components in a computer.}
+}
+
+\newglossaryentry{cpu} {
+    name=CPU,
+    description={Central Processing Unit. The ``brain'' of the computer, which executes instructions stored in main memory.},
+    first={Central Processing Unit (CPU)}
+}
+
+\newglossaryentry{pc} {
+    name=PC,
+    description={Program Counter. Also called a \textit{register}. Word--sized storage device pointing to an address in memory containing machine--language instructions.},
+    first={Program Counter (PC)}
+}
+
+\newglossaryentry{register} {
+    name=register file,
+    description={Small storage device consisting of word--sized registers.}
+}
+
+\newglossaryentry{alu} {
+    name=ALU,
+    description={Arithmetic/Logic Unit. Computes new data and address values.},
+    first={arithmetic/logic unit (ALU)}
+}
+
+\newglossaryentry{ram} {
+    name=RAM,
+    description={Random Access Memory. Volatile memory which stores currently running programs and the data they manipulate.},
+    first={Random Access Memory (RAM)}
+}
+
+\longnewglossaryentry{cache} {
+    name=cache,
+    description={%
+        Temporary staging area for data which a processor might need in the near future.
+        Between the register and main memory.
+        Often in a hierarchy, from L1, which can hold 10000+ bytes and be read almost as fast as a register, to L2, which can hold 100k---1m bytes of memory but is slower to access than the L1 cache (though still faster than main memory).
+        Newer machines can also have an L3 cache.
+    }
+}
+
+\newglossaryentry{dram} {
+    name=DRAM,
+    description={Dynamic Random Access Memory. Refers to the memory type of main memory (i.e. sticks of RAM)}
+}
+
+\newglossaryentry{sram} {
+    name=SRAM,
+    description={Static Random Access Memory. Refers to the memory type of CPU caches (L1 and L2).}
+}
+
+\newglossaryentry{os} {
+    name=OS,
+    description={Operating System. Software interposed between the computer's hardware and the programs which run on it. Examples are Windows and macOS.},
+    first={operating system (OS)}
+}
+
+\newglossaryentry{process} {
+    name=process,
+    description={An operating system's abstraction for a running program. Multiple processes can be run concurrently.}
+}
+
+\newglossaryentry{context} {
+    name=context switching,
+    description={The way in which a CPU switches between multiple processes running concurrently.}
+}
+
+\newglossaryentry{vmem} {
+    name=virtual memory,
+    description={An abstraction that provides each process with the illusion that it has exclusive access to main memory.}
+}
+
+\newglossaryentry{stack} {
+    name=stack,
+    description={Area of the user's virtual address space which expands and contracts with each function call and return during the execution of a program.}
+}
+
+\newglossaryentry{heap} {
+    name=heap,
+    description={Area of the user's virtual address space which expands and contracts with each call to memory allocation and freeing functions in the program that's running (e.g. C/C++'s \texttt{malloc} and \texttt{free})}
+}
+
+\newglossaryentry{concurrency} {
+    name=concurrency,
+    description={General concept of a system with multiple, simultaneous activities.}
+}
+
+\newglossaryentry{parallelism} {
+    name=parallelism,
+    description={The concept of using concurrency (multiple, simultaneous activities) to make a system or program run faster.}
+}
+
+\newglossaryentry{multcore} {
+    name=multi--core processor,
+    description={A processor which has multiple CPUs, called cores, on a single chip. Most modern processors are multi--core.}
+}
+
+\newglossaryentry{multthread} {
+    name=multi--threaded processor,
+    description={A processor which can run multiple threads per core. Most Intel Core i7 and all AMD Ryzen processors are multi--threaded.}
+}
+
+\newglossaryentry{pipelining} {
+    name=pipelining,
+    description={Process in which a processor partitions a instruction into discrete steps which it can handle in stages.}
+}
+
+\newglossaryentry{smid} {
+    name=SMID,
+    description={Single--Instruction, Multiple--Data. Concurrency abstraction where modern processors can have instructions perform multiple operations in parallel.},
+    first={Single--Instruction, Multiple--Data (SMID)}
+}
+
+\newglossaryentry{bit} {
+    name=bit,
+    description={Lowest level of computational information storage. 2--valued signal, 0 or 1.}
+}
+
+\newglossaryentry{overflow} {
+    name=overflow,
+    description={When a number is too large to be represented by the number of bits assigned to it.}
+}
+
+\newglossaryentry{byte} {
+    name=byte,
+    description={A block of 8 bits, which forms the base information container of a system.}
+}
+
+\newglossaryentry{vram} {
+    name=virtual memory,
+    description={A large array of bytes. How the computer views memory on a program level.}
+}
+
+\newglossaryentry{address} {
+    name=address,
+    description={A unique number identifying a particular byte of memory.}
+}
+
+\newglossaryentry{hex} {
+    name=hexadecimal,
+    description={Base--16 notation used to denote binary represented numbers.}
+}
+
+\newglossaryentry{littleend} {
+    name=little endian,
+    description={Bit ordering convention where the least significant bit is listed first. Most often used on Intel--compatible machines.}
+}
+
+\newglossaryentry{bigend} {
+    name=big endian,
+    description={Bit ordering convention where the most significant bit is listed first. Most often used on IBM and Sun Microsystems machines.}
+}
+\newglossaryentry{unsigned} {
+    name=unsigned encoding,
+    description={Encoding for integers in the range \(\left[ 0, i \right]\) }
+}
+\newglossaryentry{twoCom} {
+    name=two's--complement encoding,
+    description={Most common representation of signed numbers.}
+}

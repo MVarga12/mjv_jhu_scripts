@@ -1,0 +1,113 @@
+\documentclass[8pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{images/}{../images/}}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage{outlines}
+\usepackage[smallfamily,noopticals,lf,italicgreek,loosequotes]{MinionPro}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\urlstyle{same}
+
+\newcommand{\infint}{\int^{\infty}_{-\infty}}
+\newcommand{\deriv}{\mathrm{d}}
+\newcommand{\fexp}{e^{i{\alpha}x}}
+\newcommand{\negfexp}{e^{-i{\alpha}x}}
+\newcommand{\at}[2][]{#1|_{#2}}
+\newtheorem{theorem}{Theorem}[section]
+
+\usepackage{xparse}
+\usepackage{xcolor,booktabs}
+
+% Code to easily write RNA and DNA sequences
+% taken from https://tex.stackexchange.com/a/367847
+% format: \duplexsequence{5\('\)}{3\('\))}{$SEQUENCE}
+% where $SEQUENCE is the sequence
+% Automatically creates the complimentary strand
+\ExplSyntaxOn
+\NewDocumentCommand{\duplexsequence}{mO{}mO{}m}
+ {
+  \mbox
+   {
+    \renewcommand{\arraystretch}{0}
+    \jpaul_ds_duplexsequence:nnnnn { #1 } { #2 } { #3 } { #4 } { #5 }
+   }
+ }
+
+\cs_new_protected:Nn \jpaul_ds_duplexsequence:nnnnn
+ {% #1 is the number on the left
+  % #2 is the optional prefix
+  % #3 is the number on the right
+  % #4 is the optional postfix
+  % #5 is the top sequence
+  \jpaul_ds_left:nnn { #1 } { #2 } { #3 }
+  \tl_map_function:nN { #5 } \jpaul_ds_pair:n
+  \jpaul_ds_right:nnn { #3 } { #4 } { #1 }
+ }
+
+\cs_new_protected:Nn \jpaul_ds_pair:n
+ {
+  \begin{tabular}{@{}c@{}}
+  \jpaul_ds_top:n { #1 } \\\addlinespace[.6ex]
+  $|$ \\\addlinespace[.6ex]
+  \jpaul_ds_bottom:n { #1 }
+  \end{tabular}
+ }
+
+\cs_new_protected:Nn \jpaul_ds_top:n
+ {
+  \textcolor{top}{#1}
+ }
+\cs_new_protected:Nn \jpaul_ds_bottom:n
+ {
+  \textcolor{bottom}
+   {
+    \str_case:nn { #1 }
+     {
+      {T}{A}
+      {A}{T}
+      {C}{G}
+      {G}{C}
+     }
+   }
+ }
+
+\cs_new_protected:Nn \jpaul_ds_left:nnn
+ {
+  \begin{tabular}{@{}r@{}}
+  \smash{\textcolor{top}{#1\quad#2}}\vphantom{T}\\\addlinespace[.6ex]
+  \phantom{$|$}\\\addlinespace[.6ex]
+  \smash{\textcolor{bottom}{#3\quad}}\vphantom{T}
+  \end{tabular}
+ }
+\cs_new_protected:Nn \jpaul_ds_right:nnn
+ {
+  \begin{tabular}{@{}l@{}}
+  \smash{\textcolor{top}{#2\quad#1}}\vphantom{T}\\\addlinespace[.6ex]
+  \phantom{$|$}\\\addlinespace[.6ex]
+  \smash{\textcolor{bottom}{\quad#3}}\vphantom{T}
+  \end{tabular}
+ }
+\ExplSyntaxOff
+
+\definecolor{top}{RGB}{199,17,34}
+\definecolor{bottom}{RGB}{0,39,160}
+
+\title{Notes on Introduction to Computational Biology by Waterman}
+\begin{document}
+\maketitle
+\setcounter{tocdepth}{2} % preclude subsubsections from TOC
+\tableofcontents
+
+\pagebreak
+
+\subfile{ch1/ch1}
+
+\end{document}

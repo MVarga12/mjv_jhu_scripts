@@ -4,14 +4,11 @@ set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/X11/lib/pkgco
 set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
 set QTDIR $QTDIR /usr/local/opt/qt5
 
-# abbr startpluto "ssh -Y mvarga3@pluto.bph.jhu.edu"
-# abbr startdaffy "ssh -Y mvarga3@daffy.bph.jhu.edu"
 abbr btx "byobu-tmux"
 abbr see "nvim -R -u ~/.see_vimrc"
 abbr lt "ls -alth | nvim -R -u ~/.see_vimrc -"
-abbr rendervmd '/Applications/VMD\ 1.9.3.app/Contents/vmd/tachyon_MACOSXX86 -aasamples 12 vmdscene.dat -format TARGA -o vmdscene.dat.tga'
 abbr prev "open -a Preview"
-abbr vlc "/Applications/VLC.app/Contents/MacOS/VLC"
+abbr pc "pwd | pbcopy" # macOS only
 
 set -g fish_key_bindings fish_vi_key_bindings
 #function fish_mode_prompt; end # turns off the vi indicator

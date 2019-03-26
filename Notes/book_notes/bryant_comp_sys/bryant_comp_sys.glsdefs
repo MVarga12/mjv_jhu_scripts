@@ -1,0 +1,30 @@
+\ifglsentryexists{bus}{}%
+{%
+\gls@defglossaryentry{bus}%
+{%
+name={bus},%
+sort={bus},%
+type={main},%
+first={bus},%
+firstplural={buss},%
+text={bus},%
+plural={buss},%
+description={Electrical conduits that carry bytes of information between other components in a computer.},%
+descriptionplural={Electrical conduits that carry bytes of information between other components in a computer.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

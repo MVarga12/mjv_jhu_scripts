@@ -13,14 +13,14 @@
     map <leader>n :call RenameFile()<cr>
     
     " automatically reload vimrc upon buffer write
-        nnoremap <Leader><Leader>s :source ~/.vimrc<CR>
-        if has ('autocmd') " Remain compatible with earlier versions
-            augroup vimrc  " Source vim configuration upon save
-                au!
-                autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-                autocmd! BufWritePost ~/.vimrc if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-            augroup END
-        endif " has autocmd
+        " nnoremap <Leader><Leader>s :source ~/.vimrc<CR>
+        " if has ('autocmd') " Remain compatible with earlier versions
+        "     augroup vimrc  " Source vim configuration upon save
+        "         au!
+        "         autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+        "         autocmd! BufWritePost ~/.vimrc if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+        "     augroup END
+        " endif " has autocmd
     
     " make a scratch buffer which leaves no trace when it doesn't exist in the window anymore.
     " source: http://dhruvasagar.com/2014/03/11/creating-custom-scratch-buffers-in-vim
@@ -163,6 +163,7 @@
     
     " show line numbers
         set nu
+        set relativenumber
         set showmode
     
     " dummy sign to key sign column permanently open
@@ -254,7 +255,7 @@
 
     " set tab to spaces
         set tabstop=8
-        set softtabstop=0
+        set softtabstop=4
         set shiftwidth=4
         set expandtab
         set smarttab

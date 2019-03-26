@@ -1,0 +1,95 @@
+\documentclass[8pt]{report}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage{outlines}
+\usepackage[toc, nopostdot, nomain, nonumberlist]{glossaries}
+\newglossary*{glo}{Glossary}
+\usepackage{fancyref}
+
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{bkgcolor}{rgb}{0.99,0.99,0.99}
+
+\usepackage{listings,lstautogobble} % For code blocks 
+\lstset{frame=tb,
+    language=c++,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    % numbers=left,
+    basicstyle={\tiny\ttfamily},
+    numberstyle=\tiny\color{mauve},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    backgroundcolor=\color{bkgcolor},
+    breaklines=true,
+    breakatwhitespace=true,
+    % framexleftmargin=5mm,
+    % frame=shadowbox,
+    % rulesepcolor=\color{bkgcolor},
+    autogobble=true,
+    resetmargins=true,
+    tabsize=4
+}
+\usepackage[smallfamily,noopticals,lf,italicgreek,loosequotes]{MinionPro}
+\def\Cpp{C\raisebox{0.5ex}{\tiny\textbf{++}}} % More aesthetically pleasing C++
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\urlstyle{same}
+
+\newcommand{\infint}{\int^{\infty}_{-\infty}}
+\newcommand{\deriv}{\mathrm{d}}
+\newcommand{\fexp}{e^{i{\alpha}x}}
+\newcommand{\negfexp}{e^{-i{\alpha}x}}
+\newcommand{\at}[2][]{#1|_{#2}}
+\newcommand{\alert}[1]{{\color{red} \sc \textbf{#1}}}
+\newtheorem{theorem}{Theorem}[section]
+
+\usepackage{xparse}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\usepackage{xcolor}
+\definecolor{top}{RGB}{199,17,34}
+\definecolor{bottom}{RGB}{0,39,160}
+
+\setcounter{tocdepth}{1}
+
+\title{Notes on Computer Systems: A Programmer's Perspective by Bryant \& O'Hallaron}
+\date{February 22, 2019 --- \today}
+
+\makeglossaries
+\loadglsentries{glossary.tex}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\pagebreak
+
+%% INTRO CHAPTER
+\subfile{ch1/ch1}
+
+%% CHAPTER ONE
+\part{Program Structure and Execution}
+\subfile{ch2/ch2}
+
+% GLOSSARY
+\pagebreak
+\setglossarystyle{altlist}
+\setacronymstyle{long-short}
+\glsaddall
+\printglossaries
+
+\end{document}
