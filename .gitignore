@@ -11,6 +11,8 @@
 *.toc
 *.fls
 *.fdb_latexmk
+*.bak
+*.sav
 tags
 tags.*
 analysis_scripts/md/test_gromacs_files

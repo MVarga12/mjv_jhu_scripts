@@ -1,0 +1,4 @@
+TITLE  TEST PDB FILE                                                         
+ATOM      1 clat cla    1        0       0       0     0     0CL
+ATOM      2 clat cla    2        1       1       1     0     0CL
+END

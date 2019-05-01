@@ -226,5 +226,114 @@
                         \caption{Interconversions between signed and unsigned numbers.}
                         \label{fig:encodingConversion}
                     \end{figure}
+
+                    \1 \alert{important}: When handling an operation when one number is signed and the other is unsigned, C/\Cpp~implicitly casts the signed argument to an unsigned, and performs the operation assuming both numbers are non--negative.
                 \end{outline}
+
+            \subsubsection{Expanding the Bit Representation of a Number}
+                \begin{outline}
+                    \1 This subsection deals with converting between integers with different word sizes while retaining their values.
+                    \1 Converting an unsigned number to a larger data type, we add leading zeros to the bit--level representation, called \gls{zeroExt}.
+                    \1 Converting a two's--complement number to a larger data type is performed by doing \gls{signExt}, or adding leading copies of the sign bit, 0 or 1.
+                        \2 Assume our original value has the bit--level representation \( \left[ {\color{cyan} x_{w-1}}, x_{w-2}, \ldots, x_0 \right] \), the extended bit--level representation is then \( \left[ {\color{cyan} x_{w-1}}, \ldots, {\color{cyan} x_{w-1}}, {\color{cyan} x_{w-1}}, x_{w-2}, \ldots, x_0 \right] \)
+                    \1 Goes on to show a proof that sign extension works properly (pp. 72---74)
+                    \1 There's an order of operations, e.g. when going from a \texttt{short} to an \texttt{unsigned}, first change the size then change the sign, \texttt{short} \( \rightarrow \) \texttt{int} \( \rightarrow \) \texttt{unsigned}
+                \end{outline}
+
+            \subsubsection{Truncating Numbers}
+                \begin{outline}
+                    \1 When truncating a \textit{w}--bit number \( \hat{x} = \left[ x_{w-1}, x_{w-1}, \ldots, x_0 \right] \) to a \textit{k}--bit number, we drop the high order \( w - k \) bits to produce the bit--vector \( \hat{x}^{\prime} = \left[ x_{k-1}, x_{k-2}, \ldots, x_0 \right] \)
+                    \1 Truncation can alter the value of a number, which is a form of overflow
+                    \1 For an unsigned integer \( x \), the result of truncation to \( k \)--bits is equal to \( x~\text{mod}~2^k \)
+                        \2 Signed integers can be treated similarly
+                        \2 So, for unsigned truncation:
+                        \[
+                            B2U_k \left( \left[ x_{k-1}, x_{k-2}, \ldots, x_0 \right] \right) = B2U_w \left( \left[ x_{w-1}, x_{w-2}, \ldots, x_0 \right] \right)~\text{mod}~2^k
+                        \]
+                        and for signed truncation:
+                        \[
+                            B2T_k \left( \left[ x_{k-1}, x_{k-2}, \ldots, x_0 \right] \right) = U2T_k \left( B2U_w \left( \left[ x_{w-1}, x_{w-2}, \ldots, x_0 \right] \right)~\text{mod}~2^k \right)
+                        \]
+                \end{outline}
+
+            \section{Integer Arithmetic}
+                \begin{outline}
+                    \1 A lot of the strangeness around mathematical operations in code, such as the possibility of the addition of two positive integers producing a negative number, can be traced back to the finite nature of computer arithmetic
+                \end{outline}
+
+                \subsection{Unsigned Addition}
+                    \begin{outline}
+                        \1 Assume we have two non--negative integers \( x \) and \( y \), such that \( 0 \leq x \) and \( y \leq 2^{w-1} \)
+                            \2 If both of these numbers are represented as \( w \)--bit unsigned numbers, the addition of the two would be in the range \( 0 \leq x + y \leq 2^{w+1} - 2 \), requiring up to \( w+1 \) bits.
+                            \2 If we add a number to this \( w+1 \)--bit number, we may require \( w+2 \) bits, and so on. this is called \textit{word--size inflation}
+                        \1 \alert{important}: Unsigned arithmetic is equivalent to computing the sum modulo \( 2^w \)
+                            \2 Computed by discarding the high--order bit in the \( w+1 \)--bit representation of \( x+y \)
+                            \2 If \( x+y < 2^w \), the leading bit in the \( w+1 \)--bit representation is 0, so the value is unchanged upon discarding it
+                            \2 If the leading bit is 1, i.e. \( 2^w \leq x+y \leq 2^{w+1} \), the leading bit is 1, so discarding it is equivalent to subtracting \( 2^w \) from the sum
+                            \2 Thus the result is
+                            \[
+                                x + \binom{u}{w}y = \begin{cases} x+y & x + y < 2^w \\ x + y-2^w & 2^w \leq x + y \leq 2^{w+1} \end{cases} 
+                            \]
+                            \2 If the result cannot fit into the word size, the operation \glspl{overflow}
+                        \1 Modular addition is an \gls{abelian}, literally just commutative, and is also associative.
+                    \end{outline}
+
+                \subsection{Two's--Complement Addition}
+                    \begin{outline}
+                        \1 Must decide both when the result is too large (positive) or too small (negative)
+                        \1 For integers \( x \) and \( y \) on the range \( -2^{w-1} \leq x,y \leq 2^{w-1}-1 \), their sum is in the range \( -2^w \leq x + y \leq 2^w - 2 \), again potentially requiring \( w+1 \) bits to represent
+                            \2 Again, we truncate to \( w \) bits to avoid overflow
+                        \1 Most computers use the same instructions to perform signed and unsigned addition, as the bit--level representation of a \( w \)--bit two's--complement sum is the same as the unsigned sum
+                            \2 Thus, the two's--complement addition for a word--size \( w \), denote as \( +\binom{t}{w} \) on \( x, y \) in the range \( -2^{w-1} \leq x,y \leq 2^{w-1} \) is
+                                \[
+                                    x + \binom{t}{y}y \equiv U2T_w(T2U_w(x) + \binom{u}{w} T2U_w(y))
+                                \]
+                        \1 Similar to unsigned addition, the results for two's--complement addition is
+                            \[
+                                x + \binom{t}{w} = \begin{cases} x + y - 2^w & 2^{w-1} \leq x + y,~\text{positive overflow} \\ x + y & -2^{w-1} \leq x + y < 2^{w-1},~\text{okay} \\ x + y + 2^w & x + y < -2^{w-1},~\text{negative overflow}\end{cases}
+                            \]
+                        \1 Graphically,
+                            \begin{figure}[h]
+                                \centering
+                                \includegraphics[width=0.25\linewidth]{ch2/figs/int_add_unsigned.png}
+                                \includegraphics[width=0.3\linewidth]{ch2/figs/int_add_signed.png}
+                                \caption{Results for unsigned (left) and signed (right) integer addition.}
+                                \label{fig:intAdd}
+                            \end{figure}
+                    \end{outline}
+                
+                \subsection{Unsigned Multiplication}
+                    \begin{outline}
+                        \1 Unsigned integers in the range \( 0 \leq x, y \leq 2^w - 1 \) can be represented as \( w \)--bit numbers but their product could require \( 2w \) bits to represent
+                        \1 Similar to addition, the result can be represented as product modulo \( 2^w \)
+                            \[
+                                x * \binom{u}{w}y = (x*y)~\text{mod}~2^w
+                            \]
+                    \end{outline}
+
+                \subsubsection{Two's--Complement Multiplication}
+                    \begin{outline}
+                        \1 Most cases of two's--complement multiplication could fit into \( 2w -1 \) bits, but when the sum is \( 2^{2w - 2} \), it will require \( 2w \) bits
+                        \1 Instead, we truncate the \( 2w \)-bit product to \( w \) bits
+                            \[
+                                x *\binom{t}{w}y = U2T_w \left( \left( xy  \right)~\text{mod}~2^w\right)
+                            \]
+                            \1 Given two w-bit vectors \( \hat{x} \) and \( \hat{y} \), the unsigned product \( B2U_w(\hat{x})*\binom{u}{w}B2U_w(\hat{y}) \) is identical in bit--level representation to the two's--complement product \( B2T_w(\hat{x})*\binom{t}{w}B2T_w(\hat{y}) \ \)
+                            \2 Unsigned and two's--complement arithmetic is isomorphic, i.e. the operations \( +\binom{u}{w} \), \( -\binom{u}{w} \), and \( *\binom{u}{w} \) have the same bit--level effect as the operations \( +\binom{t}{w} \), \( -\binom{y}{w} \), and \( *\binom{t}{w} \)
+                    \end{outline}
+
+                    \subsubsection{Multiplication by Constants}
+                        \begin{outline}
+                            \1 \alert{important}: Integer multiplication is slow, requiring 10 or more clock cycles, as opposed to 1 clock cycle required by addition, subtraction, bit--level operations, and shifting.
+                            \2 Compilers attempt to alleviate this by replacing multiplication by constants with combinations of shift and addition operations, called \gls{logShift}.
+                            \1 The C/\Cpp~logical shift operation, \( x<<k \), is equivalent to \( x2^k \)
+                            \1 As an example, in the expression \texttt{x * 14} 14 can be replaced with \( 14 = 2^3 + 2^w + 2^1 = \) \texttt{(x<<3) + (x<<2) + (x<<1)}, replacing one multiplication with three shift and two addition operations
+                        \end{outline}
+
+                    \subsubsection{Dividing by Powers of Two}
+                        \begin{outline}
+                            \1 Integer division is even slower than multiplication, requiring 30 or more clock cycles
+                            \1 Division by a power of 2 can be performed using logical right shifts, \texttt{k>>x} is equivalent to \( x/2^k \)
+                            \1 Division always rounds towards 0
+                        \end{outline}
 \end{document}

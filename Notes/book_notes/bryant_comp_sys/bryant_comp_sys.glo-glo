@@ -32,38 +32,8 @@
 \glossaryentry{big endian?\glossentry{bigend}|setentrycounter[]{page}\glsnumberformat}{9}
 \glossaryentry{unsigned encoding?\glossentry{unsigned}|setentrycounter[]{page}\glsnumberformat}{11}
 \glossaryentry{two's--complement encoding?\glossentry{twoCom}|setentrycounter[]{page}\glsnumberformat}{11}
-\glossaryentry{bus?\glossentry{bus}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{compiler?\glossentry{compiler}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{assembly--language?\glossentry{assemblyLanguage}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{machine--language?\glossentry{machineLanguage}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{word?\glossentry{word}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{CPU?\glossentry{cpu}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{PC?\glossentry{pc}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{register file?\glossentry{register}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{ALU?\glossentry{alu}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{RAM?\glossentry{ram}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{cache?\glossentry{cache}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{DRAM?\glossentry{dram}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{SRAM?\glossentry{sram}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{OS?\glossentry{os}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{process?\glossentry{process}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{context switching?\glossentry{context}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{virtual memory?\glossentry{vmem}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{stack?\glossentry{stack}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{heap?\glossentry{heap}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{concurrency?\glossentry{concurrency}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{parallelism?\glossentry{parallelism}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{multi--core processor?\glossentry{multcore}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{multi--threaded processor?\glossentry{multthread}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{pipelining?\glossentry{pipelining}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{SMID?\glossentry{smid}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{bit?\glossentry{bit}|setentrycounter[]{page}\glsnumberformat}{13}
+\glossaryentry{zero extension?\glossentry{zeroExt}|setentrycounter[]{page}\glsnumberformat}{12}
+\glossaryentry{sign extension?\glossentry{signExt}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{overflow?\glossentry{overflow}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{byte?\glossentry{byte}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{virtual memory?\glossentry{vram}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{address?\glossentry{address}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{hexadecimal?\glossentry{hex}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{little endian?\glossentry{littleend}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{big endian?\glossentry{bigend}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{unsigned encoding?\glossentry{unsigned}|setentrycounter[]{page}\glsnumberformat}{13}
-\glossaryentry{two's--complement encoding?\glossentry{twoCom}|setentrycounter[]{page}\glsnumberformat}{13}
+\glossaryentry{abelian group?\glossentry{abelian}|setentrycounter[]{page}\glsnumberformat}{13}
+\glossaryentry{logical shift?\glossentry{logShift}|setentrycounter[]{page}\glsnumberformat}{14}

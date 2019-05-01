@@ -174,11 +174,33 @@
     name=big endian,
     description={Bit ordering convention where the most significant bit is listed first. Most often used on IBM and Sun Microsystems machines.}
 }
+
 \newglossaryentry{unsigned} {
     name=unsigned encoding,
     description={Encoding for integers in the range \(\left[ 0, i \right]\) }
 }
+
 \newglossaryentry{twoCom} {
     name=two's--complement encoding,
     description={Most common representation of signed numbers.}
+}
+
+\newglossaryentry{zeroExt} {
+    name=zero extension,
+    description={Method of converting an unsigned integer to a larger data type by adding leading zeros to the bit--level representation.}
+}
+
+\newglossaryentry{signExt} {
+    name=sign extension,
+    description={Method of converting two's--complement integers to a larger data type by adding leading copies of the sign bit to the bit--level representation.}
+}
+
+\newglossaryentry{abelian} {
+    name=abelian group,
+    description={Fancy math term for an associative operation.}
+}
+
+\newglossaryentry{logShift} {
+    name=logical shift,
+    description={A shift of bits in a bit--level representation, adding a 0 on whichever end is shifted. Denoted by \texttt{<<} and \texttt{>>}}.
 }
