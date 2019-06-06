@@ -248,7 +248,7 @@ call plug#end()
     autocmd BufAdd,BufReadPre *.tex,*.latex,*.tex,*.text,*.txt,*.md,*.markdown,*.mkd
                 \ call pencil#init({'wrap':'soft','textwidth':120, 'conceallevel':1, 'autoformat':1})
                 \ | call litecorrect#init()
-                \ | setlocal spell spelllang=en_us noruler nonumber norelativenumber
+                \ | setlocal spell spelllang=en_us noruler
                 \ | setlocal foldopen+=search
                 " \ | setlocal nocursorcolumn
 
